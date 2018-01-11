@@ -1,4 +1,4 @@
-package carnival;
+package whackAMoleKevinSteph;
 
 public class WhackAMoleKevinSteph {
 
