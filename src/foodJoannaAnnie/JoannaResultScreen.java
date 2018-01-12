@@ -6,7 +6,7 @@ import java.util.List;
 import guiTeacher.components.*;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
-import simon.MoveInterfaceJoanna;
+
 
 public class JoannaResultScreen extends ClickableScreen {
 
