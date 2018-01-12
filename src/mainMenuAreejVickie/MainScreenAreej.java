@@ -12,7 +12,7 @@ public class MainScreenAreej {
 
 }
 		/*
-		 * 
+		 * pic buttons
  		*/
 
 }
