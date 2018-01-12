@@ -1,4 +1,4 @@
-package carnival;
+package mainMenuAreejVickie;
 
 public class MainScreenAreejVickie {
 

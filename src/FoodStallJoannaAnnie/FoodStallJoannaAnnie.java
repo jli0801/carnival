@@ -1,4 +1,4 @@
-package carnival;
+package FoodStallJoannaAnnie;
 
 public class FoodStallJoannaAnnie {
 
