@@ -1,10 +1,18 @@
 package mainMenuAreejVickie;
 
-public class WelcomeScreenVickie {
+//EDIT HIERARCHY!!
+
+public class WelcomeScreenVickie { //possibly extends clickable screen
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 	}
+	/*
+	 * Make animations
+	 * 
+	 */
 
+	/*
+	 * Button/ Click on image and it goes to menu screen (.setscreen)
+	 */
 }
