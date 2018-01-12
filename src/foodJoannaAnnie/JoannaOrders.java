@@ -1,4 +1,4 @@
-package FoodStallJoannaAnnie;
+package foodJoannaAnnie;
 
 public class JoannaOrders {
 	

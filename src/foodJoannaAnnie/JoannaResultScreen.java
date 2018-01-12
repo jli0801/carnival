@@ -1,4 +1,4 @@
-package FoodStallJoannaAnnie;
+package foodJoannaAnnie;
 
 import java.util.List;
 
