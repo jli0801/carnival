@@ -13,6 +13,6 @@ public class WelcomeScreenVickie { //possibly extends clickable screen
 	 */
 
 	/*
-	 * Button/ Click on image and it goes to menu screen (.setscreen)
+	 * Button/ Click on image and it goes to menu screen (.setscreen).
 	 */
 }
