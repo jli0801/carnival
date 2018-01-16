@@ -26,7 +26,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 	public void initAllObjects(List<Visible> viewObjects) {
 		
-			Graphic baymaxtree = new Graphic(0,0, getWidth(), getHeight(), "resources/baymaxtree.jpg");
+			Graphic baymaxtree = new Graphic(0,0, getWidth(), getHeight(), "resources/main menu.jpg");
 		
 		balloon = new Button(350, 580, 70, 30, "Balloon Pop", Color.red, new Action() {
 
