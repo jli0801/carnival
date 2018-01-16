@@ -52,7 +52,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 			}
 		});
-		TextArea ta = new TextArea(140, 180, 330 ,400, "HAPPY NEW YEAR!");
+		TextArea ta = new TextArea(140, 180, 330 ,400, "HAVE YOUR PICK");
 		 try {
 
 			 File fontFile = new File("resources//AdventPro-Medium.ttf");
@@ -64,8 +64,8 @@ public class MainScreenAreej extends FullFunctionScreen {
 			 Font baseFont=font.deriveFont(50f);
 
 			 balloon.setFont(baseFont);
-			 //mole
-			 //food
+			 mole.setFont(baseFont);
+			 food.setFont(baseFont);
 
 			 } catch (Exception e) {
 
@@ -77,6 +77,8 @@ public class MainScreenAreej extends FullFunctionScreen {
 		
 		viewObjects.add(baymaxtree);
 		viewObjects.add(balloon);
+		viewObjects.add(mole);
+		viewObjects.add(food);
 		viewObjects.add(ta);
 		
 		 StyledComponent.setButtonOutline(true);
