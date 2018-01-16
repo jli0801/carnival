@@ -19,7 +19,7 @@ public class Testing extends GUIApplication {
 	@Override
 	public void initScreen() {
 		JoannaResultScreen results = new JoannaResultScreen(getWidth(), getHeight());
-		test.setScreen(results);
+		setScreen(results);
 	}
 
 	public static void main(String[] args) {
