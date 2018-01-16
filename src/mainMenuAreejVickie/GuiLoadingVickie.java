@@ -18,8 +18,17 @@ public class GuiLoadingVickie extends GUIApplication{
 	public static MainScreenAreej menu;
 	/*
 	 * 2 screens jessJi
+	 * 	balloonGameplay
+	 *	balloonGameResult
+	 *
 	 * 3 screens stephKev
+	 * 	molePlay
+	 * 	moleResult
+	 * 	?
+	 * 
 	 * 2 screens AnnieJoanna
+	 * 	workPlay
+	 * 	workResult
 	 */
 
 	public static void main(String[] args) {
@@ -51,6 +60,7 @@ public class GuiLoadingVickie extends GUIApplication{
 		
 		welcome = new WelcomeScreenVickie(getWidth(), getHeight());
 		menu = new MainScreenAreej(getWidth(), getHeight());
+		
 		setScreen(welcome);
 		
 		//setScreen(menu);
