@@ -4,7 +4,7 @@ public class JoannaOrders {
 	
 	private AnnieFoodItem orders[];
 	
-	public JoannaOrders() {
+	public JoannaOrders() extends ClickableGraphic{ 
 		
 	}
 	
