@@ -5,7 +5,7 @@ import guiTeacher.GUIApplication;
 
 public class Application extends GUIApplication {
 
-	public static BalloonScreen screen;
+	public static BalloonResults screen;
 	public static Application app;
 	public Application(int width, int height) {
 		super(width, height);
@@ -15,7 +15,7 @@ public class Application extends GUIApplication {
 
 	@Override
 	public void initScreen() {
-		screen = new BalloonScreen(getWidth(),getHeight());
+		screen = new BalloonResults(getWidth(),getHeight());
 		setScreen(screen);
 	}
 	
