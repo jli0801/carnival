@@ -11,16 +11,20 @@ public class AnnieWorkScreen extends ClickableScreen {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private String[] names;
+	private double[] price;
+	private AnnieFoodItem[] ingredients;
+	private Anni
 
 	public AnnieWorkScreen(int width, int height) {
 		super(width, height);
-		// TODO Auto-generated constructor stub
+		names = {""
 	}
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 }

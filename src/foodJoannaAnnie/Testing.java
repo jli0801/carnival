@@ -8,6 +8,8 @@ public class Testing extends GUIApplication {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	public static Testing test;
 
 	public Testing(int width, int height) {
 		super(width, height);
@@ -17,11 +19,11 @@ public class Testing extends GUIApplication {
 	@Override
 	public void initScreen() {
 		JoannaResultScreen results = new JoannaResultScreen(getWidth(), getHeight());
-		setScreen(results);
+		test.setScreen(results);
 	}
 
 	public static void main(String[] args) {
-		Testing test = new Testing(1200, 800);
+		test = new Testing(1200, 800);
 		Thread runner = new Thread(test);
 		runner.start();
 	}
