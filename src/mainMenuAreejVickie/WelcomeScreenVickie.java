@@ -26,7 +26,7 @@ public class WelcomeScreenVickie extends FullFunctionScreen{ //possibly extends 
 			Graphic welcomeBackground = new Graphic(0,0, getWidth(), getHeight(), "resources/welcomeBackground.jpg");
 			
 			
-			menu = new Button(350, 580, 100, 100, "Welcome", Color.red, new Action() {
+			menu = new Button(900, 650, 200, 100, "Welcome", Color.red, new Action() {
 				public void act() {
 					
 					GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
