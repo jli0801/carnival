@@ -16,7 +16,7 @@ public class WhackAMoleMain extends GUIApplication {
 	}
 	
 	public static void main(String[] args){
-		WhackAMoleMain game = new WhackAMoleMain(1100, 800);
+		WhackAMoleMain game = new WhackAMoleMain(1200, 800);
 		Thread go = new Thread(game);
 		go.start();
 	}
