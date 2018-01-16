@@ -1,9 +1,12 @@
 package mainMenuAreejVickie;
 
-public class MainScreenAreejVickie {
+public class InventoryVickie {
+
+	public InventoryVickie() {
+		
+	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 	}
 
