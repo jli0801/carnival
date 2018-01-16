@@ -18,7 +18,7 @@ public class Testing extends GUIApplication {
 
 	@Override
 	public void initScreen() {
-		JoannaResultScreen results = new JoannaResultScreen(getWidth(), getHeight());
+		JoannaResultScreen results = new JoannaResultScreen(getWidth(), getHeight(), null);
 		setScreen(results);
 	}
 

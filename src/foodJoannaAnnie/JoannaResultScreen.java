@@ -17,37 +17,48 @@ public class JoannaResultScreen extends ClickableScreen {
 
 	private Button home;
 	private Button work;
-	private TextLabel description;
-//	private ArrayList<> orders;
+	private TextArea description;
+	private TextArea receipt;
 	private int amt;
 	private int earned;
-	
-	
-	public JoannaResultScreen(int width, int height) {
+	private AnnieWorkScreen annie;
+
+	public JoannaResultScreen(int width, int height, AnnieWorkScreen workspace) {
 		super(width, height);
+		annie = workspace;
 		setVisible(true);
 	}
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		home = new Button(650,100,100,50,"Menu",new guiTeacher.components.Action() {
-			
+		setBackground(Color.YELLOW);
+
+
+		home = new Button(100,650,100,50,"Menu",new guiTeacher.components.Action() {
+
 			@Override
 			public void act() {
 				///set to main menu screen
-				
+
 			}
 		});
-		
-		work = new Button(650,100,100,50,"Work", new guiTeacher.components.Action() {
-			
+
+		home.setBackground(Color.GREEN);
+		work = new Button(300,650,100,50,"Work", new guiTeacher.components.Action() {
+
 			@Override
 			public void act() {
 				Testing.test.setScreen(new AnnieWorkScreen(getWidth(), getHeight()));
 			}
 		});
-		
-		setBackground(Color.YELLOW);
+
+		description = new TextArea(300, 100, 150, 500, "text goes here");
+		description.setBackground(Color.WHITE);
+
+		viewObjects.add(home);
+		viewObjects.add(work);
+		viewObjects.add(description);
+
 	}
 
 }
