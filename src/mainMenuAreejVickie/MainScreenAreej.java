@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.io.File;
 import java.util.List;
-
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
@@ -16,6 +15,10 @@ import mainMenuAreejVickie.GuiLoadingVickie;
 
 public class MainScreenAreej extends FullFunctionScreen {
 
+	private Button balloon;
+	private Button mole;
+	private Button food;
+	
 	public MainScreenAreej(int width, int height) {
 		super(width, height);
 	}
@@ -23,13 +26,29 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 	public void initAllObjects(List<Visible> viewObjects) {
 		
-Graphic baymaxtree = new Graphic(0,0, getWidth(), getHeight(), "resources/baymaxtree.jpg");
+			Graphic baymaxtree = new Graphic(0,0, getWidth(), getHeight(), "resources/baymaxtree.jpg");
 		
-		back = new Button(350, 580, 70, 30, "Page 1", Color.red, new Action() {
+		balloon = new Button(350, 580, 70, 30, "Balloon Pop", Color.red, new Action() {
 
 			public void act() {
 				
-				GuiPart.part.setScreen(GuiPart.windowOne);
+				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.welcome);
+
+			}
+		});
+		mole = new Button(350, 580, 70, 30, "Wack-a-Mole", Color.red, new Action() {
+
+			public void act() {
+				
+				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.welcome);
+
+			}
+		});
+		food = new Button(350, 580, 70, 30, "Food Stand", Color.red, new Action() {
+
+			public void act() {
+				
+				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.welcome);
 
 			}
 		});
@@ -44,7 +63,9 @@ Graphic baymaxtree = new Graphic(0,0, getWidth(), getHeight(), "resources/baymax
 
 			 Font baseFont=font.deriveFont(50f);
 
-			 back.setFont(baseFont);
+			 balloon.setFont(baseFont);
+			 //mole
+			 //food
 
 			 } catch (Exception e) {
 
@@ -55,7 +76,7 @@ Graphic baymaxtree = new Graphic(0,0, getWidth(), getHeight(), "resources/baymax
 	
 		
 		viewObjects.add(baymaxtree);
-		viewObjects.add(back);
+		viewObjects.add(balloon);
 		viewObjects.add(ta);
 		
 		 StyledComponent.setButtonOutline(true);
