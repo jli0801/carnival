@@ -55,6 +55,16 @@ public class BalloonScreen extends FullFunctionScreen  {
 		} );
 		
 		viewObjects.add(back);
+		
+		Button balloon0 = new Button(85, 650, 90, 70, "", new Action() {
+			
+			@Override
+			public void act() {
+				BalloonBack.updateBalloon(0, 0);
+			}
+		} );
+		
+		
 		ticket = new Graphic (60,650,150,150, "images/ticket.png");
 		viewObjects.add(ticket);
 		

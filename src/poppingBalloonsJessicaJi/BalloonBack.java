@@ -6,10 +6,10 @@ import javafx.scene.paint.Color;
 
 public class BalloonBack {
 	
-	ArrayList<String> darts = new ArrayList<String>(); 
-	ArrayList<String> dartsProperty = new ArrayList<String>(); 
+	public static ArrayList<String> darts = new ArrayList<String>();  //static b/c jessica needs to use it 
+	public static ArrayList<Integer> dartsProperty = new ArrayList<Integer>(); //static b/c jessica needs to use it 
 	public static ArrayList<String> balloons = new ArrayList<String>(); //static b/c jessica needs to use it
-	public static ArrayList<String> balloonsProperty = new ArrayList<String>(); //static b/c jessica needs to use it
+	public static ArrayList<Integer> balloonsProperty = new ArrayList<Integer>(); //static b/c jessica needs to use it
 	
 	public void Timer() { //links to text area
 		//thread
@@ -32,10 +32,10 @@ public class BalloonBack {
 		for(int i = 0; i < numDarts; i++) {
 			if(i <= 4 ) {
 				darts.add(Integer.toString(i));
-				dartsProperty.add("blunt");
+				dartsProperty.add(0); //blunt
 			}else {
 				darts.add(Integer.toString(i));
-				dartsProperty.add("dull");
+				dartsProperty.add(1); //weak
 			}
 			
 		}		
@@ -49,16 +49,32 @@ public class BalloonBack {
 		int numBalloons = 6;
 		for(int i = 0; i < numBalloons; i++) {
 			balloons.add(Integer.toString(i));
-			balloonsProperty.add("weak");
-		}		
+			balloonsProperty.add(0); //starts out with 0		
+			}		
 		
 		return balloons; 
 	}
 	
-	public void UpdateBalloons(int x ) { //x represents index
+	public void UpdateBalloons(int x, int dartProperty ) { //x represents index
 		//front end-balloon deleted -> goes to confetti
 		//thread for time & disable button  
 		//change a balloon at the same position and change strength 
+		
+		if(balloonsProperty.get(x) == (dartsProperty.get(dartProperty)) || dartsProperty.get(dartProperty) > balloonsProperty.get(x)) 
+		{
+			//same property/type/level
+			balloons.remove(x);
+			balloonsProperty.remove(x);
+			darts.remove(dartProperty);
+			dartsProperty.remove(dartProperty);
+		}
+		else
+		{
+			if(dartsProperty.get(dartProperty) < balloonsProperty.get(x))
+			{
+				
+			}
+		}
 	}
 	
 	public void MakeBallonsPoppable() {
