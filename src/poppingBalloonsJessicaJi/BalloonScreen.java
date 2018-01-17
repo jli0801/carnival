@@ -1,6 +1,7 @@
 package poppingBalloonsJessicaJi;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.List;
 
 import guiTeacher.components.Action;
@@ -21,6 +22,9 @@ public class BalloonScreen extends FullFunctionScreen  {
 	public static Graphic dart2;
 	public static Graphic dart3;
 	public static Graphic dart4;
+	
+	
+	
 	public BalloonScreen(int width, int height) {
 		super(width, height);
 		// TODO Auto-generated constructor stub
@@ -37,7 +41,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 	public void initAllObjects(List<Visible> viewObjects) {
 		background = new Graphic(0, 0, getWidth(), getHeight(), "images/background.jpg");
 		viewObjects.add(background);
-		
+		Button play = new Button()
 		
 		booth = new Graphic (30,35, 590,590, "images/booth.png");
 		viewObjects.add(booth);
@@ -64,6 +68,11 @@ public class BalloonScreen extends FullFunctionScreen  {
 		viewObjects.add(dart4);
 		
 
+	}
+	
+	private ArrayList<String> getBalloons()
+	{
+		return BalloonBack.CreateBalloons();
 	}
 
 
