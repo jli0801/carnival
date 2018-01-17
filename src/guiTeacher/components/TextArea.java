@@ -34,7 +34,7 @@ public class TextArea extends TextLabel {
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g.setFont(getFont());
 		FontMetrics fm = g.getFontMetrics();
-		g.setColor(getTextColor());
+		g.setColor(getForeground()); //changed this
 		if(getText() != null){
 			String[] paragraphs = getText().split("\n");
 			final int SPACING = 2;

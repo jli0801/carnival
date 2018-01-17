@@ -1,13 +1,14 @@
 package mainMenuAreejVickie;
 
+import java.util.ArrayList;
+
 public class InventoryVickie {
 
 	public InventoryVickie() {
 		
 	}
+	
+	private ArrayList<> inventory;
 
-	public static void main(String[] args) {
-
-	}
-
+	
 }
