@@ -33,6 +33,9 @@ public class JoannaResultScreen extends ClickableScreen {
 	public void initAllObjects(List<Visible> viewObjects) {
 		setBackground(Color.YELLOW);
 
+		StyledComponent.setButtonOutline(true);
+		StyledComponent.setButtonOutlineSize(4);
+
 
 		home = new Button(100,650,100,50,"Menu",new guiTeacher.components.Action() {
 
@@ -43,7 +46,8 @@ public class JoannaResultScreen extends ClickableScreen {
 			}
 		});
 
-		home.setBackground(Color.GREEN);
+
+
 		work = new Button(300,650,100,50,"Work", new guiTeacher.components.Action() {
 
 			@Override
@@ -51,13 +55,15 @@ public class JoannaResultScreen extends ClickableScreen {
 				Testing.test.setScreen(new AnnieWorkScreen(getWidth(), getHeight()));
 			}
 		});
-
+	
 		description = new TextArea(300, 100, 150, 500, "text goes here");
-		description.setBackground(Color.WHITE);
 
 		viewObjects.add(home);
 		viewObjects.add(work);
+
+
 		viewObjects.add(description);
+		home.setButtonOutline(false);
 
 	}
 
