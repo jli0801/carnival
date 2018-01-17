@@ -2,6 +2,8 @@ package poppingBalloonsJessicaJi;
 
 import java.util.ArrayList;
 
+import javafx.scene.paint.Color;
+
 public class BalloonBack {
 	
 	ArrayList<String> darts = new ArrayList<String>(); 
@@ -11,15 +13,46 @@ public class BalloonBack {
 	
 	public void Timer() { //links to text area
 		//thread
+		Thread time = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+					try {
+						Thread.sleep(30000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			}
+		});
 	}
 	
-	public void CreateDarts() {
-		//for loop make darts
+	public ArrayList<String> CreateDarts() {
+		int numDarts = 10;
+		for(int i = 0; i < numDarts; i++) {
+			if(i <= 4 ) {
+				darts.add(Integer.toString(i));
+				dartsProperty.add("blunt");
+			}else {
+				darts.add(Integer.toString(i));
+				dartsProperty.add("dull");
+			}
+			
+		}		
+		
+		return darts; 
 	}
 	
 	public static ArrayList<String> CreateBalloons() {
-		return balloons; //static because jessica needs to display it
+		//static because jessica needs to display it
 		//for loop make balloons
+		int numBalloons = 6;
+		for(int i = 0; i < numBalloons; i++) {
+			balloons.add(Integer.toString(i));
+			balloonsProperty.add("weak");
+		}		
+		
+		return balloons; 
 	}
 	
 	public void UpdateBalloons(int x ) { //x represents index

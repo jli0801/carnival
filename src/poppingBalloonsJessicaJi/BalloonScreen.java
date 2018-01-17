@@ -41,7 +41,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 	public void initAllObjects(List<Visible> viewObjects) {
 		background = new Graphic(0, 0, getWidth(), getHeight(), "images/background.jpg");
 		viewObjects.add(background);
-		Button play = new Button()
+		//Button play = new Button()
 		
 		booth = new Graphic (30,35, 590,590, "images/booth.png");
 		viewObjects.add(booth);
@@ -75,6 +75,27 @@ public class BalloonScreen extends FullFunctionScreen  {
 		return BalloonBack.CreateBalloons();
 	}
 
+	private void changeTimer(String string) {
+		Thread blink = new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				//.setText(string);
+				try {
+					Thread.sleep(1000);
+				} catch(InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		blink.start();
+		try {
+			blink.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 
 }
