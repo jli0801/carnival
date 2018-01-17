@@ -15,8 +15,9 @@ public class AnnieWorkScreen extends ClickableScreen {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private AnnieFoodItem[] items;
-	private String[] imgLocations;
+	public static AnnieFoodItem[] items;
+	public String[] imgLocations;
+	public String[] imgLocations2;
 	private String[] names;
 	private double[] prices;
 
@@ -33,9 +34,12 @@ public class AnnieWorkScreen extends ClickableScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		String[] temp = {"food/pepperoni.png", "food/onion.png", "food/pineapple.png", "food/mushroom.png", "food/olive.png", "food/bacon.png", "food/pepper.png", "food/sausage.png",
+				"food/soda.png", "food/donut.png", "food/corn.png", "food/popcorn.png"};
+		imgLocations = temp;
 		String[] temp1 = {"food/pepperoni2.png", "food/onion2.png", "food/pineapple2.png", "food/mushroom2.png", "food/olive2.png", "food/bacon2.png", "food/pepper2.png", "food/sausage2.png",
 				"food/soda.png", "food/donut.png", "food/corn.png", "food/popcorn.png"};
-		imgLocations = temp1;
+		imgLocations2 = temp1;
 		String[] temp2 = {"pepperoni", "onions", "pineapple", "mushrooms", "olives", "bacon", "peppers", "sausage",
 				"soda", "donut", "corn", "popcorn"};
 		names = temp2;
@@ -55,11 +59,12 @@ public class AnnieWorkScreen extends ClickableScreen {
 		items = new AnnieFoodItem[8];
 		for(int i = 0; i < items.length; i++) {
 			final int num = i;
-			AnnieFoodItem item = new AnnieFoodItem(0, 0, 100, 100, imgLocations[i], names[i], prices[i], new Action() {
+			AnnieFoodItem item = new AnnieFoodItem(0, 0, 100, 100, imgLocations2[i], names[i], prices[i]);
+			item.setAction(new Action() {
+				
+				@Override
 				public void act() {
-					tray.add(num);
-					done.setText("haha");
-					done.update();
+					viewObjects.add(new Graphic(50, 50, imgLocations[num]));
 				}
 			});
 			viewObjects.add(item);
