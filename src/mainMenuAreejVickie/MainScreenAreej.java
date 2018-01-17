@@ -26,9 +26,9 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 	public void initAllObjects(List<Visible> viewObjects) {
 		
-			Graphic baymaxtree = new Graphic(0,0, getWidth(), getHeight(), "resources/main menu.jpg");
+		Graphic background = new Graphic(0,0, getWidth(), getHeight(), "resources/menu.jpg");
 		
-		balloon = new Button(350, 580, 70, 30, "Balloon Pop", Color.red, new Action() {
+		balloon = new Button(280, 580, 120, 40, "Balloon Pop", Color.yellow, new Action() {
 
 			public void act() {
 				
@@ -36,7 +36,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 			}
 		});
-		mole = new Button(350, 580, 70, 30, "Wack-a-Mole", Color.red, new Action() {
+		mole = new Button(440, 580, 150, 40, "Wack-a-Mole", Color.blue, new Action() {
 
 			public void act() {
 				
@@ -44,7 +44,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 			}
 		});
-		food = new Button(350, 580, 70, 30, "Food Stand", Color.red, new Action() {
+		food = new Button(630, 580, 120, 40, "Food Stand", Color.green, new Action() {
 
 			public void act() {
 				
@@ -73,9 +73,12 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 			 }
 		ta.setTextColor(Color.black);
-	
+		balloon.setTextColor(Color.white);
+		mole.setTextColor(Color.white);
+		food.setTextColor(Color.white);
 		
-		viewObjects.add(baymaxtree);
+		
+		viewObjects.add(background);
 		viewObjects.add(balloon);
 		viewObjects.add(mole);
 		viewObjects.add(food);
