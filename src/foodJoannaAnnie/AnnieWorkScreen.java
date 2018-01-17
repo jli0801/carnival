@@ -41,8 +41,8 @@ public class AnnieWorkScreen extends ClickableScreen {
 		toppingImgs = temp;
 		String[] temp1 = {"food/pepperoni2.png", "food/onion2.png", "food/pineapple2.png", "food/mushroom2.png", "food/olive2.png", "food/bacon2.png", "food/pepper2.png", "food/sausage2.png"};
 		toppingImgs2 = temp1;
-		String[] temp2 = {"food/pepperoni2.png", "food/onion2.png", "food/pineapple2.png", "food/mushroom2.png", "food/olive2.png", "food/bacon2.png", "food/pepper2.png", "food/sausage2.png"};
-		toppingImgs2 = temp2;
+		String[] temp2 = {"food/soda.png", "food/donut.png", "food/corn.png", "food/popcorn.png"};
+		itemImgs = temp2;
 		String[] temp3 = {"pepperoni", "onions", "pineapple", "mushrooms", "olives", "bacon", "peppers", "sausage",
 				"soda", "donut", "corn", "popcorn"};
 		names = temp3;
@@ -58,8 +58,8 @@ public class AnnieWorkScreen extends ClickableScreen {
 		viewObjects.add(done);
 		AnnieTray tray = new AnnieTray(10, 30, 701, 500);
 		viewObjects.add(tray);
-		items = new AnnieFoodItem[items.length + toppings.length];
-		for(int i = 0; i < items.length; i++) {
+		toppings = new AnnieFoodItem[toppingImgs.length];
+		for(int i = 0; i < toppings.length; i++) {
 			final int num = i;
 			AnnieFoodItem item = new AnnieFoodItem(0, 0, 100, 100, toppingImgs2[i], names[i], prices[i]);
 			item.setAction(new Action() {
