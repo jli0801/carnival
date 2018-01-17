@@ -19,11 +19,12 @@ public class MainGameScreen extends FullFunctionScreen {
 
 	public MainGameScreen(int width, int height) {
 		super(width, height);
-		Graphic background = new Graphic(0,0, getWidth(), getHeight(), "resources/background.jpg");
 
 	}
 
 	public void initAllObjects(List<Visible> viewObjects) {
+		
+		Graphic background = new Graphic(0,0, getWidth(), getHeight(), "resources/background.jpg");
 		
 		returnMSButton = new Button(100,100,200,50,"RETURN TO MAIN MENU",Color.RED, new Action() {
 
