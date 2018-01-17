@@ -33,17 +33,18 @@ public class JoannaOrders extends ClickableGraphic {
 		requested = new AnnieFoodItem[numIng];
 		generateToppings();
 	}
-	
+
 	private void generateToppings() {
 		int[] track;
 		track= new int[numIng];
+	
 		int n= (int)((Math.random()*annie.getToppings().length));
-		
-				
-			
-		}
+
+
 
 	}
+
+}
 
 
 
@@ -53,7 +54,7 @@ public class JoannaOrders extends ClickableGraphic {
  * int[] track;
 		track= new int[numIng];
 		for(int i=0;i<requested.length;i++) {
-			
+
 				int n= (int)((Math.random()*annie.getToppings().length));
 				track[i] = n;
 			requested[i]= annie.getToppings()[n];
@@ -65,4 +66,4 @@ public class JoannaOrders extends ClickableGraphic {
 
 
 
-}
+
