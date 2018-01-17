@@ -70,7 +70,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 			 } catch (Exception e) {
 
 			 e.printStackTrace();
-
+//
 			 }
 		ta.setTextColor(Color.black);
 		balloon.setTextColor(Color.white);
