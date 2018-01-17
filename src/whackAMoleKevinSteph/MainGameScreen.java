@@ -26,7 +26,9 @@ public class MainGameScreen extends FullFunctionScreen {
 		
 		Graphic background = new Graphic(0,0, getWidth(), getHeight(), "resources/background.jpg");
 		
-		returnMSButton = new Button(100,100,200,50,"RETURN TO MAIN MENU",Color.RED, new Action() {
+		viewObjects.add(background);
+		
+		returnMSButton = new Button(50,50,200,50,"RETURN TO MAIN MENU",Color.RED, new Action() {
 
 			public void act() {
 				returnMainScreen();
@@ -35,7 +37,7 @@ public class MainGameScreen extends FullFunctionScreen {
 
 		viewObjects.add(returnMSButton);
 
-		instructionsButton = new Button(100,200,200,50,"SEE INSTRUCTIONS",Color.YELLOW, new Action() {
+		instructionsButton = new Button(300,575,200,50,"SEE INSTRUCTIONS",Color.YELLOW, new Action() {
 
 			public void act() {
 				showInstructions();
@@ -44,16 +46,17 @@ public class MainGameScreen extends FullFunctionScreen {
 
 		viewObjects.add(instructionsButton);
 
-		startButton = new Button(100,300,200,50,"START GAME",Color.GREEN, new Action() {
+		startButton = new Button(600,575,200,50,"START GAME",Color.GREEN, new Action() {
 
 			public void act() {
 				startGame();
+				WhackAMoleMain.main.setScreen(WhackAMoleMain.gameScreen);
 			}
 		});
-
+		
 		viewObjects.add(startButton);
 
-		instructionsText = new TextBox(500,100,500,500,"WELCOME TO WHACK-A-MOLE");
+		instructionsText = new TextBox(275,150,550,350,"WELCOME TO WHACK-A-MOLE");
 		instructionsText.setInactiveBorderColor(Color.RED);
 		instructionsText.setReadOnly(true);
 		instructionsText.setEditable(false);
