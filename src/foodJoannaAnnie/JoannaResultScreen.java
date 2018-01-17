@@ -23,9 +23,9 @@ public class JoannaResultScreen extends ClickableScreen {
 	private int earned;
 	private AnnieWorkScreen annie;
 
-	public JoannaResultScreen(int width, int height, JoannaOrders orders, ) {
+	public JoannaResultScreen(int width, int height, AnnieWorkScreen screen ) {
 		super(width, height);
-		annie = workspace;
+		annie = screen; 
 		setVisible(true);
 	}
 
