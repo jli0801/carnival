@@ -42,7 +42,7 @@ public class GuiLoadingVickie extends GUIApplication{
 		//StyledComponent.setTextColor(Color.white);
 		try {
 
-			 File fontFile = new File("resources//christmaseve.ttf");
+			 File fontFile = new File("resources/Bangers.ttf");
 
 			 // File fontFile = new File("resources//DayRoman.ttf");
 
