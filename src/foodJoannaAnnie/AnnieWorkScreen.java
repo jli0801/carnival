@@ -15,9 +15,11 @@ public class AnnieWorkScreen extends ClickableScreen {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public static AnnieFoodItem[] items;
-	public String[] imgLocations;
-	public String[] imgLocations2;
+	private AnnieFoodItem[] toppings;
+	private AnnieFoodItem[] items;
+	private String[] toppingImgs;
+	private String[] toppingImgs2;
+	private String[] itemImgs;
 	private String[] names;
 	private double[] prices;
 
@@ -34,41 +36,45 @@ public class AnnieWorkScreen extends ClickableScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		String[] temp = {"food/pepperoni.png", "food/onion.png", "food/pineapple.png", "food/mushroom.png", "food/olive.png", "food/bacon.png", "food/pepper.png", "food/sausage.png",
-				"food/soda.png", "food/donut.png", "food/corn.png", "food/popcorn.png"};
-		imgLocations = temp;
-		String[] temp1 = {"food/pepperoni2.png", "food/onion2.png", "food/pineapple2.png", "food/mushroom2.png", "food/olive2.png", "food/bacon2.png", "food/pepper2.png", "food/sausage2.png",
-				"food/soda.png", "food/donut.png", "food/corn.png", "food/popcorn.png"};
-		imgLocations2 = temp1;
-		String[] temp2 = {"pepperoni", "onions", "pineapple", "mushrooms", "olives", "bacon", "peppers", "sausage",
-				"soda", "donut", "corn", "popcorn"};
-		names = temp2;
-		double[] temp3 = {0.40, 0.20, 0.20, 0.25, 0.30, 0.40, 0.30, 0.35,
-				1.25, 1.00, 1.50, 2.65};
-		prices = temp3;
 		StyledComponent.setBaseFont(new Font("Arial", Font.BOLD + Font.ITALIC, 30));
+		String[] temp = {"food/pepperoni.png", "food/onion.png", "food/pineapple.png", "food/mushroom.png", "food/olive.png", "food/bacon.png", "food/pepper.png", "food/sausage.png"};
+		toppingImgs = temp;
+		String[] temp1 = {"food/pepperoni2.png", "food/onion2.png", "food/pineapple2.png", "food/mushroom2.png", "food/olive2.png", "food/bacon2.png", "food/pepper2.png", "food/sausage2.png"};
+		toppingImgs2 = temp1;
+		String[] temp2 = {"food/pepperoni2.png", "food/onion2.png", "food/pineapple2.png", "food/mushroom2.png", "food/olive2.png", "food/bacon2.png", "food/pepper2.png", "food/sausage2.png"};
+		toppingImgs2 = temp2;
+		String[] temp3 = {"pepperoni", "onions", "pineapple", "mushrooms", "olives", "bacon", "peppers", "sausage",
+				"soda", "donut", "corn", "popcorn"};
+		names = temp3;
+		double[] temp4 = {0.40, 0.20, 0.20, 0.25, 0.30, 0.40, 0.30, 0.35,
+				1.25, 1.00, 1.50, 2.65};
+		prices = temp4;
 		Button done = new Button(getWidth() - 220, getHeight() - 160, 120, 60, "DONE", new Action() {
 			public void act() {
-				
+				Testing.test.setScreen(new JoannaResultScreen(getWidth(), getHeight(), AnnieWorkScreen.this));
 			}
 			
 		});
 		viewObjects.add(done);
 		AnnieTray tray = new AnnieTray(10, 30, 701, 500);
 		viewObjects.add(tray);
-		items = new AnnieFoodItem[8];
+		items = new AnnieFoodItem[items.length + toppings.length];
 		for(int i = 0; i < items.length; i++) {
 			final int num = i;
-			AnnieFoodItem item = new AnnieFoodItem(0, 0, 100, 100, imgLocations2[i], names[i], prices[i]);
+			AnnieFoodItem item = new AnnieFoodItem(0, 0, 100, 100, toppingImgs2[i], names[i], prices[i]);
 			item.setAction(new Action() {
 				
 				@Override
 				public void act() {
-					viewObjects.add(new Graphic(50, 50, imgLocations[num]));
+					viewObjects.add(new Graphic(50, 50, 60, 60, toppingImgs[num]));
 				}
 			});
 			viewObjects.add(item);
 		}
+	}
+
+	public AnnieFoodItem[] getToppings() {
+		return toppings;
 	}
 
 	public AnnieFoodItem[] getItems() {

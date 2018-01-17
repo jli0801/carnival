@@ -18,8 +18,8 @@ public class Testing extends GUIApplication {
 
 	@Override
 	public void initScreen() {
-		JoannaResultScreen results = new JoannaResultScreen(getWidth(), getHeight(), null);
-		setScreen(results);
+		AnnieWorkScreen work = new AnnieWorkScreen(getWidth(), getHeight());
+		setScreen(work);
 	}
 
 	public static void main(String[] args) {
