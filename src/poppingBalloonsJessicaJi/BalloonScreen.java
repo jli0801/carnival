@@ -28,7 +28,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 	
 	public void resizeComponents()
 	{
-		background.loadImages( "images/background.jpg", getWidth(), getHeight());
+		background.loadImages( "images/background1.jpg", getWidth(), getHeight());
 	
 	
 	}

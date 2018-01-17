@@ -8,22 +8,31 @@ public class BalloonBack {
 	ArrayList<String> balloons = new ArrayList<String>();
 	
 	public void Timer() { //links to text area
-		
+		//thread
 	}
 	
 	public void CreateDarts() {
-		
+		//for loop make darts
 	}
 	
-	public void MakePoppableBalloons() {
-		
+	public void CreateBalloons() {
+		//for loop make balloons
 	}
 	
-	public void MakeUnpoppableBallons() {
-		
+	public void UpdateBalloons() {
+		//
+	}
+	
+	public void MakeBallonsPoppable() {
+		//for loop make poppable
+	}
+	
+	public void MakeBalloonsUnpoppable() {
+		//for loop make unpoppable
 	}
 	
 	public void EndGame() {
+		//disable buttons & switch screen
 		
 	}
 	
