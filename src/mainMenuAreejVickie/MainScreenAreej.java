@@ -55,9 +55,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 		//TextArea ta = new TextArea(140, 180, 330 ,400, "HAVE YOUR PICK");
 		 try {
 
-			 File fontFile = new File("resources//AdventPro-Medium.ttf");
-
-			 // File fontFile = new File("resources//DayRoman.ttf");
+			 File fontFile = new File("resources//Bangers.ttf");
 
 			 Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
