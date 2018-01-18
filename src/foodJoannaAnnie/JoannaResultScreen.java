@@ -22,6 +22,9 @@ public class JoannaResultScreen extends ClickableScreen {
 	private int amt;
 	private int earned;
 	private AnnieWorkScreen annie;
+	private JoannaOrder currentOrder;
+	private ArrayList<AnnieFoodItem> onScreen;
+	private int trashCount;
 
 	public JoannaResultScreen(int width, int height, AnnieWorkScreen screen ) {
 		super(width, height);
@@ -52,7 +55,7 @@ public class JoannaResultScreen extends ClickableScreen {
 
 			@Override
 			public void act() {
-				Testing.test.setScreen(new AnnieWorkScreen(getWidth(), getHeight()));
+				Testing.test.setScreen(annie);
 			}
 		});
 	

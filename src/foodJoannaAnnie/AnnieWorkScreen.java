@@ -23,8 +23,8 @@ public class AnnieWorkScreen extends ClickableScreen {
 	private String[] names;
 	private double[] prices;
 
-	private JoannaOrders currentOrder;
-	private ArrayList<JoannaOrders> orders;
+	private JoannaOrder currentOrder;
+	private ArrayList<JoannaOrder> orders;
 	private ArrayList<AnnieFoodItem> onScreen;
 	
 	private int trashCount;
@@ -89,7 +89,7 @@ public class AnnieWorkScreen extends ClickableScreen {
 		return prices;
 	}
 
-	public JoannaOrders getCurrentOrder() {
+	public JoannaOrder getCurrentOrder() {
 		return currentOrder;
 	}
 
