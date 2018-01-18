@@ -76,7 +76,7 @@ public class WelcomeScreenVickie extends FullFunctionScreen{ //possibly extends 
 					
 				}
 			});
-			
+	
 			
 			viewObjects.add(welcomeBackground);
 			viewObjects.add(carnival);
