@@ -1,23 +1,26 @@
 package whackAMoleKevinSteph;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.io.File;
 import java.util.List;
 
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
+import guiTeacher.components.StyledComponent;
 import guiTeacher.components.TextBox;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 
-public class MainGameScreen extends FullFunctionScreen {
+public class WhackAMoleMenu extends FullFunctionScreen {
 
 	private Button returnMSButton;
 	private Button instructionsButton;
 	private Button startButton;
 	private TextBox instructionsText;
 
-	public MainGameScreen(int width, int height) {
+	public WhackAMoleMenu(int width, int height) {
 		super(width, height);
 
 	}
@@ -27,6 +30,23 @@ public class MainGameScreen extends FullFunctionScreen {
 		Graphic background = new Graphic(0,0, getWidth(), getHeight(), "resources/background.jpg");
 		
 		viewObjects.add(background);
+		
+		 try {
+
+			 File fontFile = new File("resources//Bangers.ttf");
+
+			 Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+
+			 Font baseFont=font.deriveFont(16f);
+
+			 StyledComponent.setBaseFont(baseFont);
+
+			 } catch (Exception e) {
+
+			 e.printStackTrace();
+
+			 }
+		
 		
 		returnMSButton = new Button(50,50,200,50,"RETURN TO MAIN MENU",Color.RED, new Action() {
 
@@ -69,7 +89,9 @@ public class MainGameScreen extends FullFunctionScreen {
 	}
 
 	public void showInstructions() {
-		instructionsText.setText("HOW TO PLAY:" + "\n" + "YOU HAVE....");
+		instructionsText.setText("HOW TO PLAY:" + "\n" + "\n" + "WHACK AS MANY MOLES AS YOU CAN UNDER THE TIME LIMIT. THE HIGHER THE SCORE, THE MORE TICKETS YOU EARN. "
+				+ "THERE ARE 3 ROUNDS. ROUND 1 STARTS OFF WITH 20 SECONDS, BUT AS YOU PROGRESS TO THE NEXT ROUNDS, THE TIME LIMIT WILL DECREASE BY 5 SECONDS AND THE MOLES WILL MOVE FASTER. "
+				+ "CLICKING ON THE WRONG HOLE WILL RESULT IN A 1 SECOND PENALTY."  + "\n" + "\n" + "NOW GO WHACK SOME MOLES AND ENJOY THE GAME!!");
 		instructionsText.update();
 	}
 

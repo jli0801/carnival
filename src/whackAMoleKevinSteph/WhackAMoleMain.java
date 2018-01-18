@@ -4,7 +4,7 @@ import guiTeacher.GUIApplication;
 public class WhackAMoleMain extends GUIApplication {
 
 	public static WhackAMoleMain main;
-	public static MainGameScreen mainScreen;
+	public static WhackAMoleMenu mainScreen;
 	public static WhackAMoleScreen gameScreen;
 	
 	public WhackAMoleMain(int width, int height) {
@@ -14,7 +14,7 @@ public class WhackAMoleMain extends GUIApplication {
 
 	@Override
 	public void initScreen() {
-		mainScreen = new MainGameScreen(getWidth(), getHeight());
+		mainScreen = new WhackAMoleMenu(getWidth(), getHeight());
 		gameScreen = new WhackAMoleScreen(getWidth(), getHeight());
 		setScreen(mainScreen);
 
