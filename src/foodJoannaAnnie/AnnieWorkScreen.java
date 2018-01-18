@@ -2,6 +2,7 @@ package foodJoannaAnnie;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics2D;
 import java.util.*;
 
 import guiTeacher.components.*;
@@ -32,6 +33,7 @@ public class AnnieWorkScreen extends ClickableScreen {
 	public AnnieWorkScreen(int width, int height) {
 		super(width, height);
 		setBackground(new Color(180, 230, 230));
+		onScreen = new ArrayList<AnnieFoodItem>();
 	}
 
 	@Override
@@ -56,17 +58,30 @@ public class AnnieWorkScreen extends ClickableScreen {
 			
 		});
 		viewObjects.add(done);
-		AnnieTray tray = new AnnieTray(10, 30, 701, 500);
+		Component tray = new Component(20, 40, 750, 500) {
+			
+			@Override
+			public void update(Graphics2D g) {
+				g.setColor(new Color(240, 240, 200));
+				g.fillRect(0, 0, 700, 450);
+				g.setColor(Color.black);
+				g.drawRect(0, 0, 700, 450);
+			}
+		};
+		tray.setVisible(true);
 		viewObjects.add(tray);
+		Graphic pizza = new Graphic(40, 60, 410, 410, "food/pizza.png");
+		viewObjects.add(pizza);
 		toppings = new AnnieFoodItem[toppingImgs.length];
 		for(int i = 0; i < toppings.length; i++) {
 			final int num = i;
-			AnnieFoodItem item = new AnnieFoodItem(0, 0, 100, 100, toppingImgs2[i], names[i], prices[i]);
+			AnnieFoodItem item = new AnnieFoodItem(i * 50 + 50, getHeight() - 100, 50, 50, toppingImgs2[i], names[i], prices[i]);
 			item.setAction(new Action() {
 				
 				@Override
 				public void act() {
 					viewObjects.add(new Graphic(50, 50, 60, 60, toppingImgs[num]));
+					onScreen.add(item);
 				}
 			});
 			viewObjects.add(item);
