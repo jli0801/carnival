@@ -22,7 +22,7 @@ public class JoannaOrder extends ClickableGraphic {
 		
 		generateToppings(annie.getToppings());
 	}
-
+ 
 	private AnnieFoodItem[] generateToppings(AnnieFoodItem[] arr) {
 		int a;
 		AnnieFoodItem b;

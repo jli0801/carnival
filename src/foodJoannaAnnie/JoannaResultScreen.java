@@ -25,7 +25,7 @@ public class JoannaResultScreen extends ClickableScreen {
 	private JoannaOrder currentOrder;
 	private ArrayList<AnnieFoodItem> onScreen;
 	private int trashCount;
-
+ 
 	public JoannaResultScreen(int width, int height, AnnieWorkScreen screen ) {
 		super(width, height);
 		annie = screen; 
