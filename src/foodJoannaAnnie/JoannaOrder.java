@@ -9,7 +9,7 @@ import guiTeacher.components.ClickableGraphic;
 public class JoannaOrder extends ClickableGraphic {
 
 	private AnnieFoodItem[] requested;
-	private int numIng;
+	private int numIng; //# of toppings for tht order
 	private AnnieWorkScreen annie;
 	private Object[][] order;
 
@@ -21,6 +21,7 @@ public class JoannaOrder extends ClickableGraphic {
 		requested = new AnnieFoodItem[numIng];
 
 		generateToppings(annie.getToppings());
+		getOrder();
 	}
 
 	private AnnieFoodItem[] generateToppings(AnnieFoodItem[] arr) {
