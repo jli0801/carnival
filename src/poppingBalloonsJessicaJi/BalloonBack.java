@@ -55,7 +55,8 @@ public class BalloonBack {
 		return balloons; 
 	}
 	
-	public void UpdateBalloons(int x, int dartProperty ) { //x represents index
+	public static void UpdateBalloons(int x, int dartProperty ) { //needs to be static so Jessica can access it
+		//x represents index
 		//front end-balloon deleted -> goes to confetti
 		//thread for time & disable button  
 		//change a balloon at the same position and change strength 
