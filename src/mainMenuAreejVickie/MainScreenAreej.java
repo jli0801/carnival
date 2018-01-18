@@ -59,7 +59,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 			 Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
-			 Font baseFont=font.deriveFont(50f);
+			 Font baseFont=font.deriveFont(16f);
 
 			 balloon.setFont(baseFont);
 			 mole.setFont(baseFont);
