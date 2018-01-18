@@ -2,10 +2,13 @@ package whackAMoleKevinSteph;
 
 import java.util.List;
 
+import guiTeacher.components.Action;
+import guiTeacher.components.Button;
 import guiTeacher.interfaces.Visible;
+import guiTeacher.userInterfaces.ClickableScreen;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 
-public class WhackAMoleScreen extends FullFunctionScreen {
+public class WhackAMoleScreen extends ClickableScreen {
 
 	public WhackAMoleScreen(int width, int height) {
 		super(width, height);
@@ -14,7 +17,14 @@ public class WhackAMoleScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		// TODO Auto-generated method stub
+		viewObjects.add(new Button(100, 100, 200, 300, "", new Action() {
+			
+			@Override
+			public void act() {
+				// TODO Auto-generated method stub
+				
+			}
+		}));
 
 	}
 

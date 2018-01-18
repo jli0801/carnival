@@ -37,7 +37,7 @@ public class WhackAMoleMenu extends FullFunctionScreen {
 
 			 Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
-			 Font baseFont=font.deriveFont(16f);
+			 Font baseFont=font.deriveFont(26f);
 
 			 StyledComponent.setBaseFont(baseFont);
 
@@ -48,7 +48,7 @@ public class WhackAMoleMenu extends FullFunctionScreen {
 			 }
 		
 		
-		returnMSButton = new Button(50,50,200,50,"RETURN TO MAIN MENU",Color.RED, new Action() {
+		returnMSButton = new Button(50,50,210,50,"RETURN TO MAIN MENU",Color.RED, new Action() {
 
 			public void act() {
 				returnMainScreen();
@@ -69,8 +69,7 @@ public class WhackAMoleMenu extends FullFunctionScreen {
 		startButton = new Button(600,575,200,50,"START GAME",Color.GREEN, new Action() {
 
 			public void act() {
-				startGame();
-				WhackAMoleMain.main.setScreen(WhackAMoleMain.gameScreen);
+				WhackAMoleMain.main.setScreen(new WhackAMoleScreen(getWidth(), getHeight()));
 			}
 		});
 		
@@ -89,9 +88,9 @@ public class WhackAMoleMenu extends FullFunctionScreen {
 	}
 
 	public void showInstructions() {
-		instructionsText.setText("HOW TO PLAY:" + "\n" + "\n" + "WHACK AS MANY MOLES AS YOU CAN UNDER THE TIME LIMIT. THE HIGHER THE SCORE, THE MORE TICKETS YOU EARN. "
+		instructionsText.setText("HOW TO PLAY:" + "\n" + "WHACK AS MANY MOLES AS YOU CAN UNDER THE TIME LIMIT. THE HIGHER THE SCORE, THE MORE TICKETS YOU EARN. "
 				+ "THERE ARE 3 ROUNDS. ROUND 1 STARTS OFF WITH 20 SECONDS, BUT AS YOU PROGRESS TO THE NEXT ROUNDS, THE TIME LIMIT WILL DECREASE BY 5 SECONDS AND THE MOLES WILL MOVE FASTER. "
-				+ "CLICKING ON THE WRONG HOLE WILL RESULT IN A 1 SECOND PENALTY."  + "\n" + "\n" + "NOW GO WHACK SOME MOLES AND ENJOY THE GAME!!");
+				+ "CLICKING ON THE WRONG HOLE WILL RESULT IN A 1 SECOND PENALTY."  + "\n" + "NOW GO WHACK SOME MOLES AND ENJOY THE GAME!!");
 		instructionsText.update();
 	}
 
