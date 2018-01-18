@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.io.File;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
@@ -20,6 +22,15 @@ public class WelcomeScreenVickie extends FullFunctionScreen{ //possibly extends 
 		
 		private  Button menu;
 		private TextArea carnival;
+		
+		private Timer timer;
+		private int count;
+		private int randColor;
+		
+		private boolean activate;
+		private Color colors;
+		
+		private Color []color = {Color.red, Color.orange, Color.yellow, Color.green, Color.cyan, Color.blue, Color.pink, Color.black, Color.DARK_GRAY, Color.magenta, Color.gray};
 
 		public WelcomeScreenVickie(int width, int height) {
 			super(width, height);
@@ -27,7 +38,7 @@ public class WelcomeScreenVickie extends FullFunctionScreen{ //possibly extends 
 
 		@Override
 		public void initAllObjects(List<Visible> viewObjects) {
-	
+			count = 1000;
 			Graphic welcomeBackground = new Graphic(0,0, getWidth(), getHeight(), "resources/welcomeBackground.png");
 			
 			carnival = new TextArea(225,75, 1000,1000, "Carnival");
@@ -35,15 +46,39 @@ public class WelcomeScreenVickie extends FullFunctionScreen{ //possibly extends 
 			carnival.update();
 //********	Changed TextArea in guiDoc.	
 			
-			menu = new Button(900, 650, 200, 100, "Welcome", Color.red, new Action() {
-				public void act() {
+			timer = new Timer();
+			TimerTask complete = new TimerTask() {
+				@Override
+				public void run() {
+					count --;
+					//randomly change font color
+					randColor = (int)(Math.random() * 11);
+					colors = color[randColor];
+					carnival.setForeground(colors);
+					carnival.update();
 					
-					GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
-
+					if(count ==0) {
+						timer.cancel();
+					}	
+				}				
+			};
+			
+			menu = new Button(900, 650, 200, 100, "Go!!", Color.red, new Action() {
+				public void act() {
+					if(!activate) {
+						timer.schedule(complete, 0, 100);
+						menu.setText("Welcome!!");
+					}else {
+						timer.cancel();
+						GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
+					}
 				}
 			});
-			menu.setForeground(Color.orange);
-			menu.update();
+			
+			
+			viewObjects.add(welcomeBackground);
+			viewObjects.add(carnival);
+			viewObjects.add(menu);
 			
 			try {
 				 File fontFile = new File("resources/Bangers.ttf");
@@ -61,13 +96,7 @@ public class WelcomeScreenVickie extends FullFunctionScreen{ //possibly extends 
 
 				 }
 			
-			menu.setCustomTextColor(new Color(0,0,0)); //?
 			
-			
-			viewObjects.add(welcomeBackground);
-			//viewObjects.add(add);
-			viewObjects.add(carnival);
-			viewObjects.add(menu);
 			
 			//
 			 

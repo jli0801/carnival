@@ -8,7 +8,7 @@ public class InventoryVickie {
 		
 	}
 	
-	private ArrayList<> inventory;
+	//private ArrayList<> inventory;
 
 	
 }
