@@ -66,12 +66,14 @@ public class WelcomeScreenVickie extends FullFunctionScreen{ //possibly extends 
 			menu = new Button(900, 650, 200, 100, "Go!!", Color.red, new Action() {
 				public void act() {
 					if(!activate) {
+						activate = !activate;
 						timer.schedule(complete, 0, 100);
 						menu.setText("Welcome!!");
 					}else {
-						timer.cancel();
 						GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
+						timer.cancel();
 					}
+					
 				}
 			});
 			
