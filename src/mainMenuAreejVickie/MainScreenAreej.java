@@ -26,7 +26,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 	public void initAllObjects(List<Visible> viewObjects) {
 		
-		Graphic background = new Graphic(0,0, getWidth(), getHeight(), "resources/menu.jpg");
+		Graphic background = new Graphic(0,0, getWidth(), getHeight(), "resources/menu.png");
 		
 		balloon = new Button(280, 580, 120, 40, "Balloon Pop", Color.yellow, new Action() {
 
@@ -52,7 +52,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 			}
 		});
-		TextArea ta = new TextArea(140, 180, 330 ,400, "HAVE YOUR PICK");
+		//TextArea ta = new TextArea(140, 180, 330 ,400, "HAVE YOUR PICK");
 		 try {
 
 			 File fontFile = new File("resources//AdventPro-Medium.ttf");
@@ -72,7 +72,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 			 e.printStackTrace();
 //
 			 }
-		ta.setTextColor(Color.black);
+		//ta.setTextColor(Color.black);
 		balloon.setTextColor(Color.white);
 		mole.setTextColor(Color.white);
 		food.setTextColor(Color.white);
@@ -82,7 +82,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 		viewObjects.add(balloon);
 		viewObjects.add(mole);
 		viewObjects.add(food);
-		viewObjects.add(ta);
+		//viewObjects.add(ta);
 		
 		 StyledComponent.setButtonOutline(true);
 		
