@@ -45,7 +45,7 @@ public class AnnieWorkScreen extends ClickableScreen {
 		try {
 			File fontFile = new File("food/Bangers.ttf");
 			Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-			Font baseFont = font.deriveFont(60f);
+			Font baseFont = font.deriveFont(40f);
 			StyledComponent.setBaseFont(baseFont);
 		} catch(Exception e) {
 			e.printStackTrace();
