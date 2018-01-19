@@ -4,8 +4,6 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
-import java.awt.Shape;
-import java.awt.Stroke;
 import java.io.File;
 import java.util.*;
 
@@ -149,7 +147,7 @@ public class AnnieWorkScreen extends ClickableScreen {
 		};
 		box1.setVisible(true);
 		viewObjects.add(box1);
-		Button done = new Button(getWidth() - 365, getHeight() - 160, 200, 100, "DONE", new Action() {
+		Button done = new Button(getWidth() - 365, getHeight() - 160, 200, 100, "done", new Action() {
 			
 			public void act() {
 				Testing.test.setScreen(new JoannaResultScreen(getWidth(), getHeight(), AnnieWorkScreen.this));

@@ -22,9 +22,5 @@ public class AnnieFoodItem extends ClickableGraphic {
 	public double getPrice() {
 		return price;
 	}
-	
-	public void update(Graphics2D g, boolean hover) {
-		
-	}
 
 }
