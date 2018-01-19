@@ -58,8 +58,16 @@ public class JoannaOrder extends ClickableGraphic {
 
 		}
 		return order;
-
-
+	}
+	
+	public String toString() {
+		String s="";
+		for(int i=0; i<order.length; i++) {
+			for(int j=0; i<order[i].length; i++) {
+				s+= order[i]+" "+order[i][j] + "\n"; 
+			}
+		}
+		return s;
 	}
 
 

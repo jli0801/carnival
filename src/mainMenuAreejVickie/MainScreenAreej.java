@@ -40,7 +40,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 			public void act() {
 				
-				//GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.moleGame);
+				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.moleInstruct);
 
 			}
 		});

@@ -1,6 +1,7 @@
 package foodJoannaAnnie;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class JoannaResultScreen extends ClickableScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		setBackground(Color.YELLOW);
+		setBackground(new Color(255, 250, 155));
 
 		StyledComponent.setButtonOutline(true);
 		StyledComponent.setButtonOutlineSize(4);
@@ -71,5 +72,7 @@ public class JoannaResultScreen extends ClickableScreen {
 		home.setButtonOutline(false);
 
 	}
+	
+	
 
 }

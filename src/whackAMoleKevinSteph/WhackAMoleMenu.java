@@ -12,6 +12,7 @@ import guiTeacher.components.StyledComponent;
 import guiTeacher.components.TextBox;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import mainMenuAreejVickie.GuiLoadingVickie;
 
 public class WhackAMoleMenu extends FullFunctionScreen {
 
@@ -69,7 +70,7 @@ public class WhackAMoleMenu extends FullFunctionScreen {
 		startButton = new Button(780,30,200,50,"START GAME",Color.ORANGE, new Action() {
 
 			public void act() {
-				WhackAMoleMain.main.setScreen(new WhackAMoleScreen(getWidth(), getHeight()));
+				GuiLoadingVickie.loading.setScreen(new WhackAMoleScreen(getWidth(), getHeight()));
 			}
 		});
 		
