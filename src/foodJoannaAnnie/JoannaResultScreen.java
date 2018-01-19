@@ -11,6 +11,7 @@ import com.sun.corba.se.spi.orbutil.fsm.Input;
 import guiTeacher.components.*;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
+import mainMenuAreejVickie.GuiLoadingVickie;
 
 
 public class JoannaResultScreen extends ClickableScreen {
@@ -44,7 +45,7 @@ public class JoannaResultScreen extends ClickableScreen {
 
 			@Override
 			public void act() {
-				///set to main menu screen
+				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
 
 			}
 		});
@@ -55,7 +56,8 @@ public class JoannaResultScreen extends ClickableScreen {
 
 			@Override
 			public void act() {
-				Testing.test.setScreen(annie);
+				GuiLoadingVickie.loading.setScreen(annie);
+				
 			}
 		});
 	
