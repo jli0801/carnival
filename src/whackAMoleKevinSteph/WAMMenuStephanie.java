@@ -14,14 +14,14 @@ import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import mainMenuAreejVickie.GuiLoadingVickie;
 
-public class WhackAMoleMenu extends FullFunctionScreen {
+public class WAMMenuStephanie extends FullFunctionScreen {
 
 	private Button returnMSButton;
 	private Button instructionsButton;
 	private Button startButton;
 	private TextBox instructionsText;
 
-	public WhackAMoleMenu(int width, int height) {
+	public WAMMenuStephanie(int width, int height) {
 		super(width, height);
 
 	}
@@ -52,7 +52,7 @@ public class WhackAMoleMenu extends FullFunctionScreen {
 		returnMSButton = new Button(180,30,210,50,"RETURN TO MAIN MENU",Color.ORANGE, new Action() {
 
 			public void act() {
-				returnMainScreen();
+				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
 			}
 		});
 
@@ -70,7 +70,7 @@ public class WhackAMoleMenu extends FullFunctionScreen {
 		startButton = new Button(780,30,200,50,"START GAME",Color.ORANGE, new Action() {
 
 			public void act() {
-				GuiLoadingVickie.loading.setScreen(new WhackAMoleScreen(getWidth(), getHeight()));
+				GuiLoadingVickie.loading.setScreen(new WAMGameKevin(getWidth(), getHeight()));
 			}
 		});
 		
@@ -82,10 +82,6 @@ public class WhackAMoleMenu extends FullFunctionScreen {
 		instructionsText.setEditable(false);
 		instructionsText.update();
 		viewObjects.add(instructionsText);
-	}
-
-	public void returnMainScreen() {
-		System.out.print("Return to Main Screen");
 	}
 
 	public void showInstructions() {
