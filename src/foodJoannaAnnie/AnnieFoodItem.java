@@ -1,5 +1,7 @@
 package foodJoannaAnnie;
 
+import java.awt.Graphics2D;
+
 import guiTeacher.components.*;
 
 public class AnnieFoodItem extends ClickableGraphic {
@@ -19,6 +21,10 @@ public class AnnieFoodItem extends ClickableGraphic {
 
 	public double getPrice() {
 		return price;
+	}
+	
+	public void update(Graphics2D g, boolean hover) {
+		
 	}
 
 }
