@@ -27,7 +27,7 @@ public class BalloonBack {
 		});
 	}
 	
-	public ArrayList<String> CreateDarts() {
+	public static ArrayList<String> CreateDarts() {
 		int numDarts = 10;
 		for(int i = 0; i < numDarts; i++) {
 			if(i <= 4 ) {
