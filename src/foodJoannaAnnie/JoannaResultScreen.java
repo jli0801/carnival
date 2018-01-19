@@ -35,7 +35,7 @@ public class JoannaResultScreen extends ClickableScreen {
 		super(width, height);
 		annie = screen; 
 		setVisible(true);
-		 
+		  
 	}
 
 	@Override
