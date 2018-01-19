@@ -92,7 +92,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 			
 			@Override
 			public void act() {
-				menu = new MainScreenAreej(getWidth(), getHeight());
+		//		menu = new MainScreenAreej(getWidth(), getHeight());
 		//		setScreen(menu);
 			}
 		} );
