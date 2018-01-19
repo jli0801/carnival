@@ -1,7 +1,7 @@
 package poppingBalloonsJessicaJi;
 
 import java.awt.Color;
-import mainMenuAreejiVickie.GuiLoadingVickie;
+//import mainMenuAreejiVickie.GuiLoadingVickie;
 import java.awt.Font;
 import java.io.File;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 	
 //	public static mainMenuAreejVickie.choseGame menu; Where user chooses games.
 
-	public static MainScreenAreej menu;
+	//public static MainScreenAreej menu;
 	public Graphic background;
 	public Graphic ticket;
 	public Graphic booth;
@@ -45,6 +45,8 @@ public class BalloonScreen extends FullFunctionScreen  {
 	private TextArea description;
 	private String balloonChosen; //needs to be int later
 	private int dartChosen; //needs to be int later
+	private TextArea balloonDescription;
+	private TextArea dartDescription;
 	
 	
 	public BalloonScreen(int width, int height) {
@@ -92,7 +94,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 			
 			@Override
 			public void act() {
-				menu = new MainScreenAreej(getWidth(), getHeight());
+				//menu = new MainScreenAreej(getWidth(), getHeight());
 		//		setScreen(menu);
 			}
 		} );
@@ -103,7 +105,11 @@ public class BalloonScreen extends FullFunctionScreen  {
 		balloonChosen + "/nDart Used: " + dartChosen );
 		viewObjects.add(description);
 		
+		balloonDescription = new TextArea(700, 350, 300, 300, "Balloon Popped: ");
+		viewObjects.add(balloonDescription);
 		
+		dartDescription = new TextArea(700, 400, 300, 300, "Dart Used: ");
+		viewObjects.add(dartDescription);
 		
 		balloon1B = new Button(100, 200, 120, 120, "" , new Action() {
 			
@@ -114,7 +120,8 @@ public class BalloonScreen extends FullFunctionScreen  {
 				dartChosen = BalloonBack.dartsProperty.get(0);
 				description.setText("Score: " + score + "/nBalloon Popped: "+
 		balloonChosen + "/nDart Used: " + dartChosen );
-				
+				balloonDescription.setText("Balloon Popped:" + balloonChosen);
+				dartDescription.setText("Dart Used: " + dartChosen);
 			}
 		} );
 		balloon1B.setCurve(50,50);
@@ -129,6 +136,8 @@ public class BalloonScreen extends FullFunctionScreen  {
 				dartChosen = BalloonBack.dartsProperty.get(1);
 				description.setText("Score: " + score + "/nBalloon Popped: "+
 		balloonChosen + "/nDart Used: " + dartChosen );
+				balloonDescription.setText("Balloon Popped:" + balloonChosen);
+				dartDescription.setText("Dart Used: " + dartChosen);
 			}
 		} );
 		balloon2B.setCurve(50,50);
@@ -142,6 +151,8 @@ public class BalloonScreen extends FullFunctionScreen  {
 				dartChosen = BalloonBack.dartsProperty.get(2);
 				description.setText("Score: " + score + "/nBalloon Popped: "+
 		balloonChosen + "/nDart Used: " + dartChosen );
+				balloonDescription.setText("Balloon Popped:" + balloonChosen);
+				dartDescription.setText("Dart Used: " + dartChosen);
 			}
 		} );
 		balloon3B.setCurve(50,50);
@@ -155,6 +166,8 @@ public class BalloonScreen extends FullFunctionScreen  {
 				dartChosen = BalloonBack.dartsProperty.get(3);
 				description.setText("Score: " + score + "/nBalloon Popped: "+
 		balloonChosen + "/nDart Used: " + dartChosen );
+				balloonDescription.setText("Balloon Popped:" + balloonChosen);
+				dartDescription.setText("Dart Used: " + dartChosen);
 			}
 		} );
 		balloon4B.setCurve(50,50);
@@ -168,6 +181,8 @@ public class BalloonScreen extends FullFunctionScreen  {
 				dartChosen = BalloonBack.dartsProperty.get(4);
 				description.setText("Score: " + score + "/nBalloon Popped: "+
 		balloonChosen + "/nDart Used: " + dartChosen );
+				balloonDescription.setText("Balloon Popped:" + balloonChosen);
+				dartDescription.setText("Dart Used: " + dartChosen);
 			}
 		} );
 		balloon5B.setCurve(50,50);
@@ -181,6 +196,8 @@ public class BalloonScreen extends FullFunctionScreen  {
 				dartChosen = BalloonBack.dartsProperty.get(5);
 				description.setText("Score: " + score + "/nBalloon Popped: "+
 		balloonChosen + "/nDart Used: " + dartChosen );
+				balloonDescription.setText("Balloon Popped:" + balloonChosen);
+				dartDescription.setText("Dart Used: " + dartChosen);
 			}
 		} );
 		balloon6B.setCurve(50,50);
