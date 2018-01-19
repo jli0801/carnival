@@ -23,10 +23,9 @@ public class GuiLoadingVickie extends GUIApplication{
 	public static poppingBalloonsJessicaJi.BalloonResults balloonResults;
 	
 	public static foodJoannaAnnie.AnnieWorkScreen foodGame;
-	//public static foodJoannaAnnie.JoannaResultScreen foodResult;
-	//dont think the screen will appear if joanna's screen is not instantiated here... tried it with areej's and it didnt work
 	
-	
+	public static whackAMoleKevinSteph.WhackAMoleMenu moleInstruct;
+
 	/*
 	 * 3 screens stephKev
 	 * 	molePlay
@@ -65,7 +64,8 @@ public class GuiLoadingVickie extends GUIApplication{
 		balloonResults = new poppingBalloonsJessicaJi.BalloonResults(getWidth(), getHeight());
 		
 		foodGame = new foodJoannaAnnie.AnnieWorkScreen(getWidth(), getHeight());
-		//foodResult = new foodJoannaAnnie.JoannaResultScreen(getWidth(), getHeight());
+		
+		moleInstruct = new whackAMoleKevinSteph.WhackAMoleMenu(getWidth(), getHeight());
 		
 		setScreen(welcome);
 	}

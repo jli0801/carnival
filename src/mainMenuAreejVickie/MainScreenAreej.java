@@ -32,7 +32,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 			public void act() {
 				
-				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.welcome);
+				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.balloonGame);
 
 			}
 		});
@@ -40,7 +40,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 			public void act() {
 				
-				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.welcome);
+				//GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.moleGame);
 
 			}
 		});
@@ -48,7 +48,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 			public void act() {
 				
-				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.welcome);
+				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.foodGame);
 
 			}
 		});
