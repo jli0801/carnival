@@ -41,12 +41,13 @@ public class BalloonScreen extends FullFunctionScreen  {
 	private Button balloon4B;
 	private Button balloon5B;
 	private Button balloon6B;
-	static private int score = 0; //ji uses this in her class so it's static
-	private TextArea description;
+	private static int score; //ji uses this in her class so it's static
+	
 	private String balloonChosen; //needs to be int later
 	private int dartChosen; //needs to be int later
 	private TextArea balloonDescription;
 	private TextArea dartDescription;
+	private TextArea scoreText;
 	
 	
 	public BalloonScreen(int width, int height) {
@@ -63,7 +64,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		
+		score = 0;
 		 try {
 
 			 File fontFile = new File("poppingBalloons//Bangers.ttf");
@@ -105,14 +106,14 @@ public class BalloonScreen extends FullFunctionScreen  {
 		
 		viewObjects.add(back);
 		
-		description = new TextArea(700, 200, 600, 600, "Score: " + score + "/nBalloon Popped: " +
-		balloonChosen + "/nDart Used: " + dartChosen );
 		
+		scoreText = new TextArea(700, 300, 300, 300, "Score: " + score);
+		viewObjects.add(scoreText);
 		
-		balloonDescription = new TextArea(700, 350, 300, 300, "Balloon Popped: ");
+		balloonDescription = new TextArea(700, 350, 300, 300, "Balloon Popped: " + balloonChosen);
 		viewObjects.add(balloonDescription);
 		
-		dartDescription = new TextArea(700, 400, 300, 300, "Dart Used: ");
+		dartDescription = new TextArea(700, 400, 300, 300, "Dart Used: " + Integer.toString(dartChosen));
 		viewObjects.add(dartDescription);
 		
 		balloon1B = new Button(100, 200, 120, 120, "" , new Action() {
@@ -122,10 +123,10 @@ public class BalloonScreen extends FullFunctionScreen  {
 			//	BalloonBack.UpdateBalloons(1, 1);
 				balloonChosen = "Purple";
 				dartChosen = BalloonBack.dartsProperty.get(0);
-				description.setText("Score: " + score + "/nBalloon Popped: "+
-		balloonChosen + "/nDart Used: " + dartChosen );
+				score++;
+				scoreText.setText("Score: " + Integer.toString(score));
 				balloonDescription.setText("Balloon Popped:" + balloonChosen);
-				dartDescription.setText("Dart Used: " + dartChosen);
+				dartDescription.setText("Dart Used: " + Integer.toString(dartChosen));
 			}
 		} );
 		balloon1B.setCurve(50,50);
@@ -138,10 +139,10 @@ public class BalloonScreen extends FullFunctionScreen  {
 //				BalloonBack.UpdateBalloons(1, 1);
 				balloonChosen = "Mauve";
 				dartChosen = BalloonBack.dartsProperty.get(1);
-				description.setText("Score: " + score + "/nBalloon Popped: "+
-		balloonChosen + "/nDart Used: " + dartChosen );
+				score++;
+				scoreText.setText("Score: " + Integer.toString(score));
 				balloonDescription.setText("Balloon Popped:" + balloonChosen);
-				dartDescription.setText("Dart Used: " + dartChosen);
+				dartDescription.setText("Dart Used: " + Integer.toString(dartChosen));
 			}
 		} );
 		balloon2B.setCurve(50,50);
@@ -153,10 +154,10 @@ public class BalloonScreen extends FullFunctionScreen  {
 			//	BalloonBack.UpdateBalloons(2, 2);
 				balloonChosen = "Pink";
 				dartChosen = BalloonBack.dartsProperty.get(2);
-				description.setText("Score: " + score + "/nBalloon Popped: "+
-		balloonChosen + "/nDart Used: " + dartChosen );
+				score++;
+				scoreText.setText("Score: " + Integer.toString(score));
 				balloonDescription.setText("Balloon Popped:" + balloonChosen);
-				dartDescription.setText("Dart Used: " + dartChosen);
+				dartDescription.setText("Dart Used: " + Integer.toString(dartChosen));
 			}
 		} );
 		balloon3B.setCurve(50,50);
@@ -168,10 +169,10 @@ public class BalloonScreen extends FullFunctionScreen  {
 			//	BalloonBack.UpdateBalloons(3, 3);
 				balloonChosen = "Blue";
 				dartChosen = BalloonBack.dartsProperty.get(3);
-				description.setText("Score: " + score + "/nBalloon Popped: "+
-		balloonChosen + "/nDart Used: " + dartChosen );
+				score++;
+				scoreText.setText("Score: " + Integer.toString(score));
 				balloonDescription.setText("Balloon Popped:" + balloonChosen);
-				dartDescription.setText("Dart Used: " + dartChosen);
+				dartDescription.setText("Dart Used: " + Integer.toString(dartChosen));
 			}
 		} );
 		balloon4B.setCurve(50,50);
@@ -183,10 +184,10 @@ public class BalloonScreen extends FullFunctionScreen  {
 			//	BalloonBack.UpdateBalloons(4, 4);
 				balloonChosen = "Green";
 				dartChosen = BalloonBack.dartsProperty.get(4);
-				description.setText("Score: " + score + "/nBalloon Popped: "+
-		balloonChosen + "/nDart Used: " + dartChosen );
+				score++;
+				scoreText.setText("Score: " + Integer.toString(score));
 				balloonDescription.setText("Balloon Popped:" + balloonChosen);
-				dartDescription.setText("Dart Used: " + dartChosen);
+				dartDescription.setText("Dart Used: " + Integer.toString(dartChosen));
 			}
 		} );
 		balloon5B.setCurve(50,50);
@@ -198,15 +199,15 @@ public class BalloonScreen extends FullFunctionScreen  {
 			//	BalloonBack.UpdateBalloons(5, 5);
 				balloonChosen = "Gold";
 				dartChosen = BalloonBack.dartsProperty.get(5);
-				description.setText("Score: " + score + "/nBalloon Popped: "+
-		balloonChosen + "/nDart Used: " + dartChosen );
+				score++;
+				scoreText.setText("Score: " + Integer.toString(score));
 				balloonDescription.setText("Balloon Popped:" + balloonChosen);
-				dartDescription.setText("Dart Used: " + dartChosen);
+				dartDescription.setText("Dart Used: " + Integer.toString(dartChosen));
 			}
 		} );
 		balloon6B.setCurve(50,50);
 		viewObjects.add(balloon6B);
-		viewObjects.add(description);
+		
 		
 		ticket = new Graphic (60,650,150,150, "poppingBalloons/ticket.png");
 		viewObjects.add(ticket);
