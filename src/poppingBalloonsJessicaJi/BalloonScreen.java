@@ -44,6 +44,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 	private Button balloon4B;
 	private Button balloon5B;
 	private Button balloon6B;
+	
 	private static int score; //ji uses this in her class so it's static
 	
 	private String balloonChosen; //needs to be int later
@@ -51,6 +52,10 @@ public class BalloonScreen extends FullFunctionScreen  {
 	private TextArea balloonDescription;
 	private TextArea dartDescription;
 	private TextArea scoreText;
+	private TextArea dullDart;
+	private TextArea bluntDart;
+	private TextArea sharpDart;
+	private TextArea dangerousDart;
 	
 	
 	public BalloonScreen(int width, int height) {
@@ -105,17 +110,43 @@ public class BalloonScreen extends FullFunctionScreen  {
 		
 		viewObjects.add(back);
 		
+		//startTimerText = new TextArea(700, 250, 300, 300, "");
+		
+		//play = new Button(x, y, w, h, text, action)
 		
 		scoreText = new TextArea(700, 300, 300, 300, "Score: " + score);
 		viewObjects.add(scoreText);
-		
-		balloonDescription = new TextArea(700, 350, 400, 400, "Balloon Popped: " + balloonChosen);
+		balloonDescription = new TextArea(700, 350, 400, 400, "Balloon Popped: " );
 		viewObjects.add(balloonDescription);
-		
-		dartDescription = new TextArea(700, 400, 300, 300, "Dart Used: " + Integer.toString(dartChosen));
+		dartDescription = new TextArea(700, 400, 300, 300, "Dart Used: " );
 		viewObjects.add(dartDescription);
 		
-		balloon1B = new Button(97, 205, 100, 100, "" , new Action() {
+		ticket = new Graphic (60,650,150,150, "poppingBalloons/ticket.png");
+		viewObjects.add(ticket);
+		dart1 = new Graphic (250,650,100,100,"poppingBalloons/dart1.png");
+		dullDart = new TextArea(250,750,100,100, Integer.toString(Inventory.getDarts.get(0)));
+		viewObjects.add(dart1);
+		dart2 = new Graphic (350,650,100,100,"poppingBalloons/dart2.png");
+		viewObjects.add(dart2);
+		dart3 = new Graphic (450,650,100,100,"poppingBalloons/dart3.png");
+		viewObjects.add(dart3);
+		dart4 = new Graphic (550,650,100,100,"poppingBalloons/dart4.png");
+		viewObjects.add(dart4);
+		
+		balloon1 = new Graphic(100,200,120,120,"poppingBalloons/balloon1.png");
+		balloon2 = new Graphic(240,200,120,120,"poppingBalloons/balloon2.png");
+		balloon3 = new Graphic(380,200,120,120,"poppingBalloons/balloon3.png");
+		balloon4 = new Graphic(100,360,120,120,"poppingBalloons/balloon4.png");
+		balloon5 = new Graphic(240,360,120,120,"poppingBalloons/balloon5.png");
+		balloon6 = new Graphic(380,360,120,120,"poppingBalloons/balloon6.png");
+		viewObjects.add(balloon1);
+		viewObjects.add(balloon2);
+		viewObjects.add(balloon3);
+		viewObjects.add(balloon4);
+		viewObjects.add(balloon5);
+		viewObjects.add(balloon6);
+
+	balloon1B = new Button(97, 205, 100, 100, "" , new Action() {
 			
 			@Override
 			public void act() {
@@ -199,30 +230,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 		viewObjects.add(balloon6B);
 		
 		
-		ticket = new Graphic (60,650,150,150, "poppingBalloons/ticket.png");
-		viewObjects.add(ticket);
-		dart1 = new Graphic (250,650,100,100,"poppingBalloons/dart1.png");
-		viewObjects.add(dart1);
-		dart2 = new Graphic (350,650,100,100,"poppingBalloons/dart2.png");
-		viewObjects.add(dart2);
-		dart3 = new Graphic (450,650,100,100,"poppingBalloons/dart3.png");
-		viewObjects.add(dart3);
-		dart4 = new Graphic (550,650,100,100,"poppingBalloons/dart4.png");
-		viewObjects.add(dart4);
 		
-		balloon1 = new Graphic(100,200,120,120,"poppingBalloons/balloon1.png");
-		balloon2 = new Graphic(240,200,120,120,"poppingBalloons/balloon2.png");
-		balloon3 = new Graphic(380,200,120,120,"poppingBalloons/balloon3.png");
-		balloon4 = new Graphic(100,360,120,120,"poppingBalloons/balloon4.png");
-		balloon5 = new Graphic(240,360,120,120,"poppingBalloons/balloon5.png");
-		balloon6 = new Graphic(380,360,120,120,"poppingBalloons/balloon6.png");
-		viewObjects.add(balloon1);
-		viewObjects.add(balloon2);
-		viewObjects.add(balloon3);
-		viewObjects.add(balloon4);
-		viewObjects.add(balloon5);
-		viewObjects.add(balloon6);
-
 		
 	}
 	
@@ -238,14 +246,14 @@ public class BalloonScreen extends FullFunctionScreen  {
 		return BalloonBack.CreateBalloons();
 	}
 
-	private void changeTimer(String string) {
+	private void changeTimer(int time, String text) {
 		Thread blink = new Thread(new Runnable() {
 
 			@Override
 			public void run() {
 				//.setText(string);
 				try {
-					Thread.sleep(1000);
+					Thread.sleep(time*1000);
 				} catch(InterruptedException e) {
 					e.printStackTrace();
 				}
