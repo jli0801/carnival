@@ -35,10 +35,12 @@ public class JoannaResultScreen extends ClickableScreen {
 		super(width, height);
 		annie = screen; 
 		setVisible(true);
+		
 	}
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		currentOrder= annie.getCurrentOrder();
 		setBackground(new Color(255, 250, 155));
 		serveHeader =new TextLabel(600, 75, 175, 30, "YOU SERVED:");
 		orderHeader =new TextLabel(175, 75, 150, 30, "ORDER");
@@ -63,7 +65,7 @@ public class JoannaResultScreen extends ClickableScreen {
 		work.setBackground(Color.GREEN);
 		
 		
-		description = new TextArea(125, 170, 300, 400, "text goes here");
+		description = new TextArea(125, 170, 300, 400, currentOrder.toString());
 		Component orderBox = new Component(125,170,300,400) {
 			
 			@Override
