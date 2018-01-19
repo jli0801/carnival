@@ -101,7 +101,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 		
 		description = new TextArea(700, 200, 600, 600, "Score: " + score + "/nBalloon Popped: " +
 		balloonChosen + "/nDart Used: " + dartChosen );
-		viewObjects.add(description);
+		
 		
 		
 		
@@ -185,7 +185,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 		} );
 		balloon6B.setCurve(50,50);
 		viewObjects.add(balloon6B);
-		
+		viewObjects.add(description);
 		
 		ticket = new Graphic (60,650,150,150, "poppingBalloons/ticket.png");
 		viewObjects.add(ticket);
