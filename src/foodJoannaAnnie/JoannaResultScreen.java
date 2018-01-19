@@ -45,7 +45,7 @@ public class JoannaResultScreen extends ClickableScreen {
 
 			@Override
 			public void act() {
-				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
+				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu); 
 
 			}
 		});
