@@ -14,13 +14,16 @@ import guiTeacher.components.StyledComponent;
 import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import mainMenuAreejVickie.GuiLoadingVickie;
+import mainMenuAreejVickie.MainScreenAreej;
+
 import javax.swing.border.*;
 
 public class BalloonScreen extends FullFunctionScreen  {
 	
 //	public static mainMenuAreejVickie.choseGame menu; Where user chooses games.
 
-	//public static MainScreenAreej menu;
+	public static MainScreenAreej menu;
 	public Graphic background;
 	public Graphic ticket;
 	public Graphic booth;
@@ -95,12 +98,8 @@ public class BalloonScreen extends FullFunctionScreen  {
 			
 			@Override
 			public void act() {
-
-				//menu = new MainScreenAreej(getWidth(), getHeight());
-
-		//		menu = new MainScreenAreej(getWidth(), getHeight());
-
-		//		setScreen(menu);
+				
+				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
 			}
 		} );
 		
