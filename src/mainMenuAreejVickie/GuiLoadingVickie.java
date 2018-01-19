@@ -24,7 +24,7 @@ public class GuiLoadingVickie extends GUIApplication{
 	
 	public static foodJoannaAnnie.AnnieWorkScreen foodGame;
 	
-	public static whackAMoleKevinSteph.WhackAMoleMenu moleInstruct;
+	public static whackAMoleKevinSteph.WAMMenuStephanie moleInstruct;
 
 	/*
 	 * 3 screens stephKev
@@ -65,7 +65,7 @@ public class GuiLoadingVickie extends GUIApplication{
 		
 		foodGame = new foodJoannaAnnie.AnnieWorkScreen(getWidth(), getHeight());
 		
-		moleInstruct = new whackAMoleKevinSteph.WhackAMoleMenu(getWidth(), getHeight());
+		moleInstruct = new whackAMoleKevinSteph.WAMMenuStephanie(getWidth(), getHeight());
 		
 		setScreen(welcome);
 	}
