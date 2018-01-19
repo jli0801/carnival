@@ -21,7 +21,7 @@ public class WAMGameKevin extends ClickableScreen {
 	private Button moleEight;
 	private Button moleNine;
 	
-	private Button quit;
+	private Button quitButton;
 	
 	public WAMGameKevin(int width, int height) {
 		super(width, height);
@@ -33,15 +33,51 @@ public class WAMGameKevin extends ClickableScreen {
 		//Graphic background = new Graphic(0,0, getWidth(), getHeight(), "resources/background.jpg");
 		//viewObjects.add(background);
 		
-		quit = new Button(180,30,210,50,"Quit Game", new Action() {
+		quitButton = new Button(100,30,210,50,"Quit Game", new Action() {
 			
 			@Override
 			public void act() {
-				
+				//WAMMainKevin.gameScreen.setScreen(WAMMainKevin.mainScreen);
 				
 			}
 		});
+		viewObjects.add(quitButton);
+		
+		moleOne = new Button(300,200,80,80,"Juan", new Action() {
+			
+			@Override
+			public void act() {
+				moleDown(1);
+				
+			}
+		});
+		viewObjects.add(moleOne);
+		
+		moleTwo = new Button(400,200,80,80,"Who", new Action() {
+			
+			@Override
+			public void act() {
+				moleDown(2);
+				
+			}
+		});
+		viewObjects.add(moleTwo);
+		
+		moleThree = new Button(500,200,80,80,"Tree", new Action() {
+			
+			@Override
+			public void act() {
+				moleDown(3);
+				
+			}
+		});
+		viewObjects.add(moleThree);
+		
+	}
 
+	public void moleDown(int moleNumber) {
+		
+		
 	}
 
 }
