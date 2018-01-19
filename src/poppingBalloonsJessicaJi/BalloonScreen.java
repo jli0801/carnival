@@ -20,7 +20,11 @@ public class BalloonScreen extends FullFunctionScreen  {
 	
 //	public static mainMenuAreejVickie.choseGame menu; Where user chooses games.
 
+<<<<<<< HEAD
 	//public static MainScreenAreej menu;
+=======
+//	public static MainScreenAreej menu;
+>>>>>>> branch 'balloonJessicaJi' of https://github.com/jli0801/carnival.git
 	public Graphic background;
 	public Graphic ticket;
 	public Graphic booth;
@@ -94,7 +98,11 @@ public class BalloonScreen extends FullFunctionScreen  {
 			
 			@Override
 			public void act() {
+<<<<<<< HEAD
 				//menu = new MainScreenAreej(getWidth(), getHeight());
+=======
+		//		menu = new MainScreenAreej(getWidth(), getHeight());
+>>>>>>> branch 'balloonJessicaJi' of https://github.com/jli0801/carnival.git
 		//		setScreen(menu);
 			}
 		} );
@@ -103,7 +111,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 		
 		description = new TextArea(700, 200, 600, 600, "Score: " + score + "/nBalloon Popped: " +
 		balloonChosen + "/nDart Used: " + dartChosen );
-		viewObjects.add(description);
+		
 		
 		balloonDescription = new TextArea(700, 350, 300, 300, "Balloon Popped: ");
 		viewObjects.add(balloonDescription);
@@ -202,7 +210,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 		} );
 		balloon6B.setCurve(50,50);
 		viewObjects.add(balloon6B);
-		
+		viewObjects.add(description);
 		
 		ticket = new Graphic (60,650,150,150, "poppingBalloons/ticket.png");
 		viewObjects.add(ticket);
