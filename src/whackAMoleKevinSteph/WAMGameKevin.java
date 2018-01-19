@@ -76,7 +76,7 @@ public class WAMGameKevin extends ClickableScreen {
 	}
 
 	public void moleDown(int moleNumber) {
-		
+		//disable something
 		
 	}
 
