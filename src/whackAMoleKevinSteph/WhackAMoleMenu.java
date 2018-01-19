@@ -48,7 +48,7 @@ public class WhackAMoleMenu extends FullFunctionScreen {
 			 }
 		
 		
-		returnMSButton = new Button(50,50,210,50,"RETURN TO MAIN MENU",Color.RED, new Action() {
+		returnMSButton = new Button(180,30,210,50,"RETURN TO MAIN MENU",Color.ORANGE, new Action() {
 
 			public void act() {
 				returnMainScreen();
@@ -57,7 +57,7 @@ public class WhackAMoleMenu extends FullFunctionScreen {
 
 		viewObjects.add(returnMSButton);
 
-		instructionsButton = new Button(300,575,200,50,"SEE INSTRUCTIONS",Color.YELLOW, new Action() {
+		instructionsButton = new Button(480,30,200,50,"SEE INSTRUCTIONS",Color.ORANGE, new Action() {
 
 			public void act() {
 				showInstructions();
@@ -66,7 +66,7 @@ public class WhackAMoleMenu extends FullFunctionScreen {
 
 		viewObjects.add(instructionsButton);
 
-		startButton = new Button(600,575,200,50,"START GAME",Color.GREEN, new Action() {
+		startButton = new Button(780,30,200,50,"START GAME",Color.ORANGE, new Action() {
 
 			public void act() {
 				WhackAMoleMain.main.setScreen(new WhackAMoleScreen(getWidth(), getHeight()));
@@ -75,7 +75,7 @@ public class WhackAMoleMenu extends FullFunctionScreen {
 		
 		viewObjects.add(startButton);
 
-		instructionsText = new TextBox(275,150,550,350,"WELCOME TO WHACK-A-MOLE");
+		instructionsText = new TextBox(225,100,700,250,"WELCOME TO WHACK-A-MOLE");
 		instructionsText.setInactiveBorderColor(Color.RED);
 		instructionsText.setReadOnly(true);
 		instructionsText.setEditable(false);
@@ -92,10 +92,6 @@ public class WhackAMoleMenu extends FullFunctionScreen {
 				+ "THERE ARE 3 ROUNDS. ROUND 1 STARTS OFF WITH 20 SECONDS, BUT AS YOU PROGRESS TO THE NEXT ROUNDS, THE TIME LIMIT WILL DECREASE BY 5 SECONDS AND THE MOLES WILL MOVE FASTER. "
 				+ "CLICKING ON THE WRONG HOLE WILL RESULT IN A 1 SECOND PENALTY."  + "\n" + "NOW GO WHACK SOME MOLES AND ENJOY THE GAME!!");
 		instructionsText.update();
-	}
-
-	public void startGame() {
-		System.out.print("Start Game");
 	}
 
 }
