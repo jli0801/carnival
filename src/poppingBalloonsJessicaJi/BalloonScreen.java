@@ -1,6 +1,7 @@
 package poppingBalloonsJessicaJi;
 
 import java.awt.Color;
+import mainMenuAreejiVickie.GuiLoadingVickie;
 import java.awt.Font;
 import java.io.File;
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 	
 //	public static mainMenuAreejVickie.choseGame menu; Where user chooses games.
 
+	public static MainScreenAreej menu;
 	public Graphic background;
 	public Graphic ticket;
 	public Graphic booth;
@@ -40,7 +42,9 @@ public class BalloonScreen extends FullFunctionScreen  {
 	private Button balloon5B;
 	private Button balloon6B;
 	static private int score = 0; //ji uses this in her class so it's static
-	private TextArea scoreText;
+	private TextArea description;
+	private String balloonChosen; //needs to be int later
+	private int dartChosen; //needs to be int later
 	
 	
 	public BalloonScreen(int width, int height) {
@@ -88,17 +92,29 @@ public class BalloonScreen extends FullFunctionScreen  {
 			
 			@Override
 			public void act() {
+				menu = new MainScreenAreej(getWidth(), getHeight());
 		//		setScreen(menu);
 			}
 		} );
 		
 		viewObjects.add(back);
 		
+		description = new TextArea(700, 200, 600, 600, "Score: " + score + "/nBalloon Popped: " +
+		balloonChosen + "/nDart Used: " + dartChosen );
+		viewObjects.add(description);
+		
+		
+		
 		balloon1B = new Button(100, 200, 120, 120, "" , new Action() {
 			
 			@Override
 			public void act() {
-				BalloonBack.UpdateBalloons(0, 0);
+			//	BalloonBack.UpdateBalloons(1, 1);
+				balloonChosen = "Purple";
+				dartChosen = BalloonBack.dartsProperty.get(0);
+				description.setText("Score: " + score + "/nBalloon Popped: "+
+		balloonChosen + "/nDart Used: " + dartChosen );
+				
 			}
 		} );
 		balloon1B.setCurve(50,50);
@@ -108,7 +124,11 @@ public class BalloonScreen extends FullFunctionScreen  {
 			
 			@Override
 			public void act() {
-				BalloonBack.UpdateBalloons(1, 1);
+//				BalloonBack.UpdateBalloons(1, 1);
+				balloonChosen = "Mauve";
+				dartChosen = BalloonBack.dartsProperty.get(1);
+				description.setText("Score: " + score + "/nBalloon Popped: "+
+		balloonChosen + "/nDart Used: " + dartChosen );
 			}
 		} );
 		balloon2B.setCurve(50,50);
@@ -117,7 +137,11 @@ public class BalloonScreen extends FullFunctionScreen  {
 			
 			@Override
 			public void act() {
-				BalloonBack.UpdateBalloons(2, 2);
+			//	BalloonBack.UpdateBalloons(2, 2);
+				balloonChosen = "Pink";
+				dartChosen = BalloonBack.dartsProperty.get(2);
+				description.setText("Score: " + score + "/nBalloon Popped: "+
+		balloonChosen + "/nDart Used: " + dartChosen );
 			}
 		} );
 		balloon3B.setCurve(50,50);
@@ -126,7 +150,11 @@ public class BalloonScreen extends FullFunctionScreen  {
 			
 			@Override
 			public void act() {
-				BalloonBack.UpdateBalloons(3, 3);
+			//	BalloonBack.UpdateBalloons(3, 3);
+				balloonChosen = "Blue";
+				dartChosen = BalloonBack.dartsProperty.get(3);
+				description.setText("Score: " + score + "/nBalloon Popped: "+
+		balloonChosen + "/nDart Used: " + dartChosen );
 			}
 		} );
 		balloon4B.setCurve(50,50);
@@ -135,7 +163,11 @@ public class BalloonScreen extends FullFunctionScreen  {
 			
 			@Override
 			public void act() {
-				BalloonBack.UpdateBalloons(4, 4);
+			//	BalloonBack.UpdateBalloons(4, 4);
+				balloonChosen = "Green";
+				dartChosen = BalloonBack.dartsProperty.get(4);
+				description.setText("Score: " + score + "/nBalloon Popped: "+
+		balloonChosen + "/nDart Used: " + dartChosen );
 			}
 		} );
 		balloon5B.setCurve(50,50);
@@ -144,7 +176,11 @@ public class BalloonScreen extends FullFunctionScreen  {
 			
 			@Override
 			public void act() {
-				BalloonBack.UpdateBalloons(5, 5);
+			//	BalloonBack.UpdateBalloons(5, 5);
+				balloonChosen = "Gold";
+				dartChosen = BalloonBack.dartsProperty.get(5);
+				description.setText("Score: " + score + "/nBalloon Popped: "+
+		balloonChosen + "/nDart Used: " + dartChosen );
 			}
 		} );
 		balloon6B.setCurve(50,50);
@@ -177,8 +213,6 @@ public class BalloonScreen extends FullFunctionScreen  {
 		viewObjects.add(balloon6);
 		
 		
-		scoreText = new TextArea(700, 200, 100, 100, "Score: " + score);
-		viewObjects.add(scoreText);
 		
 
 		
