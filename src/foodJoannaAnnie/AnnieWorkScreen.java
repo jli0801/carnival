@@ -2,9 +2,11 @@ package foodJoannaAnnie;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.Stroke;
+import java.io.File;
 import java.util.*;
 
 import guiTeacher.components.*;
@@ -39,6 +41,15 @@ public class AnnieWorkScreen extends ClickableScreen {
 	}
 
 	public void initAllObjects(List<Visible> viewObjects) {
+		
+		try {
+			File fontFile = new File("food/Bangers.ttf");
+			Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+			Font baseFont = font.deriveFont(60f);
+			StyledComponent.setBaseFont(baseFont);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 		String[] temp = {"food/pepperoni.png", "food/onion.png", "food/pineapple.png", "food/mushroom.png", "food/olive.png", "food/bacon.png", "food/pepper.png", "food/sausage.png"};
 		toppingImgs = temp;

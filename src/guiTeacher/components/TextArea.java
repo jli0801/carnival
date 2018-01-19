@@ -22,8 +22,21 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
+/**
+ * A multi-line TextLabel (cannot be edited by uer, does not scroll)
+ * @author bnockles
+ *
+ */
 public class TextArea extends TextLabel {
 
+	/**
+	 * 
+	 * @param x x-coordinate within container
+	 * @param y y-coordinate within container
+	 * @param w width of textArea
+	 * @param h height of text area
+	 * @param text
+	 */
 	public TextArea(int x, int y, int w, int h, String text) {
 		super(x, y, w, h, text);
 
@@ -34,7 +47,7 @@ public class TextArea extends TextLabel {
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g.setFont(getFont());
 		FontMetrics fm = g.getFontMetrics();
-		g.setColor(getForeground()); //changed this
+		g.setColor(getForeground());
 		if(getText() != null){
 			String[] paragraphs = getText().split("\n");
 			final int SPACING = 2;
