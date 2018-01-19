@@ -125,7 +125,7 @@ public class AnnieWorkScreen extends ClickableScreen {
 			viewObjects.add(item);
 		}
 		
-		Component box1 = new Component(getWidth() - 300, getHeight() - 120, 200, 100) {
+		Component box1 = new Component(getWidth() - 380, getHeight() - 160, 200, 100) {
 			
 			public void update(Graphics2D g) {
 				g.setColor(new Color(60, 180, 120));
@@ -138,7 +138,7 @@ public class AnnieWorkScreen extends ClickableScreen {
 		};
 		box1.setVisible(true);
 		viewObjects.add(box1);
-		Button done = new Button(getWidth() - 300, getHeight() - 120, 150, 60, "DONE", new Action() {
+		Button done = new Button(getWidth() - 380, getHeight() - 160, 200, 100, "DONE", new Action() {
 			
 			public void act() {
 				Testing.test.setScreen(new JoannaResultScreen(getWidth(), getHeight(), AnnieWorkScreen.this));
@@ -149,7 +149,7 @@ public class AnnieWorkScreen extends ClickableScreen {
 		});
 		viewObjects.add(done);
 		
-		Component box2 = new Component(getWidth() - 120, getHeight() - 120, 100, 100) {
+		Component box2 = new Component(getWidth() - 160, getHeight() - 160, 100, 100) {
 			
 			public void update(Graphics2D g) {
 				g.setColor(new Color(250, 50, 50));
@@ -162,7 +162,7 @@ public class AnnieWorkScreen extends ClickableScreen {
 		};
 		box2.setVisible(true);
 		viewObjects.add(box2);
-		ClickableGraphic trash = new ClickableGraphic(getWidth() - 140, getHeight() - 140, 100, 100, "food/trash.png");
+		ClickableGraphic trash = new ClickableGraphic(getWidth() - 160, getHeight() - 160, 100, 100, "food/trash.png");
 		trash.setAction(new Action() {
 
 			public void act() {
