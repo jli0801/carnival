@@ -10,6 +10,7 @@ import java.util.*;
 import guiTeacher.components.*;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
+import mainMenuAreejVickie.GuiLoadingVickie;
 
 public class AnnieWorkScreen extends ClickableScreen {
 	
@@ -150,7 +151,7 @@ public class AnnieWorkScreen extends ClickableScreen {
 		Button done = new Button(getWidth() - 365, getHeight() - 160, 200, 100, "done", new Action() {
 			
 			public void act() {
-				Testing.test.setScreen(new JoannaResultScreen(getWidth(), getHeight(), AnnieWorkScreen.this));
+				GuiLoadingVickie.loading.setScreen(new JoannaResultScreen(getWidth(), getHeight(), AnnieWorkScreen.this));
 				resetTray(viewObjects);
 				trashCount = 0;
 			}
