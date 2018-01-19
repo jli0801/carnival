@@ -1,7 +1,7 @@
 package poppingBalloonsJessicaJi;
 
 import java.awt.Color;
-import mainMenuAreejiVickie.GuiLoadingVickie;
+//import mainMenuAreejiVickie.GuiLoadingVickie;
 import java.awt.Font;
 import java.io.File;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 	
 //	public static mainMenuAreejVickie.choseGame menu; Where user chooses games.
 
-	public static MainScreenAreej menu;
+//	public static MainScreenAreej menu;
 	public Graphic background;
 	public Graphic ticket;
 	public Graphic booth;
