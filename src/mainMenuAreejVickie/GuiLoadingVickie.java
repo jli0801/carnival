@@ -18,25 +18,20 @@ public class GuiLoadingVickie extends GUIApplication{
 	public static WelcomeScreenVickie  welcome;
 	public static MainScreenAreej menu;
 	
-	/*
-	public static balloonGame
-	public static balloonResult
+	
+	public static poppingBalloonsJessicaJi.BalloonScreen balloonGame;
+	public static poppingBalloonsJessicaJi.BalloonResults balloonResults;
+	
+	public static foodJoannaAnnie.AnnieWorkScreen foodGame;
+	//public static foodJoannaAnnie.JoannaResultScreen foodResult;
+	//dont think the screen will appear if joanna's screen is not instantiated here... tried it with areej's and it didnt work
 	
 	
-	*/
 	/*
-	 * 2 screens jessJi
-	 * 	balloonGameplay
-	 *	balloonGameResult
-	 *
 	 * 3 screens stephKev
 	 * 	molePlay
 	 * 	moleResult
 	 * 	?
-	 * 
-	 * 2 screens AnnieJoanna
-	 * 	workPlay
-	 * 	workResult
 	 */
 
 	public static void main(String[] args) {
@@ -65,6 +60,12 @@ public class GuiLoadingVickie extends GUIApplication{
 
 		welcome = new WelcomeScreenVickie(getWidth(), getHeight());
 		menu = new MainScreenAreej(getWidth(), getHeight());
+		
+		balloonGame = new poppingBalloonsJessicaJi.BalloonScreen(getWidth(), getHeight());
+		balloonResults = new poppingBalloonsJessicaJi.BalloonResults(getWidth(), getHeight());
+		
+		foodGame = new foodJoannaAnnie.AnnieWorkScreen(getWidth(), getHeight());
+		//foodResult = new foodJoannaAnnie.JoannaResultScreen(getWidth(), getHeight());
 		
 		setScreen(welcome);
 	}

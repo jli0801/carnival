@@ -57,6 +57,13 @@ public class WelcomeScreenVickie extends FullFunctionScreen{ //possibly extends 
 					carnival.setForeground(colors);
 					carnival.update();
 					
+					/*
+					 * once open, the background is black and white pic
+					 * the textarea in white text slowly says "welcome..to..the..CARNIVAL!" 
+					 * once carnival is said, it turns a multitude of colors, welcomeBackground is in full color, 
+					 * and the welcome button appears
+					 */
+					
 					if(count ==0) {
 						timer.cancel();
 					}	
