@@ -73,18 +73,14 @@ public class BalloonBack {
 		{
 			if(dartsProperty.get(dartProperty) < balloonsProperty.get(x))
 			{
-				
+				if(balloonsProperty.get(x) == 0) {
+					balloons.remove(x);
+				}
 			}
 		}
 	}
 	
-	public void MakeBallonsPoppable() {
-		//for loop make poppable
-	}
 	
-	public void MakeBalloonsUnpoppable() {
-		//for loop make unpoppable
-	}
 	
 	
 	public void EndGame() {
