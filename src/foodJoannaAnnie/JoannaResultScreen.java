@@ -78,7 +78,7 @@ public class JoannaResultScreen extends ClickableScreen {
 		viewObjects.add(work);
 
 
-
+ 
 		viewObjects.add(description);
 	
 	
