@@ -42,7 +42,7 @@ public class AnnieWorkScreen extends ClickableScreen {
 	public void initAllObjects(List<Visible> viewObjects) {
 		
 		try {
-			File fontFile = new File("food/Bangers.ttf");
+			File fontFile = new File("resources/Bangers.ttf");
 			Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 			Font baseFont = font.deriveFont(40f);
 			StyledComponent.setBaseFont(baseFont);

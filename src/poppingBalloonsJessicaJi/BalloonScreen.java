@@ -78,7 +78,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 		
 		 try {
 
-			 File fontFile = new File("poppingBalloons//Bangers.ttf");
+			 File fontFile = new File("resources/Bangers.ttf");
 
 			 Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 

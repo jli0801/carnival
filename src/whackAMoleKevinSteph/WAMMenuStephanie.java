@@ -28,13 +28,13 @@ public class WAMMenuStephanie extends FullFunctionScreen {
 
 	public void initAllObjects(List<Visible> viewObjects) {
 		
-		Graphic background = new Graphic(0,0, getWidth(), getHeight(), "resources/background.jpg");
+		Graphic background = new Graphic(0,0, getWidth(), getHeight(), "wam/background.jpg");
 		
 		viewObjects.add(background);
 		
 		 try {
 
-			 File fontFile = new File("resources//Bangers.ttf");
+			 File fontFile = new File("resources/Bangers.ttf");
 
 			 Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
