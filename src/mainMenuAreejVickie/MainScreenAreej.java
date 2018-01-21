@@ -82,7 +82,6 @@ public class MainScreenAreej extends FullFunctionScreen {
 		viewObjects.add(food);
 		//viewObjects.add(ta);
 		
-		 StyledComponent.setButtonOutline(true);
 		
 		
 	}

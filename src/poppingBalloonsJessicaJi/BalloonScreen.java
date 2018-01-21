@@ -124,7 +124,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 		ticket = new Graphic (60,650,150,150, "poppingBalloons/ticket.png");
 		viewObjects.add(ticket);
 		dart1 = new Graphic (250,650,100,100,"poppingBalloons/dart1.png");
-		dullDart = new TextArea(250,750,100,100, Integer.toString(Inventory.getDarts.get(0)));
+//		dullDart = new TextArea(250,750,100,100, Integer.toString(Inventory.getDarts.get(0)));
 		viewObjects.add(dart1);
 		dart2 = new Graphic (350,650,100,100,"poppingBalloons/dart2.png");
 		viewObjects.add(dart2);
