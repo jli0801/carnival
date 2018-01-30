@@ -8,10 +8,10 @@ import guiTeacher.components.ClickableGraphic;
 
 public class JoannaOrder extends ClickableGraphic {
 
-	private AnnieFoodItem[] requested;
+	private AnnieFoodItem[] requested; //toppings that will be used
 	private int numIng; //# of toppings for tht order
 	private AnnieWorkScreen annie;
-	private Object[][] order;
+	private Object[][] order; //complete order
 
 
 	public JoannaOrder(int x, int y, int w, int h, String imageLocation, AnnieWorkScreen screen) {
@@ -47,7 +47,7 @@ public class JoannaOrder extends ClickableGraphic {
 		int quantity;
 		for(int aOrder =0; aOrder<order.length;aOrder++) {
 			for(int idx =0; order[aOrder].length< 2;idx++) {
-				quantity = (int) ((Math.random()*7)+1);
+				quantity = (int) ((Math.random()*7)+3);
 				if(idx == 0) {
 					order[aOrder][idx]= quantity;
 				}else {
@@ -63,7 +63,7 @@ public class JoannaOrder extends ClickableGraphic {
 	public String toString() {
 		String s="";
 		for(int i=0; i<order.length; i++) {
-			for(int j=0; i<order[i].length; i++) {
+			for(int j=0; j<order[i].length; j++) {
 				s+= order[i]+" "+order[i][j] + "\n"; 
 			}
 		}
