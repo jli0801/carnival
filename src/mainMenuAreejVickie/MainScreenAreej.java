@@ -36,7 +36,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 			}
 		});
-		mole = new Button(440, 580, 150, 40, "Wack-a-Mole", Color.blue, new Action() {
+		mole = new Button(440, 580, 150, 40, "Whack-a-Mole", Color.blue, new Action() {
 
 			public void act() {
 				
