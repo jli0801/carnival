@@ -75,7 +75,7 @@ public class WelcomeScreenVickie extends FullFunctionScreen{ //possibly extends 
 				public void act() {
 					if(!activate) {
 						activate = !activate;
-						timer.schedule(complete, 0, 100);
+						timer.schedule(complete, 0, 200);
 						menu.setText("Welcome!");
 					}else {
 						GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
