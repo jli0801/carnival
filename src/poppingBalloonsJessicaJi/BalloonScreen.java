@@ -57,6 +57,8 @@ public class BalloonScreen extends FullFunctionScreen  {
 	private TextArea sharpDart;
 	private TextArea dangerousDart;
 	
+	private PowerBar strength;
+	
 	
 	public BalloonScreen(int width, int height) {
 		super(width, height);
@@ -91,6 +93,8 @@ public class BalloonScreen extends FullFunctionScreen  {
 //
 			 }
 		
+		strength = new PowerBar(75,100,15,0);
+		viewObjects.add(strength);
 		
 		background = new Graphic(0, 0, getWidth(), getHeight(), "poppingBalloons/background.jpg");
 		viewObjects.add(background);
