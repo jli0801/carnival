@@ -49,9 +49,9 @@ public class BalloonScreen extends FullFunctionScreen  {
 	private Button balloon6B;
 
 	private static int score; //ji uses this in her class so it's static
-	private int timeLeft = 5;
+	private static int timeLeft = 5;
 
-	public int getTimeLeft() {
+	public static int getTimeLeft() { //jessica needs this for power bar 
 		return timeLeft;
 	}
 
