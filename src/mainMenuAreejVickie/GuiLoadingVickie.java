@@ -25,6 +25,7 @@ public class GuiLoadingVickie extends GUIApplication{
 	public static foodJoannaAnnie.AnnieWorkScreen foodGame;
 	
 	public static whackAMoleKevinSteph.WAMMenuStephanie moleInstruct;
+	public static whackAMoleKevinSteph.WAMGameKevin moleGame;
 
 	/*
 	 * 3 screens stephKev

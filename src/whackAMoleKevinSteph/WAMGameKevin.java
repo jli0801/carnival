@@ -8,6 +8,7 @@ import guiTeacher.components.Graphic;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import mainMenuAreejVickie.GuiLoadingVickie;
 
 public class WAMGameKevin extends FullFunctionScreen {
 
@@ -37,7 +38,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				//WAMMainKevin.gameScreen.setScreen(WAMMainKevin.mainScreen);
+				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.moleInstruct);
 				
 			}
 		});
