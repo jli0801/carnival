@@ -65,7 +65,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 			}
 		});*/
 		
-		inventory = new Button(630, 580, 120, 40, "invetory", Color.green, new Action() {
+		inventory = new Button(630, 580, 120, 40, "inventory", Color.green, new Action() {
 
 			public void act() {
 				
