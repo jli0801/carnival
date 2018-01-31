@@ -160,8 +160,6 @@ public class AnnieWorkScreen extends ClickableScreen {
 		Button done = new Button(box1.getX(), box1.getY(), box1.getWidth(), box1.getHeight(), "done", new Action() {
 			
 			public void act() {
-				resetTray(viewObjects);
-				orderAnimation(viewObjects);
 				GuiLoadingVickie.loading.setScreen(new JoannaResultScreen(getWidth(), getHeight(), AnnieWorkScreen.this));
 				trashCount = 0;
 			}
