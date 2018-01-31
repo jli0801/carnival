@@ -16,8 +16,10 @@ public class InventoryVickie extends FullFunctionScreen{
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		Graphic inventoryBackground = new Graphic(0,0, getWidth(), getHeight(), "resources/inventory.jpg");
+		Graphic inventoryBackground = new Graphic(0,0, getWidth(), getHeight(), "resources/inventoryF.jpg");
 		
+		
+		viewObjects.add(inventoryBackground);
 	}
 	
 	//private ArrayList<> inventory;
