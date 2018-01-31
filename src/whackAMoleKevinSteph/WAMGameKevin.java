@@ -5,8 +5,8 @@ import java.util.List;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
+import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
-import guiTeacher.userInterfaces.ClickableScreen;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import mainMenuAreejVickie.GuiLoadingVickie;
 
@@ -22,6 +22,10 @@ public class WAMGameKevin extends FullFunctionScreen {
 	private Button moleEight;
 	private Button moleNine;
 	
+	private int score;
+	
+	private TextArea scoreText;
+	
 	private Button quitButton;
 	
 	public WAMGameKevin(int width, int height) {
@@ -33,6 +37,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 	public void initAllObjects(List<Visible> viewObjects) {
 		//Graphic background = new Graphic(0,0, getWidth(), getHeight(), "resources/background.jpg");
 		//viewObjects.add(background);
+		score = 0;
 		
 		quitButton = new Button(100,30,100,70,"Quit Game", new Action() {
 			
@@ -44,12 +49,15 @@ public class WAMGameKevin extends FullFunctionScreen {
 		});
 		viewObjects.add(quitButton);
 		
+		scoreText = new TextArea(950,100,200,200, "Score: " + score);
+		viewObjects.add(scoreText);
+		
 		moleOne = new Button(250,200,80,80,"One", new Action() {
 			
 			@Override
 			public void act() {
-				moleDown(1);
-				
+				moleOneDown();
+				scoreUp();
 			}
 		});
 		viewObjects.add(moleOne);
@@ -58,8 +66,8 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleDown(2);
-				
+				moleTwoDown();
+				scoreUp();
 			}
 		});
 		viewObjects.add(moleTwo);
@@ -68,8 +76,8 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleDown(3);
-				
+				moleThreeDown();
+				scoreUp();
 			}
 		});
 		viewObjects.add(moleThree);
@@ -78,8 +86,8 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleDown(4);
-				
+				moleFourDown();
+				scoreUp();
 			}
 		});
 		viewObjects.add(moleFour);
@@ -88,8 +96,8 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleDown(5);
-				
+				moleFiveDown();
+				scoreUp();
 			}
 		});
 		viewObjects.add(moleFive);
@@ -98,8 +106,8 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleDown(6);
-				
+				moleSixDown();
+				scoreUp();
 			}
 		});
 		viewObjects.add(moleSix);
@@ -108,8 +116,8 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleDown(7);
-				
+				moleSevenDown();
+				scoreUp();
 			}
 		});
 		viewObjects.add(moleSeven);
@@ -118,8 +126,8 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleDown(8);
-				
+				moleEightDown();
+				scoreUp();
 			}
 		});
 		viewObjects.add(moleEight);
@@ -128,17 +136,58 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleDown(9);
-				
+				moleNineDown();
+				scoreUp();
 			}
 		});
 		viewObjects.add(moleNine);
 		
 	}
 	
-	public void moleDown(int moleNumber) {
-		//disable something
+	
+	
+	public void moleOneDown() {
+		moleOne.setEnabled(false);
+	}
+
+	public void moleTwoDown() {
+		moleTwo.setEnabled(false);
 		
+	}
+
+	public void moleThreeDown() {
+		moleThree.setEnabled(false);
+		
+	}
+
+	public void moleFourDown() {
+		moleFour.setEnabled(false);		
+	}
+
+	public void moleFiveDown() {
+		moleFive.setEnabled(false);		
+	}
+
+	public void moleSixDown() {
+		moleSix.setEnabled(false);		
+	}
+
+	public void moleSevenDown() {
+		moleSeven.setEnabled(false);		
+	}
+
+	public void moleEightDown() {
+		moleEight.setEnabled(false);		
+	}
+
+	public void moleNineDown() {
+		moleNine.setEnabled(false);		
+	}
+
+	public void scoreUp() {
+		score++;
+		scoreText.setText("Score: " + score);
+		scoreText.update();
 	}
 
 }
