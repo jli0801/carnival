@@ -91,6 +91,6 @@ public class JoannaResultScreen extends ClickableScreen {
 
 	}
 
-
+///2 different text areas
 
 }
