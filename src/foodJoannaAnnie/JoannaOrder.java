@@ -19,7 +19,6 @@ public class JoannaOrder extends ClickableGraphic {
 		annie = screen;
 		numIng= (int) ((Math.random()*5)+1);
 		requested = new AnnieFoodItem[numIng];
-
 		generateToppings(annie.getToppings());
 		order = new Object[requested.length][2];
 		getOrder();
@@ -63,11 +62,11 @@ public class JoannaOrder extends ClickableGraphic {
 	}
 
 	public String toString() {
-		String s="";
+		String s="1 LARGE PIZZA" +"\n";
 		for(int i=0; i<order.length; i++) {
 
 			for(int j=0; j<order[i].length-1; j++) {
-				s+=(i+1)+". "+ order[i][j]+  "" + order[i][j+1]+"\n"; 
+				s+="-"+ order[i][j]+  "" + order[i][j+1]+"\n"; 
 			}
 		}
 		return s;
