@@ -185,7 +185,6 @@ public class AnnieWorkScreen extends ClickableScreen {
 
 			public void act() {
 				resetTray(viewObjects);
-				orderAnimation(viewObjects);
 				trashCount++;
 			}
 			
@@ -261,7 +260,7 @@ public class AnnieWorkScreen extends ClickableScreen {
 		return pizza;
 	}
 
-	protected void resetTray(List<Visible> viewObjects) {
+	public void resetTray(List<Visible> viewObjects) {
 		trashAnimation(viewObjects);
 		newTrayPizza(viewObjects);
 		stuff.clear();
