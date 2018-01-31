@@ -142,6 +142,16 @@ public class WAMGameKevin extends FullFunctionScreen {
 		});
 		viewObjects.add(moleNine);
 		
+		
+		moleOne.setEnabled(false);
+		moleTwo.setEnabled(false);
+		moleThree.setEnabled(false);
+		moleFour.setEnabled(false);
+		moleFive.setEnabled(false);
+		moleSix.setEnabled(false);
+		moleSeven.setEnabled(false);
+		moleEight.setEnabled(false);
+		moleNine.setEnabled(false);
 	}
 	
 	
