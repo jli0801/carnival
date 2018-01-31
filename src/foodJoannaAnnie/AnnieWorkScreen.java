@@ -119,7 +119,29 @@ public class AnnieWorkScreen extends ClickableScreen {
 				}
 				
 			});
+			toppings[i] = item;
 			viewObjects.add(item);
+		}
+		
+		items = new AnnieFoodItem[itemImgs.length];
+		for(int i = 0; i < items.length; i++) {
+			final int num = i;
+			int x = (i % 4) * 100 + toppings[3].getX() + toppings[3].getWidth() + 20;
+			Component box = new Component(x, toppings[0].getY(), toppings[0].getWidth() * 2 + 20, toppings[0].getWidth() * 2 + 20) {
+
+				public void update(Graphics2D g) {
+					g.setColor(new Color(225, 225, 225));
+					g.fillRect(0, 0, getWidth(), getHeight());
+					g.setStroke(new BasicStroke(5));
+					g.setColor(Color.black);
+					g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
+				}
+				
+			};
+			box.setVisible(true);
+			viewObjects.add(box);
+//			AnnieFoodItem item = new AnnieFoodItem(x, item.getY(), item.getWidth(), item.getHeight(), itemImgs2[i], names[i + 8], prices[i + 8]);
+
 		}
 		
 		Component box1 = new Component(getWidth() - 385, getHeight() - 160, 220, 100) {
@@ -138,6 +160,8 @@ public class AnnieWorkScreen extends ClickableScreen {
 		Button done = new Button(box1.getX(), box1.getY(), box1.getWidth(), box1.getHeight(), "done", new Action() {
 			
 			public void act() {
+				resetTray(viewObjects);
+				orderAnimation(viewObjects);
 				GuiLoadingVickie.loading.setScreen(new JoannaResultScreen(getWidth(), getHeight(), AnnieWorkScreen.this));
 				trashCount = 0;
 			}
