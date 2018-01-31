@@ -74,11 +74,15 @@ public class ClickableGraphic extends Graphic implements Clickable {
 	}
 
 	public void act() {
-		if(action != null)action.act();
+		if(getAction() != null)getAction().act();
 	}
 	
 	public void hoverAction(){
 		//most Components don't do anything on hover
+	}
+
+	public Action getAction() {
+		return action;
 	}
 
 }
