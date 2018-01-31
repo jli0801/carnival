@@ -49,7 +49,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 	private Button balloon6B;
 
 	private static int score; //ji uses this in her class so it's static
-	private int timeLeft = 30;
+	private int timeLeft = 5;
 
 	public int getTimeLeft() {
 		return timeLeft;
@@ -68,6 +68,8 @@ public class BalloonScreen extends FullFunctionScreen  {
 
 	private PowerBar strength;
 	private Button play;
+	private boolean playPressed = false;
+	private Button restart;
 
 
 	public BalloonScreen(int width, int height) {
@@ -242,29 +244,34 @@ public class BalloonScreen extends FullFunctionScreen  {
 		} );
 		balloon6B.setCurve(100,100);
 		viewObjects.add(balloon6B);
-		
-		timeLeftTxt = new TextArea(700, 250, 300, 300, "Time Left: 30");
+
+		timeLeftTxt = new TextArea(700, 250, 300, 300, "Time Left: 5");
 		viewObjects.add(timeLeftTxt);
 
-		play = new Button(500, 250, 300, 300, "Play", new Action() {
+		play = new Button(500, 250, 100, 100, "Play", new Action() {
+
+			@Override
+			public void act() {
+					play.setEnabled(false);
+					Timer();
+			}
+		});
+		viewObjects.add(play);
+		
+		restart = new Button(500, 200, 150, 100, "Restart", new Action() {
 			
 			@Override
 			public void act() {
-				play.setEnabled(false);
-				Timer();
-				//restart();
+				if(timeLeft == 0) {
+					play.setEnabled(true);
+					timeLeft = 5;
+					timeLeftTxt.setText("Time Left: 5");
+				}
+				
 			}
-
-			private void restart() {
-
-				play.setEnabled(true);
-				timeLeft = 30;
-			}
-			
 		});
-		
-		viewObjects.add(play);
-		
+		viewObjects.add(restart);
+
 
 	}
 
@@ -295,11 +302,11 @@ public class BalloonScreen extends FullFunctionScreen  {
 				}
 			}
 		};
-		 timer.schedule(task, 0, 1000);
+		timer.schedule(task, 0, 1000);
 	}
-	
+
 	private void endRound() {
 		timeLeftTxt.setText("GAME OVER");
-		
+
 	}
 }
