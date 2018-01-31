@@ -57,7 +57,7 @@ public class PowerBar extends AnimatedComponent {
 					{
 						g.setColor(lightYellow);
 					}
-					else if (length > BalloonScreen.getTimeLeft()/2 && (length < (int)BalloonScreen.getTimeLeft()*(3/4))) //15 to 23
+					else if (length > BalloonScreen.getTimeLeft()/2 && (length < (int)BalloonScreen.getTimeLeft()*(9/10))) //15 to 27
 					{
 						g.setColor(lightRed);
 					}

@@ -47,6 +47,11 @@ public class BalloonScreen extends FullFunctionScreen  {
 	private Button balloon4B;
 	private Button balloon5B;
 	private Button balloon6B;
+	
+	private Button dull;
+	private Button blunt;
+	private Button sharp;
+	private Button dangerous;
 
 	private static int score; //ji uses this in her class so it's static
 	private static int timeLeft = 5;
@@ -105,12 +110,10 @@ public class BalloonScreen extends FullFunctionScreen  {
 			//
 		}
 
-		strength = new PowerBar(75,100,25,1);
-		viewObjects.add(strength);
-
 		background = new Graphic(0, 0, getWidth(), getHeight(), "poppingBalloons/background.jpg");
 		viewObjects.add(background);
 		//Button play = new Button()
+		
 
 		booth = new Graphic (30,35, 590,590, "poppingBalloons/booth.png");
 		viewObjects.add(booth);
@@ -140,14 +143,32 @@ public class BalloonScreen extends FullFunctionScreen  {
 		ticket = new Graphic (60,650,150,150, "poppingBalloons/ticket.png");
 		viewObjects.add(ticket);
 		dart1 = new Graphic (250,650,100,100,"poppingBalloons/dart1.png");
-		//		dullDart = new TextArea(250,750,100,100, Integer.toString(Inventory.getDarts.get(0)));
+		dullDart = new TextArea(250,750,100,100, Integer.toString(Inventory.getDartNumber[0]));
 		viewObjects.add(dart1);
+		dull = new Button(250,650,100,100,"", new Action() {
+			
+			@Override
+			public void act() {
+				chosenDart = true; //in backend
+				
+				
+			}
+		});
+		viewObjects.add(dull);
+		
 		dart2 = new Graphic (350,650,100,100,"poppingBalloons/dart2.png");
+		bluntDart = new TextArea(350,750,100,100, Integer.toString(Inventory.getDartNumber[1]));
 		viewObjects.add(dart2);
+		
 		dart3 = new Graphic (450,650,100,100,"poppingBalloons/dart3.png");
 		viewObjects.add(dart3);
+		sharpDart = new TextArea(450,750,100,100, Integer.toString(Inventory.getDartNumber[2]));
+		
+		
 		dart4 = new Graphic (550,650,100,100,"poppingBalloons/dart4.png");
 		viewObjects.add(dart4);
+		dangerousDart = new TextArea(550,750,100,100, Integer.toString(Inventory.getDartNumber[3]));
+		
 
 		balloon1 = new Graphic(100,200,120,120,"poppingBalloons/balloon1.png");
 		balloon2 = new Graphic(240,200,120,120,"poppingBalloons/balloon2.png");
@@ -253,7 +274,11 @@ public class BalloonScreen extends FullFunctionScreen  {
 			@Override
 			public void act() {
 					play.setEnabled(false);
+					strength = new PowerBar(75,100,25,1);
+					viewObjects.add(strength);
+
 					Timer();
+					
 			}
 		});
 		viewObjects.add(play);
@@ -271,7 +296,10 @@ public class BalloonScreen extends FullFunctionScreen  {
 			}
 		});
 		viewObjects.add(restart);
-
+		viewObjects.add(bluntDart);
+		viewObjects.add(dullDart);
+		viewObjects.add(sharpDart);
+		viewObjects.add(dangerousDart);
 
 	}
 
