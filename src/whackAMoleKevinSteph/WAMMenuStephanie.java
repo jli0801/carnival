@@ -17,7 +17,6 @@ import mainMenuAreejVickie.GuiLoadingVickie;
 public class WAMMenuStephanie extends FullFunctionScreen {
 
 	private Button returnMSButton;
-	private Button instructionsButton;
 	private Button startButton;
 	private TextBox instructionsText;
 
@@ -49,7 +48,7 @@ public class WAMMenuStephanie extends FullFunctionScreen {
 			 }
 		
 		
-		returnMSButton = new Button(180,30,210,50,"RETURN TO MAIN MENU",Color.ORANGE, new Action() {
+		returnMSButton = new Button(20,30,210,50,"RETURN TO MAIN MENU",Color.ORANGE, new Action() {
 
 			public void act() {
 				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
@@ -58,16 +57,7 @@ public class WAMMenuStephanie extends FullFunctionScreen {
 
 		viewObjects.add(returnMSButton);
 
-		instructionsButton = new Button(480,30,200,50,"SEE INSTRUCTIONS",Color.ORANGE, new Action() {
-
-			public void act() {
-				showInstructions();
-			}
-		});
-
-		viewObjects.add(instructionsButton);
-
-		startButton = new Button(780,30,200,50,"START GAME",Color.ORANGE, new Action() {
+		startButton = new Button(970,30,200,50,"START GAME",Color.ORANGE, new Action() {
 
 			public void act() {
 				GuiLoadingVickie.loading.setScreen(new WAMGameKevin(getWidth(), getHeight()));
@@ -76,19 +66,14 @@ public class WAMMenuStephanie extends FullFunctionScreen {
 		
 		viewObjects.add(startButton);
 
-		instructionsText = new TextBox(225,100,700,250,"WELCOME TO WHACK-A-MOLE");
+		instructionsText = new TextBox(250,80,700,270,"WELCOME TO WHACK-A-MOLE");
 		instructionsText.setInactiveBorderColor(Color.RED);
 		instructionsText.setReadOnly(true);
 		instructionsText.setEditable(false);
-		instructionsText.update();
-		viewObjects.add(instructionsText);
-	}
-
-	public void showInstructions() {
 		instructionsText.setText("HOW TO PLAY:" + "\n" + "WHACK AS MANY MOLES AS YOU CAN UNDER THE TIME LIMIT. THE HIGHER THE SCORE, THE MORE TICKETS YOU EARN. "
 				+ "THERE ARE 3 ROUNDS. ROUND 1 STARTS OFF WITH 20 SECONDS, BUT AS YOU PROGRESS TO THE NEXT ROUNDS, THE TIME LIMIT WILL DECREASE BY 5 SECONDS AND THE MOLES WILL MOVE FASTER. "
 				+ "CLICKING ON THE WRONG HOLE WILL RESULT IN A 1 SECOND PENALTY."  + "\n" + "NOW GO WHACK SOME MOLES AND ENJOY THE GAME!!");
 		instructionsText.update();
+		viewObjects.add(instructionsText);
 	}
-
 }
