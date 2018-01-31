@@ -16,6 +16,11 @@ import mainMenuAreejVickie.GuiLoadingVickie;
 
 public class WAMMenuStephanie extends FullFunctionScreen {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private Button returnMSButton;
 	private Button startButton;
 	private TextBox instructionsText;

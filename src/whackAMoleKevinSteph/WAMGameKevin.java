@@ -4,7 +4,6 @@ import java.util.List;
 
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
-import guiTeacher.components.Graphic;
 import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
@@ -12,6 +11,12 @@ import mainMenuAreejVickie.GuiLoadingVickie;
 
 public class WAMGameKevin extends FullFunctionScreen {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
 	private Button moleOne;
 	private Button moleTwo;
 	private Button moleThree;
@@ -23,10 +28,13 @@ public class WAMGameKevin extends FullFunctionScreen {
 	private Button moleNine;
 	
 	private int score;
-	
 	private TextArea scoreText;
 	
 	private Button quitButton;
+	
+	/*private static int time;
+	private static TextArea timeText;
+	static Thread timer = new Thread();*/
 	
 	public WAMGameKevin(int width, int height) {
 		super(width, height);
@@ -35,8 +43,6 @@ public class WAMGameKevin extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		//Graphic background = new Graphic(0,0, getWidth(), getHeight(), "resources/background.jpg");
-		//viewObjects.add(background);
 		score = 0;
 		
 		quitButton = new Button(100,30,100,70,"Quit Game", new Action() {
@@ -49,8 +55,11 @@ public class WAMGameKevin extends FullFunctionScreen {
 		});
 		viewObjects.add(quitButton);
 		
-		scoreText = new TextArea(950,100,200,200, "Score: " + score);
+		scoreText = new TextArea(950,100,100,100, "Score: " + score);
 		viewObjects.add(scoreText);
+		
+		/*timeText = new TextArea(950,250,200,200, "Time: " + time);
+		viewObjects.add(timeText);*/
 		
 		moleOne = new Button(250,200,80,80,"One", new Action() {
 			
@@ -144,17 +153,26 @@ public class WAMGameKevin extends FullFunctionScreen {
 		
 		
 		moleOne.setEnabled(false);
-		moleTwo.setEnabled(false);
+		moleTwo.setEnabled(true);
 		moleThree.setEnabled(false);
 		moleFour.setEnabled(false);
 		moleFive.setEnabled(false);
-		moleSix.setEnabled(false);
-		moleSeven.setEnabled(false);
+		moleSix.setEnabled(true);
+		moleSeven.setEnabled(true);
 		moleEight.setEnabled(false);
-		moleNine.setEnabled(false);
+		moleNine.setEnabled(true);
 	}
 	
-	
+	/*public static void main(String[] args) throws InterruptedException {
+		for(int i =20; i>0;i--)
+		{
+		Thread.sleep(1000);
+		time = i;
+		
+		timeText.setText("Time: " + time);
+		timeText.update();
+		}
+	}*/
 	
 	public void moleOneDown() {
 		moleOne.setEnabled(false);
