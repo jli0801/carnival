@@ -252,11 +252,17 @@ public class BalloonScreen extends FullFunctionScreen  {
 			public void act() {
 				play.setEnabled(false);
 				Timer();
+				//restart();
+			}
+
+			private void restart() {
+
 				play.setEnabled(true);
 				timeLeft = 30;
 			}
 			
 		});
+		
 		viewObjects.add(play);
 		
 
