@@ -51,7 +51,8 @@ public class JoannaOrder extends ClickableGraphic {
 				if(idx == 0) {
 					order[aOrder][idx]= quantity;
 				}else {
-					order[aOrder][idx]= requested[aOrder];
+					order[aOrder][idx]= requested[aOrder].getName(); 
+
 				}
 
 			}
@@ -59,7 +60,7 @@ public class JoannaOrder extends ClickableGraphic {
 		}
 		return order;
 	}
-	
+
 	public String toString() {
 		String s="";
 		for(int i=0; i<order.length; i++) {
