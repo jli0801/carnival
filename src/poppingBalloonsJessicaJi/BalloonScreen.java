@@ -261,7 +261,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 			public void act() {
 				//	BalloonBack.UpdateBalloons(5, 5);
 
-				changeQuality("Gold", BalloonBack.dartsProperty.get(5), 1);
+				changeQuality("Gold", BalloonBack.darts.get(5), 1);
 
 				scoreText.setText("Score: " + Integer.toString(score));
 				balloonDescription.setText("Balloon Popped:" + balloonChosen);
