@@ -14,6 +14,7 @@ public class JoannaOrder extends ClickableGraphic {
 	private AnnieWorkScreen annie;
 	private AnnieFoodItem[] items; //complete order
 	private Object[][] order;
+	private ArrayList<AnnieFoodItem> scr;
 
 
 	public JoannaOrder(int x, int y, int w, int h, String imageLocation, AnnieWorkScreen screen) {
@@ -24,6 +25,14 @@ public class JoannaOrder extends ClickableGraphic {
 		fillQuantity();
 		generateToppings(annie.getToppings());
 		makeOrder();
+	
+	}
+	
+	public JoannaOrder(int x, int y, int w, int h, String imageLocation,ArrayList<AnnieFoodItem> onScreen) {
+		super(x, y, w, h, imageLocation);
+		scr= onScreen;
+		setVisible(false);
+		
 	
 	}
 
