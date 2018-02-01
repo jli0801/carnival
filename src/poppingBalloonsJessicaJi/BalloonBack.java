@@ -76,6 +76,10 @@ public class BalloonBack {
 			{
 				if(balloons.get(x) == 0) {
 					balloons.remove(x);
+				}else {
+					//balloon weaker by 1
+					balloons.set(x , balloons.get(x) - 1);
+					
 				}
 			}
 		}
