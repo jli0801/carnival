@@ -9,7 +9,7 @@ public class BalloonBack {
 //	public static ArrayList<String> darts = new ArrayList<String>();  //static b/c jessica needs to use it 
 //	public static ArrayList<Integer> dartsProperty = new ArrayList<Integer>(); //static b/c jessica needs to use it 
 	public static ArrayList<Integer> balloons = new ArrayList<Integer>(); //static b/c jessica needs to use it index tells us what color what's in the index is the strength of balloon
-	public static ArrayList<Integer> darts = Inventory.getDarts();
+	public static ArrayList<Integer> darts = new ArrayList<Integer>();//Inventory.getDarts();
 //	public static ArrayList<Integer> balloonsProperty = new ArrayList<Integer>(); //static b/c jessica needs to use it
 	
 	public void Timer() { //links to text area
@@ -66,15 +66,15 @@ public class BalloonBack {
 		{
 			//same property/type/level
 			balloons.remove(x);
-			balloonsProperty.remove(x);
+			balloons.remove(x);
 			darts.remove(dartProperty);
-			dartsProperty.remove(dartProperty);
+			//dartsProperty.remove(dartProperty);
 		}
 		else
 		{
-			if(dartsProperty.get(dartProperty) < balloonsProperty.get(x))
+			if(darts.get(dartProperty) < balloons.get(x))
 			{
-				if(balloonsProperty.get(x) == 0) {
+				if(balloons.get(x) == 0) {
 					balloons.remove(x);
 				}
 			}
