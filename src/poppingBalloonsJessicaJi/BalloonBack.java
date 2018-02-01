@@ -6,10 +6,11 @@ import javafx.scene.paint.Color;
 
 public class BalloonBack {
 	
-	public static ArrayList<String> darts = new ArrayList<String>();  //static b/c jessica needs to use it 
-	public static ArrayList<Integer> dartsProperty = new ArrayList<Integer>(); //static b/c jessica needs to use it 
-	public static ArrayList<String> balloons = new ArrayList<String>(); //static b/c jessica needs to use it
-	public static ArrayList<Integer> balloonsProperty = new ArrayList<Integer>(); //static b/c jessica needs to use it
+//	public static ArrayList<String> darts = new ArrayList<String>();  //static b/c jessica needs to use it 
+//	public static ArrayList<Integer> dartsProperty = new ArrayList<Integer>(); //static b/c jessica needs to use it 
+	public static ArrayList<Integer> balloons = new ArrayList<Integer>(); //static b/c jessica needs to use it index tells us what color what's in the index is the strength of balloon
+
+//	public static ArrayList<Integer> balloonsProperty = new ArrayList<Integer>(); //static b/c jessica needs to use it
 	
 	public void Timer() { //links to text area
 		//thread
@@ -41,15 +42,16 @@ public class BalloonBack {
 		}		
 		
 		return darts; 
+		//getter from inventory needed 
 	}
 	
-	public static ArrayList<String> CreateBalloons() {
+	public static ArrayList<Integer> CreateBalloons() {
 		//static because jessica needs to display it
 		//for loop make balloons
 		int numBalloons = 6;
 		for(int i = 0; i < numBalloons; i++) {
-			balloons.add(Integer.toString(i));
-			balloonsProperty.add(0); //starts out with 0		
+			balloons.add(0); // all start w/ weak
+		//	balloonsProperty.add(0); //starts out with 0		
 			}		
 		
 		return balloons; 

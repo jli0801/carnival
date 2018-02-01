@@ -53,7 +53,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 	private Button sharp;
 	private Button dangerous;
 
-	private static int score; //ji uses this in her class so it's static
+	private static int score = 0; //ji uses this in her class so it's static
 	private static int timeLeft = 5;
 
 	public static int getTimeLeft() { //jessica needs this for power bar 
@@ -75,6 +75,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 	private Button play;
 	private boolean playPressed = false;
 	private Button restart;
+	private boolean chosenDart = false;
 
 
 	public BalloonScreen(int width, int height) {
@@ -91,7 +92,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		score = 0;
+	
 		BalloonBack.CreateDarts();
 		BalloonBack.CreateBalloons();
 
@@ -147,10 +148,12 @@ public class BalloonScreen extends FullFunctionScreen  {
 		viewObjects.add(dart1);
 		dull = new Button(250,650,100,100,"", new Action() {
 			
+			
+
 			@Override
 			public void act() {
 				chosenDart = true; //in backend
-				
+				BalloonBack.setDart(0); //0 = dull
 				
 			}
 		});
@@ -183,6 +186,8 @@ public class BalloonScreen extends FullFunctionScreen  {
 		viewObjects.add(balloon5);
 		viewObjects.add(balloon6);
 
+		
+		//Inventory.getDarts.get(
 		balloon1B = new Button(97, 205, 100, 100, "" , new Action() {
 
 			@Override
@@ -304,13 +309,17 @@ public class BalloonScreen extends FullFunctionScreen  {
 	}
 
 	private void changeQuality(String string, Integer integer, int i) {
-		balloonChosen = string;
-		dartChosen = integer;
-		score = score + i;
-
+		
+	
+		if(timeLeft != 0)
+		{
+			balloonChosen = string;
+			dartChosen = integer;
+			score = score + i;
+		}
 	}
 
-	private ArrayList<String> getBalloons()
+	private ArrayList<Integer> getBalloons()
 	{
 		return BalloonBack.CreateBalloons();
 	}
