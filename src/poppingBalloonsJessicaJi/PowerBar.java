@@ -40,7 +40,7 @@ public class PowerBar extends AnimatedComponent {
 		 Color lightYellow = new Color (255,255,153);
 		 Color lightRed = new Color (255,153,153);
 		 
-	     g.setColor(Color.green);
+	     g.setColor(Color.YELLOW);
 	     g.drawRect(startX, startY, width, length);  
 	     g.fillRect(startX, startY, width, length);
 	       	        
@@ -48,23 +48,47 @@ public class PowerBar extends AnimatedComponent {
 
 				@Override
 				public void run() {
-					length = length * 2; //goes up exponentially by 2. 2,4,8,16,32
-					if(length <= (int)BalloonScreen.getTimeLeft()/4) //below 8
+					if(length <= 30) //going up
 					{
-					g.setColor(Color.yellow);
+						length = length + 5; // 5,10,15,20,25,30,35,40
+						if(length <= 15) //5 -> 15
+						{
+							g.setColor(Color.yellow);
+						}
+						else if (length <= 25 && length > 15) //16 -> 25
+						{
+							g.setColor(lightYellow);
+						}
+						else if (length >= 35 && length < 25) //26 -> 35
+						{
+							g.setColor(lightRed);
+						}
+						else//36 -> 40
+						{
+							g.setColor(Color.RED);
+						}
 					}
-					else if (length < BalloonScreen.getTimeLeft()/2 && (length > (int)BalloonScreen.getTimeLeft()/4)) //8 to 15
+					else //going down 
 					{
-						g.setColor(lightYellow);
+						length = length/2; //5,10,15,20,25,30,35,40
+						if(length <= 40) //36 -> 40
+						{
+							g.setColor(Color.RED);
+						}
+						else if (length >= 35 && length < 25) //35 ->26
+						{
+							g.setColor(lightRed);
+						}
+						else if (length >= 25 && length < 15) //25 -> 16
+						{
+							g.setColor(lightYellow);
+						}
+						else//5->15
+						{
+							g.setColor(Color.YELLOW);
+						}
 					}
-					else if (length > BalloonScreen.getTimeLeft()/2 && (length < (int)BalloonScreen.getTimeLeft()*(9/10))) //15 to 27
-					{
-						g.setColor(lightRed);
-					}
-					else//23 to 30
-					{
-						g.setColor(Color.RED);
-					}
+					
 			        g.drawRect(startX, startY, width, length);
 			        g.fillRect(startX, startY, width, length);
 					try {

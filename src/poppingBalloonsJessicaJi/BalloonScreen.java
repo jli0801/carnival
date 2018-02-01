@@ -279,7 +279,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 			@Override
 			public void act() {
 					play.setEnabled(false);
-					strength = new PowerBar(75,100,25,1);
+					strength = new PowerBar(75,100,25,5);
 					viewObjects.add(strength);
 
 					Timer();
