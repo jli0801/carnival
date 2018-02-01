@@ -48,7 +48,7 @@ public class PowerBar extends AnimatedComponent {
 
 				@Override
 				public void run() {
-					if(length <= 30) //going up
+					if(length <= 35) //going up
 					{
 						length = length + 5; // 5,10,15,20,25,30,35,40
 						if(length <= 15) //5 -> 15
