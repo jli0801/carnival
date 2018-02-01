@@ -143,13 +143,11 @@ public class BalloonScreen extends FullFunctionScreen  {
 
 		ticket = new Graphic (60,650,150,150, "poppingBalloons/ticket.png");
 		viewObjects.add(ticket);
+		//darts
 		dart1 = new Graphic (250,650,100,100,"poppingBalloons/dart1.png");
 		dullDart = new TextArea(250,750,100,100, Integer.toString(Inventory.getDartNumber[0]));
 		viewObjects.add(dart1);
 		dull = new Button(250,650,100,100,"", new Action() {
-			
-			
-
 			@Override
 			public void act() {
 				chosenDart = true; //in backend
@@ -162,17 +160,45 @@ public class BalloonScreen extends FullFunctionScreen  {
 		dart2 = new Graphic (350,650,100,100,"poppingBalloons/dart2.png");
 		bluntDart = new TextArea(350,750,100,100, Integer.toString(Inventory.getDartNumber[1]));
 		viewObjects.add(dart2);
+		blunt = new Button(350,650,100,100,"", new Action() {
+			@Override
+			public void act() {
+				chosenDart = true; //in backend
+				BalloonBack.setDartChosen(1); //0 = dull
+				
+			}
+		});
+		viewObjects.add(blunt);
 		
 		dart3 = new Graphic (450,650,100,100,"poppingBalloons/dart3.png");
 		viewObjects.add(dart3);
 		sharpDart = new TextArea(450,750,100,100, Integer.toString(Inventory.getDartNumber[2]));
+		sharp = new Button(350,650,100,100,"", new Action() {
+			@Override
+			public void act() {
+				chosenDart = true; //in backend
+				BalloonBack.setDartChosen(2); //0 = dull
+				
+			}
+		});
+		viewObjects.add(sharp);
 		
 		
 		dart4 = new Graphic (550,650,100,100,"poppingBalloons/dart4.png");
 		viewObjects.add(dart4);
 		dangerousDart = new TextArea(550,750,100,100, Integer.toString(Inventory.getDartNumber[3]));
-		
+		dangerous = new Button(350,650,100,100,"", new Action() {
+			@Override
+			public void act() {
+				chosenDart = true; //in backend
+				BalloonBack.setDartChosen(3); //0 = dull
+				
+			}
+		});
+		viewObjects.add(dangerous);
+		//end darts
 
+		//balloons
 		balloon1 = new Graphic(100,200,120,120,"poppingBalloons/balloon1.png");
 		balloon2 = new Graphic(240,200,120,120,"poppingBalloons/balloon2.png");
 		balloon3 = new Graphic(380,200,120,120,"poppingBalloons/balloon3.png");
@@ -192,7 +218,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 
 			@Override
 			public void act() {
-				//	BalloonBack.UpdateBalloons(0, 0);
+				//	BalloonBack.UpdateBalloons(0, );
 				changeQuality("Purple", BalloonBack.darts.get(BalloonBack.getDartChosen()), 1);
 				scoreText.setText("Score: " + Integer.toString(score));
 				balloonDescription.setText("Balloon Popped:" + balloonChosen);
@@ -270,7 +296,8 @@ public class BalloonScreen extends FullFunctionScreen  {
 		} );
 		balloon6B.setCurve(100,100);
 		viewObjects.add(balloon6B);
-
+		//end balloons
+		
 		timeLeftTxt = new TextArea(700, 250, 300, 300, "Time Left: 5");
 		viewObjects.add(timeLeftTxt);
 
@@ -300,6 +327,8 @@ public class BalloonScreen extends FullFunctionScreen  {
 				
 			}
 		});
+		
+		//adding text
 		viewObjects.add(restart);
 		viewObjects.add(bluntDart);
 		viewObjects.add(dullDart);

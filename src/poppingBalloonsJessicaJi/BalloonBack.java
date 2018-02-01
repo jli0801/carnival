@@ -76,8 +76,7 @@ public class BalloonBack {
 		{
 			//same property/type/level
 			balloons.remove(x);
-			balloons.remove(x);
-			darts.remove(dartProperty);
+			darts.set();
 			//dartsProperty.remove(dartProperty);
 		}
 		else
