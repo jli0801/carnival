@@ -31,11 +31,8 @@ public class MainScreenAreej extends FullFunctionScreen {
 		Graphic background = new Graphic(0,0, getWidth(), getHeight(), "resources/menu.png");
 		
 		//balloon pop button
-		ClickableGraphic clown = new ClickableGraphic(140,440, 200, 200, "resources/clown.png");
-		
-		clown.act();
-				
-		/*balloon = new Button(280, 580, 120, 40, "Balloon Pop", Color.yellow, new Action() {
+		Graphic clown = new ClickableGraphic(130,490, 200, 200, "resources/clown.png");
+		balloon = new Button(160, 700, 120, 40, "Balloon Pop", Color.yellow, new Action() {
 
 			public void act() {
 				
@@ -43,35 +40,28 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 			}
 		});
-		*/
+		
 		//whack a mole
-		Graphic mol = new Graphic(390,440, 200, 200, "resources/mole.png");
-		/*mole = new Button(440, 580, 150, 40, "Whack-a-Mole", Color.blue, new Action() {
+		Graphic mol = new Graphic(410,490, 200, 200, "resources/mole.png");
+		mole = new Button(450, 690, 150, 40, "Whack-a-Mole", Color.blue, new Action() {
 
 			public void act() {
 				
 				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.moleInstruct);
 
 			}
-		});*/
+		});
 		
 		//food stall
-		Graphic pizza = new Graphic(640,440, 200, 200, "resources/pizza.png");
-		/*food = new Button(630, 580, 120, 40, "Food Stand", Color.green, new Action() {
+		Graphic pizza = new Graphic(690,490, 200, 200, "resources/pizza.png");
+		food = new Button(730, 690, 120, 40, "Food Stand", Color.green, new Action() {
 
 			public void act() {
 				
 				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.foodGame);
 			}
-		});*/
-		
-		inventory = new Button(630, 580, 120, 40, "inventory", Color.green, new Action() {
-
-			public void act() {
-				
-				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.inventory);
-			}
 		});
+		
 		
 		 try {
 
@@ -91,15 +81,14 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 			 }
 		
-		
 		viewObjects.add(background);
 		viewObjects.add(clown);
 		viewObjects.add(mol);
 		viewObjects.add(pizza);
-		viewObjects.add(inventory);
-		//viewObjects.add(balloon);
-		//viewObjects.add(mole);
-		//viewObjects.add(food);
+		//viewObjects.add(inventory);
+		viewObjects.add(balloon);
+		viewObjects.add(mole);
+		viewObjects.add(food);
 		
 		
 		
