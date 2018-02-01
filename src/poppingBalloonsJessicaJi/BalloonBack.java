@@ -11,7 +11,17 @@ public class BalloonBack {
 	public static ArrayList<Integer> balloons = new ArrayList<Integer>(); //static b/c jessica needs to use it index tells us what color what's in the index is the strength of balloon
 	public static ArrayList<Integer> darts = new ArrayList<Integer>();//Inventory.getDarts();
 //	public static ArrayList<Integer> balloonsProperty = new ArrayList<Integer>(); //static b/c jessica needs to use it
+	private static int dartChosen; //for screen
 	
+	
+	public static int getDartChosen() {
+		return dartChosen;
+	}
+
+	public static void setDartChosen(int dartChosen) {
+		BalloonBack.dartChosen = dartChosen;
+	}
+
 	public void Timer() { //links to text area
 		//thread
 		Thread time = new Thread(new Runnable() {
@@ -92,5 +102,5 @@ public class BalloonBack {
 		//disable buttons & switch screen
 		
 	}
-	
+
 }
