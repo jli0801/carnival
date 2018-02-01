@@ -4,6 +4,7 @@ import java.util.List;
 
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
+import guiTeacher.components.Graphic;
 import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
@@ -16,6 +17,15 @@ public class WAMGameKevin extends FullFunctionScreen {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	private Graphic mOne;
+	private Graphic mTwo;
+	private Graphic mThree;
+	private Graphic mFour;
+	private Graphic mFive;
+	private Graphic mSix;
+	private Graphic mSeven;
+	private Graphic mEight;
+	private Graphic mNine;
 	
 	private Button moleOne;
 	private Button moleTwo;
@@ -152,14 +162,43 @@ public class WAMGameKevin extends FullFunctionScreen {
 		viewObjects.add(moleNine);
 		
 		
-		moleOne.setEnabled(false);
+		mOne = new Graphic(250,200,80,80,"wam/mole.png");
+		viewObjects.add(mOne);
+		
+		mTwo = new Graphic(450,200,80,80,"wam/mole.png");
+		viewObjects.add(mTwo);
+		
+		mThree = new Graphic(650,200,80,80,"wam/mole.png");
+		viewObjects.add(mThree);
+		
+		mFour = new Graphic(250,400,80,80,"wam/mole.png");
+		viewObjects.add(mFour);
+		
+		mFive = new Graphic(450,400,80,80,"wam/mole.png");
+		viewObjects.add(mFive);
+		
+		mSix = new Graphic(650,400,80,80,"wam/mole.png");
+		viewObjects.add(mSix);
+		
+		mSeven = new Graphic(250,600,80,80,"wam/mole.png");
+		viewObjects.add(mSeven);
+		
+		mEight = new Graphic(450,600,80,80,"wam/mole.png");
+		viewObjects.add(mEight);
+		
+		mNine = new Graphic(650,600,80,80,"wam/mole.png");
+		viewObjects.add(mNine);
+		
+		
+		
+		moleOne.setEnabled(true);
 		moleTwo.setEnabled(true);
-		moleThree.setEnabled(false);
-		moleFour.setEnabled(false);
-		moleFive.setEnabled(false);
+		moleThree.setEnabled(true);
+		moleFour.setEnabled(true);
+		moleFive.setEnabled(true);
 		moleSix.setEnabled(true);
 		moleSeven.setEnabled(true);
-		moleEight.setEnabled(false);
+		moleEight.setEnabled(true);
 		moleNine.setEnabled(true);
 	}
 	
@@ -175,41 +214,41 @@ public class WAMGameKevin extends FullFunctionScreen {
 	}*/
 	
 	public void moleOneDown() {
-		moleOne.setEnabled(false);
+		moleOne.setEnabled(true);
 	}
 
 	public void moleTwoDown() {
-		moleTwo.setEnabled(false);
+		moleTwo.setEnabled(true);
 		
 	}
 
 	public void moleThreeDown() {
-		moleThree.setEnabled(false);
+		moleThree.setEnabled(true);
 		
 	}
 
 	public void moleFourDown() {
-		moleFour.setEnabled(false);		
+		moleFour.setEnabled(true);		
 	}
 
 	public void moleFiveDown() {
-		moleFive.setEnabled(false);		
+		moleFive.setEnabled(true);		
 	}
 
 	public void moleSixDown() {
-		moleSix.setEnabled(false);		
+		moleSix.setEnabled(true);		
 	}
 
 	public void moleSevenDown() {
-		moleSeven.setEnabled(false);		
+		moleSeven.setEnabled(true);		
 	}
 
 	public void moleEightDown() {
-		moleEight.setEnabled(false);		
+		moleEight.setEnabled(true);		
 	}
 
 	public void moleNineDown() {
-		moleNine.setEnabled(false);		
+		moleNine.setEnabled(true);		
 	}
 
 	public void scoreUp() {

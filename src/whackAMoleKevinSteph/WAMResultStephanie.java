@@ -13,7 +13,7 @@ import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import mainMenuAreejVickie.GuiLoadingVickie;
 
-public class WAMEndStephanie extends FullFunctionScreen {
+public class WAMResultStephanie extends FullFunctionScreen {
 
 	private Button returnMSButton;
 	private Button playButton;
@@ -21,7 +21,7 @@ public class WAMEndStephanie extends FullFunctionScreen {
 	private TextBox showScores;
 	private TextBox totalTickets;
 	
-	public WAMEndStephanie(int width, int height) {
+	public WAMResultStephanie(int width, int height) {
 		super(width, height);
 	}
 
