@@ -22,6 +22,8 @@ public class PowerBar extends AnimatedComponent {
 		length = h;
 		startX = x;
 		startY = y;
+		Thread go = new Thread(this);
+		go.start();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -30,10 +32,7 @@ public class PowerBar extends AnimatedComponent {
 	{
 		return length; //equal to the strength will start at 0
 	}
-	
-	public static void main(String args[]){
-	
-	}
+
 
 	 public void paint(Graphics g) {
 		 
