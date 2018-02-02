@@ -63,6 +63,17 @@ public class MainScreenAreej extends FullFunctionScreen {
 		});
 		
 		
+		//inventory
+		inventory = new Button(50, 50, 120, 40, "Inventory", Color.orange, new Action() {
+
+			public void act() {
+				
+				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.inventory);
+
+			}
+		});
+
+		
 		 try {
 
 			 File fontFile = new File("resources//Bangers.ttf");
@@ -85,7 +96,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 		viewObjects.add(clown);
 		viewObjects.add(mol);
 		viewObjects.add(pizza);
-		//viewObjects.add(inventory);
+		viewObjects.add(inventory);
 		viewObjects.add(balloon);
 		viewObjects.add(mole);
 		viewObjects.add(food);
