@@ -361,14 +361,14 @@ public class BalloonScreen extends FullFunctionScreen  {
 
 	}
 
-	private void changeQuality(String string, Integer integer, int i) {
+	private void changeQuality(String string, Integer integer) {
 		
 	
 		if(timeLeft != 0)
 		{
 			balloonChosen = string;
 			dartChosen = integer;
-			score = score + i;
+			score = score + 1;
 		}
 	}
 
