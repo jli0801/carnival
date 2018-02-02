@@ -20,6 +20,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 	private Button mole;
 	private Button food;
 	private Button inventory;
+
 	
 	public MainScreenAreej(int width, int height) {
 		super(width, height);
@@ -30,38 +31,40 @@ public class MainScreenAreej extends FullFunctionScreen {
 		
 		Graphic background = new Graphic(0,0, getWidth(), getHeight(), "resources/menu.png");
 		
-		//balloon pop button
-		Graphic clown = new ClickableGraphic(130,490, 200, 200, "resources/clown.png");
-		balloon = new Button(160, 700, 120, 40, "Balloon Pop", Color.yellow, new Action() {
+		//balloon pop
+		ClickableGraphic clown = new ClickableGraphic(130,490, 200, 200, "resources/clown.png");
+		clown.setAction(new Action() {
 
+			@Override
 			public void act() {
-				
 				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.balloonGame);
-
 			}
+			
 		});
-		
+	
 		//whack a mole
-		Graphic mol = new Graphic(410,490, 200, 200, "resources/mole.png");
-		mole = new Button(450, 690, 150, 40, "Whack-a-Mole", Color.blue, new Action() {
+		ClickableGraphic mol = new ClickableGraphic(410,490, 200, 200, "resources/mole.png");
+		mol.setAction(new Action() {
 
+			@Override
 			public void act() {
-				
 				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.moleInstruct);
-
+				
 			}
+			
 		});
 		
 		//food stall
-		Graphic pizza = new Graphic(690,490, 200, 200, "resources/pizza.png");
-		food = new Button(730, 690, 120, 40, "Food Stand", Color.green, new Action() {
+		ClickableGraphic pizza = new ClickableGraphic(690,490, 200, 200, "resources/pizza.png");
+		pizza.setAction(new Action() {
 
+			@Override
 			public void act() {
-				
 				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.foodGame);
+				
 			}
+			
 		});
-		
 		
 		//inventory
 		inventory = new Button(50, 50, 120, 40, "Inventory", Color.orange, new Action() {
@@ -77,14 +80,8 @@ public class MainScreenAreej extends FullFunctionScreen {
 		 try {
 
 			 File fontFile = new File("resources//Bangers.ttf");
-
 			 Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-
 			 Font baseFont=font.deriveFont(24f);
-
-			 balloon.setFont(baseFont);
-			 mole.setFont(baseFont);
-			 food.setFont(baseFont);
 
 			 } catch (Exception e) {
 
@@ -97,12 +94,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 		viewObjects.add(mol);
 		viewObjects.add(pizza);
 		viewObjects.add(inventory);
-		viewObjects.add(balloon);
-		viewObjects.add(mole);
-		viewObjects.add(food);
-		
-		
-		
+
 		
 	}
 
