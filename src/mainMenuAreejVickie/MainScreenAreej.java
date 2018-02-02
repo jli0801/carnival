@@ -21,7 +21,6 @@ public class MainScreenAreej extends FullFunctionScreen {
 	private Button food;
 	private Button inventory;
 
-	
 	public MainScreenAreej(int width, int height) {
 		super(width, height);
 	}
