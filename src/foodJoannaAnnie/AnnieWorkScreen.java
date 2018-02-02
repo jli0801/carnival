@@ -51,15 +51,15 @@ public class AnnieWorkScreen extends ClickableScreen {
 		toppingImgs = temp;
 		String[] temp1 = {"food/pepperoni2.png", "food/onion2.png", "food/pineapple2.png", "food/mushroom2.png", "food/olive2.png", "food/bacon2.png", "food/pepper2.png", "food/sausage2.png"};
 		toppingImgs2 = temp1;
-		String[] temp2 = {"food/soda.png", "food/donut.png", "food/corndog.png", "food/popcorn.png"};
+		String[] temp2 = {"food/soda.png", "food/cone.png", "food/dog.png", "food/donut.png", "food/popcorn.png"};
 		itemImgs = temp2;
-		String[] temp3 = {"food/soda2.png", "food/donut2.png", "food/corndog2.png", "food/popcorn2.png"};
-		itemImgs = temp3;
-		String[] temp4 = {"pepperoni", "onions", "pineapple", "mushrooms", "olives", "bacon", "peppers", "sausage",
-				"soda", "donut", "corn dog", "popcorn"};
+		String[] temp3 = {"food/soda2.png", "food/cone2.png", "food/dog2.png", "food/donut2.png", "food/popcorn2.png"};
+		itemImgs2 = temp3;
+		String[] temp4 = {"pepperoni", "onions", "pineapple", "mushrooms", "olives", "bacon", "peppers", "sausage", 
+				"soda", "ice cream cone", "corn dog", "donut", "popcorn"};
 		names = temp4;
 		double[] temp5 = {0.30, 0.20, 0.20, 0.25, 0.30, 0.40, 0.30, 0.35,
-				1.25, 1.00, 1.30, 2.65};
+				1.25, 2.75, 1.30, 1.00, 2.65};
 		prices = temp5;
 		
 		newTrayPizza(viewObjects);
@@ -76,7 +76,7 @@ public class AnnieWorkScreen extends ClickableScreen {
 			Component box = new Component(x, y, 80, 80) {
 
 				public void update(Graphics2D g) {
-					g.setColor(new Color(225, 225, 225));
+					g.setColor(new Color(235, 235, 235));
 					g.fillRect(0, 0, getWidth(), getHeight());
 					g.setStroke(new BasicStroke(5));
 					g.setColor(Color.black);
@@ -98,15 +98,15 @@ public class AnnieWorkScreen extends ClickableScreen {
 					Graphic topping = new Graphic(item.getX() + 15, item.getY() + 15, 50, 50, toppingImgs[num]);
 					stuff.add(topping);
 					viewObjects.add(topping);
-					Visible.move(topping, getRandomX(), getRandomY(), 250);
+					Visible.move(topping, getRandomX(), getRandomY(), 150);
 				}
 				
 				public void generateXY() {
-					x = (int)(Math.random() * 260 + 55);
-					y = (int)(Math.random() * 260 + 75);
-					while(Math.pow(x - 185, 2) + Math.pow(y - 205, 2) > Math.pow(115, 2)) {
-						x = (int)(Math.random() * 260 + 55);
-						y = (int)(Math.random() * 260 + 75);
+					x = (int)(Math.random() * 260 + 60);
+					y = (int)(Math.random() * 260 + 80);
+					while(Math.pow(x - 190, 2) + Math.pow(y - 210, 2) > Math.pow(115, 2)) {
+						x = (int)(Math.random() * 260 + 60);
+						y = (int)(Math.random() * 260 + 80);
 					}
 				}
 
@@ -124,13 +124,12 @@ public class AnnieWorkScreen extends ClickableScreen {
 		}
 		
 		items = new AnnieFoodItem[itemImgs.length];
-		for(int i = 0; i < items.length; i++) {
+		for(int i = 0; i < 2; i++) {
 			final int num = i;
-			int x = (i % 4) * 100 + toppings[3].getX() + toppings[3].getWidth() + 20;
-			Component box = new Component(x, toppings[0].getY(), toppings[0].getWidth() * 2 + 20, toppings[0].getWidth() * 2 + 20) {
+			Component box = new Component(toppings[3].getX() + (20 + toppings[0].getWidth()) * (i + 1), toppings[0].getY(), toppings[0].getWidth(), toppings[0].getHeight() * 2 + 20) {
 
 				public void update(Graphics2D g) {
-					g.setColor(new Color(225, 225, 225));
+					g.setColor(new Color(235, 235, 235));
 					g.fillRect(0, 0, getWidth(), getHeight());
 					g.setStroke(new BasicStroke(5));
 					g.setColor(Color.black);
@@ -140,9 +139,77 @@ public class AnnieWorkScreen extends ClickableScreen {
 			};
 			box.setVisible(true);
 			viewObjects.add(box);
-//			AnnieFoodItem item = new AnnieFoodItem(x, item.getY(), item.getWidth(), item.getHeight(), itemImgs2[i], names[i + 8], prices[i + 8]);
-
+			AnnieFoodItem item = new AnnieFoodItem(box.getX(), box.getY(), box.getWidth(), box.getHeight(), itemImgs2[i], names[i + 8], prices[i + 8]);
+			item.setAction(new Action() {
+				
+				public void act() {
+					onScreen.add(item);
+					Graphic food = new Graphic(420 + 190 * num, tray.getY() + tray.getHeight() - 280 + ((num + 1) % 2) * 15, .7, itemImgs[num]);
+					stuff.add(food);
+					viewObjects.add(food);
+				}
+				
+			});
+			items[i] = item;
+			viewObjects.add(item);
 		}
+		
+		for(int i = 3; i < items.length; i++) {
+			final int num = i;
+			Component box = new Component(20 + tray.getWidth() - toppings[0].getWidth(), toppings[((i - 1) % 2) * 4].getY(), toppings[0].getWidth(), toppings[0].getHeight()) {
+
+				public void update(Graphics2D g) {
+					g.setColor(new Color(235, 235, 235));
+					g.fillRect(0, 0, getWidth(), getHeight());
+					g.setStroke(new BasicStroke(5));
+					g.setColor(Color.black);
+					g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
+				}
+				
+			};
+			box.setVisible(true);
+			viewObjects.add(box);
+			AnnieFoodItem item = new AnnieFoodItem(box.getX(), box.getY(), box.getWidth(), box.getHeight(), itemImgs2[i], names[i + 8], prices[i + 8]);
+			item.setAction(new Action() {
+				
+				public void act() {
+					onScreen.add(item);
+					Graphic food = new Graphic(item.getX() - 105 * (num - 2) - 90 * ((num - 1) % 2), tray.getY() + 30, .6, itemImgs[num]);
+					stuff.add(food);
+					viewObjects.add(food);
+				}
+				
+			});
+			items[i] = item;
+			viewObjects.add(item);
+		}
+
+		Component box = new Component(items[1].getX() + items[1].getWidth() + 20, toppings[0].getY(), 75, toppings[0].getHeight() * 2 + 20) {
+
+			public void update(Graphics2D g) {
+				g.setColor(new Color(235, 235, 235));
+				g.fillRect(0, 0, getWidth(), getHeight());
+				g.setStroke(new BasicStroke(5));
+				g.setColor(Color.black);
+				g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
+			}
+			
+		};
+		box.setVisible(true);
+		viewObjects.add(box);
+		AnnieFoodItem item = new AnnieFoodItem(box.getX(), box.getY(), box.getWidth(), box.getHeight(), itemImgs2[2], names[10], prices[10]);
+		item.setAction(new Action() {
+			
+			public void act() {
+				onScreen.add(item);
+				Graphic food = new Graphic(80, 430, .7, itemImgs[2]);
+				stuff.add(food);
+				viewObjects.add(food);
+			}
+			
+		});
+		items[2] = item;
+		viewObjects.add(item);		
 		
 		Component box1 = new Component(getWidth() - 385, getHeight() - 160, 220, 100) {
 			
@@ -215,8 +282,8 @@ public class AnnieWorkScreen extends ClickableScreen {
 			newOrder(viewObjects);
 		}
 		setCurrentOrder(orders.get(0));
-		moveOrders();
-		
+		orderAnimation();
+				
 		try {
 			File fontFile = new File("resources/Bangers.ttf");
 			Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
@@ -229,6 +296,18 @@ public class AnnieWorkScreen extends ClickableScreen {
 	}
 
 	private void newTrayPizza(List<Visible> viewObjects) {
+		Component back = new Component(20, 40, 775, 500) {
+			
+			public void update(Graphics2D g) {
+				g.setColor(new Color(180, 230, 230));
+				g.fillRect(0, 0, getWidth(), getHeight());
+			}
+			
+		};
+		back.setX(back.getX() - 1500);
+		back.setVisible(true);
+		viewObjects.add(back);
+		Visible.move(back, back.getX() + 1500, back.getY(), 1250);
 		tray = newTray();
 		pizza = newPizza();
 		viewObjects.add(tray);
@@ -237,6 +316,12 @@ public class AnnieWorkScreen extends ClickableScreen {
 		Visible.move(pizza, pizza.getX() + 1500, pizza.getY(), 1250);
 	}
 
+	private Graphic newPizza() {
+		Graphic pizza = new Graphic(50, 70, 330, 330, "food/pizza.png");
+		pizza.setX(pizza.getX() - 1500);
+		return pizza;
+	}
+	
 	private Component newTray() {
 		Component tray = new Component(20, 40, 775, 500) {
 			
@@ -254,30 +339,37 @@ public class AnnieWorkScreen extends ClickableScreen {
 		return tray;
 	}
 	
-	private Graphic newPizza() {
-		Graphic pizza = new Graphic(45, 65, 330, 330, "food/pizza.png");
-		pizza.setX(pizza.getX() - 1500);
-		return pizza;
-	}
-
-	public void resetTray(List<Visible> viewObjects) {
-		trashAnimation(viewObjects);
-		newTrayPizza(viewObjects);
-		stuff.clear();
-		onScreen.clear();
+	public void animation(List<Visible> viewObjects) {
+		resetTray(viewObjects);
+		setOrders(viewObjects);
+		resetClicked();
 	}
 	
-	private void trashAnimation(List<Visible> viewObjects) {
-		ArrayList<Visible> trash = new ArrayList<Visible>();
-		trash.add(viewObjects.get(viewObjects.indexOf(tray)));
-		trash.add(viewObjects.get(viewObjects.indexOf(pizza)));
-		trash.addAll(stuff);
-		for(int i = 0; i < trash.size(); i++) {
-			Visible.move(trash.get(i), ((Visible) trash.get(i)).getX(), trash.get(i).getY() - 1000, 1000);
-		}
+	private void resetClicked() {
+//		for(int i = 0; i < items.length; i++)
+//			items[i].setClicked(false);
 	}
 
-	public void newOrder(List<Visible> viewObjects) {
+	private void setOrders(List<Visible> viewObjects) {
+		moveOrder(papers.get(orders.indexOf(currentOrder)), currentOrder, currentOrder.getX(), currentOrder.getY() - 1000, 1000);
+		papers.remove(orders.indexOf(currentOrder));
+		orders.remove(currentOrder);
+		newOrder(viewObjects);
+		setCurrentOrder(orders.get(0));
+		orderAnimation();
+	}
+
+	private void orderAnimation() {
+		for(int i = 0; i < orders.size(); i++)
+			moveOrder(papers.get(i), orders.get(i), orderX[i], 40, 1250);
+	}
+
+	private void setCurrentOrder(JoannaOrder currentOrder) {
+		this.currentOrder = currentOrder;
+		bigOrder.setText(currentOrder.toString());
+	}
+
+	private void newOrder(List<Visible> viewObjects) {
 		Component paper = new Component(getWidth(), 40, 100, 130) {
 			
 			public void update(Graphics2D g) {
@@ -304,28 +396,26 @@ public class AnnieWorkScreen extends ClickableScreen {
 		viewObjects.add(newOrder);
 	}
 	
-	protected void orderAnimation(List<Visible> viewObjects) {
-		moveOrder(papers.get(orders.indexOf(currentOrder)), currentOrder, currentOrder.getX(), currentOrder.getY() - 1000, 1000);
-		papers.remove(orders.indexOf(currentOrder));
-		orders.remove(currentOrder);
-		newOrder(viewObjects);
-		setCurrentOrder(orders.get(0));
-		moveOrders();
-	}
-
-	private void moveOrders() {
-		for(int i = 0; i < orders.size(); i++)
-			moveOrder(papers.get(i), orders.get(i), orderX[i], 40, 1250);
-	}
-
 	private void moveOrder(Component paper, JoannaOrder newOrder, int x, int y, int t) {
 		Visible.move(paper, x, y, t);
 		Visible.move(newOrder, x, y, t);
 	}
-
-	public void setCurrentOrder(JoannaOrder currentOrder) {
-		this.currentOrder = currentOrder;
-		bigOrder.setText(currentOrder.toString());
+	
+	private void resetTray(List<Visible> viewObjects) {
+		trashAnimation(viewObjects);
+		newTrayPizza(viewObjects);
+		stuff.clear();
+		onScreen.clear();
+	}
+	
+	private void trashAnimation(List<Visible> viewObjects) {
+		ArrayList<Visible> trash = new ArrayList<Visible>();
+		trash.add(viewObjects.get(viewObjects.indexOf(tray)));
+		trash.add(viewObjects.get(viewObjects.indexOf(pizza)));
+		trash.addAll(stuff);
+		for(int i = 0; i < trash.size(); i++) {
+			Visible.move(trash.get(i), ((Visible) trash.get(i)).getX(), trash.get(i).getY() - 1000, 1000);
+		}
 	}
 
 	public AnnieFoodItem[] getToppings() {
@@ -336,16 +426,16 @@ public class AnnieWorkScreen extends ClickableScreen {
 		return items;
 	}
 
-	public JoannaOrder getCurrentOrder() {
-		return currentOrder;
-	}
-
 	public ArrayList<AnnieFoodItem> getOnScreen() {
 		return onScreen;
 	}
 
 	public int getTrashCount() {
 		return trashCount;
+	}
+
+	public JoannaOrder getCurrentOrder() {
+		return currentOrder;
 	}
 
 }
