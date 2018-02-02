@@ -345,6 +345,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 			public void act() {
 				if(timeLeft == 0) {
 					play.setEnabled(true);
+					score = 0;
 					timeLeft = 5;
 					timeLeftTxt.setText("Time Left: 5");
 				}
