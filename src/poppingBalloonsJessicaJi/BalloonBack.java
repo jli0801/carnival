@@ -11,6 +11,19 @@ public class BalloonBack {
 	public static ArrayList<Integer> balloons = new ArrayList<Integer>(); //static b/c jessica needs to use it index tells us what color what's in the index is the strength of balloon
 	public static ArrayList<Integer> darts = new ArrayList<Integer>();//Inventory.getDarts();
 //	public static ArrayList<Integer> balloonsProperty = new ArrayList<Integer>(); //static b/c jessica needs to use it
+	
+	//***IDEAS***
+	//balloons have health 10 - 100 (not just 1 for dull, 3 for strong etc..)
+	// ^ easier for power bar implementation (power + dart strength)
+	
+	
+	//***TO DOS***
+	//power bar
+	//score formula
+	//result screen (record previous game data)
+	//dart status (how many left & ability to choose dart)
+	//balloon pop animation
+	
 	private static int dartChosen; //for screen
 	
 	
