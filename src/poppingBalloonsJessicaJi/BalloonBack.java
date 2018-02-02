@@ -18,11 +18,15 @@ public class BalloonBack {
 	
 	
 	//***TO DOS***
-	//power bar
-	//score formula
-	//result screen (record previous game data)
+	//*power bar
+	//*score formula
+	//*result screen (record previous game data)
 	//dart status (how many left & ability to choose dart)
 	//balloon pop animation
+	//when game end, switch to results screen and have restart/replay button there instead
+	//*ticket formula
+	//if darts run out, game ends 
+	
 	
 	private static int dartChosen; //for screen
 	
