@@ -202,7 +202,7 @@ public class AnnieWorkScreen extends ClickableScreen {
 			
 			public void act() {
 				onScreen.add(item);
-				Graphic food = new Graphic(80, 430, .7, itemImgs[2]);
+				Graphic food = new Graphic(80, 435, .7, itemImgs[2]);
 				stuff.add(food);
 				viewObjects.add(food);
 			}
