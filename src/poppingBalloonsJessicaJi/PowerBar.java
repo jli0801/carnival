@@ -2,13 +2,15 @@ package poppingBalloonsJessicaJi;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.Timer;
 import java.util.TimerTask;
 
 
 import guiTeacher.components.AnimatedComponent;
+import guiTeacher.components.StyledComponent;
 
-public class PowerBar extends AnimatedComponent {
+public class PowerBar extends StyledComponent {
 
 	private int length;
 	private int width;
@@ -22,8 +24,8 @@ public class PowerBar extends AnimatedComponent {
 		length = h;
 		startX = x;
 		startY = y;
-		Thread go = new Thread(this);
-		go.start();
+
+		update();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -34,7 +36,13 @@ public class PowerBar extends AnimatedComponent {
 	}
 
 
-	 public void paint(Graphics g) {
+	/* public void paint(Graphics g) {
+		
+	    }*/
+
+
+	@Override
+	public void update(Graphics2D g) {
 		 
 		 Color lightYellow = new Color (255,255,153);
 		 Color lightRed = new Color (255,153,153);
@@ -106,5 +114,5 @@ public class PowerBar extends AnimatedComponent {
 				}
 	          
 	        
-	    }
+	}
 }

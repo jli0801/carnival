@@ -150,9 +150,15 @@ public class BalloonScreen extends FullFunctionScreen  {
 		dull = new Button(250,650,100,100,"", new Action() {
 			@Override
 			public void act() {
+				if(Inventory.getDartNumber[0] > 0)
+				{
 				chosenDart = true; //in backend
 				BalloonBack.setDartChosen(0); //0 = dull
-				
+				}
+				else
+				{
+					chosenDart = false;
+				}
 			}
 		});
 		viewObjects.add(dull);
@@ -163,9 +169,15 @@ public class BalloonScreen extends FullFunctionScreen  {
 		blunt = new Button(350,650,100,100,"", new Action() {
 			@Override
 			public void act() {
+				if(Inventory.getDartNumber[0] > 0)
+				{
 				chosenDart = true; //in backend
 				BalloonBack.setDartChosen(1); //0 = dull
-				
+				}
+				else
+				{
+					chosenDart = false;
+				}
 			}
 		});
 		viewObjects.add(blunt);
@@ -176,9 +188,15 @@ public class BalloonScreen extends FullFunctionScreen  {
 		sharp = new Button(350,650,100,100,"", new Action() {
 			@Override
 			public void act() {
+				if(Inventory.getDartNumber[0] > 0)
+				{
 				chosenDart = true; //in backend
 				BalloonBack.setDartChosen(2); //0 = dull
-				
+				}
+				else
+				{
+					chosenDart = false;
+				}
 			}
 		});
 		viewObjects.add(sharp);
@@ -190,9 +208,15 @@ public class BalloonScreen extends FullFunctionScreen  {
 		dangerous = new Button(350,650,100,100,"", new Action() {
 			@Override
 			public void act() {
+				if(Inventory.getDartNumber[0] > 0)
+				{
 				chosenDart = true; //in backend
 				BalloonBack.setDartChosen(3); //0 = dull
-				
+				}
+				else
+				{
+					chosenDart = false;
+				}
 			}
 		});
 		viewObjects.add(dangerous);
