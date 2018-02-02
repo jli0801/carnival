@@ -2,6 +2,7 @@ package whackAMoleKevinSteph;
 
 import java.util.List;
 
+import guiTeacher.GUIApplication;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
@@ -16,6 +17,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	
 	private Graphic mOne;
 	private Graphic mTwo;
@@ -53,6 +55,9 @@ public class WAMGameKevin extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		Graphic gamebg = new Graphic(0,0, getWidth(), getHeight(), "wam/GameBg.jpg");
+		viewObjects.add(gamebg);
+		
 		score = 0;
 		
 		quitButton = new Button(100,30,100,70,"Quit Game", new Action() {
@@ -60,6 +65,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 			@Override
 			public void act() {
 				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.moleInstruct);
+				GUIApplication.enableCursorChange = true;
 				
 			}
 		});

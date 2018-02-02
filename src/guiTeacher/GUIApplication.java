@@ -18,6 +18,7 @@
  *******************************************************************************/
 package guiTeacher;
 
+import java.awt.Cursor;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 
@@ -39,8 +40,15 @@ public abstract class GUIApplication extends JFrame implements Runnable, Compone
 	 */
 	private static final long serialVersionUID = 390738816689963935L;
 	public static JFrame mainFrame;
+	public static boolean enableCursorChange = true;
 	private Screen currentScreen;
 	private boolean scaleWithWindow; 
+	
+	public void setCursor(Cursor c) {
+		if (enableCursorChange) {
+			super.setCursor(c);
+		}
+	}
 	
 
 

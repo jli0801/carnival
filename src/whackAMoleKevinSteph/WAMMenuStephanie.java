@@ -1,10 +1,18 @@
 package whackAMoleKevinSteph;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Point;
+import java.awt.Toolkit;
 import java.io.File;
 import java.util.List;
 
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+
+import guiTeacher.GUIApplication;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
@@ -12,6 +20,7 @@ import guiTeacher.components.StyledComponent;
 import guiTeacher.components.TextBox;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import guiTeacher.userInterfaces.Screen;
 import mainMenuAreejVickie.GuiLoadingVickie;
 
 public class WAMMenuStephanie extends FullFunctionScreen {
@@ -65,7 +74,14 @@ public class WAMMenuStephanie extends FullFunctionScreen {
 		startButton = new Button(970,30,200,50,"START GAME",Color.ORANGE, new Action() {
 
 			public void act() {
+				JFrame mainPane = GUIApplication.mainFrame;
 				GuiLoadingVickie.loading.setScreen(new WAMGameKevin(getWidth(), getHeight()));
+				Toolkit toolkit = Toolkit.getDefaultToolkit();
+				Image image = toolkit.getImage("wam/mallet.png");
+				Cursor c = toolkit.createCustomCursor(image , new Point(mainPane.getX(), 
+				           mainPane.getY()), "img");
+				mainPane.setCursor (c);
+				GUIApplication.enableCursorChange = false;
 			}
 		});
 		
