@@ -345,7 +345,6 @@ public class BalloonScreen extends FullFunctionScreen  {
 			public void act() {
 				if(timeLeft == 0) {
 					play.setEnabled(true);
-					score = 0;
 					timeLeft = 5;
 					timeLeftTxt.setText("Time Left: 5");
 				}
@@ -362,14 +361,14 @@ public class BalloonScreen extends FullFunctionScreen  {
 
 	}
 
-	private void changeQuality(String string, Integer integer) {
+	private void changeQuality(String string, Integer integer, int i) {
 		
 	
 		if(timeLeft != 0)
 		{
 			balloonChosen = string;
 			dartChosen = integer;
-			score = score + 1;
+			score = score + i;
 		}
 	}
 
