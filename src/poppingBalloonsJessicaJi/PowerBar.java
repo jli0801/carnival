@@ -32,7 +32,7 @@ public class PowerBar extends StyledComponent {
 	
 	public int getLength()
 	{
-		return length; //equal to the strength will start at 0
+		return length; //equal to the strength will start at 5
 	}
 
 
