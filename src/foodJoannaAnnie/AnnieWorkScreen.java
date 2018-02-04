@@ -143,10 +143,15 @@ public class AnnieWorkScreen extends ClickableScreen {
 			item.setAction(new Action() {
 				
 				public void act() {
-					onScreen.add(item);
-					Graphic food = new Graphic(420 + 190 * num, tray.getY() + tray.getHeight() - 280 + ((num + 1) % 2) * 15, .7, itemImgs[num]);
-					stuff.add(food);
-					viewObjects.add(food);
+					if(!item.isClicked()) {
+						onScreen.add(item);
+						Graphic food = new Graphic(420 + 190 * num, tray.getY() + tray.getHeight() - 280 + ((num + 1) % 2) * 15, .7, itemImgs[num]);
+						food.setY(food.getY() - 1000);
+						stuff.add(food);
+						viewObjects.add(food);
+						item.setClicked(true);
+						Visible.move(food, food.getX(), food.getY() + 1000, 500);
+					}
 				}
 				
 			});
@@ -173,10 +178,15 @@ public class AnnieWorkScreen extends ClickableScreen {
 			item.setAction(new Action() {
 				
 				public void act() {
-					onScreen.add(item);
-					Graphic food = new Graphic(item.getX() - 105 * (num - 2) - 90 * ((num - 1) % 2), tray.getY() + 30, .6, itemImgs[num]);
-					stuff.add(food);
-					viewObjects.add(food);
+					if(!item.isClicked()) {
+						onScreen.add(item);
+						Graphic food = new Graphic(item.getX() - 105 * (num - 2) - 90 * ((num - 1) % 2), tray.getY() + 30, .6, itemImgs[num]);
+						food.setY(food.getY() - 500);
+						stuff.add(food);
+						viewObjects.add(food);
+						item.setClicked(true);
+						Visible.move(food, food.getX(), food.getY() + 500, 500);
+					}
 				}
 				
 			});
@@ -201,10 +211,15 @@ public class AnnieWorkScreen extends ClickableScreen {
 		item.setAction(new Action() {
 			
 			public void act() {
-				onScreen.add(item);
-				Graphic food = new Graphic(80, 435, .7, itemImgs[2]);
-				stuff.add(food);
-				viewObjects.add(food);
+				if(!item.isClicked()) {
+					onScreen.add(item);
+					Graphic food = new Graphic(80, 435, .7, itemImgs[2]);
+					food.setX(food.getX() - 500);
+					stuff.add(food);
+					viewObjects.add(food);
+					item.setClicked(true);
+					Visible.move(food, food.getX() + 500, food.getY(), 500);
+				}
 			}
 			
 		});
@@ -342,12 +357,11 @@ public class AnnieWorkScreen extends ClickableScreen {
 	public void animation(List<Visible> viewObjects) {
 		resetTray(viewObjects);
 		setOrders(viewObjects);
-		resetClicked();
 	}
 	
 	private void resetClicked() {
-//		for(int i = 0; i < items.length; i++)
-//			items[i].setClicked(false);
+		for(int i = 0; i < items.length; i++)
+			items[i].setClicked(false);
 	}
 
 	private void setOrders(List<Visible> viewObjects) {
@@ -404,6 +418,7 @@ public class AnnieWorkScreen extends ClickableScreen {
 	private void resetTray(List<Visible> viewObjects) {
 		trashAnimation(viewObjects);
 		newTrayPizza(viewObjects);
+		resetClicked();
 		stuff.clear();
 		onScreen.clear();
 	}
