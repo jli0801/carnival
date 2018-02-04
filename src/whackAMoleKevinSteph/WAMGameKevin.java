@@ -55,7 +55,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		Graphic gamebg = new Graphic(0,0, getWidth(), getHeight(), "wam/GameBg.jpg");
+		Graphic gamebg = new Graphic(0,0, getWidth(), getHeight(), "wam/unnamed.png");
 		viewObjects.add(gamebg);
 		
 		score = 0;
@@ -168,7 +168,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 		viewObjects.add(moleNine);
 		
 		
-		mOne = new Graphic(250,200,80,80,"wam/mole.png");
+		mOne = new Graphic(270,220,80,80,"wam/mole.png");
 		viewObjects.add(mOne);
 		
 		mTwo = new Graphic(450,200,80,80,"wam/mole.png");
