@@ -45,7 +45,7 @@ public class PowerBar extends StyledComponent {
 
 	@Override
 	public void update(Graphics2D g) {
-		 
+		
 		if(length <= 35) //going up
 		{
 			length = length + 5; // 5,10,15,20,25,30,35,40
@@ -68,7 +68,7 @@ public class PowerBar extends StyledComponent {
 		}
 		else //going down 
 		{
-			length = length/2; //5,10,15,20,25,30,35,40
+			length = length-5; //5,10,15,20,25,30,35,40
 			if(length <= 40) //36 -> 40
 			{
 				g.setColor(Color.RED);
