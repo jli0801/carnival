@@ -145,7 +145,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 		viewObjects.add(ticket);
 		//darts
 		dart1 = new Graphic (250,650,100,100,"poppingBalloons/dart1.png");
-		dullDart = new TextArea(250,750,100,100, Integer.toString(Inventory.getDartNumber(0)));
+	/*	dullDart = new TextArea(250,750,100,100, Integer.toString(Inventory.getDartNumber(0)));
 		viewObjects.add(dart1);
 		dull = new Button(250,650,100,100,"", new Action() {
 			@Override
@@ -219,7 +219,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 				}
 			}
 		});
-		viewObjects.add(dangerous);
+		viewObjects.add(dangerous);*/
 		//end darts
 
 		//balloons
@@ -331,12 +331,13 @@ public class BalloonScreen extends FullFunctionScreen  {
 			public void act() {
 					play.setEnabled(false);
 					strength = new PowerBar(75,100,25,5);
-					viewObjects.add(strength); 
+					
 				//	viewObjects.add();
 					Timer();
 					
 			}
 		});
+		viewObjects.add(strength); 
 		viewObjects.add(play);
 		
 		restart = new Button(500, 200, 150, 100, "Restart", new Action() {
