@@ -81,6 +81,13 @@ public class InventoryVickie extends FullFunctionScreen{
 		
 		Graphic inventoryBackground =new Graphic(0,0, getWidth(), getHeight(), "resources/inventoryF.jpg");
 		
+		Graphic banner1 =new Graphic(0,30,400, 200, "resources/banner1.png");
+		Graphic banner2 =new Graphic(373,30,400, 200, "resources/banner2.png");
+		
+		Graphic b1 =new Graphic(0,30,300, 200, "resources/b1.png");
+		Graphic b2 =new Graphic(296,25,300, 200, "resources/b2.png");
+		
+		
 		menu = new Button(600, 400, 50, 50, "menu", Color.blue, new Action() {
 
 			@Override
@@ -90,8 +97,13 @@ public class InventoryVickie extends FullFunctionScreen{
 			
 		});
 		
-		viewObjects.add(inventoryBackground);
+		//viewObjects.add(inventoryBackground);
+		setBackground(Color.CYAN);
 		viewObjects.add(menu);
+		//viewObjects.add(banner1);
+		//viewObjects.add(banner2);
+		viewObjects.add(b1);
+		viewObjects.add(b2);
 	}
 	
 	private void updateDarts() {
