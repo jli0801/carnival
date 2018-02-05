@@ -8,7 +8,7 @@ public class BalloonResultsConfetti extends AnimatedComponent{
 
 	public BalloonResultsConfetti() {
 		super(40, 40, 100, 80);
-		addSequence("resources/", 150, 0, 0, 100, 200, 10);
+		addSequence("poppingBalloons/", 150, 0, 0, 100, 200, 10);
 		Thread animation = new Thread(this);
 		animation.start();
 		update();
