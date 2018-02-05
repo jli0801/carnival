@@ -29,6 +29,16 @@ public class WAMGameKevin extends FullFunctionScreen {
 	private Graphic mEight;
 	private Graphic mNine;
 	
+	private Graphic sOne;
+	private Graphic sTwo;
+	private Graphic sThree;
+	private Graphic sFour;
+	private Graphic sFive;
+	private Graphic sSix;
+	private Graphic sSeven;
+	private Graphic sEight;
+	private Graphic sNine;
+	
 	private Graphic dOne;
 	private Graphic dTwo;
 	private Graphic dThree;
@@ -191,13 +201,13 @@ public class WAMGameKevin extends FullFunctionScreen {
 		viewObjects.add(mOne);
 		
 		mTwo = new Graphic(450,200,80,80,"wam/mole.png");
-		viewObjects.add(mTwo);
+		//viewObjects.add(mTwo);
 		
 		mThree = new Graphic(650,200,80,80,"wam/mole.png");
 		viewObjects.add(mThree);
 		
 		mFour = new Graphic(250,400,80,80,"wam/mole.png");
-		viewObjects.add(mFour);
+		//viewObjects.add(mFour);
 		
 		mFive = new Graphic(450,400,80,80,"wam/mole.png");
 		viewObjects.add(mFive);
@@ -212,33 +222,60 @@ public class WAMGameKevin extends FullFunctionScreen {
 		viewObjects.add(mEight);
 		
 		mNine = new Graphic(650,600,80,80,"wam/mole.png");
-		viewObjects.add(mNine);
+		//viewObjects.add(mNine);
 		
-		dOne = new Graphic(250,200,80,80,"wam/squish.png");
-		viewObjects.add(dOne);
+		sOne = new Graphic(250,200,80,80,"wam/squish.png");
+		//viewObjects.add(sOne);
 		
-		dTwo = new Graphic(450,200,80,80,"wam/squish.png");
+		sTwo = new Graphic(450,200,80,80,"wam/squish.png");
+		//viewObjects.add(sTwo);
+		
+		sThree = new Graphic(650,200,80,80,"wam/squish.png");
+		//viewObjects.add(sThree);
+		
+		sFour = new Graphic(250,400,80,80,"wam/squish.png");
+		//viewObjects.add(sFour);
+		
+		sFive = new Graphic(450,400,80,80,"wam/squish.png");
+		//viewObjects.add(sFive);
+		
+		sSix = new Graphic(650,400,80,80,"wam/squish.png");
+		//viewObjects.add(sSix);
+		
+		sSeven = new Graphic(250,600,80,80,"wam/squish.png");
+		//viewObjects.add(sSeven);
+		
+		sEight = new Graphic(450,600,80,80,"wam/squish.png");
+		//viewObjects.add(sEight);
+		
+		sNine = new Graphic(650,600,80,80,"wam/squish.png");
+		//viewObjects.add(sNine);
+		
+		dOne = new Graphic(250,200,80,80,"wam/dirt.png");
+		//viewObjects.add(dOne);
+		
+		dTwo = new Graphic(450,200,80,80,"wam/dirt.png");
 		viewObjects.add(dTwo);
 		
-		dThree = new Graphic(650,200,80,80,"wam/squish.png");
-		viewObjects.add(dThree);
+		dThree = new Graphic(650,200,80,80,"wam/dirt.png");
+		//viewObjects.add(dThree);
 		
-		dFour = new Graphic(250,400,80,80,"wam/squish.png");
+		dFour = new Graphic(250,400,80,80,"wam/dirt.png");
 		viewObjects.add(dFour);
 		
-		dFive = new Graphic(450,400,80,80,"wam/squish.png");
-		viewObjects.add(dFive);
+		dFive = new Graphic(450,400,80,80,"wam/dirt.png");
+		//viewObjects.add(dFive);
 		
-		dSix = new Graphic(650,400,80,80,"wam/squish.png");
-		viewObjects.add(dSix);
+		dSix = new Graphic(650,400,80,80,"wam/dirt.png");
+		//viewObjects.add(dSix);
 		
-		dSeven = new Graphic(250,600,80,80,"wam/squish.png");
-		viewObjects.add(dSeven);
+		dSeven = new Graphic(250,600,80,80,"wam/dirt.png");
+		//viewObjects.add(dSeven);
 		
-		dEight = new Graphic(450,600,80,80,"wam/squish.png");
-		viewObjects.add(dEight);
+		dEight = new Graphic(450,600,80,80,"wam/dirt.png");
+		//viewObjects.add(dEight);
 		
-		dNine = new Graphic(650,600,80,80,"wam/squish.png");
+		dNine = new Graphic(650,600,80,80,"wam/dirt.png");
 		viewObjects.add(dNine);
 		
 		moleOne.setEnabled(true);
@@ -265,40 +302,56 @@ public class WAMGameKevin extends FullFunctionScreen {
 	
 	public void moleOneDown() {
 		moleOne.setEnabled(false);
+		viewObjects.add(sOne);
+		viewObjects.remove(mOne);
 	}
 
 	public void moleTwoDown() {
 		moleTwo.setEnabled(false);
-		
+		viewObjects.add(sTwo);
+		viewObjects.remove(mTwo);
 	}
 
 	public void moleThreeDown() {
 		moleThree.setEnabled(false);
-		
+		viewObjects.add(sThree);
+		viewObjects.remove(mThree);
 	}
 
 	public void moleFourDown() {
 		moleFour.setEnabled(false);		
+		viewObjects.add(sFour);
+		viewObjects.remove(mFour);
 	}
 
 	public void moleFiveDown() {
-		moleFive.setEnabled(false);		
+		moleFive.setEnabled(false);	
+		viewObjects.add(sFive);
+		viewObjects.remove(mFive);
 	}
 
 	public void moleSixDown() {
 		moleSix.setEnabled(false);		
+		viewObjects.add(sSix);
+		viewObjects.remove(mSix);
 	}
 
 	public void moleSevenDown() {
 		moleSeven.setEnabled(false);		
+		viewObjects.add(sSeven);
+		viewObjects.remove(mSeven);
 	}
 
 	public void moleEightDown() {
-		moleEight.setEnabled(false);		
+		moleEight.setEnabled(false);	
+		viewObjects.add(sEight);
+		viewObjects.remove(mEight);
 	}
 
 	public void moleNineDown() {
 		moleNine.setEnabled(false);		
+		viewObjects.add(sNine);
+		viewObjects.remove(mNine);
 	}
 
 	public void scoreUp() {
