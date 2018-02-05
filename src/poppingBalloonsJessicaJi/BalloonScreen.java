@@ -71,7 +71,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 	private TextArea dangerousDart;
 	private TextArea timeLeftTxt;
 
-	private PowerBar strength;
+	private PowerBar strength = new PowerBar(200,200,25,5);
 	private Button play;
 	private boolean playPressed = false;
 	private Button restart;
@@ -350,7 +350,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 			public void act() {
 				
 					play.setEnabled(false);
-					viewObjects.add(new PowerBar(250,250,25,5));
+					viewObjects.add(strength);
 					
 				//	viewObjects.add();
 					Timer();
