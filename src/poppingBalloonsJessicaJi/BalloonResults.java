@@ -15,7 +15,9 @@ public class BalloonResults extends FullFunctionScreen {
 	private TextArea score;
 	private TextArea rate;
 	
-	private int tickets = 0;
+	private int tickets;
+	private int scoreNum;
+	private int averageRate;
 
 	public BalloonResults(int width, int height) {
 		super(width, height);
@@ -41,6 +43,12 @@ public class BalloonResults extends FullFunctionScreen {
 		viewObjects.add(score);
 		viewObjects.add(rate);
 		viewObjects.add(back);
+	}
+	
+	public void setStats() {
+		//get previous score
+		//calculate number of tickets based on score; 1:10
+		//calculate average rate
 	}
 
 }
