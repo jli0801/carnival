@@ -350,14 +350,14 @@ public class BalloonScreen extends FullFunctionScreen  {
 			public void act() {
 				
 					play.setEnabled(false);
-					strength = new PowerBar(75,100,25,5);
+					viewObjects.add(new PowerBar(250,250,25,5));
 					
 				//	viewObjects.add();
 					Timer();
 					
 			}
 		});
-		viewObjects.add(strength); 
+	//	viewObjects.add(strength); 
 		viewObjects.add(play);
 		
 		restart = new Button(500, 200, 150, 100, "Restart", new Action() {
