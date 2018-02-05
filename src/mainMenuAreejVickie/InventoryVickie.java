@@ -46,6 +46,11 @@ public class InventoryVickie extends FullFunctionScreen{
 	private double money;
 	private int tickets; 
 	
+	private int[] darts;
+	
+	private int dartsNum;
+	private ArrayList<String> itemsList;
+	
 	public InventoryVickie(int width, int height) {
 		super(width, height);
 		setVisible(true);
@@ -64,20 +69,18 @@ public class InventoryVickie extends FullFunctionScreen{
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 
+		itemsList = new ArrayList<String>();
+		
+		int[]dart = {4,4,4,4};
+		darts = dart;
+		
 		money = 10;
 		tickets = 0;
 		
 		arrEx();
-		ClickableGraphic inventoryBackground =new ClickableGraphic(0,0, getWidth(), getHeight(), "resources/inventoryF.jpg");
-		inventoryBackground.setAction(new Action() {
-
-			@Override
-			public void act() {
-				TextArea test = new TextArea(100,100,200,200, "Test");
-				viewObjects.add(test);
-			}
-			
-		});
+		
+		Graphic inventoryBackground =new Graphic(0,0, getWidth(), getHeight(), "resources/inventoryF.jpg");
+		
 		menu = new Button(600, 400, 50, 50, "menu", Color.blue, new Action() {
 
 			@Override
@@ -89,6 +92,48 @@ public class InventoryVickie extends FullFunctionScreen{
 		
 		viewObjects.add(inventoryBackground);
 		viewObjects.add(menu);
+	}
+	
+	private void updateDarts() {
+		int dull = 0;
+		int blunt = 0; 
+		int sharp = 0;
+		int dangerous = 0;
+		
+		//dull dart:0
+		for(int i = 0; i<itemsList.size();i++) {
+			if(itemsList.get(i).equals("dullDart")) {
+				dull++;
+			}
+		}
+		
+		//blunt dart:1
+		for(int i = 0; i<itemsList.size();i++) {
+			if(itemsList.get(i).equals("bluntDart")) {
+				dull++;
+			}
+		}
+		
+		//sharp dart:2
+		for(int i = 0; i<itemsList.size();i++) {
+			if(itemsList.get(i).equals("sharpDart")) {
+				dull++;
+			}
+		}
+		
+		//dangerous dart:3
+		for(int i = 0; i<itemsList.size();i++) {
+			if(itemsList.get(i).equals("dangerousDart")) {
+				dull++;
+			}
+		}
+		
+		
+		darts[0] =dull;
+		darts[1] =blunt;
+		darts[2] =sharp;
+		darts[3] =dangerous;
+		
 	}
 	
 	public  void arrEx()
@@ -113,5 +158,32 @@ public class InventoryVickie extends FullFunctionScreen{
 	
 	//private ArrayList<> inventory;
 
+	
+	public int getTickets() {
+		return tickets;
+	}
+	
+	public void setTickets(int num) {
+		this.tickets = num;
+	}
+	
+	public double getMoney() {
+		return money;
+	}
+	
+	public void setMoney(int num) {
+		this.money = num;
+	}
+	
+	public int getDartNumber(int num) {
+		//updateDarts();
+		dartsNum = darts[num];
+		return dartsNum;
+	}
+	
+	public int [] darts() {
+		return darts;
+	}
+	
 	
 }
