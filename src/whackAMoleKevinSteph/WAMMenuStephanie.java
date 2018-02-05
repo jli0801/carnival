@@ -71,15 +71,18 @@ public class WAMMenuStephanie extends FullFunctionScreen {
 
 		viewObjects.add(returnMSButton);
 
+		
+		
 		startButton = new Button(970,30,200,50,"START GAME",Color.ORANGE, new Action() {
 
 			public void act() {
 				JFrame mainPane = GUIApplication.mainFrame;
 				GuiLoadingVickie.loading.setScreen(new WAMGameKevin(getWidth(), getHeight()));
 				Toolkit toolkit = Toolkit.getDefaultToolkit();
+				toolkit.getBestCursorSize(100, 100);
 				Image image = toolkit.getImage("wam/mallet.png");
 				Cursor c = toolkit.createCustomCursor(image , new Point(mainPane.getX(), 
-				           mainPane.getY()), "img");
+				           mainPane.getY()), "img");	
 				mainPane.setCursor (c);
 				GUIApplication.enableCursorChange = false;
 			}
