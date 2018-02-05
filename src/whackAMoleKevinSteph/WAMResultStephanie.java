@@ -53,7 +53,7 @@ public class WAMResultStephanie extends FullFunctionScreen {
 
 		viewObjects.add(returnMSButton);
 		 
-		playButton = new Button(820,30,210,50,"PLAY AGAIN", Color.ORANGE, new Action() {
+		playButton = new Button(920,30,210,50,"PLAY AGAIN", Color.ORANGE, new Action() {
 			
 			public void act() {
 				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.moleInstruct);
@@ -63,13 +63,13 @@ public class WAMResultStephanie extends FullFunctionScreen {
 		
 		viewObjects.add(playButton);
 		
-		resultTitle = new TextBox(250,80,700,270,"RESULTS:");
+		resultTitle = new TextBox(250,80,600,270,"RESULTS:");
 		viewObjects.add(resultTitle);
 		
-		showScores = new TextBox(250,80,700,270,"SCORE:" + "\n" + "TICKETS EARNED:");
+		showScores = new TextBox(250,180,600,270,"SCORE:" + "\n" + "TICKETS EARNED:");
 		viewObjects.add(showScores);
 		
-		totalTickets = new TextBox(250,80,700,270,"TOTAL TICKETS:");
+		totalTickets = new TextBox(250,280,600,270,"TOTAL TICKETS:");
 		viewObjects.add(totalTickets);
 		
 	}
