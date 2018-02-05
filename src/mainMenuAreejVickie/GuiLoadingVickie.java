@@ -25,6 +25,10 @@ public class GuiLoadingVickie extends GUIApplication{
 	public static foodJoannaAnnie.AnnieWorkScreen foodGame;
 	
 	public static whackAMoleKevinSteph.WAMMenuStephanie moleInstruct;
+	
+	public static InventoryVickie inventory;
+	
+	public static StoreAreej store;
 
 	/*
 	 * 3 screens stephKev
@@ -60,12 +64,16 @@ public class GuiLoadingVickie extends GUIApplication{
 		welcome = new WelcomeScreenVickie(getWidth(), getHeight());
 		menu = new MainScreenAreej(getWidth(), getHeight());
 		
+		inventory = new InventoryVickie(getWidth(), getHeight());
+		
 		balloonGame = new poppingBalloonsJessicaJi.BalloonScreen(getWidth(), getHeight());
 		balloonResults = new poppingBalloonsJessicaJi.BalloonResults(getWidth(), getHeight());
 		
 		foodGame = new foodJoannaAnnie.AnnieWorkScreen(getWidth(), getHeight());
 		
 		moleInstruct = new whackAMoleKevinSteph.WAMMenuStephanie(getWidth(), getHeight());
+		
+		store = new StoreAreej(getWidth(), getHeight());
 		
 		setScreen(welcome);
 	}

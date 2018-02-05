@@ -1,9 +1,22 @@
 package mainMenuAreejVickie;
 
-public class StoreAreej {
+import java.util.List;
+import guiTeacher.interfaces.Visible;
+import guiTeacher.userInterfaces.FullFunctionScreen;
 
-	public StoreAreej() {
-		// TODO Auto-generated constructor stub
+public class StoreAreej extends FullFunctionScreen{
+
+	public StoreAreej(int width, int height) {
+		super(width, height);
+		
 	}
+
+	@Override
+	public void initAllObjects(List<Visible> viewObjects) {
+		
+		
+	}
+
+	
 
 }
