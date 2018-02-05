@@ -2,8 +2,11 @@ package mainMenuAreejVickie;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.List;
+import java.util.Timer;
+
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.ClickableGraphic;
@@ -20,6 +23,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 	private Button mole;
 	private Button food;
 	private Button inventory;
+	private Button store;
 
 	public MainScreenAreej(int width, int height) {
 		super(width, height);
@@ -66,7 +70,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 		});
 		
 		//inventory
-		inventory = new Button(50, 50, 120, 40, "Inventory", Color.orange, new Action() {
+		inventory = new Button(50, 50, 120, 180, "Inventory", Color.orange, new Action() {
 
 			public void act() {
 				
@@ -75,6 +79,15 @@ public class MainScreenAreej extends FullFunctionScreen {
 			}
 		});
 
+		//store
+		store = new Button(50, 50, 120, 80, "Store", Color.red, new Action() {
+
+			public void act() {
+				
+				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.store);
+
+			}
+		});
 		
 		 try {
 
@@ -87,12 +100,14 @@ public class MainScreenAreej extends FullFunctionScreen {
 			 e.printStackTrace();
 
 			 }
+		 
 		
 		viewObjects.add(background);
 		viewObjects.add(clown);
 		viewObjects.add(mol);
 		viewObjects.add(pizza);
 		viewObjects.add(inventory);
+		viewObjects.add(store);
 
 		
 	}
