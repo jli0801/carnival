@@ -55,7 +55,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		Graphic gamebg = new Graphic(0,0, getWidth(), getHeight(), "wam/unnamed.png");
+		Graphic gamebg = new Graphic(0,0, getWidth(), getHeight(), "wam/grass.png");
 		viewObjects.add(gamebg);
 		
 		score = 0;
@@ -77,7 +77,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 		/*timeText = new TextArea(950,250,200,200, "Time: " + time);
 		viewObjects.add(timeText);*/
 		
-		moleOne = new Button(250,200,80,80,"One", new Action() {
+		moleOne = new Button(250,200,80,80,"", new Action() {
 			
 			@Override
 			public void act() {
@@ -87,7 +87,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 		});
 		viewObjects.add(moleOne);
 		
-		moleTwo = new Button(450,200,80,80,"Two", new Action() {
+		moleTwo = new Button(450,200,80,80,"", new Action() {
 			
 			@Override
 			public void act() {
@@ -97,7 +97,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 		});
 		viewObjects.add(moleTwo);
 		
-		moleThree = new Button(650,200,80,80,"Three", new Action() {
+		moleThree = new Button(650,200,80,80,"", new Action() {
 			
 			@Override
 			public void act() {
@@ -107,7 +107,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 		});
 		viewObjects.add(moleThree);
 		
-		moleFour = new Button(250,400,80,80,"Four", new Action() {
+		moleFour = new Button(250,400,80,80,"", new Action() {
 			
 			@Override
 			public void act() {
@@ -117,7 +117,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 		});
 		viewObjects.add(moleFour);
 		
-		moleFive = new Button(450,400,80,80,"Five", new Action() {
+		moleFive = new Button(450,400,80,8, "", new Action() {
 			
 			@Override
 			public void act() {
@@ -127,7 +127,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 		});
 		viewObjects.add(moleFive);
 		
-		moleSix = new Button(650,400,80,80,"Six", new Action() {
+		moleSix = new Button(650,400,80,80,"", new Action() {
 			
 			@Override
 			public void act() {
@@ -137,7 +137,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 		});
 		viewObjects.add(moleSix);
 		
-		moleSeven = new Button(250,600,80,80,"Seven", new Action() {
+		moleSeven = new Button(250,600,80,80,"", new Action() {
 			
 			@Override
 			public void act() {
@@ -147,7 +147,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 		});
 		viewObjects.add(moleSeven);
 		
-		moleEight = new Button(450,600,80,80,"Eight", new Action() {
+		moleEight = new Button(450,600,80,80,"", new Action() {
 			
 			@Override
 			public void act() {
@@ -157,7 +157,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 		});
 		viewObjects.add(moleEight);
 		
-		moleNine = new Button(650,600,80,80,"Nine", new Action() {
+		moleNine = new Button(650,600,80,80,"", new Action() {
 			
 			@Override
 			public void act() {
@@ -168,7 +168,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 		viewObjects.add(moleNine);
 		
 		
-		mOne = new Graphic(270,220,80,80,"wam/mole.png");
+		mOne = new Graphic(250,200,80,80,"wam/mole.png");
 		viewObjects.add(mOne);
 		
 		mTwo = new Graphic(450,200,80,80,"wam/mole.png");
