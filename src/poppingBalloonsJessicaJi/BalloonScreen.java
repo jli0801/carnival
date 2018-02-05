@@ -55,6 +55,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 
 	private static int score = 0; //ji uses this in her class so it's static
 	private static int timeLeft = 5;
+	private int previousScore = 0;
 
 	public static int getTimeLeft() { //jessica needs this for power bar 
 		return timeLeft;
@@ -367,6 +368,8 @@ public class BalloonScreen extends FullFunctionScreen  {
 				if(timeLeft == 0) {
 					play.setEnabled(true);
 					timeLeft = 5;
+					previousScore = score;
+					score = 0;
 					timeLeftTxt.setText("Time Left: 5");
 				}
 				
