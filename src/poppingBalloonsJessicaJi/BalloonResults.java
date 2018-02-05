@@ -11,7 +11,7 @@ import guiTeacher.userInterfaces.FullFunctionScreen;
 
 public class BalloonResults extends FullFunctionScreen {
 
-	private TextArea result;
+	//private TextArea result;
 	private TextArea score;
 	private TextArea rate;
 	
@@ -26,7 +26,7 @@ public class BalloonResults extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		result = new TextArea(50, 10, 200, 100, "You (win/lose)");
+		//result = new TextArea(50, 10, 200, 100, "You (win/lose)");
 		score = new TextArea(50, 50, 100, 50, "Final score: _");
 		rate  = new TextArea(50, 70, 500, 50, "You popped an average of _ balloons per second");
 		
@@ -39,7 +39,7 @@ public class BalloonResults extends FullFunctionScreen {
 			}
 		});
 		
-		viewObjects.add(result);
+		//viewObjects.add(result);
 		viewObjects.add(score);
 		viewObjects.add(rate);
 		viewObjects.add(back);
