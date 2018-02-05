@@ -70,6 +70,8 @@ public class GuiLoadingVickie extends GUIApplication{
 		moleInstruct = new whackAMoleKevinSteph.WAMMenuStephanie(getWidth(), getHeight());
 		
 		setScreen(welcome);
+		
+		GUIApplication.enableCursorChange = true;
 	}
 
 }
