@@ -14,7 +14,9 @@ public class BalloonBack {
 	
 	//***IDEAS***
 	//balloons have health 10 - 100 (not just 1 for dull, 3 for strong etc..)
-	// ^ easier for power bar implementation (power + dart strength)
+	// ^ easier for power bar implementation (power * dart strength)
+	//dart strength = 1,2,3,4 
+	//power = PowerBar.getLength() /5;
 	
 	
 	//***TO DOS***
