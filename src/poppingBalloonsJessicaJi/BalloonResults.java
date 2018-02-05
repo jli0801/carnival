@@ -14,6 +14,8 @@ public class BalloonResults extends FullFunctionScreen {
 	private TextArea result;
 	private TextArea score;
 	private TextArea rate;
+	
+	private int tickets = 0;
 
 	public BalloonResults(int width, int height) {
 		super(width, height);
