@@ -163,7 +163,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 			public void act() {
 				moleNineDown();
 				scoreUp();
-			}
+			} 
 		});
 		viewObjects.add(moleNine);
 		
