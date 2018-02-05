@@ -3,14 +3,17 @@ package poppingBalloonsJessicaJi;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import guiTeacher.components.Action;
 import guiTeacher.components.AnimatedComponent;
+import guiTeacher.components.MovingComponent;
 import guiTeacher.components.StyledComponent;
+import guiTeacher.interfaces.Visible;
 
-public class PowerBar extends MovingComponent {
+public class PowerBar extends MovingComponent implements Visible {
 
 	private int length;
 	private int width;
@@ -26,7 +29,7 @@ public class PowerBar extends MovingComponent {
 		length = h;
 		startX = x;
 		startY = y;
-
+		setVisible(true);
 		//update();
 		setVx(-1);
 		Thread go = new Thread(this);
@@ -115,6 +118,118 @@ public class PowerBar extends MovingComponent {
 		}
 
 
+	}
+
+
+	@Override
+	public BufferedImage getImage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public int getX() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public int getY() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public void setX(int x) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void setY(int y) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public int getWidth() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public int getHeight() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public boolean isAnimated() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public void setVisible(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public boolean isVisible() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public float getAlpha() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public void setAlpha(float f) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void unhoverAction() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void hoverAction() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void checkBehaviors() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 
