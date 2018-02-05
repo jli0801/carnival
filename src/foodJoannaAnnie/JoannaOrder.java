@@ -14,8 +14,9 @@ public class JoannaOrder extends ClickableGraphic {
 	private AnnieWorkScreen annie;
 	private AnnieFoodItem[] items; //complete order
 	private Object[][] order;
-	private ArrayList<AnnieFoodItem> scr;
-
+	private ArrayList<AnnieFoodItem> screen;
+	private ArrayList<AnnieFoodItem> temp;
+	private double[] prices;
 
 	public JoannaOrder(int x, int y, int w, int h, String imageLocation, AnnieWorkScreen screen) {
 		super(x, y, w, h, imageLocation);
@@ -24,25 +25,61 @@ public class JoannaOrder extends ClickableGraphic {
 
 		fillQuantity();
 		generateToppings(annie.getToppings());
-		makeOrder();
+		makeOrder(numInt);
 	
 	}
 	
 	public JoannaOrder(int x, int y, int w, int h, String imageLocation,ArrayList<AnnieFoodItem> onScreen) {
 		super(x, y, w, h, imageLocation);
-		scr= onScreen;
+		screen= onScreen;
+		temp = new ArrayList<AnnieFoodItem>();
+		for(AnnieFoodItem foodItem : onScreen) {
+			temp.add(foodItem);
+		}
 		setVisible(false);
 		countItems();
 	
+	
+	}
+
+	
+	
+
+	private int findLength() {  //deletes repeating toppings 
+		for(int i=0; i < temp.size(); i++) {
+			for(int j= i+1; j < temp.size(); j++) {
+				if(temp.get(i).equals(temp.get(j))) {
+					temp.remove(j);
+					j--;
+				}
+			}
+			
+		}
+		return temp.size();
 	}
 
 	private void countItems() {
-		int tracker = 0;
-		//if(scr.)
+		quantity =  new int[findLength()];
+		items = new AnnieFoodItem[findLength()];
+		for(int i=0; i < screen.size(); i++) {
+			int tracker = 0;
+			for(int j= i+1; j < screen.size(); j++) {
+				if(screen.get(i).equals(screen.get(j))) {
+					tracker++;
+					screen.remove(j);
+					j--;
+				}
+				quantity[i] = tracker;
+				items[i] = screen.get(i);
+			}
+			
+		}
+		numInt = findLength();
+		makeOrder(findLength());
 	}
 
-	private void makeOrder() {
-		order = new Object[numInt][2];
+	private void makeOrder(int len) {
+		order = new Object[len][2];
 		for(int i =0; i<items.length; i++) {
 			order[i][0] = quantity[i];
 			order[i][1] = items[i];
@@ -75,17 +112,17 @@ public class JoannaOrder extends ClickableGraphic {
 
 
 	public String toString() {
-		String s="1 LARGE PIZZA" +"\n";
+		String s="1 PIZZA" +"\n";
 				for(int i=0; i<numInt; i++) {
-						s+="- "+ order[i][0]+  " " + ((AnnieFoodItem) order[i][1]).getName()+"\n"; 
+						s+="- "+ order[i][0]+  " " + ((AnnieFoodItem) order[i][1]).getName()+"\n" ; 
 				}
 				return s;
-			}
+				
+		
+		}
+}
 
-
-	}
-
-
+	
 
 
 

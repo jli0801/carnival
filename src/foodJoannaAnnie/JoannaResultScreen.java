@@ -36,12 +36,17 @@ public class JoannaResultScreen extends ClickableScreen {
 	private TextArea trash;
 	private TextArea total;
 
+
 	public JoannaResultScreen(int width, int height, AnnieWorkScreen screen ) {
 		super(width, height);
 		annie = screen; 
 		currentOrder= annie.getCurrentOrder();
 		bigOrder.setText(currentOrder.toString());
 		setVisible(true);
+		onScreen = annie.getOnScreen();
+		JoannaOrder order = new JoannaOrder(0, 0, 100, 130, "food/order.png", onScreen);
+		order.setVisible(false);
+		list.setText(order.toString());
 
 	}
 
@@ -80,7 +85,7 @@ public class JoannaResultScreen extends ClickableScreen {
 				g.fillRect(0, 0, getWidth(), getHeight());
 				g.setStroke(new BasicStroke(5));
 				g.setColor(Color.BLACK);
-				g.drawRect(0, 0, getWidth(), getHeight());
+				g.drawRect(0, 0, getWidth()-1, getHeight()-1);
 			}
 		};
 
@@ -90,7 +95,7 @@ public class JoannaResultScreen extends ClickableScreen {
 			public void update(Graphics2D g) {
 				g.setStroke(new BasicStroke(5));
 				g.setColor(Color.BLACK);
-				g.drawRect(0, 0, getWidth(), getHeight());
+				g.drawRect(0, 0, getWidth()-1, getHeight()-1);
 			}
 		};
 
@@ -99,6 +104,7 @@ public class JoannaResultScreen extends ClickableScreen {
 		profit= new TextArea(955, 45, 200, 400, "");
 		trash = new TextArea(555, 550, 500, 95, "TRASH PENALTY");
 		total = new TextArea(555, 650, 500, 95, "TOTAL");
+		
 		orderBox.setVisible(true);
 		totalBox.setVisible(true);
 		viewObjects.add(orderBox);
