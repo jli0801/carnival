@@ -33,7 +33,8 @@ public class JoannaResultScreen extends ClickableScreen {
 	private TextArea bigOrder;
 	private TextArea list;
 	private TextArea profit;
-
+	private TextArea trash;
+	private TextArea total;
 
 	public JoannaResultScreen(int width, int height, AnnieWorkScreen screen ) {
 		super(width, height);
@@ -64,8 +65,7 @@ public class JoannaResultScreen extends ClickableScreen {
 			@Override
 			public void act() {
 				GuiLoadingVickie.loading.setScreen(annie);
-				annie.resetTray(annie.getViewObjects());
-				annie.orderAnimation(annie.getViewObjects());
+				annie.animation(annie.getViewObjects());
 
 			}
 		});
@@ -78,7 +78,7 @@ public class JoannaResultScreen extends ClickableScreen {
 			public void update(Graphics2D g) {
 				g.setColor(Color.white);
 				g.fillRect(0, 0, getWidth(), getHeight());
-				g.setStroke(new BasicStroke(10));
+				g.setStroke(new BasicStroke(5));
 				g.setColor(Color.BLACK);
 				g.drawRect(0, 0, getWidth(), getHeight());
 			}
@@ -88,26 +88,31 @@ public class JoannaResultScreen extends ClickableScreen {
 
 			@Override
 			public void update(Graphics2D g) {
-				g.setStroke(new BasicStroke(10));
+				g.setStroke(new BasicStroke(5));
 				g.setColor(Color.BLACK);
 				g.drawRect(0, 0, getWidth(), getHeight());
 			}
 		};
-		
-		profit = new TextArea(555, 145, 300, 595,"");
 
+
+		list = new TextArea(555, 145, 300, 400,"");
+		profit= new TextArea(955, 45, 200, 400, "");
+		trash = new TextArea(555, 550, 500, 95, "TRASH PENALTY");
+		total = new TextArea(555, 650, 500, 95, "TOTAL");
 		orderBox.setVisible(true);
 		totalBox.setVisible(true);
 		viewObjects.add(orderBox);
 		viewObjects.add(totalBox);
 		viewObjects.add(profit);
-		//viewObjects.add(list);
+		viewObjects.add(list);
 		viewObjects.add(home);
 		viewObjects.add(work);
 		viewObjects.add(bigOrder);
 		viewObjects.add(serveHeader);
 		viewObjects.add(orderHeader);
-		
+		viewObjects.add(trash);
+		viewObjects.add(total);
+
 		try {
 			File fontFile = new File("resources/Bangers.ttf");
 			Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);

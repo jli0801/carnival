@@ -32,8 +32,13 @@ public class JoannaOrder extends ClickableGraphic {
 		super(x, y, w, h, imageLocation);
 		scr= onScreen;
 		setVisible(false);
-		
+		countItems();
 	
+	}
+
+	private void countItems() {
+		int tracker = 0;
+		//if(scr.)
 	}
 
 	private void makeOrder() {
