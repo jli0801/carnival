@@ -13,23 +13,22 @@ import guiTeacher.components.MovingComponent;
 import guiTeacher.components.StyledComponent;
 import guiTeacher.interfaces.Visible;
 
-public class PowerBar extends StyledComponent implements Visible {
+public class PowerBar extends StyledComponent {
 
 	private int length;
-	private int width;
-	private int startX;
-	private int startY;
 	private Color lightYellow = new Color (255,255,153);
 	private Color lightRed = new Color (255,153,153);
+	private boolean goingUp = false;
+	
 	
 	public PowerBar(int x, int y, int w, int h) {
 		
 		super(x, y, w, h);
-		width = w;
-		length = h;
-		startX = x;
-		startY = y;
+
+		length = 150;
 		setVisible(true);
+		goingUp=true;
+		
 		update();
 		
 		// TODO Auto-generated constructor stub
@@ -45,69 +44,84 @@ public class PowerBar extends StyledComponent implements Visible {
 	
 	@Override
 	public void update(Graphics2D g) {
-			if(length <= 35) //going up
+			g.setColor(Color.WHITE);
+			g.fillRect(0, 0, getWidth(), getHeight()); 
+			if(goingUp) //going up
 			{
-				length = length + 5; // 5,10,15,20,25,30,35,40
-				if(length <= 15) //5 -> 15
-				{
-					g.setColor(Color.yellow);
-				}
-				else if (length <= 25 && length > 15) //16 -> 25
+				length = length - 25; // 5,10,15,20,25,30,35,40
+				if(length <= 350) //5 -> 15
 				{
 					g.setColor(lightYellow);
 				}
-				else if (length >= 35 && length < 25) //26 -> 35
+				else if (length >= 200 && length > 100) //16 -> 25
 				{
-					g.setColor(lightRed);
+					g.setColor(Color.YELLOW);
+				}
+				else if (length >= 100 && length < 25) //26 -> 35
+				{
+					g.setColor(Color.ORANGE);
 				}
 				else//36 -> 40
 				{
 					g.setColor(Color.RED);
 				}
+				
+				if(length == 0)
+				{
+					goingUp = false;
+				}
 			}
 			else //going down 
 			{
-				length = length-5; //5,10,15,20,25,30,35,40
-				if(length <= 40) //36 -> 40
+				length = length + 25; //5,10,15,20,25,30,35,40
+				if(length >= 0) //36 -> 40
 				{
 					g.setColor(Color.RED);
 				}
-				else if (length >= 35 && length < 25) //35 ->26
+				else if (length >= 25 && length < 100) //35 ->26
 				{
-					g.setColor(lightRed);
+					g.setColor(Color.ORANGE);
 				}
-				else if (length >= 25 && length < 15) //25 -> 16
-				{
-					g.setColor(lightYellow);
-				}
-				else//5->15
+				else if (length >= 100 && length < 200) //25 -> 16
 				{
 					g.setColor(Color.YELLOW);
 				}
+				else//5->15
+				{
+					g.setColor(lightYellow);
+				}
+				
+				if(length == 150)
+				{
+					goingUp = true;
+				}
 			}
 	
-		g.drawRect(startX, startY, width, length);
-		g.fillRect(startX, startY, width, length);
+		g.fillRect(0, getHeight() - length, getWidth(), length);
+		g.setColor(Color.BLACK);
+		g.drawRect(0, getHeight() - length, getWidth()-1, length-1);
 		
 	}
 
 	
-	public void startTask(Action toDoOnCompletion){
+	public void startTask(){
 	
 			Thread runTask = new Thread(new Runnable() {
 
 				@Override
 				public void run() {
 					
-					
+					while(BalloonScreen.getTimeLeft() > 0)
+					{
 						update();
 						try {
-							Thread.sleep(BalloonScreen.getTimeLeft());
+							Thread.sleep(100);
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 					}
+				}
 					
 					
 				

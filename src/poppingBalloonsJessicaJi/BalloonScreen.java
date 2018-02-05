@@ -61,7 +61,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 	}
 
 	private String balloonChosen; //needs to be int later
-	private int dartChosen = BalloonBack.getDartChosen(); //needs to be int later
+	private int dartChosen; //needs to be int later
 	private TextArea balloonDescription;
 	private TextArea dartDescription;
 	private TextArea scoreText;
@@ -71,7 +71,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 	private TextArea dangerousDart;
 	private TextArea timeLeftTxt;
 
-	private PowerBar strength = new PowerBar(200,200,25,5);
+	private PowerBar strength;
 	private Button play;
 	private boolean playPressed = false;
 	private Button restart;
@@ -92,7 +92,8 @@ public class BalloonScreen extends FullFunctionScreen  {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-	
+		strength = new PowerBar(560,350,100,275);
+		dartChosen = BalloonBack.getDartChosen(); //needs to be int later
 		BalloonBack.CreateDarts();
 		BalloonBack.CreateBalloons();
 
@@ -344,15 +345,17 @@ public class BalloonScreen extends FullFunctionScreen  {
 		timeLeftTxt = new TextArea(700, 250, 300, 300, "Time Left: 5");
 		viewObjects.add(timeLeftTxt);
 
+		
+		
 		play = new Button(500, 250, 100, 100, "Play", new Action() {
 
 			@Override
 			public void act() {
 				
 					play.setEnabled(false);
-					viewObjects.add(strength);
-					
-				//	viewObjects.add();
+					addObject(strength);
+					strength.startTask();
+				
 					Timer();
 					
 			}
@@ -375,10 +378,10 @@ public class BalloonScreen extends FullFunctionScreen  {
 		
 		//adding text
 		viewObjects.add(restart);
-		viewObjects.add(bluntDart);
+	/*	viewObjects.add(bluntDart);
 		viewObjects.add(dullDart);
 		viewObjects.add(sharpDart);
-		viewObjects.add(dangerousDart);
+		viewObjects.add(dangerousDart);*/
 
 	}
 
