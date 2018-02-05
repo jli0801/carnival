@@ -374,6 +374,8 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			quitButton.setEnabled(false);
 			GuiLoadingVickie.loading.setScreen(new WAMResultStephanie(getWidth(), getHeight()));
+			GUIApplication.enableCursorChange = true;
+
 		}
 	}
 

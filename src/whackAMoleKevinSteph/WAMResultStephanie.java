@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.io.File;
 import java.util.List;
 
+import guiTeacher.GUIApplication;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.StyledComponent;
@@ -46,15 +47,17 @@ public class WAMResultStephanie extends FullFunctionScreen {
 
 				public void act() {
 					GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
+					GUIApplication.enableCursorChange = true;
 				}
 			});
 
 		viewObjects.add(returnMSButton);
 		 
-		playButton = new Button(780,30,500,50,"PLAY AGAIN", Color.ORANGE, new Action() {
+		playButton = new Button(820,30,210,50,"PLAY AGAIN", Color.ORANGE, new Action() {
 			
 			public void act() {
 				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.moleInstruct);
+				GUIApplication.enableCursorChange = true;
 			}
 		});
 		
