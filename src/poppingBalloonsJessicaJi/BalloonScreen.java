@@ -1,17 +1,12 @@
 package poppingBalloonsJessicaJi;
 
 import java.awt.Color;
-import java.awt.Cursor;
 //import mainMenuAreejiVickie.GuiLoadingVickie;
 import java.awt.Font;
-import java.awt.Image;
-import java.awt.Point;
-import java.awt.Toolkit;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import guiTeacher.GUIApplication;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
@@ -25,7 +20,7 @@ import mainMenuAreejVickie.MainScreenAreej;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import javax.swing.JFrame;
+
 import javax.swing.border.*;
 
 public class BalloonScreen extends FullFunctionScreen  {
@@ -187,15 +182,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 				changeQuality("", InventoryVickie.getDartNumber(1), 0);
 				chosenDart = true; //in backend
 				BalloonBack.setDartChosen(1); //0 = dull
-						JFrame mainPane = GUIApplication.mainFrame;
 					
-						Toolkit toolkit = Toolkit.getDefaultToolkit();
-						toolkit.getBestCursorSize(100, 100);
-						Image image = toolkit.getImage("wam/mallet.png");
-						Cursor c = toolkit.createCustomCursor(image , new Point(mainPane.getX(), 
-						           mainPane.getY()), "img");	
-						mainPane.setCursor (c);
-						GUIApplication.enableCursorChange = false;
 				}
 				else
 				{
