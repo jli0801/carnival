@@ -27,7 +27,7 @@ public class JoannaOrder extends ClickableGraphic {
 	public JoannaOrder(int x, int y, int w, int h, String imageLocation, AnnieWorkScreen screen) {
 		super(x, y, w, h, imageLocation);
 		annie = screen;
-		numInt= (int) ((Math.random()*5)+1);
+		numInt = (int) ((Math.random()*5)+1);
 
 		fillQuantity();
 		generateToppings(annie.getToppings());
@@ -37,7 +37,7 @@ public class JoannaOrder extends ClickableGraphic {
 	
 	public JoannaOrder(int x, int y, int w, int h, String imageLocation,ArrayList<AnnieFoodItem> onScreen) {
 		super(x, y, w, h, imageLocation);
-		screen= onScreen;
+		screen = onScreen;
 		temp = new ArrayList<AnnieFoodItem>();
 		for(AnnieFoodItem foodItem : onScreen) {
 			temp.add(foodItem);
@@ -52,8 +52,8 @@ public class JoannaOrder extends ClickableGraphic {
 	
 
 	private int findLength() {  //deletes repeating toppings 
-		for(int i=0; i < temp.size(); i++) {
-			for(int j= i+1; j < temp.size(); j++) {
+		for(int i = 0; i < temp.size(); i++) {
+			for(int j = i+1; j < temp.size(); j++) {
 				if(temp.get(i).equals(temp.get(j))) {
 					temp.remove(j);
 					j--;
@@ -69,7 +69,7 @@ public class JoannaOrder extends ClickableGraphic {
 		items = new AnnieFoodItem[findLength()];
 		for(int i=0; i < screen.size(); i++) {
 			int tracker = 1;
-			for(int j= i+1; j < screen.size(); j++) {
+			for(int j = i+1; j < screen.size(); j++) {
 				if(screen.get(i).equals(screen.get(j))) {
 					tracker++;
 					screen.remove(j);
@@ -86,7 +86,7 @@ public class JoannaOrder extends ClickableGraphic {
 
 	private void makeOrder(int len) {
 		order = new Object[len][2];
-		for(int i =0; i<items.length; i++) {
+		for(int i = 0; i<items.length; i++) {
 			order[i][0] = quantity[i];
 			order[i][1] = items[i];
 		}

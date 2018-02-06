@@ -50,7 +50,7 @@ public class JoannaResultScreen extends ClickableScreen {
 		list.setText(orderInstance.toString());
 		separatePrices();
 		profit.setText(displayPrices());
-		
+		trashCount = annie.getTrashCount();
 
 	}
 
@@ -63,10 +63,14 @@ public class JoannaResultScreen extends ClickableScreen {
 	}
 
 	private void separatePrices() {
-	
 		prices = new double[orderInstance.getOrder().length];
-		for(int i =0; i < orderInstance.getOrder().length; i++ ) {
-			prices[i] = (((AnnieFoodItem) orderInstance.getOrder()[i][1]).getPrice())* (int)orderInstance.getOrder()[i][0];
+		
+		for(int i = 0; i < orderInstance.getOrder().length; i++ ) {
+			int num =  (int)orderInstance.getOrder()[i][0];
+			double price = (((AnnieFoodItem) orderInstance.getOrder()[i][1]).getPrice());
+			double a = price * num;
+			prices[i] = Math.round( a * 100.0)/100.0;
+			
 		
 		}
 
@@ -77,8 +81,8 @@ public class JoannaResultScreen extends ClickableScreen {
 	public void initAllObjects(List<Visible> viewObjects) {
 
 		setBackground(new Color(255, 250, 155));
-		serveHeader =new TextLabel(600, 75, 250, 150, "YOU SERVED:");
-		orderHeader =new TextLabel(175, 75,200, 150, "ORDER");
+		serveHeader = new TextLabel(600, 75, 250, 150, "YOU SERVED:");
+		orderHeader = new TextLabel(175, 75,200, 150, "ORDER");
 
 		home = new Button(100,650,100,50,"Menu",Color.RED,new guiTeacher.components.Action() {
 
