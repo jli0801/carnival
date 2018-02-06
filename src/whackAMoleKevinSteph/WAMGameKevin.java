@@ -10,6 +10,8 @@ import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import mainMenuAreejVickie.GuiLoadingVickie;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class WAMGameKevin extends FullFunctionScreen {
 
@@ -65,8 +67,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 	private Button quitButton;
 	
 	private static TextArea timeText;
-	/*private static int time;
-	static Thread timer = new Thread();*/
+	private static int time;
 	
 	public WAMGameKevin(int width, int height) {
 		super(width, height);
@@ -79,6 +80,8 @@ public class WAMGameKevin extends FullFunctionScreen {
 		viewObjects.add(gamebg);
 		
 		score = 0;
+		
+		Timer();
 		
 		quitButton = new Button(100,30,100,70,"Quit Game", new Action() {
 			
@@ -94,7 +97,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 		scoreText = new TextArea(950,100,100,100, "Score: " + score);
 		viewObjects.add(scoreText);
 		
-		timeText = new TextArea(950,150,200,200, "Time: ");
+		timeText = new TextArea(950,150,200,200, "Time: " + time + "Seconds Remaining");
 		viewObjects.add(timeText);
 		
 		moleOne = new Button(250,200,80,80,"", new Action() {
@@ -289,16 +292,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 		moleNine.setEnabled(false);
 	}
 	
-	/*public static void main(String[] args) throws InterruptedException {
-		for(int i =20; i>0;i--)
-		{
-		Thread.sleep(1000);
-		time = i;
-		
-		timeText.setText("Time: " + time);
-		timeText.update();
-		}
-	}*/
+	
 	
 	public void moleOneDown() {
 		moleOne.setEnabled(false);
@@ -361,22 +355,38 @@ public class WAMGameKevin extends FullFunctionScreen {
 	}
 	
 	public void endGame() {
-		if (score == 5) {
-			moleOne.setEnabled(false);
-			moleTwo.setEnabled(false);
-			moleThree.setEnabled(false);
-			moleFour.setEnabled(false);
-			moleFive.setEnabled(false);
-			moleSix.setEnabled(false);
-			moleSeven.setEnabled(false);
-			moleEight.setEnabled(false);
-			moleNine.setEnabled(false);
+		moleOne.setEnabled(false);
+		moleTwo.setEnabled(false);
+		moleThree.setEnabled(false);
+		moleFour.setEnabled(false);
+		moleFive.setEnabled(false);
+		moleSix.setEnabled(false);
+		moleSeven.setEnabled(false);
+		moleEight.setEnabled(false);
+		moleNine.setEnabled(false);
 			
-			quitButton.setEnabled(false);
-			GuiLoadingVickie.loading.setScreen(new WAMResultStephanie(getWidth(), getHeight()));
-			GUIApplication.enableCursorChange = true;
+		quitButton.setEnabled(false);
+		GuiLoadingVickie.loading.setScreen(new WAMResultStephanie(getWidth(), getHeight()));
+		GUIApplication.enableCursorChange = true;
 
-		}
+	}
+	
+	private void Timer() {
+		Timer timer = new Timer();
+		TimerTask task;
+		task = new TimerTask() {
+			@Override
+			public void run() { 
+				if (time > 0) {
+					timeText.setText("Time: " + time + "Seconds Remaining");
+					time--;
+				} else {
+					cancel();
+					endGame();
+				}
+			}
+		};
+		timer.schedule(task, 0, 1000);
 	}
 
 }
