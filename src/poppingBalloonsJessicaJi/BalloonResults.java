@@ -5,9 +5,11 @@ import java.util.List;
 
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
+import guiTeacher.components.Graphic;
 import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import mainMenuAreejVickie.GuiLoadingVickie;
 
 public class BalloonResults extends FullFunctionScreen {
 
@@ -18,6 +20,7 @@ public class BalloonResults extends FullFunctionScreen {
 	private int tickets;
 	private int scoreNum;
 	private int averageRate;
+	private Graphic ticket;
 
 	public BalloonResults(int width, int height) {
 		super(width, height);
@@ -27,17 +30,20 @@ public class BalloonResults extends FullFunctionScreen {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		//result = new TextArea(50, 10, 200, 100, "You (win/lose)");
-		score = new TextArea(50, 50, 100, 50, "Final score: _");
+		score = new TextArea(200, 100, 100, 50, "Final score: " + scoreNum);
 		//rate  = new TextArea(50, 70, 500, 50, "You popped an average of _ balloons per second");
 		
-		Button back = new Button(300, 300, 50, 50, "Back", Color.YELLOW, new Action() {
+		Button back = new Button(85, 650, 90, 70, "Back", new Action() {
 			
 			@Override
 			public void act() {
-				//setScreen(menu);
+				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
 				
 			}
 		});
+		
+		ticket = new Graphic (60,650,150,150, "poppingBalloons/ticket.png");
+		viewObjects.add(ticket);
 		
 		//viewObjects.add(result);
 		viewObjects.add(score);
@@ -51,8 +57,9 @@ public class BalloonResults extends FullFunctionScreen {
 		//calculate average rate
 	}
 	
-	public void getScore() {
-		
+	/*
+	public void setScore() {
+		scoreNum = BalloonScreen.getScore();
 	}
-
+	*/
 }
