@@ -30,7 +30,9 @@ public class InventoryVickie extends FullFunctionScreen{
 	 * 
 	 * 	teddy bear
 	 * 	cotton candy
+	 *  //more food
 	 * 	goldfish
+	 * 6 more prizes
 	 */
 	
 	/*
@@ -53,8 +55,11 @@ public class InventoryVickie extends FullFunctionScreen{
 	
 	private InventoryVickie i;
 	
+	private Color pink = new Color(207,192,220);
+	
 	public InventoryVickie(int width, int height) {
 		super(width, height);
+		setBackground(pink);
 		setVisible(true);
 	}
 
@@ -90,6 +95,9 @@ public class InventoryVickie extends FullFunctionScreen{
 		Graphic b1 =new Graphic(0,30,300, 200, "resources/b1.png");
 		Graphic b2 =new Graphic(296,25,300, 200, "resources/b2.png");
 		
+		Graphic b3 =new Graphic(590,30,300, 200, "resources/b1.png");
+		Graphic b4 =new Graphic(888,25,300, 200, "resources/b2.png");
+		
 		
 		menu = new Button(600, 400, 50, 50, "menu", Color.blue, new Action() {
 
@@ -101,12 +109,15 @@ public class InventoryVickie extends FullFunctionScreen{
 		});
 		
 		//viewObjects.add(inventoryBackground);
-		setBackground(Color.CYAN);
+	
+		
 		viewObjects.add(menu);
 		//viewObjects.add(banner1);
 		//viewObjects.add(banner2);
 		viewObjects.add(b1);
 		viewObjects.add(b2);
+		viewObjects.add(b3);
+		viewObjects.add(b4);
 	}
 	
 	private static void updateDarts() {
