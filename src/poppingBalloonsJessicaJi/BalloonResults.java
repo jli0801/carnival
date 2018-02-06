@@ -31,7 +31,7 @@ public class BalloonResults extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		balloonScreen= new poppingBalloonsJessicaJi.BalloonScreen(getWidth(), getHeight());
+		balloonScreen = new poppingBalloonsJessicaJi.BalloonScreen(getWidth(), getHeight());
 		//result = new TextArea(50, 10, 200, 100, "You (win/lose)");
 		score = new TextArea(200, 100, 100, 50, "Final score: " + scoreNum);
 		//rate  = new TextArea(50, 70, 500, 50, "You popped an average of _ balloons per second");
