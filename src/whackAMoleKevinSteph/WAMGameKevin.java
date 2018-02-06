@@ -59,7 +59,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 	private Button moleEight;
 	private Button moleNine;
 	
-	private int score;
+	public static int score;
 	private TextArea scoreText;
 	
 	private Button quitButton;
