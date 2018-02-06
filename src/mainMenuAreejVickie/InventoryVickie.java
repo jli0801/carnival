@@ -43,13 +43,15 @@ public class InventoryVickie extends FullFunctionScreen{
 	
 	private Button menu;
 	
-	private double money;
-	private int tickets; 
+	private static double money;
+	private static int tickets; 
 	
-	private int[] darts;
+	private static int[] darts;
 	
-	private int dartsNum;
-	private ArrayList<String> itemsList;
+	private static int dartsNum;
+	private static ArrayList<String> itemsList;
+	
+	private InventoryVickie i;
 	
 	public InventoryVickie(int width, int height) {
 		super(width, height);
@@ -69,6 +71,7 @@ public class InventoryVickie extends FullFunctionScreen{
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 
+		//InventoryVickie i = new InventoryVickie(getWidth(), getHeight() );
 		itemsList = new ArrayList<String>();
 		
 		int[]dart = {4,4,4,4};
@@ -106,7 +109,7 @@ public class InventoryVickie extends FullFunctionScreen{
 		viewObjects.add(b2);
 	}
 	
-	private void updateDarts() {
+	private static void updateDarts() {
 		int dull = 0;
 		int blunt = 0; 
 		int sharp = 0;
@@ -171,7 +174,7 @@ public class InventoryVickie extends FullFunctionScreen{
 	//private ArrayList<> inventory;
 
 	
-	public int getTickets() {
+	public static int getTickets() {
 		return tickets;
 	}
 	
@@ -187,13 +190,13 @@ public class InventoryVickie extends FullFunctionScreen{
 		this.money = num;
 	}
 	
-	public int getDartNumber(int num) {
+	public static int getDartNumber(int num) {
 		//updateDarts();
 		dartsNum = darts[num];
 		return dartsNum;
 	}
 	
-	public int [] darts() {
+	public static int [] darts() {
 		return darts;
 	}
 	
