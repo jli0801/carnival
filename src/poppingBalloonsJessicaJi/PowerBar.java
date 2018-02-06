@@ -18,7 +18,7 @@ public class PowerBar extends StyledComponent {
 	private int length;
 	private Color lightYellow = new Color (255,255,153);
 	private Color lightRed = new Color (255,153,153);
-	private boolean goingUp = false;
+	private boolean goingUp;
 	
 	
 	public PowerBar(int x, int y, int w, int h) {
