@@ -151,13 +151,14 @@ public class BalloonScreen extends FullFunctionScreen  {
 		viewObjects.add(ticket);
 		//darts
 		dart1 = new Graphic (250,650,100,100,"poppingBalloons/dart1.png");
-	/*		dullDart = new TextArea(250,750,100,100, Integer.toString(InventoryVickie.getDartNumber(0)));
+		dullDart = new TextArea(300,700,100,100, Integer.toString(InventoryVickie.getDartNumber(0)) );
 		viewObjects.add(dart1);
-		dull = new Button(250,650,100,100,"", new Action() {
+		dull = new Button(225,650,100,100,"", new Action() {
 			@Override
 			public void act() {
 				if(InventoryVickie.getDartNumber(0) > 0)
 				{
+				changeQuality("", InventoryVickie.getDartNumber(0), 0);
 				chosenDart = true; //in backend
 				BalloonBack.setDartChosen(0); //0 = dull
 				}
@@ -170,13 +171,14 @@ public class BalloonScreen extends FullFunctionScreen  {
 		viewObjects.add(dull);
 		
 		dart2 = new Graphic (350,650,100,100,"poppingBalloons/dart2.png");
-		bluntDart = new TextArea(350,750,100,100, Integer.toString(InventoryVickie.getDartNumber(1)));
+		bluntDart = new TextArea(400,700,100,100, Integer.toString(InventoryVickie.getDartNumber(1)));
 		viewObjects.add(dart2);
-		blunt = new Button(350,650,100,100,"", new Action() {
+		blunt = new Button(325,650,100,100,"", new Action() {
 			@Override
 			public void act() {
 				if(InventoryVickie.getDartNumber(1) > 0)
 				{
+				changeQuality("", InventoryVickie.getDartNumber(1), 0);
 				chosenDart = true; //in backend
 				BalloonBack.setDartChosen(1); //0 = dull
 				}
@@ -190,12 +192,13 @@ public class BalloonScreen extends FullFunctionScreen  {
 		
 		dart3 = new Graphic (450,650,100,100,"poppingBalloons/dart3.png");
 		viewObjects.add(dart3);
-		sharpDart = new TextArea(450,750,100,100, Integer.toString(InventoryVickie.getDartNumber(2)));
-		sharp = new Button(350,650,100,100,"", new Action() {
+		sharpDart = new TextArea(500,700,100,100, Integer.toString(InventoryVickie.getDartNumber(2)));
+		sharp = new Button(425,650,100,100,"", new Action() {
 			@Override
 			public void act() {
 				if(InventoryVickie.getDartNumber(2) > 0)
 				{
+				changeQuality("", InventoryVickie.getDartNumber(2), 0);
 				chosenDart = true; //in backend
 				BalloonBack.setDartChosen(2); //0 = dull
 				}
@@ -210,12 +213,13 @@ public class BalloonScreen extends FullFunctionScreen  {
 		
 		dart4 = new Graphic (550,650,100,100,"poppingBalloons/dart4.png");
 		viewObjects.add(dart4);
-		dangerousDart = new TextArea(550,750,100,100, Integer.toString(InventoryVickie.getDartNumber(3)));
-		dangerous = new Button(350,650,100,100,"", new Action() {
+		dangerousDart = new TextArea(600,700,100,100, Integer.toString(InventoryVickie.getDartNumber(3)));
+		dangerous = new Button(525,650,100,100,"", new Action() {
 			@Override
 			public void act() {
 				if(InventoryVickie.getDartNumber(3) > 0)
 				{
+				changeQuality("", InventoryVickie.getDartNumber(3), 0);
 				chosenDart = true; //in backend
 				BalloonBack.setDartChosen(3); //0 = dull
 				}
@@ -225,7 +229,12 @@ public class BalloonScreen extends FullFunctionScreen  {
 				}
 			}
 		});
-		viewObjects.add(dangerous);*/
+		viewObjects.add(dangerous);
+		
+		viewObjects.add(bluntDart);
+		viewObjects.add(dullDart);
+		viewObjects.add(sharpDart);
+		viewObjects.add(dangerousDart);
 		//end darts
 
 		//balloons
@@ -385,17 +394,14 @@ public class BalloonScreen extends FullFunctionScreen  {
 		
 		//adding text
 		viewObjects.add(restart);
-	/*	viewObjects.add(bluntDart);
-		viewObjects.add(dullDart);
-		viewObjects.add(sharpDart);
-		viewObjects.add(dangerousDart);*/
+	
 
 	}
 
 	private void changeQuality(String string, Integer integer, int i) {
 		
 	
-		if(timeLeft != 0)
+		if(timeLeft != 0 && chosenDart)
 		{
 			balloonChosen = string;
 			dartChosen = integer;
