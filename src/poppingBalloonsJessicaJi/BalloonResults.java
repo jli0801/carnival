@@ -24,6 +24,7 @@ public class BalloonResults extends FullFunctionScreen {
 
 	public BalloonResults(int width, int height) {
 		super(width, height);
+		getScore();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -57,9 +58,9 @@ public class BalloonResults extends FullFunctionScreen {
 		//calculate average rate
 	}
 	
-	/*
-	public void setScore() {
-		scoreNum = BalloonScreen.getScore();
+	
+	public void getScore() {
+		scoreNum = BalloonScreen.setScore();
 	}
-	*/
+	
 }

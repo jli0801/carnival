@@ -57,7 +57,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 
 	private static int score = 0; //ji uses this in her class so it's static
 	private static int timeLeft = 5;
-	private int previousScore = 0;
+	private static int previousScore = 0;
 
 	public static int getTimeLeft() { //jessica needs this for power bar 
 		return timeLeft;
@@ -377,6 +377,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 	//	viewObjects.add(strength); 
 		viewObjects.add(play);
 		
+	/*	
 		restart = new Button(500, 200, 150, 100, "Restart", new Action() {
 			
 			@Override
@@ -394,7 +395,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 		
 		//adding text
 		viewObjects.add(restart);
-	
+		*/
 
 	}
 
@@ -435,5 +436,9 @@ public class BalloonScreen extends FullFunctionScreen  {
 	private void endRound() {
 		timeLeftTxt.setText("GAME OVER");
 		GuiLoadingVickie.loading.setScreen(balloonResults);
+	}
+	
+	public static int setScore() {
+		return previousScore;
 	}
 }
