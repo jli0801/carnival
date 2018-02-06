@@ -93,7 +93,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		strength = new PowerBar(560,350,100,275);
+		strength = new PowerBar(560,300,100,150);
 		dartChosen = BalloonBack.getDartChosen(); //needs to be int later
 		BalloonBack.CreateDarts();
 		BalloonBack.CreateBalloons();
@@ -147,7 +147,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 		viewObjects.add(ticket);
 		//darts
 		dart1 = new Graphic (250,650,100,100,"poppingBalloons/dart1.png");
-	/*	dullDart = new TextArea(250,750,100,100, Integer.toString(Inventory.getDartNumber(0)));
+			dullDart = new TextArea(250,750,100,100, Integer.toString(Inventory.getDartNumber(0)));
 		viewObjects.add(dart1);
 		dull = new Button(250,650,100,100,"", new Action() {
 			@Override
@@ -221,7 +221,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 				}
 			}
 		});
-		viewObjects.add(dangerous);*/
+		viewObjects.add(dangerous);
 		//end darts
 
 		//balloons
@@ -381,10 +381,10 @@ public class BalloonScreen extends FullFunctionScreen  {
 		
 		//adding text
 		viewObjects.add(restart);
-	/*	viewObjects.add(bluntDart);
+		viewObjects.add(bluntDart);
 		viewObjects.add(dullDart);
 		viewObjects.add(sharpDart);
-		viewObjects.add(dangerousDart);*/
+		viewObjects.add(dangerousDart);
 
 	}
 
