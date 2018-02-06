@@ -55,6 +55,7 @@ public class BalloonResults extends FullFunctionScreen {
 				//GuiLoadingVickie.loading.setScreen(balloonScreen);
 			}
 		});
+		viewObjects.add(playAgain);
 		
 		//viewObjects.add(result);
 		viewObjects.add(score);
