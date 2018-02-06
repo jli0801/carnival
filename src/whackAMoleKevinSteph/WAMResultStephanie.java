@@ -68,6 +68,7 @@ public class WAMResultStephanie extends FullFunctionScreen {
 				public void act() {
 					GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
 					GUIApplication.enableCursorChange = true;
+					
 				}
 			});
 

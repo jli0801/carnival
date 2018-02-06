@@ -86,6 +86,7 @@ public class WAMMenuStephanie extends FullFunctionScreen {
 				mainPane.setCursor (c);
 				GUIApplication.enableCursorChange = false;
 			}
+			
 		});
 		
 		viewObjects.add(startButton);
