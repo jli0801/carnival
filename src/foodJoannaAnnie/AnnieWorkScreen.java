@@ -76,17 +76,13 @@ public class AnnieWorkScreen extends ClickableScreen {
 			Component box = new Component(x, y, 80, 80) {
 
 				public void update(Graphics2D g) {
-					g.setColor(new Color(235, 235, 235));
-					g.fillRect(0, 0, getWidth(), getHeight());
-					g.setStroke(new BasicStroke(5));
-					g.setColor(Color.black);
-					g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
+					drawBox(g, this, new Color(235, 235, 235));
 				}
 				
 			};
 			box.setVisible(true);
 			viewObjects.add(box);
-			AnnieFoodItem item = new AnnieFoodItem(x, y, box.getWidth(), box.getHeight(), toppingImgs2[i], names[i], prices[i]);
+			AnnieFoodItem item = new AnnieFoodItem(x, y, box.getWidth(), box.getHeight(), toppingImgs2[i], names[i], prices[i], true);
 			item.setAction(new Action() {
 				
 				private int x;
@@ -129,17 +125,13 @@ public class AnnieWorkScreen extends ClickableScreen {
 			Component box = new Component(toppings[3].getX() + (20 + toppings[0].getWidth()) * (i + 1), toppings[0].getY(), toppings[0].getWidth(), toppings[0].getHeight() * 2 + 20) {
 
 				public void update(Graphics2D g) {
-					g.setColor(new Color(235, 235, 235));
-					g.fillRect(0, 0, getWidth(), getHeight());
-					g.setStroke(new BasicStroke(5));
-					g.setColor(Color.black);
-					g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
+					drawBox(g, this, new Color(235, 235, 235));
 				}
 				
 			};
 			box.setVisible(true);
 			viewObjects.add(box);
-			AnnieFoodItem item = new AnnieFoodItem(box.getX(), box.getY(), box.getWidth(), box.getHeight(), itemImgs2[i], names[i + 8], prices[i + 8]);
+			AnnieFoodItem item = new AnnieFoodItem(box.getX(), box.getY(), box.getWidth(), box.getHeight(), itemImgs2[i], names[i + 8], prices[i + 8], false);
 			item.setAction(new Action() {
 				
 				public void act() {
@@ -164,17 +156,13 @@ public class AnnieWorkScreen extends ClickableScreen {
 			Component box = new Component(20 + tray.getWidth() - toppings[0].getWidth(), toppings[((i - 1) % 2) * 4].getY(), toppings[0].getWidth(), toppings[0].getHeight()) {
 
 				public void update(Graphics2D g) {
-					g.setColor(new Color(235, 235, 235));
-					g.fillRect(0, 0, getWidth(), getHeight());
-					g.setStroke(new BasicStroke(5));
-					g.setColor(Color.black);
-					g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
+					drawBox(g, this, new Color(235, 235, 235));
 				}
 				
 			};
 			box.setVisible(true);
 			viewObjects.add(box);
-			AnnieFoodItem item = new AnnieFoodItem(box.getX(), box.getY(), box.getWidth(), box.getHeight(), itemImgs2[i], names[i + 8], prices[i + 8]);
+			AnnieFoodItem item = new AnnieFoodItem(box.getX(), box.getY(), box.getWidth(), box.getHeight(), itemImgs2[i], names[i + 8], prices[i + 8], false);
 			item.setAction(new Action() {
 				
 				public void act() {
@@ -197,17 +185,13 @@ public class AnnieWorkScreen extends ClickableScreen {
 		Component box = new Component(items[1].getX() + items[1].getWidth() + 20, toppings[0].getY(), 75, toppings[0].getHeight() * 2 + 20) {
 
 			public void update(Graphics2D g) {
-				g.setColor(new Color(235, 235, 235));
-				g.fillRect(0, 0, getWidth(), getHeight());
-				g.setStroke(new BasicStroke(5));
-				g.setColor(Color.black);
-				g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
+				drawBox(g, this, new Color(235, 235, 235));
 			}
 			
 		};
 		box.setVisible(true);
 		viewObjects.add(box);
-		AnnieFoodItem item = new AnnieFoodItem(box.getX(), box.getY(), box.getWidth(), box.getHeight(), itemImgs2[2], names[10], prices[10]);
+		AnnieFoodItem item = new AnnieFoodItem(box.getX(), box.getY(), box.getWidth(), box.getHeight(), itemImgs2[2], names[10], prices[10], false);
 		item.setAction(new Action() {
 			
 			public void act() {
@@ -229,11 +213,7 @@ public class AnnieWorkScreen extends ClickableScreen {
 		Component box1 = new Component(getWidth() - 385, getHeight() - 160, 220, 100) {
 			
 			public void update(Graphics2D g) {
-				g.setColor(new Color(60, 180, 120));
-				g.fillRect(0, 0, getWidth(), getHeight());
-				g.setStroke(new BasicStroke(5));
-				g.setColor(Color.black);
-				g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
+				drawBox(g, this, new Color(60, 180, 120));
 			}
 			
 		};
@@ -252,11 +232,7 @@ public class AnnieWorkScreen extends ClickableScreen {
 		Component box2 = new Component(getWidth() - 145, getHeight() - 160, 100, 100) {
 			
 			public void update(Graphics2D g) {
-				g.setColor(new Color(250, 50, 50));
-				g.fillRect(0, 0, getWidth(), getHeight());
-				g.setStroke(new BasicStroke(5));
-				g.setColor(Color.black);
-				g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
+				drawBox(g, this, new Color(250, 50, 50));
 			}
 			
 		};
@@ -276,11 +252,7 @@ public class AnnieWorkScreen extends ClickableScreen {
 		Component bigPaper = new Component(done.getX(), 190, done.getWidth() + trash.getWidth() + 20, 430) {
 			
 			public void update(Graphics2D g) {
-				g.setColor(Color.white);
-				g.fillRect(0, 0, getWidth(), getHeight());
-				g.setStroke(new BasicStroke(5));
-				g.setColor(Color.black);
-				g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
+				drawBox(g, this, Color.white);
 			}
 			
 		};
@@ -309,6 +281,14 @@ public class AnnieWorkScreen extends ClickableScreen {
 			e.printStackTrace();
 		}
 		
+	}
+
+	protected void drawBox(Graphics2D g, Component component, Color color) {
+		g.setColor(color);
+		g.fillRect(0, 0, component.getWidth(), component.getHeight());
+		g.setStroke(new BasicStroke(5));
+		g.setColor(Color.black);
+		g.drawRect(0, 0, component.getWidth() - 1, component.getHeight() - 1);
 	}
 
 	private void newTray(List<Visible> viewObjects) {
