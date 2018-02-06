@@ -91,7 +91,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 			 File fontFile = new File("resources//Bangers.ttf");
 			 Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-			 Font baseFont=font.deriveFont(24f);
+			 Font baseFont=font.deriveFont(36f);
 
 			 } catch (Exception e) {
 
