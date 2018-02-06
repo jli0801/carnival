@@ -13,7 +13,7 @@ public class BalloonResults extends FullFunctionScreen {
 
 	//private TextArea result;
 	private TextArea score;
-	private TextArea rate;
+	//private TextArea rate;
 	
 	private int tickets;
 	private int scoreNum;
@@ -28,7 +28,7 @@ public class BalloonResults extends FullFunctionScreen {
 	public void initAllObjects(List<Visible> viewObjects) {
 		//result = new TextArea(50, 10, 200, 100, "You (win/lose)");
 		score = new TextArea(50, 50, 100, 50, "Final score: _");
-		rate  = new TextArea(50, 70, 500, 50, "You popped an average of _ balloons per second");
+		//rate  = new TextArea(50, 70, 500, 50, "You popped an average of _ balloons per second");
 		
 		Button back = new Button(300, 300, 50, 50, "Back", Color.YELLOW, new Action() {
 			
@@ -41,7 +41,7 @@ public class BalloonResults extends FullFunctionScreen {
 		
 		//viewObjects.add(result);
 		viewObjects.add(score);
-		viewObjects.add(rate);
+		//viewObjects.add(rate);
 		viewObjects.add(back);
 	}
 	
@@ -49,6 +49,10 @@ public class BalloonResults extends FullFunctionScreen {
 		//get previous score
 		//calculate number of tickets based on score; 1:10
 		//calculate average rate
+	}
+	
+	public void getScore() {
+		
 	}
 
 }

@@ -27,6 +27,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 
 	//	public static mainMenuAreejVickie.choseGame menu; Where user chooses games.
 
+	public static poppingBalloonsJessicaJi.BalloonResults balloonResults;
 	public static MainScreenAreej menu;
 	public Graphic background;
 	public Graphic ticket;
@@ -94,6 +95,8 @@ public class BalloonScreen extends FullFunctionScreen  {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		balloonResults = new poppingBalloonsJessicaJi.BalloonResults(getWidth(), getHeight());
+		
 		strength = new PowerBar(560,475,100,150);
 		dartChosen = BalloonBack.getDartChosen(); //needs to be int later
 		BalloonBack.CreateDarts();
@@ -425,6 +428,6 @@ public class BalloonScreen extends FullFunctionScreen  {
 
 	private void endRound() {
 		timeLeftTxt.setText("GAME OVER");
-
+		GuiLoadingVickie.loading.setScreen(balloonResults);
 	}
 }
