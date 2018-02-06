@@ -25,6 +25,7 @@ public class BalloonResults extends FullFunctionScreen {
 	private int scoreNum;
 	private int averageRate;
 	private Graphic ticket;
+	//rgb(179, 230, 255) background
 
 	public BalloonResults(int width, int height) {
 		super(width, height);
