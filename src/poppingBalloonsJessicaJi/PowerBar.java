@@ -25,7 +25,7 @@ public class PowerBar extends StyledComponent {
 		
 		super(x, y, w, h);
 
-		length = 150;
+		length = 15;
 		setVisible(true);
 		goingUp=true;
 		
@@ -48,16 +48,16 @@ public class PowerBar extends StyledComponent {
 			g.fillRect(0, 0, getWidth(), getHeight()); 
 			if(goingUp) //going up
 			{
-				length = length + 25; // 150,175,200,225,250,275,300,325,350,375,400,425,450,475,500
-				if(length <= 250 && length > 150) // length is between 50 to 200
+				length = length + 10; // 15,25,35,45,55,65,75,85,95,105,115
+				if(length <= 45 && length > 15) // length is between 50 to 200
 				{
 					g.setColor(lightYellow);
 				}
-				else if (length <= 350 && length > 250) //16 -> 25
+				else if (length <= 75 && length > 45) //16 -> 25
 				{
 					g.setColor(Color.YELLOW);
 				}
-				else if (length <= 425 && length > 350) //26 -> 35
+				else if (length <= 95 && length > 75) //26 -> 35
 				{
 					g.setColor(Color.ORANGE);
 				}
@@ -66,23 +66,23 @@ public class PowerBar extends StyledComponent {
 					g.setColor(Color.RED);
 				}
 				
-				if(length == 500)
+				if(length == 115)
 				{
 					goingUp = false;
 				}
 			}
 			else //going down 
 			{
-				length = length - 25; // 150,175,200,225,250,275,300,325,350,375,400,425,450,475,500
-				if(length >= 500 && length < 425) //36 -> 40
+				length = length - 10; //15,25,35,45,55,65,75,85,95,105,115
+				if(length <= 115 && length > 95) //36 -> 40
 				{
 					g.setColor(Color.RED);
 				}
-				else if (length >= 425 && length < 350) //35 ->26
+				else if (length <= 95 && length > 75) //35 ->26
 				{
 					g.setColor(Color.ORANGE);
 				}
-				else if (length >= 350 && length < 250) //25 -> 16
+				else if (length <= 75 && length > 45) //25 -> 16
 				{
 					g.setColor(Color.YELLOW);
 				}
@@ -91,7 +91,7 @@ public class PowerBar extends StyledComponent {
 					g.setColor(lightYellow);
 				}
 				
-				if(length == 150)
+				if(length == 15)
 				{
 					goingUp = true;
 				}
@@ -115,7 +115,7 @@ public class PowerBar extends StyledComponent {
 					{
 						update();
 						try {
-							Thread.sleep(100);
+							Thread.sleep((length));
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
