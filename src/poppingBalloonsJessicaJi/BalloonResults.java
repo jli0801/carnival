@@ -1,11 +1,14 @@
 package poppingBalloonsJessicaJi;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.io.File;
 import java.util.List;
 
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
+import guiTeacher.components.StyledComponent;
 import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
@@ -31,9 +34,23 @@ public class BalloonResults extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		try {
+
+			File fontFile = new File("resources/Bangers.ttf");
+
+			Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+
+			Font baseFont=font.deriveFont(40f);
+
+			StyledComponent.setBaseFont(baseFont);
+		} catch (Exception e) {
+
+			e.printStackTrace();
+			//
+		}
 		//balloonScreen = new poppingBalloonsJessicaJi.BalloonScreen(getWidth(), getHeight());
 		//result = new TextArea(50, 10, 200, 100, "You (win/lose)");
-		score = new TextArea(200, 100, 100, 50, "Final score: " + scoreNum);
+		score = new TextArea(500, 200, 300, 50, "Final score: " + scoreNum);
 		//rate  = new TextArea(50, 70, 500, 50, "You popped an average of _ balloons per second");
 		
 		Button back = new Button(85, 650, 90, 70, "Back", new Action() {
@@ -48,7 +65,7 @@ public class BalloonResults extends FullFunctionScreen {
 		ticket = new Graphic (60,650,150,150, "poppingBalloons/ticket.png");
 		viewObjects.add(ticket);
 		
-		Button playAgain = new Button(100, 700, 100, 100, "Play Again", new Action() {
+		Button playAgain = new Button(500, 300, 200, 100, "Play Again", new Action() {
 			
 			@Override
 			public void act() {
