@@ -19,10 +19,7 @@ import mainMenuAreejVickie.GuiLoadingVickie;
 
 public class MainScreenAreej extends FullFunctionScreen {
 
-	private Button balloon;
-	private Button mole;
-	private Button food;
-	private Button inventory;
+		private Button inventory;
 	private Button store;
 
 	public MainScreenAreej(int width, int height) {
@@ -44,10 +41,10 @@ public class MainScreenAreej extends FullFunctionScreen {
 			}
 			
 		});
-	
+		
 		//whack a mole
-		ClickableGraphic mol = new ClickableGraphic(410,490, 200, 200, "resources/mole.png");
-		mol.setAction(new Action() {
+		ClickableGraphic mole = new ClickableGraphic(410,490, 200, 200, "resources/mole.png");
+		mole.setAction(new Action() {
 
 			@Override
 			public void act() {
@@ -56,6 +53,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 			}
 			
 		});
+		
 		
 		//food stall
 		ClickableGraphic pizza = new ClickableGraphic(690,490, 200, 200, "resources/pizza.png");
@@ -70,7 +68,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 		});
 		
 		//inventory
-		inventory = new Button(50, 50, 120, 180, "Inventory", Color.orange, new Action() {
+		inventory = new Button(950, 470, 120,80, "Inventory", Color.orange, new Action() {
 
 			public void act() {
 				
@@ -80,7 +78,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 		});
 
 		//store
-		store = new Button(50, 50, 120, 80, "Store", Color.red, new Action() {
+		store = new Button(950, 590, 120, 80, "Store", Color.red, new Action() {
 
 			public void act() {
 				
@@ -104,7 +102,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 		
 		viewObjects.add(background);
 		viewObjects.add(clown);
-		viewObjects.add(mol);
+		viewObjects.add(mole);
 		viewObjects.add(pizza);
 		viewObjects.add(inventory);
 		viewObjects.add(store);
