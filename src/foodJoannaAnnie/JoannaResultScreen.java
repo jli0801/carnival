@@ -22,43 +22,60 @@ public class JoannaResultScreen extends ClickableScreen {
 
 	private Button home;
 	private Button work;
+	
 	private int amt;
 	private int earned;
-	private AnnieWorkScreen annie;
-	private JoannaOrder currentOrder;
-	private ArrayList<AnnieFoodItem> onScreen;
 	private int trashCount;
+	private double[] prices;	
+	
+	private AnnieWorkScreen annie;
+	private ArrayList<AnnieFoodItem> onScreen;
+	
+	private JoannaOrder currentOrder;
+	private JoannaOrder orderInstance;
+	
 	private TextLabel serveHeader;
 	private TextLabel orderHeader;
+	
 	private TextArea bigOrder;
 	private TextArea list;
 	private TextArea profit;
 	private TextArea trash;
 	private TextArea total;
-	private double[] prices;
-	private JoannaOrder orderInstance;
+	
 
 	public JoannaResultScreen(int width, int height, AnnieWorkScreen screen ) {
 		super(width, height);
 		annie = screen; 
 		currentOrder= annie.getCurrentOrder();
-		bigOrder.setText(currentOrder.toString());
 		setVisible(true);
 		onScreen = annie.getOnScreen();
 		orderInstance = new JoannaOrder(0, 0, 100, 130, "food/order.png", onScreen);
 		orderInstance.setVisible(false);
-		list.setText(orderInstance.toString());
 		separatePrices();
-		profit.setText(displayPrices());
 		trashCount = annie.getTrashCount();
+		
+		bigOrder.setText(currentOrder.toString());
+		list.setText(orderInstance.toString());
+		profit.setText(displayPrices());
+		trash.setText(displayTrash());
 
 	}
 
 	private String displayPrices() {
 		String s = "6.00";
 		for(int i =0; i < prices.length; i++ ) {
-			s+= "\n"+ prices[i]+ " ";
+			s+= "\n"+ String.format("%.2f", prices[i]);
 		}
+		return s;
+	}
+	
+	private String displayTrash() {
+		String s = "$0.00";
+		if(trashCount > 0) {
+			
+		}
+		
 		return s;
 	}
 
@@ -92,6 +109,7 @@ public class JoannaResultScreen extends ClickableScreen {
 
 			}
 		});
+		
 		work = new Button(300,650,100,50,"Work", Color.green,new guiTeacher.components.Action() {
 
 			@Override
