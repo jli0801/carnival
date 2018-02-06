@@ -48,16 +48,16 @@ public class PowerBar extends StyledComponent {
 			g.fillRect(0, 0, getWidth(), getHeight()); 
 			if(goingUp) //going up
 			{
-				length = length - 25; // 5,10,15,20,25,30,35,40
-				if(length <= 350) //5 -> 15
+				length = length + 25; // 5,10,15,20,25,30,35,40
+				if(length <= 250 && length > 150) // length is between 50 to 200
 				{
 					g.setColor(lightYellow);
 				}
-				else if (length >= 200 && length > 100) //16 -> 25
+				else if (length <= 325 && length > 250) //16 -> 25
 				{
 					g.setColor(Color.YELLOW);
 				}
-				else if (length >= 100 && length < 25) //26 -> 35
+				else if (length <= 325 && length > 350) //26 -> 35
 				{
 					g.setColor(Color.ORANGE);
 				}
@@ -66,23 +66,23 @@ public class PowerBar extends StyledComponent {
 					g.setColor(Color.RED);
 				}
 				
-				if(length == 0)
+				if(length == 400)
 				{
 					goingUp = false;
 				}
 			}
 			else //going down 
 			{
-				length = length + 25; //5,10,15,20,25,30,35,40
-				if(length >= 0) //36 -> 40
+				length = length - 25; //5,10,15,20,25,30,35,40
+				if(length >= 400 && length < 375) //36 -> 40
 				{
 					g.setColor(Color.RED);
 				}
-				else if (length >= 25 && length < 100) //35 ->26
+				else if (length >= 300 && length < 375) //35 ->26
 				{
 					g.setColor(Color.ORANGE);
 				}
-				else if (length >= 100 && length < 200) //25 -> 16
+				else if (length >= 200 && length < 300) //25 -> 16
 				{
 					g.setColor(Color.YELLOW);
 				}
