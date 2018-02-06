@@ -58,6 +58,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 	private static int score = 0; //ji uses this in her class so it's static
 	private static int timeLeft = 5;
 	private static int previousScore = 0;
+	private static boolean gameStarted = false;
 
 	public static int getTimeLeft() { //jessica needs this for power bar 
 		return timeLeft;
@@ -365,7 +366,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 
 			@Override
 			public void act() {
-				
+					gameStarted = true;
 					play.setEnabled(false);
 					addObject(strength);
 					strength.startTask();
@@ -406,7 +407,9 @@ public class BalloonScreen extends FullFunctionScreen  {
 		{
 			balloonChosen = string;
 			dartChosen = integer;
-			score = score + i;
+			if(gameStarted) {
+				score = score + i;
+			}
 		}
 	}
 
@@ -427,6 +430,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 				} else {
 					cancel();
 					endRound();
+					gameStarted = false;
 				}
 			}
 		};
@@ -439,6 +443,6 @@ public class BalloonScreen extends FullFunctionScreen  {
 	}
 	
 	public static int setScore() {
-		return previousScore;
+		return score;
 	}
 }

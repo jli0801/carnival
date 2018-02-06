@@ -46,6 +46,14 @@ public class BalloonResults extends FullFunctionScreen {
 		ticket = new Graphic (60,650,150,150, "poppingBalloons/ticket.png");
 		viewObjects.add(ticket);
 		
+		Button playAgain = new Button(100, 700, 100, 100, "Play Again", new Action() {
+			
+			@Override
+			public void act() {
+				
+			}
+		});
+		
 		//viewObjects.add(result);
 		viewObjects.add(score);
 		//viewObjects.add(rate);
