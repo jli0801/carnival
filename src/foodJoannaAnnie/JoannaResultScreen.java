@@ -35,7 +35,8 @@ public class JoannaResultScreen extends ClickableScreen {
 	private TextArea profit;
 	private TextArea trash;
 	private TextArea total;
-
+	private double[] prices;
+	private JoannaOrder orderInstance;
 
 	public JoannaResultScreen(int width, int height, AnnieWorkScreen screen ) {
 		super(width, height);
@@ -44,12 +45,34 @@ public class JoannaResultScreen extends ClickableScreen {
 		bigOrder.setText(currentOrder.toString());
 		setVisible(true);
 		onScreen = annie.getOnScreen();
-		JoannaOrder order = new JoannaOrder(0, 0, 100, 130, "food/order.png", onScreen);
-		order.setVisible(false);
-		list.setText(order.toString());
+		orderInstance = new JoannaOrder(0, 0, 100, 130, "food/order.png", onScreen);
+		orderInstance.setVisible(false);
+		list.setText(orderInstance.toString());
+		separatePrices();
+		profit.setText(displayPrices());
+		
 
 	}
 
+	private String displayPrices() {
+		String s = "6.00";
+		for(int i =0; i < prices.length; i++ ) {
+			s+= "\n"+ prices[i]+ " ";
+		}
+		return s;
+	}
+
+	private void separatePrices() {
+	
+		prices = new double[orderInstance.getOrder().length];
+		for(int i =0; i < orderInstance.getOrder().length; i++ ) {
+			prices[i] = (((AnnieFoodItem) orderInstance.getOrder()[i][1]).getPrice())* (int)orderInstance.getOrder()[i][0];
+		
+		}
+
+	}
+	
+	
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 
@@ -101,7 +124,7 @@ public class JoannaResultScreen extends ClickableScreen {
 
 
 		list = new TextArea(555, 145, 300, 400,"");
-		profit= new TextArea(955, 45, 200, 400, "");
+		profit= new TextArea(955, 145, 200, 400, "");
 		trash = new TextArea(555, 550, 500, 95, "TRASH PENALTY");
 		total = new TextArea(555, 650, 500, 95, "TOTAL");
 		
