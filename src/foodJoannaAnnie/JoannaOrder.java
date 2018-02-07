@@ -14,6 +14,7 @@ public class JoannaOrder extends ClickableGraphic {
 	private AnnieWorkScreen annie;
 	private AnnieFoodItem[] items; //complete order
 	private Object[][] order;
+	private Object[][] currentOrder;
 	
 	public Object[][] getOrder() {
 		return order;
@@ -28,14 +29,13 @@ public class JoannaOrder extends ClickableGraphic {
 		super(x, y, w, h, imageLocation);
 		annie = screen;
 		numInt = (int) ((Math.random()*5)+1);
-
 		fillQuantity();
 		generateToppings(annie.getToppings());
 		makeOrder(numInt);
 	
 	}
 	
-	public JoannaOrder(int x, int y, int w, int h, String imageLocation,ArrayList<AnnieFoodItem> onScreen) {
+	public JoannaOrder(int x, int y, int w, int h, String imageLocation,ArrayList<AnnieFoodItem> onScreen, Object[][] currentOrder) {
 		super(x, y, w, h, imageLocation);
 		screen = onScreen;
 		temp = new ArrayList<AnnieFoodItem>();
@@ -76,10 +76,16 @@ public class JoannaOrder extends ClickableGraphic {
 				
 			}
 			quantity[i] = tracker;
-				items[i] = screen.get(i);
+			items[i] = screen.get(i);
 		}
 		numInt = findLength();
-		makeOrder(findLength());
+		makeOrder(findLength()+notOnscreen());
+	}
+
+	private int notOnscreen() {
+		int missingLen = 0;
+		
+	
 	}
 
 	private void makeOrder(int len) {

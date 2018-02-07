@@ -14,11 +14,13 @@ import com.sun.corba.se.spi.orbutil.fsm.Input;
 import guiTeacher.components.*;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
+import guiTeacher.userInterfaces.FullFunctionScreen;
+
 import java.awt.Font;
 import mainMenuAreejVickie.GuiLoadingVickie;
 
 
-public class JoannaResultScreen extends ClickableScreen {
+public class JoannaResultScreen extends FullFunctionScreen {
 
 	private Button home;
 	private Button work;
@@ -29,9 +31,9 @@ public class JoannaResultScreen extends ClickableScreen {
 	private double[] prices;	
 
 	private AnnieWorkScreen annie;
-	private ArrayList<AnnieFoodItem> onScreen;
+	private Object[][] onScreen;
 
-	private JoannaOrder currentOrder;
+	private Object[][] currentOrder;
 	private JoannaOrder orderInstance;
 
 	private TextLabel serveHeader;
@@ -43,24 +45,24 @@ public class JoannaResultScreen extends ClickableScreen {
 	private TextArea trash;
 	private TextArea trashCost;
 	private TextArea total;
+	
 
 
 	public JoannaResultScreen(int width, int height, AnnieWorkScreen screen ) {
 		super(width, height);
 		annie = screen; 
-		currentOrder= annie.getCurrentOrder();
+		currentOrder= annie.getCurrentOrder().getOrder();
 		amt = 6;
 		setVisible(true);
-		onScreen = annie.getOnScreen();
-		orderInstance = new JoannaOrder(0, 0, 100, 130, "food/order.png", onScreen);
+		orderInstance = new JoannaOrder(0, 0, 100, 130, "food/order.png", annie.getOnScreen());
 		orderInstance.setVisible(false);
+		onScreen = orderInstance.getOrder();
 		separatePrices();
 		trashCount = annie.getTrashCount();
 		bigOrder.setText(currentOrder.toString());
 		list.setText(orderInstance.toString());
 		profit.setText(displayPrices());
 		trashCost.setText(displayTrash());
-		compareToOrder();
 		
 	}
 
@@ -116,8 +118,7 @@ public class JoannaResultScreen extends ClickableScreen {
 				g.drawRect(0, 0, getWidth()-1, getHeight()-1);
 			}
 		};
-
-
+		
 		list = new TextArea(555, 145, 300, 400,"");
 		profit = new TextArea(955, 145, 200, 400, "");
 		trash = new TextArea(555, 550, 500, 95, "TRASH PENALTY");
@@ -152,7 +153,7 @@ public class JoannaResultScreen extends ClickableScreen {
 	}
 
 	private void compareToOrder() {
-		for(int i = 0; i < )
+		//for(int i = 0; i < order  )
 			// check to c if topping is even in seq then compare quantity
 	}
 
@@ -176,16 +177,47 @@ public class JoannaResultScreen extends ClickableScreen {
 	}
 
 	private void separatePrices() {
-		prices = new double[orderInstance.getOrder().length];
+		prices = new double[onScreen.length];
 
-		for(int i = 0; i < orderInstance.getOrder().length; i++ ) {
-			int num =  (int)orderInstance.getOrder()[i][0];
-			double price = (((AnnieFoodItem) orderInstance.getOrder()[i][1]).getPrice());
-			double a = price * num;
+		for(int i = 0; i < onScreen.length; i++ ) {
+			//int num =  (int)onScreen[i][0];
+			//double price = (((AnnieFoodItem) onScreen[i][1]).getPrice());
+			//double a = price * num;
+			double a = calcPrice(i);
 			prices[i] = Math.round( a * 100.0)/100.0;
-
-
 		}
-
+		//calculateprofit();
 	}
+
+
+
+
+	private double calcPrice(int i) {
+		int n = toppingExist(i);
+		int diff;
+		if(n != -1){
+			diff = (int)currentOrder[i][0] - (int)onScreen[n][0];
+			diff = (Math.abs(diff)) *-1;
+		}else {
+		
+		}
+		
+	}
+
+
+
+
+	private int toppingExist(int i) {
+		for(int j = 0; j < currentOrder.length; j++) {
+			if(onScreen[i][1] == currentOrder[j][1]) {
+				return j;
+			}
+		}
+		return -1;
+	}
+
+
+
+
+	
 }
