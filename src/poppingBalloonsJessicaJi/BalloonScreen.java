@@ -80,6 +80,12 @@ public class BalloonScreen extends FullFunctionScreen  {
 	private boolean playPressed = false;
 	private Button restart;
 	private boolean chosenDart = false;
+	private Graphic popEffect1;
+	private Graphic popEffect2;
+	private Graphic popEffect3;
+	private Graphic popEffect4;
+	private Graphic popEffect5;
+	private Graphic popEffect6;
 
 
 	public BalloonScreen(int width, int height) {
@@ -403,6 +409,30 @@ public class BalloonScreen extends FullFunctionScreen  {
 		//adding text
 		viewObjects.add(restart);
 		*/
+		
+		popEffect1 = new Graphic (550,650,100,100,"poppingBalloons/test.png");
+		viewObjects.add(popEffect1);
+		popEffect1.setVisible(false);
+
+		popEffect2 = new Graphic(240,200,120,120,"poppingBalloons/test.png");
+		viewObjects.add(popEffect2);
+		popEffect2.setVisible(false);
+				
+		popEffect3 = new Graphic(380,200,120,120,"poppingBalloons/test.png");
+		viewObjects.add(popEffect3);
+		popEffect3.setVisible(false);
+				
+		popEffect4 = new Graphic(100,360,120,120,"poppingBalloons/test.png");
+		viewObjects.add(popEffect4);
+		popEffect4.setVisible(false);
+				
+		popEffect5 = new Graphic(240,360,120,120,"poppingBalloons/test.png");
+		viewObjects.add(popEffect5);
+		popEffect5.setVisible(false);
+				
+		popEffect6 = new Graphic(380,360,120,120,"poppingBalloons/test.png");
+		viewObjects.add(popEffect6);
+		popEffect6.setVisible(false);
 
 	}
 
@@ -450,5 +480,15 @@ public class BalloonScreen extends FullFunctionScreen  {
 	
 	public static int setScore() {
 		return score;
+	}
+	
+	public void toggleImage(Graphic balloon, Graphic pop, boolean popped) {
+		if(popped) {
+			pop.setVisible(true);
+			balloon.setVisible(false);
+		}else {
+			pop.setVisible(false);
+			balloon.setVisible(true);
+		}
 	}
 }
