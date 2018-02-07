@@ -17,6 +17,7 @@ public class PowerBar extends StyledComponent {
 
 	private int length;
 	private Color lightYellow = new Color (255,255,153);
+	private Color background = new Color(179, 230, 255);
 	private boolean goingUp;
 	
 	
@@ -43,7 +44,7 @@ public class PowerBar extends StyledComponent {
 	
 	@Override
 	public void update(Graphics2D g) {
-			g.setColor(Color.WHITE);
+			g.setColor(background);
 			g.fillRect(0, 0, getWidth(), getHeight()); 
 			if(goingUp) //going up
 			{

@@ -29,7 +29,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 
 	public static poppingBalloonsJessicaJi.BalloonResults balloonResults;
 	public static MainScreenAreej menu;
-	public Graphic background;
+//	public Graphic background;
 	public Graphic ticket;
 	public Graphic booth;
 	public static Graphic dart1; //ji uses this in her class so it's static
@@ -86,19 +86,21 @@ public class BalloonScreen extends FullFunctionScreen  {
 	private Graphic popEffect4;
 	private Graphic popEffect5;
 	private Graphic popEffect6;
+	private Color background = new Color(179, 230, 255);
 
 
 	public BalloonScreen(int width, int height) {
 		super(width, height);
+		setBackground(background);
 		// TODO Auto-generated constructor stub
 	}
 
-	public void resizeComponents()
+/*	public void resizeComponents()
 	{
 		background.loadImages( "poppingBalloons/background.jpg", getWidth(), getHeight());
 
 
-	}
+	}*/
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
@@ -124,8 +126,8 @@ public class BalloonScreen extends FullFunctionScreen  {
 			//
 		}
 
-		background = new Graphic(0, 0, getWidth(), getHeight(), "poppingBalloons/background.jpg");
-		viewObjects.add(background);
+	/*	background = new Graphic(0, 0, getWidth(), getHeight(), "poppingBalloons/background.jpg");
+		viewObjects.add(background);*/
 		//Button play = new Button()
 		
 
