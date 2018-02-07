@@ -469,6 +469,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 					cancel();
 					endRound();
 					gameStarted = false;
+					getScore();
 				}
 			}
 		};
@@ -480,7 +481,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 		GuiLoadingVickie.loading.setScreen(balloonResults);
 	}
 	
-	public static int setScore() {
+	public static int getScore() {
 		return score;
 	}
 	

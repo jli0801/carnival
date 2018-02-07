@@ -89,8 +89,8 @@ public class BalloonResults extends FullFunctionScreen {
 	}
 	
 	
-	public void getScore() {
-		scoreNum = BalloonScreen.setScore();
+	public void setScore() {
+		scoreNum = BalloonScreen.getScore();
 	}
 	
 }
