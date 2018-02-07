@@ -29,7 +29,7 @@ public class BalloonResults extends FullFunctionScreen {
 
 	public BalloonResults(int width, int height) {
 		super(width, height);
-		getScore();
+		setScore();
 		setBackground(background);
 		// TODO Auto-generated constructor stub
 	}
