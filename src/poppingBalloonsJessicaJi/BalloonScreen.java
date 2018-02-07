@@ -484,12 +484,10 @@ public class BalloonScreen extends FullFunctionScreen  {
 		return score;
 	}
 	
-	public void toggleImage(Graphic balloon, Graphic pop, boolean popped) {
+	public void toggleImage(Graphic balloon, boolean popped) {
 		if(popped) {
-			pop.setVisible(true);
 			balloon.setVisible(false);
 		}else {
-			pop.setVisible(false);
 			balloon.setVisible(true);
 		}
 	}
