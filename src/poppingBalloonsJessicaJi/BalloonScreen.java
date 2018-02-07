@@ -65,7 +65,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 	}
 
 	private String balloonChosen; //needs to be int later
-	private int dartChosen; //needs to be int later
+	private String dartChosen; //needs to be int later
 	private TextArea balloonDescription;
 	private TextArea dartDescription;
 	private TextArea scoreText;
@@ -168,7 +168,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 			public void act() {
 				if(InventoryVickie.getDartNumber(0) > 0)
 				{
-				changeQuality("", InventoryVickie.getDartNumber(0), 0);
+				changeQuality("", "Dull", 0);
 				chosenDart = true; //in backend
 				BalloonBack.setDartChosen(0); //0 = dull
 				}
@@ -438,16 +438,16 @@ public class BalloonScreen extends FullFunctionScreen  {
 
 	}
 
-	private void changeQuality(String string, Integer integer, int i) {
+	private void changeQuality(String string, String dartType, int i) {
 		
 	
-		if(timeLeft != 0 && chosenDart)
+		if(timeLeft != 0 && chosenDart && gameStarted)
 		{
 			balloonChosen = string;
-			dartChosen = integer;
-			if(gameStarted) {
-				score = score + i;
-			}
+			dartChosen = dartType;
+			
+			score = score + i;
+			
 		}
 	}
 
