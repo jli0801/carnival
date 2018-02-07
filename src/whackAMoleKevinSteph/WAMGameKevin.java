@@ -81,7 +81,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 		
 		score = 0;
 		
-		Timer();
+		//Timer();
 		
 		quitButton = new Button(100,30,100,70,"Quit Game", new Action() {
 			
@@ -355,6 +355,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 	}
 	
 	public void endGame() {
+		if (score == 3) {
 		moleOne.setEnabled(false);
 		moleTwo.setEnabled(false);
 		moleThree.setEnabled(false);
@@ -368,10 +369,10 @@ public class WAMGameKevin extends FullFunctionScreen {
 		quitButton.setEnabled(false);
 		GuiLoadingVickie.loading.setScreen(new WAMResultStephanie(getWidth(), getHeight()));
 		GUIApplication.enableCursorChange = true;
-
+		}
 	}
 	
-	
+	/*
 	private void Timer() {
 		Timer timer = new Timer();
 		TimerTask task;
@@ -389,5 +390,5 @@ public class WAMGameKevin extends FullFunctionScreen {
 		};
 		timer.schedule(task, 0, 1000);
 	}
-
+*/
 }
