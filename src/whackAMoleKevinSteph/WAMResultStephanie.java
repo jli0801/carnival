@@ -22,6 +22,9 @@ public class WAMResultStephanie extends FullFunctionScreen {
 	private Button returnMSButton;
 	private Button playButton;
 	private TextArea resultTitle;
+	private TextArea ticketA;
+	private TextArea scoreA;
+	private TextArea totalA;
 	private TextBox ticketEarn;
 	private TextBox showScores;
 	private TextBox totalTickets;
@@ -86,20 +89,28 @@ public class WAMResultStephanie extends FullFunctionScreen {
 		
 		resultTitle = new TextArea(530,165,500,270,"RESULTS");
 		viewObjects.add(resultTitle);
-		
-		ticketEarn = new TextBox(330,200,500,270, " " + "\n" + "TICKETS EARNED: " + getTickets());
+				
+		ticketEarn = new TextBox(330,200,500,150, " ");
 		viewObjects.add(ticketEarn);
 		
-		showScores = new TextBox(330,300,500,270, " " + "\n" + "SCORE: " + 	WAMGameKevin.score);
+		showScores = new TextBox(330,300,500,150, " ");
 		viewObjects.add(showScores);
 		
-		totalTickets = new TextBox(330,400,500,270, " " + "\n" + "TOTAL TICKETS:");
+		totalTickets = new TextBox(330,400,500,150, " ");
 		viewObjects.add(totalTickets);
 		
-		tpic = new Graphic(550,220,80,80,"wam/ticket.png");
+		ticketA = new TextArea(420,250,500,270, "TICKETS EARNED: " + getTickets());
+		viewObjects.add(ticketA);
+		
+		scoreA = new TextArea(410,350,500,270, "SCORE: " + WAMGameKevin.score);
+		viewObjects.add(scoreA);
+
+		totalA = new TextArea(330,450,300,270, "TOTAL NUMBER OF TICKETS: ");
+		
+		tpic = new Graphic(340,220,80,80,"wam/ticket.png");
 		viewObjects.add(tpic);
 		
-		mpic = new Graphic(450,320,80,80,"wam/mouse.jpg");
+		mpic = new Graphic(340,320,80,80,"wam/mouse.jpg");
 		viewObjects.add(mpic);
 	}
 	

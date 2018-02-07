@@ -91,8 +91,8 @@ public class WAMMenuStephanie extends FullFunctionScreen {
 		
 		viewObjects.add(startButton);
 
-		instructionsText = new TextBox(250,80,700,270,"WELCOME TO WHACK-A-MOLE");
-		instructionsText.setInactiveBorderColor(Color.RED);
+		instructionsText = new TextBox(250,80,700,270," ");
+		//instructionsText.setInactiveBorderColor(Color.ORANGE);
 		instructionsText.setReadOnly(true);
 		instructionsText.setEditable(false);
 		instructionsText.setText("HOW TO PLAY:" + "\n" + "WHACK AS MANY MOLES AS YOU CAN UNDER THE TIME LIMIT. THE HIGHER THE SCORE, THE MORE TICKETS YOU EARN. "
