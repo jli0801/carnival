@@ -97,7 +97,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 		scoreText = new TextArea(950,100,100,100, "Score: " + score);
 		viewObjects.add(scoreText);
 		
-		timeText = new TextArea(950,150,200,200, "Time: " + time + "Seconds Remaining");
+		timeText = new TextArea(950,150,200,200, "Time: " + time + " Seconds Remaining");
 		viewObjects.add(timeText);
 		
 		moleOne = new Button(250,200,80,80,"", new Action() {
@@ -380,7 +380,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 			@Override
 			public void run() { 
 				if (time > 0) {
-					timeText.setText("Time: " + time + "Seconds Remaining");
+					timeText.setText("Time: " + time + " Seconds Remaining");
 					time--;
 				} else {
 					cancel();
