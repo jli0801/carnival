@@ -55,11 +55,13 @@ public class InventoryVickie extends FullFunctionScreen{
 	
 	private InventoryVickie i;
 	
-	private Color pink = new Color(207,192,220);
+	private Color purp = new Color(244,164,96);
+	private Color fuchsia = new Color(255,0,255);
+	private Color blood = new Color(239,23,56);
 	
 	public InventoryVickie(int width, int height) {
 		super(width, height);
-		setBackground(pink);
+		setBackground(purp);
 		setVisible(true);
 	}
 
@@ -98,8 +100,12 @@ public class InventoryVickie extends FullFunctionScreen{
 		Graphic b3 =new Graphic(590,30,300, 200, "resources/b1.png");
 		Graphic b4 =new Graphic(888,25,300, 200, "resources/b2.png");
 		
+		Graphic cBanner =new Graphic(0,0,getWidth(), 200, "resources/cb.png");
 		
-		menu = new Button(600, 400, 50, 50, "menu", Color.blue, new Action() {
+		Graphic white = new Graphic (300,250,850,700, "resources/white.jpg"); 
+		Graphic black = new Graphic (300,250, 860, 725, "resources/black.jpg");
+		
+		menu = new Button(10, 750, 50, 50, "menu", Color.blue, new Action() {
 
 			@Override
 			public void act() {
@@ -114,10 +120,15 @@ public class InventoryVickie extends FullFunctionScreen{
 		viewObjects.add(menu);
 		//viewObjects.add(banner1);
 		//viewObjects.add(banner2);
-		viewObjects.add(b1);
-		viewObjects.add(b2);
-		viewObjects.add(b3);
-		viewObjects.add(b4);
+		
+		//viewObjects.add(b1);
+		//viewObjects.add(b2);
+		//viewObjects.add(b3);
+		//viewObjects.add(b4);
+		
+		viewObjects.add(cBanner);
+		viewObjects.add(black);
+		viewObjects.add(white);
 	}
 	
 	private static void updateDarts() {
