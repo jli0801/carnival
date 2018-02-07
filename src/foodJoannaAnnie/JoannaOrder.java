@@ -44,8 +44,6 @@ public class JoannaOrder extends ClickableGraphic {
 		}
 		setVisible(false);
 		countItems();
-	
-	
 	}
 
 	
