@@ -105,7 +105,8 @@ public class WAMResultStephanie extends FullFunctionScreen {
 		scoreA = new TextArea(410,350,500,270, "SCORE: " + WAMGameKevin.score);
 		viewObjects.add(scoreA);
 
-		totalA = new TextArea(330,450,300,270, "TOTAL NUMBER OF TICKETS: ");
+		totalA = new TextArea(420,450,300,270, "TOTAL NUMBER OF TICKETS: ");
+		viewObjects.add(totalA);
 		
 		tpic = new Graphic(340,220,80,80,"wam/ticket.png");
 		viewObjects.add(tpic);
