@@ -438,27 +438,27 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		viewObjects.add(restart);
 		*/
 		
-		popEffect1 = new Graphic (550,650,100,100,"poppingBalloons/test.png");
+		popEffect1 = new Graphic (100,220,100,120,"poppingBalloons/test.png");
 		viewObjects.add(popEffect1);
 		popEffect1.setVisible(false);
 
-		popEffect2 = new Graphic(240,200,120,120,"poppingBalloons/test.png");
+		popEffect2 = new Graphic(240,220,100,120,"poppingBalloons/test.png");
 		viewObjects.add(popEffect2);
 		popEffect2.setVisible(false);
 				
-		popEffect3 = new Graphic(380,200,120,120,"poppingBalloons/test.png");
+		popEffect3 = new Graphic(380,220,100,120,"poppingBalloons/test.png");
 		viewObjects.add(popEffect3);
 		popEffect3.setVisible(false);
 				
-		popEffect4 = new Graphic(100,360,120,120,"poppingBalloons/test.png");
+		popEffect4 = new Graphic(100,380,100,120,"poppingBalloons/test.png");
 		viewObjects.add(popEffect4);
 		popEffect4.setVisible(false);
 				
-		popEffect5 = new Graphic(240,360,120,120,"poppingBalloons/test.png");
+		popEffect5 = new Graphic(240,380,100,120,"poppingBalloons/test.png");
 		viewObjects.add(popEffect5);
 		popEffect5.setVisible(false);
 				
-		popEffect6 = new Graphic(380,360,120,120,"poppingBalloons/test.png");
+		popEffect6 = new Graphic(380,380,100,120,"poppingBalloons/test.png");
 		viewObjects.add(popEffect6);
 		popEffect6.setVisible(false);
 
