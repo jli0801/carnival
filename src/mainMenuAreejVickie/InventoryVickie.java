@@ -1,6 +1,8 @@
 package mainMenuAreejVickie;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,7 @@ import guiTeacher.components.Button;
 import guiTeacher.components.ClickableGraphic;
 import guiTeacher.components.Graphic;
 import guiTeacher.components.TextArea;
+import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 
@@ -53,7 +56,7 @@ public class InventoryVickie extends FullFunctionScreen{
 	private static int dartsNum;
 	private static ArrayList<String> itemsList;
 	
-	private InventoryVickie i;
+	private Button store;
 	
 	private Color purp = new Color(244,164,96);
 	private Color fuchsia = new Color(255,0,255);
@@ -77,8 +80,6 @@ public class InventoryVickie extends FullFunctionScreen{
 		
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-
-		//InventoryVickie i = new InventoryVickie(getWidth(), getHeight() );
 		itemsList = new ArrayList<String>();
 		
 		int[]dart = {4,4,4,4};
@@ -89,8 +90,17 @@ public class InventoryVickie extends FullFunctionScreen{
 		
 		arrEx();
 		
+		//Inventory 
+		TextLabel inventory = new TextLabel(512,155, 900, 200, "Inventory!!");
+		/*
+		 * make every other color red and the rest yellow
+		 * make one letter change color: make it POP
+		 */
+		
+		//background image
 		Graphic inventoryBackground =new Graphic(0,0, getWidth(), getHeight(), "resources/inventoryF.jpg");
 		
+		//potential banner/borders
 		Graphic banner1 =new Graphic(0,30,400, 200, "resources/banner1.png");
 		Graphic banner2 =new Graphic(373,30,400, 200, "resources/banner2.png");
 		
@@ -100,12 +110,26 @@ public class InventoryVickie extends FullFunctionScreen{
 		Graphic b3 =new Graphic(590,30,300, 200, "resources/b1.png");
 		Graphic b4 =new Graphic(888,25,300, 200, "resources/b2.png");
 		
+		//current banner
 		Graphic cBanner =new Graphic(0,0,getWidth(), 200, "resources/cb.png");
 		
-		Graphic white = new Graphic (300,250,850,700, "resources/white.jpg"); 
-		Graphic black = new Graphic (300,250, 860, 725, "resources/black.jpg");
+		//screen
+		Graphic white = new Graphic (300,275,850,700, "resources/white.jpg"); //700/4 = 175
+		Graphic black = new Graphic (300,275, 860, 725, "resources/black.jpg");
 		
-		menu = new Button(10, 750, 50, 50, "menu", Color.blue, new Action() {
+		//items
+		Graphic dull = new Graphic (300,275,160,160, "poppingBalloons/dart1.png"); 
+		Graphic blunt = new Graphic (512,275,160,160, "poppingBalloons/dart2.png"); 
+		Graphic sharp = new Graphic (724,275,160,160, "poppingBalloons/dart3.png"); 
+		Graphic dangerous = new Graphic (936,275,160,160, "poppingBalloons/dart4.png"); 
+		
+		
+		
+		//numbers
+		TextLabel dullNum = new TextLabel(460,250, 500, 500, "x 0");
+		
+		//buttons
+		menu = new Button(10, 700, 50, 50, "Menu", Color.red, new Action() {
 
 			@Override
 			public void act() {
@@ -114,10 +138,20 @@ public class InventoryVickie extends FullFunctionScreen{
 			
 		});
 		
+		store = new Button(10, 600, 50, 50, "Store", Color.yellow, new Action() {
+
+			@Override
+			public void act() {
+				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.store);
+			}
+			
+		});
+		
 		//viewObjects.add(inventoryBackground);
 	
 		
 		viewObjects.add(menu);
+		viewObjects.add(store);
 		//viewObjects.add(banner1);
 		//viewObjects.add(banner2);
 		
@@ -126,9 +160,37 @@ public class InventoryVickie extends FullFunctionScreen{
 		//viewObjects.add(b3);
 		//viewObjects.add(b4);
 		
+		
 		viewObjects.add(cBanner);
 		viewObjects.add(black);
 		viewObjects.add(white);
+		
+		viewObjects.add(dull);
+		viewObjects.add(blunt);
+		viewObjects.add(sharp);
+		viewObjects.add(dangerous);
+
+		viewObjects.add(dullNum);
+				viewObjects.add(inventory);
+
+		try {
+			 File fontFile = new File("resources/Bangers.ttf");
+			 Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+			 
+			 Font dartNumss=font.deriveFont(100f);
+			 Font menuButton=font.deriveFont(40f);
+			
+		//	dullNum.setFont(dartNumss);
+			menu.setFont(menuButton); //make text orange
+			
+			//inventory label
+			inventory.setFont(dartNumss);
+			
+			 } catch (Exception e) {
+
+			 e.printStackTrace();
+
+			 }
 	}
 	
 	private static void updateDarts() {

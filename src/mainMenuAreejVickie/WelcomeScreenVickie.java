@@ -20,7 +20,7 @@ import guiTeacher.userInterfaces.FullFunctionScreen;
 
 //EDIT HIERARCHY!!
 
-public class WelcomeScreenVickie extends FullFunctionScreen implements  WindowListener{ //possibly extends clickable screen
+public class WelcomeScreenVickie extends FullFunctionScreen {
 		//private Button add;
 		
 		private  Button menu;
@@ -142,48 +142,5 @@ public class WelcomeScreenVickie extends FullFunctionScreen implements  WindowLi
 			
 		}
 		//maybe have balloons animation
-
-		@Override
-		public void windowActivated(WindowEvent arg0) {
-			//timer.schedule(complete, 0, 200);
-			
-		}
-
-		@Override
-		public void windowClosed(WindowEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void windowClosing(WindowEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void windowDeactivated(WindowEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void windowDeiconified(WindowEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void windowIconified(WindowEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void windowOpened(WindowEvent arg0) {
-			timer.schedule(complete, 0, 200);
-		}
-
-		
 	}
 
