@@ -3,13 +3,14 @@ package poppingBalloonsJessicaJi;
 import java.util.ArrayList;
 
 import javafx.scene.paint.Color;
+import mainMenuAreejVickie.InventoryVickie;
 
 public class BalloonBackJi {
 	
 //	public static ArrayList<String> darts = new ArrayList<String>();  //static b/c jessica needs to use it 
 //	public static ArrayList<Integer> dartsProperty = new ArrayList<Integer>(); //static b/c jessica needs to use it 
 	public static ArrayList<Integer> balloons = new ArrayList<Integer>(); //static b/c jessica needs to use it index tells us what color what's in the index is the strength of balloon
-	public static ArrayList<Integer> darts = new ArrayList<Integer>();//Inventory.getDarts();
+	public static int[] darts = InventoryVickie.darts();
 //	public static ArrayList<Integer> balloonsProperty = new ArrayList<Integer>(); //static b/c jessica needs to use it
 	
 	//***IDEAS***
@@ -17,7 +18,6 @@ public class BalloonBackJi {
 	// ^ easier for power bar implementation (power * dart strength)
 	//dart strength = 1,2,3,4 
 	//power = PowerBar.getLength() /5;
-	//health bar for balloon being popped
 	
 	
 	//***TO DOS***
@@ -38,6 +38,13 @@ public class BalloonBackJi {
 		return dartChosen;
 	}
 
+
+	public static int getDartNumber(int num) {
+		//updateDarts();
+		int dartsNum = darts[num];
+		return dartsNum;
+	}
+	
 	public static void setDartChosen(int dartChosen) {
 		BalloonBackJi.dartChosen = dartChosen;
 	}
@@ -58,21 +65,7 @@ public class BalloonBackJi {
 		});
 	}
 	
-	public static ArrayList<Integer> CreateDarts() {
-		int numDarts = 10;
-		for(int i = 0; i < numDarts; i++) {
-			if(i <= 4 ) {
-				
-				darts.add(i, 0); //blunt
-			}else {
-				darts.add(i, 1); //weak
-			}
-			
-		}		
-		
-		return darts; 
-		//getter from inventory needed 
-	}
+
 	
 	public static ArrayList<Integer> CreateBalloons() {
 		//static because jessica needs to display it
@@ -92,7 +85,7 @@ public class BalloonBackJi {
 		//thread for time & disable button  
 		//change a balloon at the same position and change strength 
 		
-		if(balloons.get(x) == (darts.get(dartProperty)) || darts.get(dartProperty) > balloons.get(x)) 
+		if(balloons.get(x) == (darts[dartProperty]) || darts[dartProperty] > balloons.get(x)) 
 		{
 			//same property/type/level
 			balloons.remove(x);
@@ -101,7 +94,7 @@ public class BalloonBackJi {
 		}
 		else
 		{
-			if(darts.get(dartProperty) < balloons.get(x))
+			if(darts[dartProperty] < balloons.get(x))
 			{
 				if(balloons.get(x) == 0) {
 					balloons.remove(x);
@@ -115,8 +108,8 @@ public class BalloonBackJi {
 	}
 	
 	public void updateDarts(int index) {
-		if(darts.get(index) > 0) {
-			darts.set(index, darts.get(index)-1);
+		if(darts[index] > 0) {
+			darts[index] = darts[index]-1;
 		//}else {
 		//	darts.remove(index);
 		//}
@@ -127,6 +120,15 @@ public class BalloonBackJi {
 	public void EndGame() {
 		//disable buttons & switch screen
 		//GuiLoadingVickie.mainMenuAreejVickie.setScreen(GuiLoadingVickie.BalloonResults);
+	}
+
+
+	public static boolean isPoppable(int i) {
+	/*	if(getDartChosen() > balloons.get(1))
+		{
+			return true;
+		}*/
+		return true;
 	}
 
 }
