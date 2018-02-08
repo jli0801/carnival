@@ -54,7 +54,7 @@ public class JoannaResultScreen extends FullFunctionScreen {
 		currentOrder= annie.getCurrentOrder().getOrder();
 		amt = 6;
 		setVisible(true);
-		orderInstance = new JoannaOrder(0, 0, 100, 130, "food/order.png", annie.getOnScreen());
+		orderInstance = new JoannaOrder(0, 0, 100, 130, "food/order.png", annie.getOnScreen(),currentOrder);
 		orderInstance.setVisible(false);
 		onScreen = orderInstance.getOrder();
 		separatePrices();
@@ -180,28 +180,27 @@ public class JoannaResultScreen extends FullFunctionScreen {
 		prices = new double[onScreen.length];
 
 		for(int i = 0; i < onScreen.length; i++ ) {
-			//int num =  (int)onScreen[i][0];
-			//double price = (((AnnieFoodItem) onScreen[i][1]).getPrice());
-			//double a = price * num;
-			double a = calcPrice(i);
+			double price = (((AnnieFoodItem) onScreen[i][1]).getPrice());
+			int num= calcDiff(i);
+			double a = price * num;
 			prices[i] = Math.round( a * 100.0)/100.0;
 		}
-		//calculateprofit();
+		
 	}
 
 
 
 
-	private double calcPrice(int i) {
+	private int calcDiff(int i) {
 		int n = toppingExist(i);
 		int diff;
 		if(n != -1){
 			diff = (int)currentOrder[i][0] - (int)onScreen[n][0];
-			diff = (Math.abs(diff)) *-1;
 		}else {
-		
+			diff = (int)onScreen[n][0];
 		}
-		
+		diff = (Math.abs(diff)) *-1;
+		return diff;
 	}
 
 
