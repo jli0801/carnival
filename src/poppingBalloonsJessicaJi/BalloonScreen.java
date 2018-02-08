@@ -169,7 +169,8 @@ public class BalloonScreen extends FullFunctionScreen  {
 			public void act() {
 				if(InventoryVickie.getDartNumber(0) > 0)
 				{
-				changeQuality("", "Dull", 0);
+				dartDescription.setText("Dart Used: Dull");
+				
 				chosenDart = true; //in backend
 				BalloonBack.setDartChosen(0); //0 = dull
 				dartChosen = "Dull";
@@ -192,7 +193,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 			public void act() {
 				if(InventoryVickie.getDartNumber(1) > 0)
 				{
-				changeQuality("", "Blunt", 0);
+				dartDescription.setText("Dart Used: Blunt");
 				chosenDart = true; //in backend
 				BalloonBack.setDartChosen(1); //0 = dull
 				dartChosen = "Blunt";
@@ -214,7 +215,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 			public void act() {
 				if(InventoryVickie.getDartNumber(2) > 0)
 				{
-				changeQuality("", "Sharp", 0);
+				dartDescription.setText("Dart Used: Sharp");
 				chosenDart = true; //in backend
 				BalloonBack.setDartChosen(2); //0 = dull
 				dartChosen = "Sharp";
@@ -237,7 +238,7 @@ public class BalloonScreen extends FullFunctionScreen  {
 			public void act() {
 				if(InventoryVickie.getDartNumber(3) > 0)
 				{
-				changeQuality("", "Dangerous", 0);
+				dartDescription.setText("Dart Used: Dangerous");
 				chosenDart = true; //in backend
 				BalloonBack.setDartChosen(3); //0 = dull
 				dartChosen = "Dangerous";
