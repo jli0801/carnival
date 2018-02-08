@@ -85,7 +85,7 @@ public class BalloonBackJi {
 		return balloons; 
 	}
 	
-	public static void UpdateBalloons(int x, int dartProperty ) { //needs to be static so Jessica can access it
+	public static void updateBalloons(int x, int dartProperty ) { //needs to be static so Jessica can access it
 		//x represents index
 		//front end-balloon deleted -> goes to confetti
 		//thread for time & disable button  
@@ -113,7 +113,13 @@ public class BalloonBackJi {
 		}
 	}
 	
-	
+	public void updateDarts(int index) {
+		if(darts.get(index) > 0) {
+			darts.set(index, darts.get(index)-1);
+		}else {
+			darts.remove(index);
+		}
+	}
 	
 	
 	public void EndGame() {
