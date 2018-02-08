@@ -27,7 +27,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 
 	//	public static mainMenuAreejVickie.choseGame menu; Where user chooses games.
 
-	public static poppingBalloonsJessicaJi.BalloonResultsJi balloonResults;
+	//public static poppingBalloonsJessicaJi.BalloonResultsJi balloonResults;
 	public static MainScreenAreej menu;
 //	public Graphic background;
 	public Graphic ticket;
@@ -55,10 +55,9 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 	private Button sharp;
 	private Button dangerous;
 
-	private static int score = 0; //ji uses this in her class so it's static
-	private static int timeLeft = 5;
-	private static int previousScore = 0;
-	private static boolean gameStarted = false;
+	private static int score; //ji uses this in her class so it's static
+	private static int timeLeft;
+	private static boolean gameStarted;
 
 	public static int getTimeLeft() { //jessica needs this for power bar 
 		return timeLeft;
@@ -78,9 +77,8 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 
 	private PowerBarJessica strength;
 	private Button play;
-	private boolean playPressed = false;
-	private Button restart;
-	private boolean chosenDart = false;
+	//private boolean playPressed = false;
+	private boolean chosenDart;
 	private Graphic popEffect1;
 	private Graphic popEffect2;
 	private Graphic popEffect3;
@@ -94,6 +92,11 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		super(width, height);
 		setBackground(background);
 		// TODO Auto-generated constructor stub
+		timeLeft = 5;
+		score = 0;
+		gameStarted = false;
+		chosenDart = false;
+		changeQuality("","",0);
 	}
 
 /*	public void resizeComponents()
@@ -105,7 +108,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		balloonResults = new poppingBalloonsJessicaJi.BalloonResultsJi(getWidth(), getHeight());
+		//balloonResults = new poppingBalloonsJessicaJi.BalloonResultsJi(getWidth(), getHeight());
 		
 		strength = new PowerBarJessica(560,475,100,150);
 		dartChosenInt = BalloonBackJi.getDartChosen(); //needs to be int later
@@ -536,7 +539,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 	}
 	private void endRound() {
 		timeLeftTxt.setText("GAME OVER");
-		GuiLoadingVickie.loading.setScreen(balloonResults);
+		GuiLoadingVickie.loading.setScreen(new BalloonResultsJi(getWidth(), getHeight()));
 	}
 	
 	public static int getScore() {
