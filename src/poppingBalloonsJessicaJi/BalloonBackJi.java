@@ -17,6 +17,7 @@ public class BalloonBackJi {
 	// ^ easier for power bar implementation (power * dart strength)
 	//dart strength = 1,2,3,4 
 	//power = PowerBar.getLength() /5;
+	//health bar for balloon being popped
 	
 	
 	//***TO DOS***
