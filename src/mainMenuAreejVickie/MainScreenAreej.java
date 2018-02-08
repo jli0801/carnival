@@ -16,6 +16,7 @@ import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import mainMenuAreejVickie.GuiLoadingVickie;
+import poppingBalloonsJessicaJi.BalloonScreen;
 
 public class MainScreenAreej extends FullFunctionScreen {
 
@@ -37,7 +38,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.balloonGame);
+				GuiLoadingVickie.loading.setScreen(new BalloonScreen(getWidth(), getHeight()));
 			}
 			
 		});
