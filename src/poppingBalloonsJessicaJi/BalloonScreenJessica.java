@@ -291,7 +291,8 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				scoreText.setText("Score: " + Integer.toString(score));
 				balloonDescription.setText("Balloon Popped:" + balloonChosen);
 				dartDescription.setText("Dart Used: " + dartChosen);
-			}
+				}
+				
 			}
 		} );
 		balloon1B.setCurve(100,100);
@@ -326,6 +327,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				balloonDescription.setText("Balloon Popped:" + balloonChosen);
 				dartDescription.setText("Dart Used: " + dartChosen);
 				}
+			
 			}
 		} );
 		balloon3B.setCurve(100,100);
@@ -342,6 +344,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				balloonDescription.setText("Balloon Popped:" + balloonChosen);
 				dartDescription.setText("Dart Used: " + dartChosen);
 				}
+				
 			}
 		} );
 		balloon4B.setCurve(100,100);
@@ -358,6 +361,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				balloonDescription.setText("Balloon Popped:" + balloonChosen);
 				dartDescription.setText("Dart Used: " + dartChosen);
 				}
+				
 			}
 		} );
 		balloon5B.setCurve(100,100);
@@ -376,6 +380,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				balloonDescription.setText("Balloon Popped:" + balloonChosen);
 				dartDescription.setText("Dart Used: " + dartChosen);
 				}
+			
 			}
 		} );
 		balloon6B.setCurve(100,100);
@@ -460,6 +465,10 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 			
 			score = score + i;
 			
+		}
+		else
+		{
+			balloonChosen = "";
 		}
 	}
 
