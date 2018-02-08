@@ -80,7 +80,7 @@ public class WAMResultStephanie extends FullFunctionScreen {
 		playButton = new Button(920,30,210,50,"PLAY AGAIN", Color.ORANGE, new Action() {
 			
 			public void act() {
-				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.moleInstruct);
+				GuiLoadingVickie.loading.setScreen(new WAMGameKevin(getWidth(), getHeight()));
 				GUIApplication.enableCursorChange = true;
 			}
 		});
