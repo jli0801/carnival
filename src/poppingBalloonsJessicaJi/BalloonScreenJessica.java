@@ -464,22 +464,22 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 
 	}
 
-	private void updateDartField(int dartChosen, int i) {
+	private void updateDartField(int dartChosen, int subtractD) {
 		if(dartChosen == 0)
 		{
-			dullDart.setText(Integer.toString(BalloonBackJi.darts[0] - 1));
+			dullDart.setText(Integer.toString(BalloonBackJi.darts[0] - subtractD));
 		}
 		else if(dartChosen == 1)
 		{
-			bluntDart.setText(Integer.toString(BalloonBackJi.darts[1] - 1));
+			bluntDart.setText(Integer.toString(BalloonBackJi.darts[1] - subtractD));
 		}
 		else if (dartChosen == 2)
 		{
-			sharpDart.setText(Integer.toString(BalloonBackJi.darts[2] - 1));
+			sharpDart.setText(Integer.toString(BalloonBackJi.darts[2] - subtractD));
 		}
 		else
 		{
-			dangerousDart.setText(Integer.toString(BalloonBackJi.darts[3] - 1));
+			dangerousDart.setText(Integer.toString(BalloonBackJi.darts[3] - subtractD));
 		}
 		
 	}
