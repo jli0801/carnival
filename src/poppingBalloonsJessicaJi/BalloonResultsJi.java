@@ -14,7 +14,7 @@ import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import mainMenuAreejVickie.GuiLoadingVickie;
 
-public class BalloonResults extends FullFunctionScreen {
+public class BalloonResultsJi extends FullFunctionScreen {
 
 	//public static poppingBalloonsJessicaJi.BalloonScreen balloonScreen;
 	//private TextArea result;
@@ -27,7 +27,7 @@ public class BalloonResults extends FullFunctionScreen {
 	private Graphic ticket;
 	private Color background = new Color(179, 230, 255);
 
-	public BalloonResults(int width, int height) {
+	public BalloonResultsJi(int width, int height) {
 		super(width, height);
 		setScore();
 		score.setText("Final score: " + scoreNum);
@@ -72,7 +72,7 @@ public class BalloonResults extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				GuiLoadingVickie.loading.setScreen(new BalloonScreen(getWidth(), getHeight()));
+				GuiLoadingVickie.loading.setScreen(new BalloonScreenJessica(getWidth(), getHeight()));
 			}
 		});
 		viewObjects.add(playAgain);
@@ -91,7 +91,7 @@ public class BalloonResults extends FullFunctionScreen {
 	
 	
 	public void setScore() {
-		scoreNum = BalloonScreen.getScore();
+		scoreNum = BalloonScreenJessica.getScore();
 	}
 	
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import javafx.scene.paint.Color;
 
-public class BalloonBack {
+public class BalloonBackJi {
 	
 //	public static ArrayList<String> darts = new ArrayList<String>();  //static b/c jessica needs to use it 
 //	public static ArrayList<Integer> dartsProperty = new ArrayList<Integer>(); //static b/c jessica needs to use it 
@@ -38,7 +38,7 @@ public class BalloonBack {
 	}
 
 	public static void setDartChosen(int dartChosen) {
-		BalloonBack.dartChosen = dartChosen;
+		BalloonBackJi.dartChosen = dartChosen;
 	}
 
 	public void Timer() { //links to text area

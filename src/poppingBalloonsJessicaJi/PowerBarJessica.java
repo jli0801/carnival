@@ -13,7 +13,7 @@ import guiTeacher.components.MovingComponent;
 import guiTeacher.components.StyledComponent;
 import guiTeacher.interfaces.Visible;
 
-public class PowerBar extends StyledComponent {
+public class PowerBarJessica extends StyledComponent {
 
 	private int length;
 	private Color lightYellow = new Color (255,255,153);
@@ -21,7 +21,7 @@ public class PowerBar extends StyledComponent {
 	private boolean goingUp;
 	
 	
-	public PowerBar(int x, int y, int w, int h) {
+	public PowerBarJessica(int x, int y, int w, int h) {
 		
 		super(x, y, w, h);
 
@@ -111,7 +111,7 @@ public class PowerBar extends StyledComponent {
 				@Override
 				public void run() {
 					
-					while(BalloonScreen.getTimeLeft() > 0)
+					while(BalloonScreenJessica.getTimeLeft() > 0)
 					{
 						update();
 						try {

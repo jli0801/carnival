@@ -19,8 +19,8 @@ public class GuiLoadingVickie extends GUIApplication{
 	public static MainScreenAreej menu;
 	
 	
-	public static poppingBalloonsJessicaJi.BalloonScreen balloonGame;
-	public static poppingBalloonsJessicaJi.BalloonResults balloonResults;
+	public static poppingBalloonsJessicaJi.BalloonScreenJessica balloonGame;
+	public static poppingBalloonsJessicaJi.BalloonResultsJi balloonResults;
 	
 	public static foodJoannaAnnie.AnnieWorkScreen foodGame;
 	
@@ -66,8 +66,8 @@ public class GuiLoadingVickie extends GUIApplication{
 		
 		inventory = new InventoryVickie(getWidth(), getHeight());
 		
-		balloonGame = new poppingBalloonsJessicaJi.BalloonScreen(getWidth(), getHeight());
-		balloonResults = new poppingBalloonsJessicaJi.BalloonResults(getWidth(), getHeight());
+		balloonGame = new poppingBalloonsJessicaJi.BalloonScreenJessica(getWidth(), getHeight());
+		balloonResults = new poppingBalloonsJessicaJi.BalloonResultsJi(getWidth(), getHeight());
 		
 		foodGame = new foodJoannaAnnie.AnnieWorkScreen(getWidth(), getHeight());
 		
