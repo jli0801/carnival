@@ -116,8 +116,9 @@ public class BalloonBackJi {
 	public void updateDarts(int index) {
 		if(darts.get(index) > 0) {
 			darts.set(index, darts.get(index)-1);
-		}else {
-			darts.remove(index);
+		//}else {
+		//	darts.remove(index);
+		//}
 		}
 	}
 	
