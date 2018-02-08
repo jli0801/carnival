@@ -96,6 +96,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		score = 0;
 		gameStarted = false;
 		chosenDart = false;
+		play.setEnabled(true);
 		changeQuality("","",0);
 	}
 

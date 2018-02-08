@@ -60,7 +60,7 @@ public class BalloonResultsJi extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
+				GuiLoadingVickie.loading.setScreen(new mainMenuAreejVickie.MainScreenAreej(getWidth(), getHeight()));
 				
 			}
 		});
