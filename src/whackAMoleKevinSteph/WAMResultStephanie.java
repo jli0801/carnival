@@ -84,7 +84,7 @@ public class WAMResultStephanie extends FullFunctionScreen {
 				GUIApplication.enableCursorChange = true;
 			}
 		});
-		
+		 
 		viewObjects.add(playButton);
 		
 		resultTitle = new TextArea(530,165,500,270,"RESULTS");
