@@ -71,7 +71,7 @@ public class BalloonResults extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				//GuiLoadingVickie.loading.setScreen(balloonScreen);
+				GuiLoadingVickie.loading.setScreen(new BalloonScreen(getWidth(), getHeight()));
 			}
 		});
 		viewObjects.add(playAgain);
