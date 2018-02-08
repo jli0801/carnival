@@ -84,6 +84,9 @@ public class JoannaOrder extends ClickableGraphic {
 
 	private int notOnscreen() {
 		int missingLen = 0;
+		for(int i = 0; i < order.length; i++){
+		if(currentOrder[i] 
+		}
 		
 	
 	}
