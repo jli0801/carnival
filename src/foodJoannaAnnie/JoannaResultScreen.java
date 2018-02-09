@@ -195,9 +195,9 @@ public class JoannaResultScreen extends FullFunctionScreen {
 		int n = toppingExist(i);
 		int diff;
 		if(n != -1){
-			diff = (int)currentOrder[i][0] - (int)onScreen[n][0];
+			diff = (int)currentOrder[n][0] - (int)onScreen[i][0];
 		}else {
-			diff = (int)onScreen[n][0];
+			diff = (int)onScreen[i][0];
 		}
 		diff = (Math.abs(diff)) *-1;
 		return diff;
