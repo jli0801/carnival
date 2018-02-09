@@ -404,7 +404,7 @@ public class AnnieWorkScreen extends ClickableScreen {
 		Visible.move(order, x, y, t);
 	}
 	
-	private void resetTray(List<Visible> viewObjects) {
+	public void resetTray(List<Visible> viewObjects) {
 		trashAnimation(viewObjects);
 		newTray(viewObjects);
 		resetClicked();
