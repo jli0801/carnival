@@ -22,6 +22,8 @@ public class StoreAreej extends FullFunctionScreen{
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		
+		Graphic background = new Graphic(0,0, 1185, getHeight(), "resources/tent.png");
 		Graphic bear = new Graphic(10,10, 100, 100, "resources/bear.png");
 		
 		menu = new Button(10, 600, 50, 50, "menu", Color.blue, new Action() {
@@ -42,6 +44,7 @@ public class StoreAreej extends FullFunctionScreen{
 			
 		});
 		
+		viewObjects.add(background);
 		viewObjects.add(bear);
 		viewObjects.add(menu);
 		viewObjects.add(inventory);
