@@ -123,6 +123,10 @@ public class InventoryVickie extends FullFunctionScreen{
 		Graphic sharp = new Graphic (724,275,160,160, "poppingBalloons/dart3.png"); 
 		Graphic dangerous = new Graphic (936,275,160,160, "poppingBalloons/dart4.png"); 
 		
+		Graphic ticket = new Graphic (30, 200, 50, 50, "resources/ticket.jpg");
+		
+		Graphic money = new Graphic(150, 200, 30, 30, "resources/money.png");
+		
 		
 		
 		//numbers
@@ -171,7 +175,10 @@ public class InventoryVickie extends FullFunctionScreen{
 		viewObjects.add(dangerous);
 
 		viewObjects.add(dullNum);
-				viewObjects.add(inventory);
+		viewObjects.add(inventory);
+		
+		viewObjects.add(ticket);
+		viewObjects.add(money);
 
 		try {
 			 File fontFile = new File("resources/Bangers.ttf");
@@ -284,5 +291,11 @@ public class InventoryVickie extends FullFunctionScreen{
 		return darts;
 	}
 	
+	public ArrayList<String> getInventoryArrayList() {
+		return itemsList;
+	}
 	
+	public void setInventoryArrayList(ArrayList<String> arr) {
+		this.itemsList = arr;
+	}
 }
