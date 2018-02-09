@@ -94,7 +94,7 @@ public class JoannaResultScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu); 
-				annie.resetTray(annie.getViewObjects());
+				annie.animation(annie.getViewObjects());
 			}
 		});
 

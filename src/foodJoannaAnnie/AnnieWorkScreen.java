@@ -97,7 +97,7 @@ public class AnnieWorkScreen extends ClickableScreen {
 					Visible.move(topping, getNewX(), getNewY(), 150);
 				}
 				
-				public void generateXY() {
+				private void generateXY() {
 					x = (int)(Math.random() * 260 + 60);
 					y = (int)(Math.random() * 260 + 80);
 					while(Math.pow(x - 190, 2) + Math.pow(y - 210, 2) > Math.pow(115, 2)) {
@@ -404,7 +404,7 @@ public class AnnieWorkScreen extends ClickableScreen {
 		Visible.move(order, x, y, t);
 	}
 	
-	public void resetTray(List<Visible> viewObjects) {
+	private void resetTray(List<Visible> viewObjects) {
 		trashAnimation(viewObjects);
 		newTray(viewObjects);
 		resetClicked();
