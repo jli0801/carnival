@@ -12,12 +12,8 @@ public class Btest extends Button{
 		
 	}
 
-	public void hoverAction(){
-		d = new TextArea(100,100,100,100, "hihiihihh");
-		//viewObjects.add(d);
-	}
-	
 	public TextArea getArea() {
+		d = new TextArea(100,100,100,100, "hihiihihh");
 		return d;
 	}
 	

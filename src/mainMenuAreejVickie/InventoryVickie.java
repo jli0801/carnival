@@ -62,6 +62,11 @@ public class InventoryVickie extends FullFunctionScreen{
 	private Color fuchsia = new Color(255,0,255);
 	private Color blood = new Color(239,23,56);
 	
+	private static int dull;
+	private static int blunt;
+	private static int sharp;
+	private static int dangerous;
+	
 	public InventoryVickie(int width, int height) {
 		super(width, height);
 		setBackground(purp);
@@ -82,13 +87,32 @@ public class InventoryVickie extends FullFunctionScreen{
 	public void initAllObjects(List<Visible> viewObjects) {
 		itemsList = new ArrayList<String>();
 		
-		int[]dart = {4,4,4,4};
+		int[]dart = new int [4];
 		darts = dart;
+		
+		//default items
+		itemsList.add("dullDart");
+		itemsList.add("dullDart");
+		itemsList.add("dullDart");
+		itemsList.add("dullDart");
+		
+		itemsList.add("bluntDart");
+		itemsList.add("bluntDart");
+		itemsList.add("bluntDart");
+		itemsList.add("bluntDart");
+		
+		itemsList.add("sharpDart");
+		itemsList.add("sharpDart");
+		itemsList.add("sharpDart");
+		itemsList.add("sharpDart");
+		
+		itemsList.add("dangerousDart");
+		itemsList.add("dangerousDart");
+		itemsList.add("dangerousDart");
+		itemsList.add("dangerousDart");
 		
 		money = 10;
 		tickets = 0;
-		
-		arrEx();
 		
 		//Inventory 
 		TextLabel inventory = new TextLabel(512,155, 900, 200, "Inventory!!");
@@ -118,32 +142,53 @@ public class InventoryVickie extends FullFunctionScreen{
 		Graphic black = new Graphic (300,275, 860, 725, "resources/black.jpg");
 		
 		//items
-		Graphic dull = new Graphic (300,275,160,160, "poppingBalloons/dart1.png"); 
-		Graphic blunt = new Graphic (512,275,160,160, "poppingBalloons/dart2.png"); 
-		Graphic sharp = new Graphic (724,275,160,160, "poppingBalloons/dart3.png"); 
-		Graphic dangerous = new Graphic (936,275,160,160, "poppingBalloons/dart4.png"); 
+		Graphic dullG = new Graphic (300,275,160,160, "poppingBalloons/dart1.png"); 
+		Graphic bluntG = new Graphic (512,275,160,160, "poppingBalloons/dart2.png"); 
+		Graphic sharpG = new Graphic (724,275,160,160, "poppingBalloons/dart3.png"); 
+		Graphic dangerousG = new Graphic (936,275,160,160, "poppingBalloons/dart4.png"); 
 		
-		Graphic ticket = new Graphic (30, 200, 50, 50, "resources/ticket.jpg");
+		Graphic ticketG = new Graphic (30, 200, 50, 50, "resources/ticket.jpg");
 		
-		Graphic money = new Graphic(150, 200, 30, 30, "resources/money.png");
+		Graphic moneyG = new Graphic(150, 200, 30, 30, "resources/money.png");
 		
-		Graphic cottonCandy = new Graphic(300,300, 160,160,"resources/cottoncandy.png");
-		
-		Graphic bear = new Graphic(300,300,160,200, "resources/bear.png");
-		
-		Graphic hammer = new Graphic(300,500, 160,160, "resources/hammer.png");
+				
 		
 		
+		Graphic hammerG = new Graphic(300,500, 160,160, "resources/hammer.png");
+		Graphic bearG = new Graphic(512,500,160,160, "resources/bear.png");
+		Graphic cottonCandyG = new Graphic(724,500, 160,160,"resources/cottoncandy.png");
+
+		Graphic fishG = new Graphic (936,500,160,160, "resources/fish.png");
 		//numbers
-		TextLabel dullNum = new TextLabel(460,250, 500, 500, "x 0");
+		
+		updateDarts();
+		
+		TextLabel dullX = new TextLabel(390,330, 100, 100, "x"); //335
+		TextLabel bluntX = new TextLabel(602,330, 100, 100, "x");
+		TextLabel sharpX = new TextLabel(814,330, 100, 100, "x");
+		TextLabel dangerousX = new TextLabel(1026,330, 100, 100, "x");
+
+		TextLabel dullNum = new TextLabel(398,335, 100, 100, ""+dull+""); //335
+		TextLabel bluntNum = new TextLabel(610,335, 100, 100, ""+blunt);
+		TextLabel sharpNum = new TextLabel(821,335, 100, 100, ""+sharp);
+		TextLabel dangerousNum = new TextLabel(1034,335, 100, 100, ""+dangerous);
+		
+		TextLabel ham = new TextLabel(398,560, 100, 100, "x 1"); //335
+		TextLabel bea = new TextLabel(610,560, 100, 100, "     x 0");
+		TextLabel cot = new TextLabel(821,560, 100, 100, "      x 0");
+		TextLabel fis = new TextLabel(1034,560, 100, 100, "  x 0");
+		
+		TextLabel tic = new TextLabel(80,203, 100, 100, "x "+tickets);
+		TextLabel mon = new TextLabel(175,203, 100, 100, "x $"+money);
 		
 		//description
-		TextArea desc = new TextArea(10,400,250,600, "lets \n seee if this owreks");
+		
+		TextArea desc = new TextArea(100,265,250,600, " Keep \ntrack \n  of \n your \nstuff");
 		
 		
 		
 		//buttons
-		menu = new Button(10, 700, 50, 50, "Menu", Color.red, new Action() {
+		menu = new Button(10, 690, 280, 75, "Menu", Color.red, new Action() {
 
 			@Override
 			public void act() {
@@ -152,11 +197,12 @@ public class InventoryVickie extends FullFunctionScreen{
 			
 		});
 		
-		Btest test = new Btest(100, 100, 100, 100, "THIS IS THE FREAKING Bfsd", null);
+		/*Btest test = new Btest(100, 100, 100, 100, "THIS IS THE FREAKING Bfsd", null);
 		TextArea t = test.getArea();
 		//menu.hoverAction();
+		*/
 		
-		store = new Button(10, 600, 50, 50, "Store", Color.yellow, new Action() {
+		store = new Button(10, 600, 280, 75, "Store", Color.yellow, new Action() {
 
 			@Override
 			public void act() {
@@ -183,45 +229,72 @@ public class InventoryVickie extends FullFunctionScreen{
 		viewObjects.add(black);
 		viewObjects.add(white);
 		
-		viewObjects.add(dull);
-		viewObjects.add(blunt);
-		viewObjects.add(sharp);
-		viewObjects.add(dangerous);
+		viewObjects.add(dullG);
+		viewObjects.add(bluntG);
+		viewObjects.add(sharpG);
+		viewObjects.add(dangerousG);
 
-		viewObjects.add(dullNum);
+		
 		viewObjects.add(inventory);
 		
-		viewObjects.add(ticket);
+		viewObjects.add(ticketG);
 		
-		viewObjects.add(money);
+		viewObjects.add(moneyG);
 		
-		viewObjects.add(bear);
+		viewObjects.add(bearG);
 		
-		viewObjects.add(hammer);
+		viewObjects.add(hammerG);
 		
 		
-		viewObjects.add(cottonCandy);
+		viewObjects.add(cottonCandyG);
+		
+		viewObjects.add(fishG);
 		
 		viewObjects.add(desc);
-		viewObjects.add(test);
-		
-		if(test.isHovered()) {
-			t.setText("HOVERED!");
+		//viewObjects.add(test);
+	
+		/*if(menu.isHovered()) {
+			menu.setText("HOVERED!");
+			viewObjects.add(menu);
 			viewObjects.add(t);
 		}
+		if(test.isHovered()) {
+			test.setText("HOVERED!");
+			viewObjects.add(t);
+		}*/
 		
-
+		viewObjects.add(dullX);
+		viewObjects.add(bluntX);
+		viewObjects.add(sharpX);
+		viewObjects.add(dangerousX);
+		
+		viewObjects.add(dullNum);
+		viewObjects.add(bluntNum);
+		viewObjects.add(sharpNum);
+		viewObjects.add(dangerousNum);
+		
+viewObjects.add(ham);
+		viewObjects.add(bea);
+		viewObjects.add(cot);
+		viewObjects.add(fis);
+		
+		viewObjects.add(tic);
+		viewObjects.add(mon);
 		try {
 			 File fontFile = new File("resources/Bangers.ttf");
 			 Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 			 
 			 Font dartNumss=font.deriveFont(100f);
 			 Font menuButton=font.deriveFont(40f);
+			 Font d=font.deriveFont(50f);
 			
 		//	dullNum.setFont(dartNumss);
-			menu.setFont(menuButton); //make text orange
+			//menu.setFont(menuButton); //make text orange
 			
 			//inventory label
+			desc.setFont(d);
+			desc.setForeground(Color.orange);
+			desc.update();
 			inventory.setFont(dartNumss);
 			
 			 } catch (Exception e) {
@@ -232,10 +305,10 @@ public class InventoryVickie extends FullFunctionScreen{
 	}
 	
 	private static void updateDarts() {
-		int dull = 0;
-		int blunt = 0; 
-		int sharp = 0;
-		int dangerous = 0;
+		dull = 0;
+		blunt = 0; 
+		sharp = 0;
+		dangerous = 0;
 		
 		//dull dart:0
 		for(int i = 0; i<itemsList.size();i++) {
@@ -247,21 +320,21 @@ public class InventoryVickie extends FullFunctionScreen{
 		//blunt dart:1
 		for(int i = 0; i<itemsList.size();i++) {
 			if(itemsList.get(i).equals("bluntDart")) {
-				dull++;
+				blunt++;
 			}
 		}
 		
 		//sharp dart:2
 		for(int i = 0; i<itemsList.size();i++) {
 			if(itemsList.get(i).equals("sharpDart")) {
-				dull++;
+				sharp++;
 			}
 		}
 		
 		//dangerous dart:3
 		for(int i = 0; i<itemsList.size();i++) {
 			if(itemsList.get(i).equals("dangerousDart")) {
-				dull++;
+				dangerous++;
 			}
 		}
 		
@@ -272,29 +345,6 @@ public class InventoryVickie extends FullFunctionScreen{
 		darts[3] =dangerous;
 		
 	}
-	
-	public  void arrEx()
-    {
-        /* ........... Normal Array............. */
-        int[] arr = new int[3];
-        arr[0] = 1;
-        arr[1] = 2;
-        System.out.println(arr[0]);
- 
-        /*............ArrayList..............*/
-        // Create an arrayList with initial capacity 2
-        ArrayList<Integer> arrL = new ArrayList<Integer>(2); //String
- 
-        // Add elements to ArrayList
-        arrL.add(1);
-        arrL.add(2);
- 
-        // Access elements of ArrayList
-        System.out.println(arrL.get(0));
-    }
-	
-	//private ArrayList<> inventory;
-
 	
 	public static int getTickets() {
 		return tickets;
@@ -313,7 +363,7 @@ public class InventoryVickie extends FullFunctionScreen{
 	}
 	
 	public static int getDartNumber(int num) {
-		//updateDarts();
+		updateDarts();
 		dartsNum = darts[num];
 		return dartsNum;
 	}
