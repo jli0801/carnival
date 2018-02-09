@@ -3,6 +3,8 @@ package mainMenuAreejVickie;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.File;
 import java.util.List;
 import java.util.Timer;
@@ -18,7 +20,7 @@ import guiTeacher.userInterfaces.FullFunctionScreen;
 
 //EDIT HIERARCHY!!
 
-public class WelcomeScreenVickie extends FullFunctionScreen{ //possibly extends clickable screen
+public class WelcomeScreenVickie extends FullFunctionScreen {
 		//private Button add;
 		
 		private  Button menu;
@@ -28,17 +30,35 @@ public class WelcomeScreenVickie extends FullFunctionScreen{ //possibly extends 
 		private int count;
 		private int randColor;
 		
+		private boolean startTimer;
+		
 		private boolean activate;
 		private Color colors;
 		
+		private TimerTask complete;
+		
 		private Color []color = {Color.red, Color.orange, Color.yellow, Color.green, Color.cyan, Color.blue, Color.pink, Color.black, Color.DARK_GRAY, Color.magenta, Color.gray};
+		private Timer startApp;
+		private int startNum;
 
 		public WelcomeScreenVickie(int width, int height) {
 			super(width, height);
+			setVisible(true);
 		}
 
 		@Override
 		public void initAllObjects(List<Visible> viewObjects) {
+			
+			/*
+			 * https://stackoverflow.com/questions/39565472/how-to-automatically-execute-a-task-after-jframe-is-displayed-from-within-it
+			 */
+			
+			
+			if(!startTimer) {
+				
+				startTimer = !startTimer;
+				
+			}
 			count = 1000;
 			Graphic welcomeBackground = new Graphic(0,0, getWidth(), getHeight(), "resources/welcomeBackground.png");
 			
@@ -48,7 +68,7 @@ public class WelcomeScreenVickie extends FullFunctionScreen{ //possibly extends 
 //********	Changed TextArea in guiDoc.	
 			
 			timer = new Timer();
-			TimerTask complete = new TimerTask() {
+			complete = new TimerTask() {
 				@Override
 				public void run() {
 					count --;
@@ -71,16 +91,22 @@ public class WelcomeScreenVickie extends FullFunctionScreen{ //possibly extends 
 				}				
 			};
 			
-			menu = new Button(getWidth() - 270, getHeight() - 180, 200, 100, "Go!", Color.red, new Action() {
+			/*if(!startTimer) {
+				timer.schedule(complete, 0, 200);
+			}*/
+			
+			
+			
+			menu = new Button(getWidth() - 270, getHeight() - 180, 200, 100, "Welcome!", Color.red, new Action() {
 				public void act() {
-					if(!activate) {
+					/*if(!activate) {
 						activate = !activate;
-						timer.schedule(complete, 0, 100);
+						timer.schedule(complete, 0, 200);
 						menu.setText("Welcome!");
-					}else {
+					}else {*/
 						GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
 						timer.cancel();
-					}
+					//}
 					
 				}
 			});
@@ -107,13 +133,14 @@ public class WelcomeScreenVickie extends FullFunctionScreen{ //possibly extends 
 				 }
 			
 			
-			
+			count = 1000;
+			 if(count==1000) {
+				 timer.schedule(complete, 0,200);
+			 }
 			//
 			 
 			
 		}
 		//maybe have balloons animation
-
-		
 	}
 

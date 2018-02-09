@@ -20,12 +20,22 @@ public class GuiLoadingVickie extends GUIApplication{
 	
 	
 	public static poppingBalloonsJessicaJi.BalloonScreen balloonGame;
-	public static poppingBalloonsJessicaJi.BalloonResults balloonResults;
+	//public static poppingBalloonsJessicaJi.BalloonResults balloonResults;
 	
 	public static foodJoannaAnnie.AnnieWorkScreen foodGame;
 	
 	public static whackAMoleKevinSteph.WAMMenuStephanie moleInstruct;
-	public static whackAMoleKevinSteph.WAMGameKevin moleGame;
+	
+	public static InventoryVickie inventory;
+	
+	public static StoreAreej store;
+
+	/*
+	 * 3 screens stephKev
+	 * 	molePlay
+	 * 	moleResult
+	 * 	?
+	 */
 
 	public static void main(String[] args) {
 		loading = new GuiLoadingVickie(1200, 800);
@@ -54,12 +64,16 @@ public class GuiLoadingVickie extends GUIApplication{
 		welcome = new WelcomeScreenVickie(getWidth(), getHeight());
 		menu = new MainScreenAreej(getWidth(), getHeight());
 		
+		inventory = new InventoryVickie(getWidth(), getHeight());
+		
 		balloonGame = new poppingBalloonsJessicaJi.BalloonScreen(getWidth(), getHeight());
-		balloonResults = new poppingBalloonsJessicaJi.BalloonResults(getWidth(), getHeight());
+		//balloonResults = new poppingBalloonsJessicaJi.BalloonResults(getWidth(), getHeight());
 		
 		foodGame = new foodJoannaAnnie.AnnieWorkScreen(getWidth(), getHeight());
 		
 		moleInstruct = new whackAMoleKevinSteph.WAMMenuStephanie(getWidth(), getHeight());
+		
+		store = new StoreAreej(getWidth(), getHeight());
 		
 		setScreen(welcome);
 		
