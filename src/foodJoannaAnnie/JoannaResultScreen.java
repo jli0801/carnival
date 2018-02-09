@@ -94,7 +94,7 @@ public class JoannaResultScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu); 
-
+				annie.resetTray(annie.getViewObjects());
 			}
 		});
 
@@ -108,9 +108,9 @@ public class JoannaResultScreen extends FullFunctionScreen {
 			}
 		});
 		work.setBackground(Color.GREEN);
-		bigOrder= new TextArea(130, 145,295, 400,"");		
+		bigOrder= new TextArea(125, 170,270, 360,"");		
 
-		Component orderBox = new Component(125,140,300,405) {
+		Component orderBox = new Component(100,150,320,400) {
 
 			@Override
 			public void update(Graphics2D g) {
@@ -122,27 +122,27 @@ public class JoannaResultScreen extends FullFunctionScreen {
 			}
 		};
 
-		Component totalBox = new Component(550,140,500,600) {
-
-			@Override
-			public void update(Graphics2D g) {
-				g.setStroke(new BasicStroke(5));
-				g.setColor(Color.BLACK);
-				g.drawRect(0, 0, getWidth()-1, getHeight()-1);
-			}
-		};
+//		Component totalBox = new Component(550,140,500,600) {
+//
+//			@Override
+//			public void update(Graphics2D g) {
+//				g.setStroke(new BasicStroke(5));
+//				g.setColor(Color.BLACK);
+//				g.drawRect(0, 0, getWidth()-1, getHeight()-1);
+//			}
+//		};
 		
-		list = new TextArea(555, 145, 300, 400,"");
-		profit = new TextArea(955, 145, 200, 400, "");
-		trash = new TextArea(555, 550, 500, 95, "TRASH PENALTY");
-		trashCost = new TextArea(955, 550, 500, 95, "");
+		list = new TextArea(555, 170, 300, 400,"");
+		profit = new TextArea(955, 170, 200, 400, "");
+		trash = new TextArea(555, 600, 500, 95, "TRASH PENALTY");
+		trashCost = new TextArea(955, 600, 500, 95, "");
 		total = new TextArea(555, 650, 500, 95, "TOTAL");
 		totalCost = new TextArea(955, 650, 500, 95, "");
 
 		orderBox.setVisible(true);
-		totalBox.setVisible(true);
+//		totalBox.setVisible(true);
 		viewObjects.add(orderBox);
-		viewObjects.add(totalBox);
+//		viewObjects.add(totalBox);
 		viewObjects.add(profit);
 		viewObjects.add(list);
 		viewObjects.add(home);
