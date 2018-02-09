@@ -441,6 +441,8 @@ public abstract class ComponentContainer extends JPanel{
 		this.alpha = alpha;
 	}
 
-	
+	public List<Visible> getViewObjects() {
+		return viewObjects;
+	}
 	
 }
