@@ -66,11 +66,9 @@ public class JoannaOrder extends ClickableGraphic {
 	}
 
 	private void countItems() {
-		int mLen = notOnscreen();
 		numInt = findLength();
-		int fullLength = numInt +mLen;
-		quantity =  new int[fullLength];
-		items = new AnnieFoodItem[fullLength];
+		quantity =  new int[numInt];
+		items = new AnnieFoodItem[numInt];
 		for(int i=0; i < screen.size(); i++) {
 			int tracker = 1;
 			for(int j = i+1; j < screen.size(); j++) {
@@ -84,16 +82,41 @@ public class JoannaOrder extends ClickableGraphic {
 			quantity[i] = tracker;
 			items[i] = screen.get(i);	
 		}
-		int counter = 0;
+		
+		makeOrder(numInt);
+		
+	}
+	
+//	int counter = 0;
+//	for(int k = numInt; k <fullLength; k++) {
+//		 quantity[k] = 0;
+//		 items[k] = holder.get(counter);
+//		 counter++;
+//		}
+	private void addMissingOrder() {
+		int mLen = notOnscreen();
+		int fullLength = mLen + numInt;
+		Object[][] temp = new Object[fullLength][2];
+		for(int i =0; i < order.length; i++) {
+			temp[i][0] = order[i][0];
+			temp[i][1] = order[i][1];
+		}
+		quantity = new int[mLen];
+		items = new AnnieFoodItem[mLen];
 		for(int k = numInt; k <fullLength; k++) {
 			 quantity[k] = 0;
-			 items[k] = holder.get(counter);
-			 counter++;
+			 items[k] = holder.get(fullLength-(k+1));
 			}
-		
-		makeOrder(numInt+notOnscreen());
+		for(int i = fullLength-mLen; i<temp.length; i++) {
+			temp[i][0] = quantity[fullLength-(i+1)];
+			temp[i][1] = items[fullLength-(i+1)];
+		}
+		order = new Object[fullLength][2];
+		order = temp;
 	}
-
+	
+	
+	
 	private int notOnscreen() {
 		int missingLen = 0;
 		boolean exist = false;
