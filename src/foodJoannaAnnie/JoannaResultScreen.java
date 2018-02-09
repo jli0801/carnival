@@ -59,7 +59,7 @@ public class JoannaResultScreen extends FullFunctionScreen {
 		onScreen = orderInstance.getOrder();
 		separatePrices();
 		trashCount = annie.getTrashCount();
-		bigOrder.setText(currentOrder.toString());
+		bigOrder.setText(annie.getCurrentOrder().toString());
 		list.setText(orderInstance.toString());
 		profit.setText(displayPrices());
 		trashCost.setText(displayTrash());
