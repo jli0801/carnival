@@ -26,14 +26,6 @@ public class GuiLoadingVickie extends GUIApplication{
 	
 	public static whackAMoleKevinSteph.WAMMenuStephanie moleInstruct;
 	public static whackAMoleKevinSteph.WAMGameKevin moleGame;
-	public static whackAMoleKevinSteph.WAMResultStephanie moleEnd;
-
-	/*
-	 * 3 screens stephKev
-	 * 	molePlay
-	 * 	moleResult
-	 * 	?
-	 */
 
 	public static void main(String[] args) {
 		loading = new GuiLoadingVickie(1200, 800);

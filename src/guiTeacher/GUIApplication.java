@@ -44,13 +44,11 @@ public abstract class GUIApplication extends JFrame implements Runnable, Compone
 	private Screen currentScreen;
 	private boolean scaleWithWindow; 
 	
-	
 	public void setCursor(Cursor c) {
 		if (enableCursorChange) {
 			super.setCursor(c);
 		}
 	}
-
 
 /**
  * 

@@ -1,9 +1,15 @@
 package whackAMoleKevinSteph;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Point;
+import java.awt.Toolkit;
 import java.io.File;
 import java.util.List;
+
+import javax.swing.JFrame;
 
 import guiTeacher.GUIApplication;
 import guiTeacher.components.Action;
@@ -82,6 +88,16 @@ public class WAMResultStephanie extends FullFunctionScreen {
 			public void act() {
 				GuiLoadingVickie.loading.setScreen(new WAMGameKevin(getWidth(), getHeight()));
 				GUIApplication.enableCursorChange = true;
+				
+				JFrame mainPane = GUIApplication.mainFrame;
+				GuiLoadingVickie.loading.setScreen(new WAMGameKevin(getWidth(), getHeight()));
+				Toolkit toolkit = Toolkit.getDefaultToolkit();
+				Image image = toolkit.getImage("wam/mallet.png");
+				Cursor c = toolkit.createCustomCursor(image , new Point(mainPane.getX(), 
+				           mainPane.getY()), "img");	
+				mainPane.setCursor (c);
+				GUIApplication.enableCursorChange = false;
+
 			}
 		});
 		 
