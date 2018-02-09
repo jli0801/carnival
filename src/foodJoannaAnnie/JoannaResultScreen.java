@@ -24,11 +24,11 @@ public class JoannaResultScreen extends FullFunctionScreen {
 
 	private Button home;
 	private Button work;
-
-	private int amt;
-	private int earned;
+	
+	private double earned;
 	private double trashCount;
 	private double[] prices;	
+	private double trashAmt;
 
 	private AnnieWorkScreen annie;
 	private Object[][] onScreen;
@@ -45,6 +45,7 @@ public class JoannaResultScreen extends FullFunctionScreen {
 	private TextArea trash;
 	private TextArea trashCost;
 	private TextArea total;
+	private TextArea totalCost;
 	
 
 
@@ -52,7 +53,6 @@ public class JoannaResultScreen extends FullFunctionScreen {
 		super(width, height);
 		annie = screen; 
 		currentOrder= annie.getCurrentOrder().getOrder();
-		amt = 6;
 		setVisible(true);
 		orderInstance = new JoannaOrder(0, 0, 100, 130, "food/order.png", annie.getOnScreen(),currentOrder);
 		orderInstance.setVisible(false);
@@ -63,7 +63,20 @@ public class JoannaResultScreen extends FullFunctionScreen {
 		list.setText(orderInstance.toString());
 		profit.setText(displayPrices());
 		trashCost.setText(displayTrash());
-		
+		totalCost.setText(calcTotal());
+	}
+
+
+
+
+	private String calcTotal() {
+		earned = 6 + trashAmt;
+		for(int i =0; i <prices.length; i++) {
+			earned += prices[i] ;
+		}
+		String s = "$"+ String.format("%.2f",earned);
+		return s;
+
 	}
 
 
@@ -124,6 +137,7 @@ public class JoannaResultScreen extends FullFunctionScreen {
 		trash = new TextArea(555, 550, 500, 95, "TRASH PENALTY");
 		trashCost = new TextArea(955, 550, 500, 95, "");
 		total = new TextArea(555, 650, 500, 95, "TOTAL");
+		totalCost = new TextArea(955, 650, 500, 95, "");
 
 		orderBox.setVisible(true);
 		totalBox.setVisible(true);
@@ -139,6 +153,7 @@ public class JoannaResultScreen extends FullFunctionScreen {
 		viewObjects.add(trash);
 		viewObjects.add(trashCost);
 		viewObjects.add(total);
+		viewObjects.add(totalCost);
 
 		try {
 			File fontFile = new File("resources/Bangers.ttf");
@@ -168,8 +183,8 @@ public class JoannaResultScreen extends FullFunctionScreen {
 	private String displayTrash() {
 		String s = "$0.00";
 		if(trashCount > 0) {
-			double a = trashCount*3;
-			s = "-$"+ String.format("%.2f",a);
+			trashAmt = trashCount*-3;
+			s = "$"+ String.format("%.2f",trashAmt);
 
 		}
 

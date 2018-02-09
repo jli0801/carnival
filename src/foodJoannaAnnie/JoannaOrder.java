@@ -86,30 +86,25 @@ public class JoannaOrder extends ClickableGraphic {
 		makeOrder(numInt);
 		
 	}
-	
-//	int counter = 0;
-//	for(int k = numInt; k <fullLength; k++) {
-//		 quantity[k] = 0;
-//		 items[k] = holder.get(counter);
-//		 counter++;
-//		}
+
 	private void addMissingOrder() {
 		int mLen = notOnscreen();
 		int fullLength = mLen + numInt;
 		Object[][] temp = new Object[fullLength][2];
-		for(int i =0; i < order.length; i++) {
+		for(int i =0; i < numInt; i++) {
 			temp[i][0] = order[i][0];
 			temp[i][1] = order[i][1];
 		}
-		quantity = new int[mLen];
+//		quantity = new int[mLen];
 		items = new AnnieFoodItem[mLen];
+		int m = fullLength+1;
 		for(int k = numInt; k <fullLength; k++) {
-			 quantity[k] = 0;
-			 items[k] = holder.get(fullLength-(k+1));
+			// quantity[k] = 0;
+			 items[k] = holder.get(m-k);
 			}
 		for(int i = fullLength-mLen; i<temp.length; i++) {
-			temp[i][0] = quantity[fullLength-(i+1)];
-			temp[i][1] = items[fullLength-(i+1)];
+			temp[i][0] = 0; //quantity[m-i];
+			temp[i][1] = items[m-i];
 		}
 		order = new Object[fullLength][2];
 		order = temp;
