@@ -1,6 +1,7 @@
 package mainMenuAreejVickie;
 
 import java.awt.Color;
+
 import java.awt.Font;
 import java.io.File;
 import java.util.ArrayList;
@@ -8,7 +9,6 @@ import java.util.List;
 
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
-import guiTeacher.components.ClickableGraphic;
 import guiTeacher.components.Graphic;
 import guiTeacher.components.TextArea;
 import guiTeacher.components.TextLabel;
@@ -127,10 +127,20 @@ public class InventoryVickie extends FullFunctionScreen{
 		
 		Graphic money = new Graphic(150, 200, 30, 30, "resources/money.png");
 		
+		Graphic cottonCandy = new Graphic(300,300, 160,160,"resources/cottoncandy.png");
+		
+		Graphic bear = new Graphic(300,300,160,200, "resources/bear.png");
+		
+		Graphic hammer = new Graphic(300,500, 160,160, "resources/hammer.png");
 		
 		
 		//numbers
 		TextLabel dullNum = new TextLabel(460,250, 500, 500, "x 0");
+		
+		//description
+		TextArea desc = new TextArea(10,400,250,600, "lets \n seee if this owreks");
+		
+		
 		
 		//buttons
 		menu = new Button(10, 700, 50, 50, "Menu", Color.red, new Action() {
@@ -141,6 +151,10 @@ public class InventoryVickie extends FullFunctionScreen{
 			}
 			
 		});
+		
+		Btest test = new Btest(100, 100, 100, 100, "THIS IS THE FREAKING Bfsd", null);
+		TextArea t = test.getArea();
+		//menu.hoverAction();
 		
 		store = new Button(10, 600, 50, 50, "Store", Color.yellow, new Action() {
 
@@ -178,7 +192,24 @@ public class InventoryVickie extends FullFunctionScreen{
 		viewObjects.add(inventory);
 		
 		viewObjects.add(ticket);
+		
 		viewObjects.add(money);
+		
+		viewObjects.add(bear);
+		
+		viewObjects.add(hammer);
+		
+		
+		viewObjects.add(cottonCandy);
+		
+		viewObjects.add(desc);
+		viewObjects.add(test);
+		
+		if(test.isHovered()) {
+			t.setText("HOVERED!");
+			viewObjects.add(t);
+		}
+		
 
 		try {
 			 File fontFile = new File("resources/Bangers.ttf");
