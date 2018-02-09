@@ -31,11 +31,11 @@ public class BalloonBackJi {
 	//if darts run out, game ends 
 	
 	
-	private static int dartChosen; //for screen
+	private static int dartChosenInt; //for screen
 	
 	
 	public static int getDartChosen() {
-		return dartChosen;
+		return dartChosenInt;
 	}
 
 
@@ -45,8 +45,9 @@ public class BalloonBackJi {
 		return dartsNum;
 	}
 	
-	public static void setDartChosen(int dartChosen) {
-		BalloonBackJi.dartChosen = dartChosen;
+	public static void setDartChosen(int userInput) {
+	
+		dartChosenInt = userInput;
 	}
 
 	public void Timer() { //links to text area
@@ -107,9 +108,9 @@ public class BalloonBackJi {
 		}
 	}
 	
-	public void updateDarts(int index) {
-		if(darts[index] > 0) {
-			darts[index] = darts[index]-1;
+	public static void updateDarts() {
+		if(darts[dartChosenInt] > 0) {
+			darts[dartChosenInt] = darts[dartChosenInt]-1;
 		//}else {
 		//	darts.remove(index);
 		//}
