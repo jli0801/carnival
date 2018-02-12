@@ -40,7 +40,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 			public void act() {
 				GuiLoadingVickie.loading.setScreen(new BalloonInstructionsJi(getWidth(), getHeight()));
 			}
-			
+			//
 		});
 		
 		clown.hoverAction();
