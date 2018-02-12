@@ -16,10 +16,7 @@ import mainMenuAreejVickie.GuiLoadingVickie;
 
 public class BalloonResultsJi extends FullFunctionScreen {
 
-	//public static poppingBalloonsJessicaJi.BalloonScreen balloonScreen;
-	//private TextArea result;
 	private TextArea score;
-	//private TextArea rate;
 	
 	private int tickets;
 	private int scoreNum;
@@ -32,7 +29,6 @@ public class BalloonResultsJi extends FullFunctionScreen {
 		setScore();
 		score.setText("Final score: " + scoreNum);
 		setBackground(background);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -49,12 +45,8 @@ public class BalloonResultsJi extends FullFunctionScreen {
 		} catch (Exception e) {
 
 			e.printStackTrace();
-			//
 		}
-		//balloonScreen = new poppingBalloonsJessicaJi.BalloonScreen(getWidth(), getHeight());
-		//result = new TextArea(50, 10, 200, 100, "You (win/lose)");
 		score = new TextArea(500, 200, 300, 50, "Final score: " + scoreNum);
-		//rate  = new TextArea(50, 70, 500, 50, "You popped an average of _ balloons per second");
 		
 		Button back = new Button(85, 650, 90, 70, "Back", new Action() {
 			
@@ -76,19 +68,9 @@ public class BalloonResultsJi extends FullFunctionScreen {
 			}
 		});
 		viewObjects.add(playAgain);
-		
-		//viewObjects.add(result);
 		viewObjects.add(score);
-		//viewObjects.add(rate);
 		viewObjects.add(back);
 	}
-	
-	public void setStats() {
-		//get previous score
-		//calculate number of tickets based on score; 1:10
-		//calculate average rate
-	}
-	
 	
 	public void setScore() {
 		scoreNum = BalloonScreenJessica.getScore();
