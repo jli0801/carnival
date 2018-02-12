@@ -106,7 +106,8 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleOneDown();
+				moleOne.setEnabled(false);
+				moleSwap(sOne,mOne);
 				scoreUp();
 				upMole();
 				endGame();
@@ -118,7 +119,8 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleTwoDown();
+				moleTwo.setEnabled(false);
+				moleSwap(sTwo,mTwo);
 				scoreUp();
 				upMole();
 				endGame();
@@ -130,7 +132,8 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleThreeDown();
+				moleThree.setEnabled(false);
+				moleSwap(sThree,mThree);
 				scoreUp();
 				upMole();
 				endGame();
@@ -142,7 +145,8 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleFourDown();
+				moleFour.setEnabled(false);
+				moleSwap(sFour,mFour);
 				scoreUp();
 				upMole();
 				endGame();
@@ -154,7 +158,8 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleFiveDown();
+				moleFive.setEnabled(false);
+				moleSwap(sFive,mFive);
 				scoreUp();
 				upMole();
 				endGame();
@@ -166,7 +171,8 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleSixDown();
+				moleSix.setEnabled(false);
+				moleSwap(sSix,mSix);
 				scoreUp();
 				upMole();
 				endGame();
@@ -178,7 +184,8 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleSevenDown();
+				moleSeven.setEnabled(false);
+				moleSwap(sSeven,mSeven);
 				scoreUp();
 				upMole();
 				endGame();
@@ -190,7 +197,8 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleEightDown();
+				moleEight.setEnabled(false);
+				moleSwap(sEight,mEight);
 				scoreUp();
 				upMole();
 				endGame();
@@ -202,7 +210,8 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleNineDown();
+				moleNine.setEnabled(false);
+				moleSwap(sNine,mNine);
 				scoreUp();
 				upMole();
 				endGame();
@@ -304,58 +313,9 @@ public class WAMGameKevin extends FullFunctionScreen {
 	}
 	
 	
-	public void moleOneDown() {
-		moleOne.setEnabled(false);
-		viewObjects.add(sOne);
-		viewObjects.remove(mOne);
-	}
-
-	public void moleTwoDown() {
-		moleTwo.setEnabled(false);
-		viewObjects.add(sTwo);
-		viewObjects.remove(mTwo);
-	}
-
-	public void moleThreeDown() {
-		moleThree.setEnabled(false);
-		viewObjects.add(sThree);
-		viewObjects.remove(mThree);
-	}
-
-	public void moleFourDown() {
-		moleFour.setEnabled(false);		
-		viewObjects.add(sFour);
-		viewObjects.remove(mFour);
-	}
-
-	public void moleFiveDown() {
-		moleFive.setEnabled(false);	
-		viewObjects.add(sFive);
-		viewObjects.remove(mFive);
-	}
-
-	public void moleSixDown() {
-		moleSix.setEnabled(false);		
-		viewObjects.add(sSix);
-		viewObjects.remove(mSix);
-	}
-
-	public void moleSevenDown() {
-		moleSeven.setEnabled(false);		
-		viewObjects.add(sSeven);
-		viewObjects.remove(mSeven);
-	}
-
-	public void moleEightDown() {
-		moleEight.setEnabled(false);	
-		viewObjects.add(sEight);
-		viewObjects.remove(mEight);
-	}
-
-	public void moleNineDown() {
-		moleNine.setEnabled(false);		
-		viewObjects.add(sNine);
-		viewObjects.remove(mNine);
+	public void moleSwap(Graphic aGraph, Graphic rGraph) {
+		viewObjects.add(aGraph);
+		viewObjects.remove(rGraph);
 	}
 
 	public void scoreUp() {
@@ -365,20 +325,10 @@ public class WAMGameKevin extends FullFunctionScreen {
 	}
 	
 	public void endGame() {
-		if (score == 25) {
-		moleOne.setEnabled(false);
-		moleTwo.setEnabled(false);
-		moleThree.setEnabled(false);
-		moleFour.setEnabled(false);
-		moleFive.setEnabled(false);
-		moleSix.setEnabled(false);
-		moleSeven.setEnabled(false);
-		moleEight.setEnabled(false);
-		moleNine.setEnabled(false);
-			
-		quitButton.setEnabled(false);
-		GuiLoadingVickie.loading.setScreen(new WAMResultStephanie(getWidth(), getHeight()));
-		GUIApplication.enableCursorChange = true;
+		if (score == 10) {
+			quitButton.setEnabled(false);
+			GuiLoadingVickie.loading.setScreen(new WAMResultStephanie(getWidth(), getHeight()));
+			GUIApplication.enableCursorChange = true;
 		}
 	}
 	
@@ -413,13 +363,13 @@ public class WAMGameKevin extends FullFunctionScreen {
 		if (n==9) {
 			moleNineUp();
 		}
+		
 	}
 
 	private void moleNineUp() {
 		if (moleNine.isEnabled() == false) {
 			moleNine.setEnabled(true);		
-			viewObjects.add(mNine);
-			viewObjects.remove(sNine);
+			moleSwap(mNine,sNine);
 		}else {
 			upMole();
 		}
@@ -429,8 +379,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 	private void moleEightUp() {
 		if (moleEight.isEnabled() == false) {
 			moleEight.setEnabled(true);		
-			viewObjects.add(mEight);
-			viewObjects.remove(sEight);
+			moleSwap(mEight,sEight);
 		}else {
 			upMole();
 		}
@@ -441,8 +390,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 	private void moleSevenUp() {
 		if (moleSeven.isEnabled() == false) {
 			moleSeven.setEnabled(true);		
-			viewObjects.add(mSeven);
-			viewObjects.remove(sSeven);
+			moleSwap(mSeven,sSeven);
 		}else {
 			upMole();
 		}
@@ -452,8 +400,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 	private void moleSixUp() {
 		if (moleSix.isEnabled() == false) {
 			moleSix.setEnabled(true);		
-			viewObjects.add(mSix);
-			viewObjects.remove(sSix);
+			moleSwap(mSix,sSix);
 		}else {
 			upMole();
 		}
@@ -463,8 +410,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 	private void moleFiveUp() {
 		if (moleFive.isEnabled() == false) {
 			moleFive.setEnabled(true);		
-			viewObjects.add(mFive);
-			viewObjects.remove(sFive);
+			moleSwap(mFive,sFive);
 		}else {
 			upMole();
 		}
@@ -474,8 +420,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 	private void moleFourUp() {
 		if (moleFour.isEnabled() == false) {
 			moleFour.setEnabled(true);		
-			viewObjects.add(mFour);
-			viewObjects.remove(sFour);
+			moleSwap(mFour,sFour);
 		}else {
 			upMole();
 		}
@@ -485,8 +430,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 	private void moleThreeUp() {
 		if (moleThree.isEnabled() == false) {
 			moleThree.setEnabled(true);		
-			viewObjects.add(mThree);
-			viewObjects.remove(sThree);
+			moleSwap(mThree,sThree);
 		}else {
 			upMole();
 		}
@@ -496,8 +440,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 	private void moleTwoUp() {
 		if (moleTwo.isEnabled() == false) {
 			moleTwo.setEnabled(true);		
-			viewObjects.add(mTwo);
-			viewObjects.remove(sTwo);
+			moleSwap(mTwo,sTwo);
 		}else {
 			upMole();
 		}
@@ -506,9 +449,8 @@ public class WAMGameKevin extends FullFunctionScreen {
 
 	private void moleOneUp() {
 		if (moleOne.isEnabled() == false) {
-			moleOne.setEnabled(true);		
-			viewObjects.add(mOne);
-			viewObjects.remove(sOne);
+			moleOne.setEnabled(true);	
+			moleSwap(mOne,sOne);
 		}else {
 			upMole();
 		}
