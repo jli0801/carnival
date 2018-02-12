@@ -43,6 +43,7 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 		
 		private Timer background;
 		private TimerTask updatePics;
+		private int track;
 		
 
 		public WelcomeScreenVickie(int width, int height) {
@@ -56,7 +57,7 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 			/*
 			 * https://stackoverflow.com/questions/39565472/how-to-automatically-execute-a-task-after-jframe-is-displayed-from-within-it
 			 */
-			
+			track = 0;
 			
 			if(!startTimer) {
 				
@@ -116,7 +117,7 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 			});
 	
 			
-			viewObjects.add(welcomeBackground);
+			
 			viewObjects.add(carnival);
 			viewObjects.add(menu);
 			
@@ -127,8 +128,9 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 
 				@Override
 				public void run() {
-					// TODO Auto-generated method stub
-					
+					track ++;
+					Graphic welcomeBackground = new Graphic(0,0, getWidth(), getHeight(), "resources/welcomeBackground" + track + ".jpg");
+					viewObjects.add(welcomeBackground);
 				}
 				
 			};
@@ -152,8 +154,9 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 			
 			
 			count = 1000;
-			 if(count==1000) {
+			 if(count==1000) {background.schedule(updatePics,0,1000);
 				 timer.schedule(complete, 0,200);
+				 
 			 }
 			//
 			 

@@ -112,7 +112,7 @@ public class InventoryVickie extends FullFunctionScreen{
 		itemsList.add("dangerousDart");
 		itemsList.add("dangerousDart");
 		
-		for(int i = 0; i<itemsList.size(); i++) {
+		/*for(int i = 0; i<itemsList.size(); i++) {
 			if(itemsList.get(i).equals("dullDart")) {
 				darts.add(new DartJessica("Dull"));
 			}
@@ -128,7 +128,7 @@ public class InventoryVickie extends FullFunctionScreen{
 			if(itemsList.get(i).equals("dangerousDart")) {
 				darts.add(new DartJessica("Dangerous"));
 			}
-		}
+		}*/
 		
 
 		money = 10;
