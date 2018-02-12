@@ -30,14 +30,11 @@ public class BalloonBackJi {
 	//*ticket formula
 	//if darts run out, game ends 
 	
-	
 	private static int dartChosenInt; //for screen
-	
 	
 	public static int getDartChosen() {
 		return dartChosenInt;
 	}
-
 
 	public static int getDartNumber(int num) {
 		//updateDarts();
@@ -49,24 +46,6 @@ public class BalloonBackJi {
 	
 		dartChosenInt = userInput;
 	}
-
-	public void Timer() { //links to text area
-		//thread
-		Thread time = new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-					try {
-						Thread.sleep(30000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-			}
-		});
-	}
-	
-
 	
 	public static ArrayList<Integer> CreateBalloons() {
 		//static because jessica needs to display it
@@ -80,7 +59,8 @@ public class BalloonBackJi {
 		return balloons; 
 	}
 	
-	public static void updateBalloons(int x, int dartProperty ) { //needs to be static so Jessica can access it
+	/*
+	public static void updateBalloons(int x, int dartProperty) { //needs to be static so Jessica can access it
 		//x represents index
 		//front end-balloon deleted -> goes to confetti
 		//thread for time & disable button  
@@ -100,13 +80,13 @@ public class BalloonBackJi {
 				if(balloons.get(x) == 0) {
 					balloons.remove(x);
 				}else {
-					//balloon weaker by 1
 					balloons.set(x , balloons.get(x) - 1);
-					
+					//balloon weaker by 1
 				}
 			}
 		}
 	}
+	*/
 	
 	public static void updateDarts() {
 		if(darts[dartChosenInt] > 0) {
@@ -116,20 +96,16 @@ public class BalloonBackJi {
 		//}
 		}
 	}
-	
-	
-	public void EndGame() {
-		//disable buttons & switch screen
-		//GuiLoadingVickie.mainMenuAreejVickie.setScreen(GuiLoadingVickie.BalloonResults);
-	}
 
-
-	public static boolean isPoppable(int i) {
-	/*	if(getDartChosen() > balloons.get(1))
+	public static boolean isPoppable(int chosenBalloon) {
+		if(getDartChosen() * PowerBarJessica.getLength() > balloons.get(chosenBalloon))
 		{
+			balloons.remove(chosenBalloon);
 			return true;
-		}*/
-		return true;
+		}else {
+			return false;
+		}
+		//remove dart
 	}
 
 }
