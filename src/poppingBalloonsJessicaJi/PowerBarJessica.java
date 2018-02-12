@@ -15,7 +15,7 @@ import guiTeacher.interfaces.Visible;
 
 public class PowerBarJessica extends StyledComponent {
 
-	private int length;
+	public static int length;
 	private Color lightYellow = new Color (255,255,153);
 	private Color background = new Color(179, 230, 255);
 	private boolean goingUp;
@@ -35,7 +35,7 @@ public class PowerBarJessica extends StyledComponent {
 	}
 
 	
-	public int getLength()
+	public static int getLength()
 	{
 		return length; //equal to the strength will start at 5
 	}
