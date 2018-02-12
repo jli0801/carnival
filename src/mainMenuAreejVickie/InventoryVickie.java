@@ -50,11 +50,11 @@ public class InventoryVickie extends FullFunctionScreen{
 	
 	private static double money;
 	private static int tickets; 
-	
-	private static int[] darts;
-	
+
 	private static int dartsNum;
 	private static ArrayList<String> itemsList;
+	
+	private static ArrayList<DartJessica> darts;
 	
 	private Button store;
 	
@@ -87,8 +87,8 @@ public class InventoryVickie extends FullFunctionScreen{
 	public void initAllObjects(List<Visible> viewObjects) {
 		itemsList = new ArrayList<String>();
 		
-		int[]dart = new int [4];
-		darts = dart;
+		//int[]dart = new int [4];
+		//darts = dart;
 		
 		//default items
 		itemsList.add("dullDart");
@@ -161,7 +161,7 @@ public class InventoryVickie extends FullFunctionScreen{
 		Graphic fishG = new Graphic (936,500,160,160, "resources/fish.png");
 		//numbers
 		
-		updateDarts();
+		//updateDarts();
 		
 		TextLabel dullX = new TextLabel(390,330, 100, 100, "x"); //335
 		TextLabel bluntX = new TextLabel(602,330, 100, 100, "x");
@@ -304,7 +304,7 @@ viewObjects.add(ham);
 			 }
 	}
 	
-	private static void updateDarts() {
+	/*private static void updateDarts() {
 		dull = 0;
 		blunt = 0; 
 		sharp = 0;
@@ -344,7 +344,7 @@ viewObjects.add(ham);
 		darts[2] =sharp;
 		darts[3] =dangerous;
 		
-	}
+	}*/
 	
 	public static int getTickets() {
 		return tickets;
@@ -362,13 +362,13 @@ viewObjects.add(ham);
 		this.money = num;
 	}
 	
-	public static int getDartNumber(int num) {
+	/*public static int getDartNumber(int num) {
 		updateDarts();
 		dartsNum = darts[num];
 		return dartsNum;
-	}
+	}*/
 	
-	public static int [] darts() {
+	public static ArrayList<DartJessica> darts() {
 		return darts;
 	}
 	
