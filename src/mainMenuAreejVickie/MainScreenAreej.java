@@ -38,10 +38,12 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				GuiLoadingVickie.loading.setScreen(new BalloonScreenJessica(getWidth(), getHeight()));
+				GuiLoadingVickie.loading.setScreen(new BalloonInstructionsJi(getWidth(), getHeight()));
 			}
-			
+			//
 		});
+		
+		clown.hoverAction();
 		
 		//whack a mole
 		ClickableGraphic mole = new ClickableGraphic(410,490, 200, 200, "resources/mole.png");

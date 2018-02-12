@@ -1,10 +1,12 @@
 package mainMenuAreejVickie;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.List;
 
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
+import guiTeacher.components.ClickableGraphic;
 import guiTeacher.components.Graphic;
 import guiTeacher.components.TextArea;
 import guiTeacher.components.TextLabel;
@@ -16,12 +18,14 @@ public class StoreAreej extends FullFunctionScreen{
 	private Button menu;
 	private Button inventory;
 	
-	private static double money = 10;
-	private static int ticket; 
-	
+	private static int moneys;
+	private static int tickets; 
 	
 	private TextArea ticketDisplay;
 	private TextArea moneyDisplay;
+	
+	private static ArrayList<String> prizeList;
+	private static ArrayList<String> dartList;
 	
 	public StoreAreej(int width, int height) {
 		super(width, height);
@@ -33,16 +37,17 @@ public class StoreAreej extends FullFunctionScreen{
 		
 		Graphic background = new Graphic(0,0, 1185, getHeight(), "resources/tent.png");
 		Graphic shelf = new Graphic(330,275, 800, 700, "resources/shelf.png");
-		Graphic bear = new Graphic(510,400, 100, 100, "resources/bear.png");
-		Graphic fish = new Graphic(670,400, 100, 100, "resources/fish.png");
-		Graphic candy = new Graphic(830,400, 100, 100, "resources/cottoncandy.png");
-		Graphic dull = new Graphic (415,275,130,130, "poppingBalloons/dart1.png"); 
-		Graphic blunt = new Graphic (590,275,130,130, "poppingBalloons/dart2.png"); 
-		Graphic sharp = new Graphic (770,275,130,130, "poppingBalloons/dart3.png"); 
-		Graphic dangerous = new Graphic (920,275,130,130, "poppingBalloons/dart4.png"); 
+		ClickableGraphic bear = new ClickableGraphic(510,400, 100, 100, "resources/bear.png");
+		ClickableGraphic fish = new ClickableGraphic(670,400, 100, 100, "resources/fish.png");
+		ClickableGraphic candy = new ClickableGraphic(830,400, 100, 100, "resources/cottoncandy.png");
+		ClickableGraphic dull = new ClickableGraphic (415,275,130,130, "poppingBalloons/dart1.png"); 
+		ClickableGraphic blunt = new ClickableGraphic (590,275,130,130, "poppingBalloons/dart2.png"); 
+		ClickableGraphic sharp = new ClickableGraphic (770,275,130,130, "poppingBalloons/dart3.png"); 
+		ClickableGraphic dangerous = new ClickableGraphic (920,275,130,130, "poppingBalloons/dart4.png"); 
+		ClickableGraphic hammer = new ClickableGraphic(670, 520, 100, 100, "resources/hammer.png");
 		Graphic ticket = new Graphic (30, 200, 100, 100, "resources/ticket.jpg");
 		Graphic money = new Graphic(30, 290, 90, 90, "resources/money.png");
-		Graphic hammer = new Graphic(670, 520, 100, 100, "resources/hammer.png");
+		
 		
 		menu = new Button(30, 580, 60, 50, "menu", Color.blue, new Action() {
 
@@ -62,10 +67,25 @@ public class StoreAreej extends FullFunctionScreen{
 			
 		});
 		
+		//prizes
+		prizeList = new ArrayList<String>();
+		prizeList.add("bear");
+		prizeList.add("fish");
+		prizeList.add("candy");
+		
+		//darts
+		dartList = new ArrayList<String>();
+		dartList.add("bluntDart");
+		dartList.add("dullDart");
+		dartList.add("sharpDart");
+		dartList.add("dangerousDart");
+		
+	
+		
 		TextLabel store = new TextLabel(730,180, 900, 300, "STORE");
 		
-		moneyDisplay = new TextArea(10, 200, 100, 30, "10");
-		ticketDisplay = new TextArea(10, 290, 100, 30, "0");
+		moneyDisplay = new TextArea(10, 200, 100, 30, "");
+		ticketDisplay = new TextArea(10, 290, 100, 30, "");
 		
 		viewObjects.add(background);
 		viewObjects.add(store);
@@ -80,9 +100,9 @@ public class StoreAreej extends FullFunctionScreen{
 		viewObjects.add(ticket);
 		viewObjects.add(money);
 		viewObjects.add(hammer);
+		
 		viewObjects.add(menu);
 		viewObjects.add(inventory);
-		
 		viewObjects.add(moneyDisplay);
 		viewObjects.add(ticketDisplay);
 		
@@ -90,18 +110,17 @@ public class StoreAreej extends FullFunctionScreen{
 	}
 	
 	public void addMoney() {
-		money++;
+		moneys++;
 	//	moneyDisplay.setText(money);
 		
 	}
 	
 	public void addTickets() {
-		ticket++;
+		tickets++;
 	//	ticketDisplay.setText(tickets);
 		
 		
 	}
 	
-		
-
+	
 }
