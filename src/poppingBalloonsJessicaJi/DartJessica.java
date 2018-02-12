@@ -46,7 +46,8 @@ public class DartJessica {
 	}
 	
 	//darts.get(i).getStrength = 1,2,3,4 
-	
+	//new DartJessica("Dull");
+	//darts.get(dartChosen)
 	public Color getColor() {
 		return color;
 	}
