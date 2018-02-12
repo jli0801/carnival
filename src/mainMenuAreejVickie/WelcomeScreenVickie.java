@@ -64,7 +64,7 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 				
 			}
 			count = 1000;
-			Graphic welcomeBackground = new Graphic(0,0, getWidth(), getHeight(), "resources/welcomeBackground.png");
+			Graphic welcomeBackground = new Graphic(0,0, getWidth(), getHeight(), "resources/welcomeBackground21.jpg");
 			
 			carnival = new TextArea(225,75, 1000,1000, "Carnival");
 			carnival.setForeground(Color.white);
