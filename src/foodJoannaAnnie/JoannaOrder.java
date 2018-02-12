@@ -9,17 +9,19 @@ import guiTeacher.components.ClickableGraphic;
 
 public class JoannaOrder extends ClickableGraphic {
 
-	private int[] quantity; //toppings that will be used
+	private ArrayList<Integer> quantity; //toppings that will be used
 	private int numInt; //# of toppings for tht order
 	private AnnieWorkScreen annie;
-	private AnnieFoodItem[] items; //complete order
-	
-	private Object[][] order;
-	private Object[][] currentOrder;
-	private ArrayList<AnnieFoodItem> holder;
+	private ArrayList <AnnieFoodItem> items; //complete order
 
-	public Object[][] getOrder() {
-		return order;
+	//private Object[][] order;
+	private ArrayList<Object[]> userOrder;
+	private ArrayList<Object[]> currentOrder;
+	//private Object[][] currentOrder;
+
+
+	public ArrayList<Object[]> getOrder() {
+		return userOrder;
 	}
 
 
@@ -31,13 +33,13 @@ public class JoannaOrder extends ClickableGraphic {
 		super(x, y, w, h, imageLocation);
 		annie = screen;
 		numInt = (int) ((Math.random()*5)+1);
-		fillQuantity();
+//		fillQuantity();
 		generateToppings(annie.getToppings());
-		makeOrder(numInt);
+		//makeOrder();
 
 	}
 
-	public JoannaOrder(int x, int y, int w, int h, String imageLocation,ArrayList<AnnieFoodItem> onScreen, Object[][] currentOrder) {
+	public JoannaOrder(int x, int y, int w, int h, String imageLocation,ArrayList<AnnieFoodItem> onScreen, ArrayList<Object[]>currentOrder) {
 		super(x, y, w, h, imageLocation);
 		screen = onScreen;
 		temp = new ArrayList<AnnieFoodItem>();
@@ -67,8 +69,6 @@ public class JoannaOrder extends ClickableGraphic {
 
 	private void countItems() {
 		numInt = findLength();
-		quantity =  new int[numInt];
-		items = new AnnieFoodItem[numInt];
 		for(int i=0; i < screen.size(); i++) {
 			int tracker = 1;
 			for(int j = i+1; j < screen.size(); j++) {
@@ -78,72 +78,72 @@ public class JoannaOrder extends ClickableGraphic {
 					j--;
 				}
 
+				makeOrder(tracker,screen.get(i));
 			}
-			quantity[i] = tracker;
-			items[i] = screen.get(i);	
-		}
-		
-		makeOrder(numInt);
-		
-	}
-
-	private void addMissingOrder() {
-		int mLen = notOnscreen();
-		int fullLength = mLen + numInt;
-		Object[][] temp = new Object[fullLength][2];
-		for(int i =0; i < numInt; i++) {
-			temp[i][0] = order[i][0];
-			temp[i][1] = order[i][1];
-		}
-//		quantity = new int[mLen];
-		items = new AnnieFoodItem[mLen];
-		int m = fullLength+1;
-		for(int k = numInt; k <fullLength; k++) {
-			// quantity[k] = 0;
-			 items[k] = holder.get(m-k);
-			}
-		for(int i = fullLength-mLen; i<temp.length; i++) {
-			temp[i][0] = 0; //quantity[m-i];
-			temp[i][1] = items[m-i];
-		}
-		order = new Object[fullLength][2];
-		order = temp;
-	}
-	
-	
-	
-	private int notOnscreen() {
-		int missingLen = 0;
-		boolean exist = false;
-		AnnieFoodItem temp = null;
-		for(int i = 0; i < currentOrder.length; i++){
-			for(int j = 0; j < order.length; j++) {
-				if(currentOrder[i][1] == order[j][1]) 
-					exist = true;
-					else {
-					temp =   (AnnieFoodItem) currentOrder[i][1]; 
-				} 
-			} 
-			if(!exist) {
-				holder.add(temp);
-				missingLen++;
-			}
-		
-	}
-		return missingLen;
-	}
-
-	private void makeOrder(int len) {
-		order = new Object[len][2];
-		for(int i = 0; i<items.length; i++) {
-			order[i][0] = quantity[i];
-			order[i][1] = items[i];
+			quantity.add(tracker);
+			items.set(i, screen.get(i));
+			
 		}
 
+
+
 	}
+
+	//	private void addMissingOrder() {
+	//		int mLen = notOnscreen();
+	//		int fullLength = mLen + numInt;
+	//		Object[][] temp = new Object[fullLength][2];
+	//		for(int i =0; i < numInt; i++) {
+	//			temp[i][0] = order[i][0];
+	//			temp[i][1] = order[i][1];
+	//		}
+	////		quantity = new int[mLen];
+	//		items = new AnnieFoodItem[mLen];
+	//		int m = fullLength+1;
+	//		for(int k = numInt; k <fullLength; k++) {
+	//			// quantity[k] = 0;
+	//			 items[k] = holder.get(m-k);
+	//			}
+	//		for(int i = fullLength-mLen; i<temp.length; i++) {
+	//			temp[i][0] = 0; //quantity[m-i];
+	//			temp[i][1] = items[m-i];
+	//		}
+	//		order = new Object[fullLength][2];
+	//		order = temp;
+	//	}
+
+
+
+	//	private int notOnscreen() {
+	//		int missingLen = 0;
+	//		boolean exist = false;
+	//		AnnieFoodItem temp = null;
+	//		for(int i = 0; i < currentOrder.length; i++){
+	//			for(int j = 0; j < order.length; j++) {
+	//				if(currentOrder[i][1] == order[j][1]) 
+	//					exist = true;
+	//					else {
+	//					temp =   (AnnieFoodItem) currentOrder[i][1]; 
+	//				} 
+	//			} 
+	//			if(!exist) {
+	//				holder.add(temp);
+	//				missingLen++;
+	//			}
+	//		
+	//	}
+	//		return missingLen;
+	//	}
+
+	private void makeOrder(int tracker, AnnieFoodItem annieFoodItem) {
+		Object[] temp = {tracker, annieFoodItem};
+		userOrder.add(temp);// quantity[i];
+
+	}
+
+
 
 	private void generateToppings(AnnieFoodItem[] arr) {
-		items=  new AnnieFoodItem[numInt];
 		int a;
 		AnnieFoodItem b;
 		for (int i = arr.length - 1; i > 0; i--) {
@@ -152,16 +152,17 @@ public class JoannaOrder extends ClickableGraphic {
 			arr[i] = arr[a];
 			arr[a] = b;
 		}
-		for(int i = 0; i< items.length;i++) {
-			items[i]= arr[i];
+		for(int i = 0; i< numInt;i++) {
+			items.add(arr[i]);
 		}
 
 	}
 
 	private void fillQuantity() {
-		quantity = new int[numInt];
-		for(int i =0; i < quantity.length; i++) {
-			quantity[i] = (int)((Math.random()*8)+4);
+
+		for(int i =0; i < numInt; i++) {
+			int n =(int) ((Math.random()*8)+4);
+			quantity.add(n); 
 		}	
 	}
 
@@ -169,7 +170,8 @@ public class JoannaOrder extends ClickableGraphic {
 	public String toString() {
 		String s="1 PIZZA" +"\n";
 		for(int i=0; i<numInt; i++) {
-			s+="- "+ order[i][0]+  " " + ((AnnieFoodItem) order[i][1]).getName()+"\n" ; 
+			Object[] order = userOrder.get(i);
+			s+="- "+ order[0] +  " " + ((AnnieFoodItem) order[1]).getName()+"\n" ; 
 		}
 		return s;
 	}

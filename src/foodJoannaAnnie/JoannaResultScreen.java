@@ -27,13 +27,13 @@ public class JoannaResultScreen extends FullFunctionScreen {
 	
 	private double earned;
 	private double trashCount;
-	private double[] prices;	
+	private ArrayList<Double> prices;	
 	private double trashAmt;
 
 	private AnnieWorkScreen annie;
-	private Object[][] onScreen;
+	private ArrayList<Object[]> onScreen;
 
-	private Object[][] currentOrder;
+	private ArrayList<Object[]> currentOrder;
 	private JoannaOrder orderInstance;
 
 	private TextLabel serveHeader;
@@ -71,8 +71,8 @@ public class JoannaResultScreen extends FullFunctionScreen {
 
 	private String calcTotal() {
 		earned = 6 + trashAmt;
-		for(int i =0; i <prices.length; i++) {
-			earned += prices[i] ;
+		for(int i =0; i <prices.size(); i++) {
+			earned += prices.get(i) ;
 		}
 		String s = "$"+ String.format("%.2f",earned);
 		return s;
@@ -174,8 +174,8 @@ public class JoannaResultScreen extends FullFunctionScreen {
 
 	private String displayPrices() {
 		String s = "6.00";
-		for(int i =0; i < prices.length; i++ ) {
-			s+= "\n"+ String.format("%.2f", prices[i]);
+		for(int i =0; i < prices.size(); i++ ) {
+			s+= "\n"+ String.format("%.2f", prices.get(i));
 		}
 		return s;
 	}
@@ -192,13 +192,12 @@ public class JoannaResultScreen extends FullFunctionScreen {
 	}
 
 	private void separatePrices() {
-		prices = new double[onScreen.length];
 
-		for(int i = 0; i < onScreen.length; i++ ) {
-			double price = (((AnnieFoodItem) onScreen[i][1]).getPrice());
+		for(int i = 0; i < onScreen.size(); i++ ) {
+			double price = (((AnnieFoodItem) onScreen.get(i)[1]).getPrice());
 			int num= calcDiff(i);
 			double a = price * num;
-			prices[i] = Math.round( a * 100.0)/100.0;
+			prices.add(Math.round( a * 100.0)/100.0);
 		}
 		
 	}
@@ -210,9 +209,9 @@ public class JoannaResultScreen extends FullFunctionScreen {
 		int n = toppingExist(i);
 		int diff;
 		if(n != -1){
-			diff = (int)currentOrder[n][0] - (int)onScreen[i][0];
+			diff = (int)currentOrder.get(i)[0] - (int)onScreen.get(i)[0];
 		}else {
-			diff = (int)onScreen[i][0];
+			diff = (int)onScreen.get(i)[0];
 		}
 		diff = (Math.abs(diff)) *-1;
 		return diff;
@@ -222,8 +221,8 @@ public class JoannaResultScreen extends FullFunctionScreen {
 
 
 	private int toppingExist(int i) {
-		for(int j = 0; j < currentOrder.length; j++) {
-			if(onScreen[i][1] == currentOrder[j][1]) {
+		for(int j = 0; j < currentOrder.size(); j++) {
+			if(onScreen.get(i)[1] == currentOrder.get(i)[1]) {
 				return j;
 			}
 		}
