@@ -465,7 +465,8 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		});
 		
 		//adding text
-		viewObjects.add(restart);
+		viewObjects.add(res
+		tart);
 		*/
 		
 		popEffect1 = new Graphic (100,220,100,120,"poppingBalloons/test.png");

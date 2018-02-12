@@ -13,6 +13,7 @@ import mainMenuAreejVickie.GuiLoadingVickie;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
 import java.util.Random;
 
 public class WAMGameKevin extends FullFunctionScreen {
@@ -82,8 +83,9 @@ public class WAMGameKevin extends FullFunctionScreen {
 		viewObjects.add(gamebg);
 		
 		score = 0;
+		time = 20;
 		
-		//Timer();
+		Timer();
 		
 		quitButton = new Button(100,30,100,70,"Quit Game", new Action() {
 			
@@ -325,11 +327,9 @@ public class WAMGameKevin extends FullFunctionScreen {
 	}
 	
 	public void endGame() {
-		if (score == 10) {
-			quitButton.setEnabled(false);
-			GuiLoadingVickie.loading.setScreen(new WAMResultStephanie(getWidth(), getHeight()));
-			GUIApplication.enableCursorChange = true;
-		}
+		quitButton.setEnabled(false);
+		GuiLoadingVickie.loading.setScreen(new WAMResultStephanie(getWidth(), getHeight()));
+		GUIApplication.enableCursorChange = true;
 	}
 	
 	public void upMole() {
@@ -457,7 +457,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 		
 	}
 	
-	/*
+	
 	private void Timer() {
 		Timer timer = new Timer();
 		TimerTask task;
@@ -465,7 +465,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 			@Override
 			public void run() { 
 				if (time > 0) {
-					timeText.setText("Time: " + time + " Seconds");
+					timeText.setText("Time Left: " + time);
 					time--;
 				} else {
 					cancel();
@@ -475,5 +475,5 @@ public class WAMGameKevin extends FullFunctionScreen {
 		};
 		timer.schedule(task, 0, 1000);
 	}
-*/
+
 }
