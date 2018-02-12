@@ -53,9 +53,10 @@ public class InventoryVickie extends FullFunctionScreen{
 	
 	private static int[] darts;
 	
+	
 	private static int dartsNum;
 	private static ArrayList<String> itemsList;
-	
+	private static ArrayList<DartJessica> darts;
 	private Button store;
 	
 	private Color purp = new Color(244,164,96);
