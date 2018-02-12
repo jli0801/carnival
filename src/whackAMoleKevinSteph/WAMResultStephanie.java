@@ -57,7 +57,7 @@ public class WAMResultStephanie extends FullFunctionScreen {
 		Graphic gamebg = new Graphic(0,0, getWidth(), getHeight(), "wam/grass.png");
 		viewObjects.add(gamebg);
 			 
-		returnMSButton = new Button(30,30,210,50,"RETURN TO MAIN MENU",Color.ORANGE, new Action() {
+		returnMSButton = new Button(20,30,210,50,"RETURN TO MAIN MENU",Color.ORANGE, new Action() {
 
 				public void act() {
 					GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
@@ -68,7 +68,7 @@ public class WAMResultStephanie extends FullFunctionScreen {
 
 		viewObjects.add(returnMSButton);
 		 
-		playButton = new Button(920,30,210,50,"PLAY AGAIN", Color.ORANGE, new Action() {
+		playButton = new Button(970,30,200,50,"PLAY AGAIN", Color.ORANGE, new Action() {
 			
 			public void act() {
 				GuiLoadingVickie.loading.setScreen(new WAMGameKevin(getWidth(), getHeight()));

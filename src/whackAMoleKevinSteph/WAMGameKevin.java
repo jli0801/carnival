@@ -85,7 +85,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 		
 		//Timer();
 		
-		quitButton = new Button(100,30,100,70,"Quit Game", new Action() {
+		quitButton = new Button(20,30,210,50,"Quit Game", new Action() {
 			
 			@Override
 			public void act() {
@@ -325,7 +325,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 	}
 	
 	public void endGame() {
-		if (score == 10) {
+		if (score == 2) {
 			quitButton.setEnabled(false);
 			GuiLoadingVickie.loading.setScreen(new WAMResultStephanie(getWidth(), getHeight()));
 			GUIApplication.enableCursorChange = true;
