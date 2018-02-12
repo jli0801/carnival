@@ -14,6 +14,7 @@ import guiTeacher.components.TextArea;
 import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import poppingBalloonsJessicaJi.DartJessica;
 
 public class InventoryVickie extends FullFunctionScreen{
 
@@ -111,6 +112,25 @@ public class InventoryVickie extends FullFunctionScreen{
 		itemsList.add("dangerousDart");
 		itemsList.add("dangerousDart");
 		
+		for(int i = 0; i<itemsList.size(); i++) {
+			if(itemsList.get(i).equals("dullDart")) {
+				darts.add(new DartJessica("Dull"));
+			}
+			
+			if(itemsList.get(i).equals("bluntDart")) {
+				darts.add(new DartJessica("Blunt"));
+			}
+			
+			if(itemsList.get(i).equals("sharpDart")) {
+				darts.add(new DartJessica("Strong"));
+			}
+			
+			if(itemsList.get(i).equals("dangerousDart")) {
+				darts.add(new DartJessica("Dangerous"));
+			}
+		}
+		
+
 		money = 10;
 		tickets = 0;
 		

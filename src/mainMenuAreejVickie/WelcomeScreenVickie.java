@@ -40,6 +40,10 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 		private Color []color = {Color.red, Color.orange, Color.yellow, Color.green, Color.cyan, Color.blue, Color.pink, Color.black, Color.DARK_GRAY, Color.magenta, Color.gray};
 		private Timer startApp;
 		private int startNum;
+		
+		private Timer background;
+		private TimerTask updatePics;
+		
 
 		public WelcomeScreenVickie(int width, int height) {
 			super(width, height);
@@ -60,7 +64,7 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 				
 			}
 			count = 1000;
-			Graphic welcomeBackground = new Graphic(0,0, getWidth(), getHeight(), "resources/welcomeBackground.png");
+			Graphic welcomeBackground = new Graphic(0,0, getWidth(), getHeight(), "resources/welcomeBackground21.jpg");
 			
 			carnival = new TextArea(225,75, 1000,1000, "Carnival");
 			carnival.setForeground(Color.white);
@@ -116,6 +120,19 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 			viewObjects.add(carnival);
 			viewObjects.add(menu);
 			
+			
+			
+			background = new Timer();
+			updatePics = new TimerTask() {
+
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					
+				}
+				
+			};
+			
 			try {
 				 File fontFile = new File("resources/Bangers.ttf");
 				 Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
@@ -131,6 +148,7 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 				 e.printStackTrace();
 
 				 }
+			
 			
 			
 			count = 1000;
