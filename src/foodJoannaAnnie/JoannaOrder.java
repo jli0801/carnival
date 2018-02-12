@@ -40,7 +40,7 @@ public class JoannaOrder extends ClickableGraphic {
 		items = new ArrayList<AnnieFoodItem>();
 		fillQuantity();
 		generateToppings(annie.getToppings(),numInt);
-		itemCount = (int) ((Math.random()*2)+1);
+		itemCount = (int) ((Math.random()*3)+1);
 		generateToppings(annie.getItems(),itemCount);
 		while(items.size()!=quantity.size())
 			quantity.add(1);
@@ -185,7 +185,7 @@ public class JoannaOrder extends ClickableGraphic {
 			Object[] o = order.get(i);
 			s+="- "+ o[0] +  " " + ((AnnieFoodItem) o[1]).getName()+"\n" ; 
 		}
-		s+="\n";
+	
 		for(int i=numInt; i<order.size(); i++) {
 			Object[] o = order.get(i);
 			s+=""+ o[0] +  " " + ((AnnieFoodItem) o[1]).getName()+"\n" ; 
