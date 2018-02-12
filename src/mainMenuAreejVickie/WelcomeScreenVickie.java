@@ -131,7 +131,7 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 					
 				}
 				
-			}
+			};
 			
 			try {
 				 File fontFile = new File("resources/Bangers.ttf");
