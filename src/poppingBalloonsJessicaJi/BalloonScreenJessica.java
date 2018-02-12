@@ -195,7 +195,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		dull = new Button(250,645,100,70,"", new Action() {
 			@Override
 			public void act() {
-				if(InventoryVickie.getDartNumber(0) > 0)
+				if(getTotalDarts(1) > 0)
 				{
 				dartDescription.setText("Dart Used: Dull");
 				
@@ -220,7 +220,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		blunt = new Button(350,645,100,70,"", new Action() {
 			@Override
 			public void act() {
-				if(InventoryVickie.getDartNumber(1) > 0)
+				if(getTotalDarts(2) > 0)
 				{
 				dartDescription.setText("Dart Used: Blunt");
 				chosenDart = true; //in backend
@@ -242,7 +242,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		sharp = new Button(450,645,100,70,"", new Action() {
 			@Override
 			public void act() {
-				if(InventoryVickie.getDartNumber(2) > 0)
+				if(getTotalDarts(3) > 0)
 				{
 				dartDescription.setText("Dart Used: Sharp");
 				chosenDart = true; //in backend
@@ -265,7 +265,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		dangerous = new Button(550,645,100,70,"", new Action() {
 			@Override
 			public void act() {
-				if(InventoryVickie.getDartNumber(3) > 0)
+				if(getTotalDarts(4) > 0)
 				{
 				dartDescription.setText("Dart Used: Dangerous");
 				chosenDart = true; //in backend
@@ -518,6 +518,20 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 			
 		}
 	
+	}
+	
+	public int getTotalDarts(int power)
+	{
+		int totalNumber;
+		for(int i = 0; i < InventoryVickie.darts.size(); i++)
+		{
+			if(InventoryVickie.darts.get(i).getStrength() == power)
+			{
+				totalNumber++;
+			}
+			
+		}
+		return totalNumber;
 	}
 
 	/*	private void updateDartField(int dartChosen, int subtractD) {
