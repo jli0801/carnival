@@ -27,7 +27,7 @@ public class GuiLoadingVickie extends GUIApplication{
 	public static StoreAreej store;
 
 	/*
-	 * 3 screens stephKev
+	 * 3 screens stephKevuhjk
 	 * 	molePlay
 	 * 	moleResult
 	 * 	?
