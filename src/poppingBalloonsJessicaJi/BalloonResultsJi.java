@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import guiTeacher.components.Action;
@@ -27,15 +29,20 @@ public class BalloonResultsJi extends FullFunctionScreen {
 	private Color background = new Color(179, 230, 255);
 
 	private TextArea firstPlace;
-
 	private TextArea ticketTxt;
+	private TextArea highScoresTxt;
+	private TextArea secondPlace;
+	private TextArea thirdPlace;
 
 	public BalloonResultsJi(int width, int height) {
 		super(width, height);
-		setScore();
-		score.setText("Final Score: " + scoreNum);
-		addScores(scoreNum);
 		setBackground(background);
+		
+		setScore();
+		score.setText("Final Score: " + scoreNum + "    Rank #" + findCurrentScore(highScores, scoreNum));
+		addScores(scoreNum);
+		sortScores(highScores);
+		firstPlace.setText("#1        " + highScores.get(highScores.size()));
 		
 		calculateTickets();
 		ticketTxt.setText("Tickets Earned: " + tickets);
@@ -81,15 +88,32 @@ public class BalloonResultsJi extends FullFunctionScreen {
 		});
 		viewObjects.add(playAgain);
 		
-		firstPlace = new TextArea(500, 350, 150, 200, "(1st Place)");
+		highScoresTxt = new TextArea(500, 350, 100, 100, "Best Score");
+		viewObjects.add(highScoresTxt);
+		
+		firstPlace = new TextArea(500, 400, 150, 200, "#1        " + highScores.get(highScores.size()));
 		viewObjects.add(firstPlace);
+		
+		secondPlace = new TextArea(500, 450, 150, 200, "#2        " + highScores.get(highScores.size() - 1));
+		viewObjects.add(secondPlace);
+		
+		thirdPlace = new TextArea(500, 500, 150, 200, "#3        " + highScores.get(highScores.size() - 2));
+		viewObjects.add(thirdPlace);
 		
 		ticketTxt = new TextArea(500, 100, 200, 100, "Tickets Earned: " + tickets);
 		
 	}
 	
-	public void sortScores() {
-		
+	public void sortScores(ArrayList<Integer> arr) {
+		for (int i = 0; i < arr.size(); i++) {
+	           for (int j = 0; j < arr.size() - i - 1; j++) {
+	               if (arr.get(j) > arr.get(j + 1)) {
+	                  int temp = arr.get(j);
+	                  arr.set(j, arr.get(j + 1));
+	                  arr.set(j + 1, temp);
+	               }
+	           }
+	       }
 	}
 
 	public void setScore() {
@@ -101,7 +125,16 @@ public class BalloonResultsJi extends FullFunctionScreen {
 		highScores.add(currentScore);
 	}
 	
+	public int findCurrentScore(ArrayList<Integer> arr, int score) {
+		for (int i = 0; i < arr.size(); i++) {
+			if(arr.get(i) == score) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
 	public void calculateTickets() {
-		tickets = (int) (scoreNum * 0.1);
+		tickets = (int) (scoreNum * 2);
 	}
 }
