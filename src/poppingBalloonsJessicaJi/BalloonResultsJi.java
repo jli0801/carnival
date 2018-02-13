@@ -128,7 +128,7 @@ public class BalloonResultsJi extends FullFunctionScreen {
 	public int findCurrentScore(ArrayList<Integer> arr, int score) {
 		for (int i = 0; i < arr.size(); i++) {
 			if(arr.get(i) == score) {
-				return i;
+				return i + 1;
 			}
 		}
 		return -1;
