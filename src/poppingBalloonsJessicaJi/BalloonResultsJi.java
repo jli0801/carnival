@@ -28,12 +28,17 @@ public class BalloonResultsJi extends FullFunctionScreen {
 
 	private TextArea firstPlace;
 
+	private TextArea ticketTxt;
+
 	public BalloonResultsJi(int width, int height) {
 		super(width, height);
 		setScore();
-		score.setText("Final score: " + scoreNum);
+		score.setText("Final Score: " + scoreNum);
 		addScores(scoreNum);
 		setBackground(background);
+		
+		calculateTickets();
+		ticketTxt.setText("Tickets Earned: " + tickets);
 	}
 
 	@Override
@@ -51,7 +56,8 @@ public class BalloonResultsJi extends FullFunctionScreen {
 
 			e.printStackTrace();
 		}
-		score = new TextArea(500, 200, 300, 50, "Final score: " + scoreNum);
+		score = new TextArea(500, 200, 300, 50, "Final Score: " + scoreNum);
+		viewObjects.add(score);
 		
 		Button back = new Button(85, 650, 90, 70, "Back", new Action() {
 			
@@ -61,6 +67,7 @@ public class BalloonResultsJi extends FullFunctionScreen {
 				
 			}
 		});
+		viewObjects.add(back);
 		
 		ticket = new Graphic (60,650,150,150, "poppingBalloons/ticket.png");
 		viewObjects.add(ticket);
@@ -72,15 +79,19 @@ public class BalloonResultsJi extends FullFunctionScreen {
 				GuiLoadingVickie.loading.setScreen(new BalloonScreenJessica(getWidth(), getHeight()));
 			}
 		});
-		
-		firstPlace = new TextArea(500, 350, 150, 200, findFirst());
-			
-		
 		viewObjects.add(playAgain);
-		viewObjects.add(score);
-		viewObjects.add(back);
+		
+		firstPlace = new TextArea(500, 350, 150, 200, "(1st Place)");
+		viewObjects.add(firstPlace);
+		
+		ticketTxt = new TextArea(500, 100, 200, 100, "Tickets Earned: " + tickets);
+		
 	}
 	
+	public void sortScores() {
+		
+	}
+
 	public void setScore() {
 		scoreNum = BalloonScreenJessica.getScore();
 	}
@@ -90,4 +101,7 @@ public class BalloonResultsJi extends FullFunctionScreen {
 		highScores.add(currentScore);
 	}
 	
+	public void calculateTickets() {
+		tickets = (int) (scoreNum * 0.1);
+	}
 }
