@@ -135,6 +135,6 @@ public class BalloonResultsJi extends FullFunctionScreen {
 	}
 	
 	public void calculateTickets() {
-		tickets = (int) (scoreNum * 2);
+		tickets = (int) (scoreNum/2);
 	}
 }
