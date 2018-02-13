@@ -129,8 +129,11 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 				@Override
 				public void run() {
 					track ++;
+					if(track == 22) {
+						background.cancel();
+					}else {
 					Graphic welcomeBackground = new Graphic(0,0, getWidth(), getHeight(), "resources/welcomeBackground" + track + ".jpg");
-					viewObjects.add(welcomeBackground);
+					viewObjects.add(welcomeBackground);}
 				}
 				
 			};
@@ -154,7 +157,7 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 			
 			
 			count = 1000;
-			 if(count==1000) {background.schedule(updatePics,0,1000);
+			 if(count==1000) {background.schedule(updatePics,0,200);
 				 timer.schedule(complete, 0,200);
 				 
 			 }

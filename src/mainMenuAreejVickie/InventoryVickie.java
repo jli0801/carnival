@@ -72,6 +72,24 @@ public class InventoryVickie extends FullFunctionScreen{
 		super(width, height);
 		setBackground(purp);
 		setVisible(true);
+		
+		for(int i = 0; i<itemsList.size(); i++) {
+		if(itemsList.get(i).equals("dullDart")) {
+			darts.add(new DartJessica("Dull"));
+		}
+		
+		if(itemsList.get(i).equals("bluntDart")) {
+			darts.add(new DartJessica("Blunt"));
+		}
+		
+		if(itemsList.get(i).equals("sharpDart")) {
+			darts.add(new DartJessica("Strong"));
+		}
+		
+		if(itemsList.get(i).equals("dangerousDart")) {
+			darts.add(new DartJessica("Dangerous"));
+		}
+	}
 	}
 
 	
@@ -391,6 +409,8 @@ viewObjects.add(ham);
 	public static ArrayList<DartJessica> darts() {
 		return darts;
 	}
+	
+
 	
 	public ArrayList<String> getInventoryArrayList() {
 		return itemsList;
