@@ -44,10 +44,10 @@ public class WAMResultStephanie extends FullFunctionScreen {
 	}
 	
 	public int getTickets() {
-		if(WAMGameKevin.score == 0) {
+		if(WAMEasyKevin.score == 0) {
 			ticketNum = 0;
 		}else {
-			ticketNum = (int)(Math.rint((WAMGameKevin.score/2) + 1));
+			ticketNum = (int)(Math.rint((WAMEasyKevin.score/2) + 1));
 		}
 		
 		return ticketNum;
@@ -71,11 +71,11 @@ public class WAMResultStephanie extends FullFunctionScreen {
 		playButton = new Button(970,30,200,50,"PLAY AGAIN", Color.ORANGE, new Action() {
 			
 			public void act() {
-				GuiLoadingVickie.loading.setScreen(new WAMGameKevin(getWidth(), getHeight()));
+				GuiLoadingVickie.loading.setScreen(new WAMEasyKevin(getWidth(), getHeight()));
 				GUIApplication.enableCursorChange = true;
 				
 				JFrame mainPane = GUIApplication.mainFrame;
-				GuiLoadingVickie.loading.setScreen(new WAMGameKevin(getWidth(), getHeight()));
+				GuiLoadingVickie.loading.setScreen(new WAMEasyKevin(getWidth(), getHeight()));
 				Toolkit toolkit = Toolkit.getDefaultToolkit();
 				Image image = toolkit.getImage("wam/mallet.png");
 				Cursor c = toolkit.createCustomCursor(image , new Point(mainPane.getX(), 
@@ -104,7 +104,7 @@ public class WAMResultStephanie extends FullFunctionScreen {
 		viewObjects.add(box1);
 		viewObjects.add(ticketA);
 		
-		scoreA = new TextArea(410,380,500,270, "SCORE: " + WAMGameKevin.score);
+		scoreA = new TextArea(410,380,500,270, "SCORE: " + WAMEasyKevin.score);
 		Component box2 = new Component(320,340,520,120) {
 
 			public void update(Graphics2D g) {

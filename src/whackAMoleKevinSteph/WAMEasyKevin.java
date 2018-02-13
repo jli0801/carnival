@@ -16,7 +16,7 @@ import java.util.TimerTask;
 
 import java.util.Random;
 
-public class WAMGameKevin extends FullFunctionScreen {
+public class WAMEasyKevin extends FullFunctionScreen {
 
 	/** 
 	 * 
@@ -73,7 +73,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 	
 	private int time;
 	
-	public WAMGameKevin(int width, int height) {
+	public WAMEasyKevin(int width, int height) {
 		super(width, height);
 	
 	}
