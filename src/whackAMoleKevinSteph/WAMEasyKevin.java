@@ -41,7 +41,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 	private Graphic mSix;
 	private Graphic mSeven;
 	private Graphic mEight;
-	private Graphic mNine;
+	private Graphic mNine; 
 	
 	
 	
