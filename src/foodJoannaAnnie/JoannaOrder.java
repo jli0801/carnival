@@ -57,7 +57,7 @@ public class JoannaOrder extends ClickableGraphic {
 		userOrder = new ArrayList<Object[]>();
 		quantity = new ArrayList<Integer>();
 		items = new ArrayList<AnnieFoodItem>();
-		
+
 		for(AnnieFoodItem foodItem : onScreen) {
 			temp.add(foodItem);
 
@@ -67,8 +67,9 @@ public class JoannaOrder extends ClickableGraphic {
 		addCurrentOrder();
 		deleteCopies();
 		updateItems();
-
+		rearrangeItems();
 		getQuantity();
+
 		order = userOrder;
 		makeOrder();
 
@@ -76,6 +77,30 @@ public class JoannaOrder extends ClickableGraphic {
 
 
 
+
+	private void rearrangeItems() {
+		numInt = 0;
+		//int itemsLen = getItemsLength();
+		for(int i = items.size()-1; i <= 0; i--) {
+			AnnieFoodItem a = items.get(i);
+			if(a.isTopping()) {
+				numInt++;	
+			}else {
+				items.add(a);
+				items.remove(a);
+				
+			}
+
+		}
+
+	}
+
+	private int getItemsLength() {
+		int count =0;
+		for(int i = 0; i < items.size(); i++)
+			count++;
+		return count;
+	}
 
 	//	private void getCurrentOrderQuantity() {
 	//		int count = 0;
@@ -91,8 +116,9 @@ public class JoannaOrder extends ClickableGraphic {
 	//	}
 
 	private void getQuantity() {
-		int count = 0;
+
 		for(int i = 0; i <items.size(); i++) {
+			int count = 0;
 			for(int j = 0; j <screen.size(); j++) {
 				if(items.get(i).equals(screen.get(j))) {
 					count++;
@@ -185,7 +211,7 @@ public class JoannaOrder extends ClickableGraphic {
 			Object[] o = order.get(i);
 			s+="- "+ o[0] +  " " + ((AnnieFoodItem) o[1]).getName()+"\n" ; 
 		}
-	
+
 		for(int i=numInt; i<order.size(); i++) {
 			Object[] o = order.get(i);
 			s+=""+ o[0] +  " " + ((AnnieFoodItem) o[1]).getName()+"\n" ; 
