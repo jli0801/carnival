@@ -20,7 +20,7 @@ import mainMenuAreejVickie.GuiLoadingVickie;
 public class BalloonResultsJi extends FullFunctionScreen {
 
 	private TextArea score;
-	
+
 	private int tickets;
 	private int scoreNum;
 	public ArrayList<Integer> highScores;
@@ -36,7 +36,7 @@ public class BalloonResultsJi extends FullFunctionScreen {
 	public BalloonResultsJi(int width, int height) {
 		super(width, height);
 		setBackground(background);
-		
+
 		setScore();
 		score.setText("Final Score: " + scoreNum + "    Rank #" + findCurrentScore(highScores, scoreNum));
 		addScores(scoreNum);
@@ -44,7 +44,7 @@ public class BalloonResultsJi extends FullFunctionScreen {
 		firstPlace.setText("#1        " + highScores.get(highScores.size()));
 		secondPlace.setText("#2        " + highScores.get(highScores.size() - 1));
 		thirdPlace.setText("#3        " + highScores.get(highScores.size() - 2));
-		
+
 		calculateTickets();
 		ticketTxt.setText("Tickets Earned: " + tickets);
 	}
@@ -66,66 +66,66 @@ public class BalloonResultsJi extends FullFunctionScreen {
 		}
 		score = new TextArea(500, 200, 300, 50, "Final Score: " + scoreNum);
 		viewObjects.add(score);
-		
+
 		Button back = new Button(85, 650, 90, 70, "Back", new Action() {
-			
+
 			@Override
 			public void act() {
 				GuiLoadingVickie.loading.setScreen(new mainMenuAreejVickie.MainScreenAreej(getWidth(), getHeight()));
-				
+
 			}
 		});
 		viewObjects.add(back);
-		
+
 		ticket = new Graphic (60,650,150,150, "poppingBalloons/ticket.png");
 		viewObjects.add(ticket);
-		
+
 		Button playAgain = new Button(500, 300, 200, 100, "Play Again", new Action() {
-			
+
 			@Override
 			public void act() {
 				GuiLoadingVickie.loading.setScreen(new BalloonScreenJessica(getWidth(), getHeight()));
 			}
 		});
 		viewObjects.add(playAgain);
-		
+
 		highScoresTxt = new TextArea(500, 350, 100, 100, "Best Score");
 		viewObjects.add(highScoresTxt);
-		
+
 		firstPlace = new TextArea(500, 400, 150, 200, "#1        " + highScores.get(highScores.size()));
 		viewObjects.add(firstPlace);
-		
+
 		secondPlace = new TextArea(500, 450, 150, 200, "#2        " + highScores.get(highScores.size() - 1));
 		viewObjects.add(secondPlace);
-		
+
 		thirdPlace = new TextArea(500, 500, 150, 200, "#3        " + highScores.get(highScores.size() - 2));
 		viewObjects.add(thirdPlace);
-		
+
 		ticketTxt = new TextArea(500, 100, 200, 100, "Tickets Earned: " + tickets);
-		
+
 	}
-	
+
 	public void sortScores(ArrayList<Integer> arr) {
 		for (int i = 0; i < arr.size(); i++) {
-	           for (int j = 0; j < arr.size() - i - 1; j++) {
-	               if (arr.get(j) > arr.get(j + 1)) {
-	                  int temp = arr.get(j);
-	                  arr.set(j, arr.get(j + 1));
-	                  arr.set(j + 1, temp);
-	               }
-	           }
-	       }
+			for (int j = 0; j < arr.size() - i - 1; j++) {
+				if (arr.get(j) > arr.get(j + 1)) {
+					int temp = arr.get(j);
+					arr.set(j, arr.get(j + 1));
+					arr.set(j + 1, temp);
+				}
+			}
+		}
 	}
 
 	public void setScore() {
 		scoreNum = BalloonScreenJessica.getScore();
 	}
-	
+
 	public void addScores(int currentScore)
 	{
 		highScores.add(currentScore);
 	}
-	
+
 	public int findCurrentScore(ArrayList<Integer> arr, int score) {
 		for (int i = 0; i < arr.size(); i++) {
 			if(arr.get(i) == score) {
@@ -134,7 +134,7 @@ public class BalloonResultsJi extends FullFunctionScreen {
 		}
 		return -1;
 	}
-	
+
 	public void calculateTickets() {
 		tickets = (int) (scoreNum/2);
 	}
