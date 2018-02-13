@@ -23,6 +23,15 @@ public class WAMEasyKevin extends FullFunctionScreen {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	public static int score;
+	private TextArea scoreText;
+	
+	private Button quitButton;
+	
+	private TextArea timeText;
+	
+	private int time;
+	private int moleTime;
 	
 	private Graphic mOne;
 	private Graphic mTwo;
@@ -64,14 +73,6 @@ public class WAMEasyKevin extends FullFunctionScreen {
 	private Button moleEight;
 	private Button moleNine;
 	
-	public static int score;
-	private TextArea scoreText;
-	
-	private Button quitButton;
-	
-	private TextArea timeText;
-	
-	private int time;
 	
 	public WAMEasyKevin(int width, int height) {
 		super(width, height);
@@ -85,6 +86,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		
 		score = 0;
 		time = 20;
+		moleTime = 1;
 		
 		quitButton = new Button(20,30,210,50,"Quit Game", new Action() {
 			
@@ -103,6 +105,8 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		timeText = new TextArea(950,150,200,200, "Time: " + time + " Seconds");
 		viewObjects.add(timeText);
 		Timer();
+		
+		//Creating Mole Buttons---------------------------------------------------------------------------------------------
 		
 		moleOne = new Button(250,200,80,80,"", new Action() {
 			
@@ -212,6 +216,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		});
 		viewObjects.add(moleNine);
 		
+		//Creating Graphics----------------------------------------------------------------------------------------------------
 		
 		mOne = new Graphic(250,200,80,80,"wam/mole.png");
 		//viewObjects.add(mOne);
@@ -294,6 +299,8 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		dNine = new Graphic(650,600,80,80,"wam/dirt.png");
 		viewObjects.add(dNine);
 		
+		//Enabling Mole Buttons---------------------------------------------------------------------------------------------
+		
 		moleOne.setEnabled(false);
 		moleTwo.setEnabled(false);
 		moleThree.setEnabled(true);
@@ -305,31 +312,13 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		moleNine.setEnabled(false);
 	}
 	
+	//Helper Methods---------------------------------------------------------------------------------------------------------
 	
 	public void moleSwap(Graphic aGraph, Graphic rGraph) {
 		viewObjects.add(aGraph);
 		viewObjects.remove(rGraph);
 	}
 
-	public void scoreUp() {
-		score++;
-		scoreText.setText("Score: " + score);
-		scoreText.update();
-	}
-	
-	public void endGame() {
-		quitButton.setEnabled(false);
-		GuiLoadingVickie.loading.setScreen(new WAMResultStephanie(getWidth(), getHeight()));
-		GUIApplication.enableCursorChange = true;
-
-		if (score == 2) {
-			quitButton.setEnabled(false);
-			GuiLoadingVickie.loading.setScreen(new WAMResultStephanie(getWidth(), getHeight()));
-			GUIApplication.enableCursorChange = true;
-		}
-
-	}
-	
 	public void upMole() {
 		Random rand = new Random();
 		int  n = rand.nextInt(9) + 1;
@@ -363,6 +352,31 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		}
 		
 	}
+	
+	//Score Change Methods-------------------------------------------------------------------------------------------------------
+	
+	public void scoreUp() {
+		score++;
+		scoreText.setText("Score: " + score);
+		scoreText.update();
+	}
+	
+	//End Game Method------------------------------------------------------------------------------------------------------------
+	
+	public void endGame() {
+		quitButton.setEnabled(false);
+		GuiLoadingVickie.loading.setScreen(new WAMResultStephanie(getWidth(), getHeight()));
+		GUIApplication.enableCursorChange = true;
+
+		if (score == 2) {
+			quitButton.setEnabled(false);
+			GuiLoadingVickie.loading.setScreen(new WAMResultStephanie(getWidth(), getHeight()));
+			GUIApplication.enableCursorChange = true;
+		}
+
+	}
+	
+	//Mole Spawn Methods-------------------------------------------------------------------------------------------------------------
 
 	private void moleNineUp() {
 		if (moleNine.isEnabled() == false) {
@@ -455,6 +469,25 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		
 	}
 	
+	//Timers-------------------------------------------------------------------------------------------------------------------
+	
+	private void moleTimer() {
+		Timer timer = new Timer();
+		TimerTask task;
+		task = new TimerTask() {
+			@Override
+			public void run() { 
+				if (time > 0) {
+					timeText.setText("Time Left: " + time);
+					time--;
+				} else {
+					cancel();
+					endGame();
+				}
+			}
+		};
+		timer.schedule(task, 0, 1000);
+	}
 	
 	private void Timer() {
 		Timer timer = new Timer();
