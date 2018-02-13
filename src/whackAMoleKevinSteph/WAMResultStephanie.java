@@ -129,7 +129,7 @@ public class WAMResultStephanie extends FullFunctionScreen {
 		tpic = new Graphic(340,250,80,80,"wam/ticket.png");
 		viewObjects.add(tpic);
 		
-		mpic = new Graphic(340,350,80,80,"wam/mouse.jpg");
+		mpic = new Graphic(340,350,80,80,"wam/mouse.png");
 		viewObjects.add(mpic);
 		
 		tapic = new Graphic(340,470,80,80,"wam/totalA.png");
