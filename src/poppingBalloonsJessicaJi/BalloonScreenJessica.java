@@ -85,7 +85,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 	private TextArea timeLeftTxt;
 
 	private PowerBarJessica strength;
-	private Button play;
+	//private Button play;
 	//private boolean playPressed = false;
 	private boolean chosenDart;
 	private Graphic popEffect1;
@@ -106,11 +106,10 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		score = 0;
 		gameStarted = false;
 		chosenDart = false;
-		play.setEnabled(true);
 		changeQuality("","",0); //FIX LATER
 		
 		gameStarted = true;
-		play.setEnabled(false);
+		//play.setEnabled(false);
 		addObject(strength);
 		strength.startTask();
 	
