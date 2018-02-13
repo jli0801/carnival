@@ -84,9 +84,13 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		Graphic gamebg = new Graphic(0,0, getWidth(), getHeight(), "wam/grass.png");
 		viewObjects.add(gamebg);
 		
+		//Setting Valuess---------------------------------------------------------------------------------------------------
+		
 		score = 0;
 		time = 20;
 		moleTime = 1;
+		
+		//Quit Buttons------------------------------------------------------------------------------------------------------
 		
 		quitButton = new Button(20,30,210,50,"Quit Game", new Action() {
 			
@@ -98,6 +102,8 @@ public class WAMEasyKevin extends FullFunctionScreen {
 			}
 		});
 		viewObjects.add(quitButton);
+		
+		//Creating Text Areas-----------------------------------------------------------------------------------------------
 		
 		scoreText = new TextArea(950,100,100,100, "Score: " + score);
 		viewObjects.add(scoreText);
