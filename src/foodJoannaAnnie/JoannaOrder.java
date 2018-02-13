@@ -71,6 +71,7 @@ public class JoannaOrder extends ClickableGraphic {
 		getQuantity();
 
 		order = userOrder;
+
 		makeOrder();
 
 	}
@@ -81,26 +82,26 @@ public class JoannaOrder extends ClickableGraphic {
 	private void rearrangeItems() {
 		numInt = 0;
 		//int itemsLen = getItemsLength();
-		for(int i = items.size()-1; i <= 0; i--) {
-			AnnieFoodItem a = items.get(i);
-			if(a.isTopping()) {
-				numInt++;	
-			}else {
-				items.add(a);
+		for(int i = 0; i < items.size(); i++) {
+			if(!items.get(i).isTopping()) {
+				AnnieFoodItem a = items.get(i);
 				items.remove(a);
+				items.add(a);
 				
+			}else {
+				numInt++;	
 			}
 
 		}
 
 	}
 
-	private int getItemsLength() {
-		int count =0;
-		for(int i = 0; i < items.size(); i++)
-			count++;
-		return count;
-	}
+	//	private int getItemsLength() {
+	//		int count =0;
+	//		for(int i = 0; i < items.size(); i++)
+	//			count++;
+	//		return count;
+	//	}
 
 	//	private void getCurrentOrderQuantity() {
 	//		int count = 0;
@@ -215,7 +216,9 @@ public class JoannaOrder extends ClickableGraphic {
 		for(int i=numInt; i<order.size(); i++) {
 			Object[] o = order.get(i);
 			s+=""+ o[0] +  " " + ((AnnieFoodItem) o[1]).getName()+"\n" ; 
+
 		}
+		s+= numInt+"";
 		return s;
 	}
 }
