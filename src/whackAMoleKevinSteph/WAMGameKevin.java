@@ -69,8 +69,9 @@ public class WAMGameKevin extends FullFunctionScreen {
 	
 	private Button quitButton;
 	
-	private static TextArea timeText;
-	private static int time;
+	private TextArea timeText;
+	
+	private int time;
 	
 	public WAMGameKevin(int width, int height) {
 		super(width, height);
@@ -84,8 +85,6 @@ public class WAMGameKevin extends FullFunctionScreen {
 		
 		score = 0;
 		time = 20;
-		
-		Timer();
 		
 		quitButton = new Button(20,30,210,50,"Quit Game", new Action() {
 			
@@ -103,6 +102,7 @@ public class WAMGameKevin extends FullFunctionScreen {
 		
 		timeText = new TextArea(950,150,200,200, "Time: " + time + " Seconds");
 		viewObjects.add(timeText);
+		Timer();
 		
 		moleOne = new Button(250,200,80,80,"", new Action() {
 			
@@ -112,7 +112,6 @@ public class WAMGameKevin extends FullFunctionScreen {
 				moleSwap(sOne,mOne);
 				scoreUp();
 				upMole();
-				endGame();
 			}
 		});
 		viewObjects.add(moleOne);
@@ -125,7 +124,6 @@ public class WAMGameKevin extends FullFunctionScreen {
 				moleSwap(sTwo,mTwo);
 				scoreUp();
 				upMole();
-				endGame();
 			}
 		});
 		viewObjects.add(moleTwo);
@@ -138,7 +136,6 @@ public class WAMGameKevin extends FullFunctionScreen {
 				moleSwap(sThree,mThree);
 				scoreUp();
 				upMole();
-				endGame();
 			}
 		});
 		viewObjects.add(moleThree);
@@ -151,7 +148,6 @@ public class WAMGameKevin extends FullFunctionScreen {
 				moleSwap(sFour,mFour);
 				scoreUp();
 				upMole();
-				endGame();
 			}
 		});
 		viewObjects.add(moleFour);
@@ -164,7 +160,6 @@ public class WAMGameKevin extends FullFunctionScreen {
 				moleSwap(sFive,mFive);
 				scoreUp();
 				upMole();
-				endGame();
 			}
 		});
 		viewObjects.add(moleFive);
@@ -177,7 +172,6 @@ public class WAMGameKevin extends FullFunctionScreen {
 				moleSwap(sSix,mSix);
 				scoreUp();
 				upMole();
-				endGame();
 			}
 		});
 		viewObjects.add(moleSix);
@@ -190,7 +184,6 @@ public class WAMGameKevin extends FullFunctionScreen {
 				moleSwap(sSeven,mSeven);
 				scoreUp();
 				upMole();
-				endGame();
 			}
 		});
 		viewObjects.add(moleSeven);
@@ -203,7 +196,6 @@ public class WAMGameKevin extends FullFunctionScreen {
 				moleSwap(sEight,mEight);
 				scoreUp();
 				upMole();
-				endGame();
 			}
 		});
 		viewObjects.add(moleEight);
@@ -216,7 +208,6 @@ public class WAMGameKevin extends FullFunctionScreen {
 				moleSwap(sNine,mNine);
 				scoreUp();
 				upMole();
-				endGame();
 			}
 		});
 		viewObjects.add(moleNine);
