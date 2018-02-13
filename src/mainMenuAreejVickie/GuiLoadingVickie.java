@@ -20,6 +20,9 @@ public class GuiLoadingVickie extends GUIApplication{
 		
 	public static foodJoannaAnnie.AnnieWorkScreen foodGame;
 	
+	public static poppingBalloonsJessicaJi.BalloonInstructionsJi bInstruct;
+	public static poppingBalloonsJessicaJi.BalloonScreenJessica bscreen;
+	
 	public static whackAMoleKevinSteph.WAMMenuStephanie moleInstruct;
 	
 	public static InventoryVickie inventory;
@@ -61,6 +64,9 @@ public class GuiLoadingVickie extends GUIApplication{
 		menu = new MainScreenAreej(getWidth(), getHeight());
 		
 		inventory = new InventoryVickie(getWidth(), getHeight());
+		
+		bInstruct = new poppingBalloonsJessicaJi.BalloonInstructionsJi(getWidth(), getHeight());
+		bscreen = new poppingBalloonsJessicaJi.BalloonScreenJessica(getWidth(), getHeight());
 				
 		foodGame = new foodJoannaAnnie.AnnieWorkScreen(getWidth(), getHeight());
 		
@@ -68,7 +74,7 @@ public class GuiLoadingVickie extends GUIApplication{
 		
 		store = new StoreAreej(getWidth(), getHeight());
 		
-		setScreen(welcome);
+		setScreen(inventory);
 		
 		GUIApplication.enableCursorChange = true;
 	}
