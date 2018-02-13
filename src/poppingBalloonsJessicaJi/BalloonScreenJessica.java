@@ -523,35 +523,36 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 
 
 	public DartJessica findNextDart(int power) {
-		for(int i = 0; i < InventoryVickie.darts.size(); i++)
+		for(int i = 0; i < InventoryVickie.darts().size(); i++)
 		{
-			if(InventoryVickie.darts.get(i).getStrength() == power)
+			if(InventoryVickie.darts().get(i).getStrength() == power)
 			{
-				return InventoryVickie.darts.get(i);
+				return InventoryVickie.darts().get(i);
 			}
 			
 		}
-	
+		return null;
 	}
 	
 	public int findIndexNextDart(int power)
 	{
-		for(int i = 0; i < InventoryVickie.darts.size(); i++)
+		for(int i = 0; i < InventoryVickie.darts().size(); i++)
 		{
-			if(InventoryVickie.darts.get(i).getStrength() == power)
+			if(InventoryVickie.darts().get(i).getStrength() == power)
 			{
 				return i;
 			}
-			
+		
 		}
+		return -1;
 	}
 	
 	public int getTotalDarts(int power)
 	{
-		int totalNumber;
-		for(int i = 0; i < InventoryVickie.darts.size(); i++)
+		int totalNumber = 0;
+		for(int i = 0; i < InventoryVickie.darts().size(); i++)
 		{
-			if(InventoryVickie.darts.get(i).getStrength() == power)
+			if(InventoryVickie.darts().get(i).getStrength() == power)
 			{
 				totalNumber++;
 			}
