@@ -95,7 +95,7 @@ public class WAMMenuStephanie extends FullFunctionScreen {
 
 			public void act() {
 				JFrame mainPane = GUIApplication.mainFrame;
-				//GuiLoadingVickie.loading.setScreen(new WAMGameKevin(getWidth(), getHeight()));
+				GuiLoadingVickie.loading.setScreen(new WAMCasual(getWidth(), getHeight()));
 				Toolkit toolkit = Toolkit.getDefaultToolkit();
 				Image image = toolkit.getImage("wam/mallet.png");
 				Cursor c = toolkit.createCustomCursor(image , new Point(mainPane.getX(), 
