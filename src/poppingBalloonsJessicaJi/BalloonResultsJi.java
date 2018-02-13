@@ -3,6 +3,7 @@ package poppingBalloonsJessicaJi;
 import java.awt.Color;
 import java.awt.Font;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import guiTeacher.components.Action;
@@ -21,14 +22,17 @@ public class BalloonResultsJi extends FullFunctionScreen {
 	private int tickets;
 	private int scoreNum;
 	private int averageRate;
-	public ArrayList<>
+	public ArrayList<Integer> highScores;
 	private Graphic ticket;
 	private Color background = new Color(179, 230, 255);
+
+	private TextArea firstPlace;
 
 	public BalloonResultsJi(int width, int height) {
 		super(width, height);
 		setScore();
 		score.setText("Final score: " + scoreNum);
+		addScores(scoreNum);
 		setBackground(background);
 	}
 
@@ -68,6 +72,10 @@ public class BalloonResultsJi extends FullFunctionScreen {
 				GuiLoadingVickie.loading.setScreen(new BalloonScreenJessica(getWidth(), getHeight()));
 			}
 		});
+		
+		firstPlace = new TextArea(500, 350, 150, 200, findFirst());
+			
+		
 		viewObjects.add(playAgain);
 		viewObjects.add(score);
 		viewObjects.add(back);
@@ -75,6 +83,11 @@ public class BalloonResultsJi extends FullFunctionScreen {
 	
 	public void setScore() {
 		scoreNum = BalloonScreenJessica.getScore();
+	}
+	
+	public void addScores(int currentScore)
+	{
+		highScores.add(currentScore);
 	}
 	
 }
