@@ -190,12 +190,12 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 			+	"    " + Integer.toString(BalloonBackJi.getDartNumber(3)));
 		viewObjects.add(allDarts);*/
 		dart1 = new Graphic (250,650,100,100,"poppingBalloons/dart1.png");
-	//	dullDart = new TextArea(290,700,100,100, Integer.toString(BalloonBackJi.getDartNumber(0)) );
+		dullDart = new TextArea(290,700,100,100, Integer.toString(getTotalDarts(1)) );
 		viewObjects.add(dart1);
 		dull = new Button(250,645,100,70,"", new Action() {
 			@Override
 			public void act() {
-				if(InventoryVickie.getDartNumber(0) > 0)
+				if(getTotalDarts(1) > 0)
 				{
 				dartDescription.setText("Dart Used: Dull");
 				
@@ -215,12 +215,12 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		viewObjects.add(dull);
 		
 		dart2 = new Graphic (350,650,100,100,"poppingBalloons/dart2.png");
-	//	bluntDart = new TextArea(390,700,100,100, Integer.toString(BalloonBackJi.getDartNumber(1)));
+		bluntDart = new TextArea(390,700,100,100, Integer.toString(getTotalDarts(2)));
 		viewObjects.add(dart2);
 		blunt = new Button(350,645,100,70,"", new Action() {
 			@Override
 			public void act() {
-				if(InventoryVickie.getDartNumber(1) > 0)
+				if(getTotalDarts(2) > 0)
 				{
 				dartDescription.setText("Dart Used: Blunt");
 				chosenDart = true; //in backend
@@ -238,11 +238,11 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		
 		dart3 = new Graphic (450,650,100,100,"poppingBalloons/dart3.png");
 		viewObjects.add(dart3);
-	//	sharpDart = new TextArea(490,700,100,100, Integer.toString(BalloonBackJi.getDartNumber(2)));
+		sharpDart = new TextArea(490,700,100,100, Integer.toString(getTotalDarts(3)));
 		sharp = new Button(450,645,100,70,"", new Action() {
 			@Override
 			public void act() {
-				if(InventoryVickie.getDartNumber(2) > 0)
+				if(getTotalDarts(3) > 0)
 				{
 				dartDescription.setText("Dart Used: Sharp");
 				chosenDart = true; //in backend
@@ -261,11 +261,11 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		
 		dart4 = new Graphic (550,650,100,100,"poppingBalloons/dart4.png");
 		viewObjects.add(dart4);
-	//	dangerousDart = new TextArea(590,700,100,100, Integer.toString(BalloonBackJi.getDartNumber(3)));
+		dangerousDart = new TextArea(590,700,100,100, Integer.toString(getTotalDarts(4)));
 		dangerous = new Button(550,645,100,70,"", new Action() {
 			@Override
 			public void act() {
-				if(InventoryVickie.getDartNumber(3) > 0)
+				if(getTotalDarts(4) > 0)
 				{
 				dartDescription.setText("Dart Used: Dangerous");
 				chosenDart = true; //in backend
@@ -282,11 +282,11 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		viewObjects.add(dangerous);
 		
 		
-		/*
+		
 		viewObjects.add(bluntDart);
 		viewObjects.add(dullDart);
 		viewObjects.add(sharpDart);
-		viewObjects.add(dangerousDart);*/
+		viewObjects.add(dangerousDart);
 		//end darts
 
 		//balloons
@@ -313,12 +313,14 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				if(chosenDart && BalloonBackJi.isPoppable(0))
 				{
 //					BalloonBack.UpdateBalloons(0, BalloonBack.darts.get(BalloonBack.getDartChosen()));
-				changeQuality("Purple", , 1); //BalloonBackJi.getDartChosen()
+				changeQuality("Purple", findNextDart(dartChosenInt).getType(), 1); //BalloonBackJi.getDartChosen()
 				scoreText.setText("Score: " + Integer.toString(score));
 				balloonDescription.setText("Balloon Popped:" + balloonChosen);
 				dartDescription.setText("Dart Used: " + dartChosen);
 			
 				toggleImage(balloon1, true);
+				InventoryVickie.darts().remove(findIndexNextDart(dartChosenInt));
+				updateDartField(findNextDart(dartChosenInt));
 		//		BalloonBackJi.updateDarts();
 		//		changeDartText(numberofDarts, changeInttoString(BalloonBackJi.getDartChosen()));
 		//		allDarts.setText(Integer.toString(numberofDarts));
@@ -341,10 +343,13 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				//				BalloonBack.UpdateBalloons(1, BalloonBack.darts.get(BalloonBack.getDartChosen()));
 				if(chosenDart && BalloonBackJi.isPoppable(1))
 				{
-				changeQuality("Mauve", changeInttoString(BalloonBackJi.getDartChosen()), 1);
+				changeQuality("Mauve", findNextDart(dartChosenInt).getType(), 1);
 				scoreText.setText("Score: " + Integer.toString(score));
 				balloonDescription.setText("Balloon Popped:" + balloonChosen);
 				dartDescription.setText("Dart Used: " + dartChosen);
+				
+				InventoryVickie.darts().remove(findIndexNextDart(dartChosenInt));
+				updateDartField(findNextDart(dartChosenInt));
 			//	BalloonBackJi.updateDarts();
 			//	changeDartText(numberofDarts, changeInttoString(BalloonBackJi.darts[BalloonBackJi.getDartChosen()]));
 				
@@ -361,7 +366,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				if(chosenDart && BalloonBackJi.isPoppable(2))
 				{
 				//	BalloonBack.UpdateBalloons(2, BalloonBack.darts.get(BalloonBack.getDartChosen()));
-				changeQuality("Pink", changeInttoString(BalloonBackJi.getDartChosen()), 1);
+				changeQuality("Pink", findNextDart(dartChosenInt).getType(), 1);
 				scoreText.setText("Score: " + Integer.toString(score));
 				balloonDescription.setText("Balloon Popped:" + balloonChosen);
 				dartDescription.setText("Dart Used: " + dartChosen);
@@ -381,11 +386,14 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				if(chosenDart && BalloonBackJi.isPoppable(3))
 				{
 				//	BalloonBack.UpdateBalloons(3, BalloonBack.darts.get(BalloonBack.getDartChosen()));
-				changeQuality("Blue", changeInttoString(BalloonBackJi.getDartChosen()), 1);
+				changeQuality("Blue", findNextDart(dartChosenInt).getType(), 1);
 				scoreText.setText("Score: " + Integer.toString(score));
 				balloonDescription.setText("Balloon Popped:" + balloonChosen);
 				dartDescription.setText("Dart Used: " + dartChosen);
-				BalloonBackJi.updateDarts();
+				
+				InventoryVickie.darts().remove(findIndexNextDart(dartChosenInt));
+				updateDartField(findNextDart(dartChosenInt));
+		//		BalloonBackJi.updateDarts();
 		//		changeDartText(numberofDarts, changeInttoString(BalloonBackJi.darts[BalloonBackJi.getDartChosen()]));
 		//		updateDartField(BalloonBackJi.getDartChosen(), 1);
 				}
@@ -401,10 +409,13 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				if(chosenDart && BalloonBackJi.isPoppable(4))
 				{
 				//	BalloonBack.UpdateBalloons(4, BalloonBack.darts.get(BalloonBack.getDartChosen()));
-				changeQuality("Green", changeInttoString(BalloonBackJi.getDartChosen()), 1);
+				changeQuality("Green", findNextDart(dartChosenInt).getType(), 1);
 				scoreText.setText("Score: " + Integer.toString(score));
 				balloonDescription.setText("Balloon Popped:" + balloonChosen);
 				dartDescription.setText("Dart Used: " + dartChosen);
+				
+				InventoryVickie.darts().remove(findIndexNextDart(dartChosenInt));
+				updateDartField(findNextDart(dartChosenInt));
 		//		BalloonBackJi.updateDarts();
 		//		changeDartText(numberofDarts, changeInttoString(BalloonBackJi.darts[BalloonBackJi.getDartChosen()]));
 		//		updateDartField(BalloonBackJi.getDartChosen(), 1);
@@ -422,11 +433,14 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				{
 				//	BalloonBack.UpdateBalloons(5, BalloonBack.darts.get(BalloonBack.getDartChosen()));
 
-				changeQuality("Gold", changeInttoString(BalloonBackJi.darts[BalloonBackJi.getDartChosen()]), 1);
+				changeQuality("Gold", findNextDart(dartChosenInt).getType(), 1);
 
 				scoreText.setText("Score: " + Integer.toString(score));
 				balloonDescription.setText("Balloon Popped:" + balloonChosen);
 				dartDescription.setText("Dart Used: " + dartChosen);
+				
+				InventoryVickie.darts().remove(findIndexNextDart(dartChosenInt));
+				updateDartField(findNextDart(dartChosenInt));
 			//	BalloonBackJi.updateDarts();
 			//	changeDartText(numberofDarts, changeInttoString(BalloonBackJi.darts[BalloonBackJi.getDartChosen()]));
 			//	updateDartField(BalloonBackJi.getDartChosen(), 1);
@@ -509,36 +523,63 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 
 
 	public DartJessica findNextDart(int power) {
-		for(int i = 0; i < InventoryVickie.darts.size(); i++)
+		for(int i = 0; i < InventoryVickie.darts().size(); i++)
 		{
-			if(InventoryVickie.darts.get(i).getStrength() == power)
+			if(InventoryVickie.darts().get(i).getStrength() == power)
 			{
-				return InventoryVickie.darts.get(i);
+				return InventoryVickie.darts().get(i);
 			}
 			
 		}
+		return null;
+	}
 	
+	public int findIndexNextDart(int power)
+	{
+		for(int i = 0; i < InventoryVickie.darts().size(); i++)
+		{
+			if(InventoryVickie.darts().get(i).getStrength() == power)
+			{
+				return i;
+			}
+		
+		}
+		return -1;
+	}
+	
+	public int getTotalDarts(int power)
+	{
+		int totalNumber = 0;
+		for(int i = 0; i < InventoryVickie.darts().size(); i++)
+		{
+			if(InventoryVickie.darts().get(i).getStrength() == power)
+			{
+				totalNumber++;
+			}
+			
+		}
+		return totalNumber;
 	}
 
-	/*	private void updateDartField(int dartChosen, int subtractD) {
-		if(dartChosen == 0)
+		private void updateDartField(DartJessica dart) {
+		if(dart.getStrength() == 1)
 		{
-			dullDart.setText(Integer.toString(BalloonBackJi.darts[0] - subtractD));
+			dullDart.setText(Integer.toString(getTotalDarts(1)));
 		}
-		else if(dartChosen == 1)
+		else if(dart.getStrength() == 2)
 		{
-			bluntDart.setText(Integer.toString(BalloonBackJi.darts[1] - subtractD));
+			bluntDart.setText(Integer.toString(getTotalDarts(2)));
 		}
-		else if (dartChosen == 2)
+		else if (dart.getStrength() == 3)
 		{
-			sharpDart.setText(Integer.toString(BalloonBackJi.darts[2] - subtractD));
+			sharpDart.setText(Integer.toString(getTotalDarts(3)));
 		}
 		else
 		{
-			dangerousDart.setText(Integer.toString(BalloonBackJi.darts[3] - subtractD));
+			dangerousDart.setText(Integer.toString(getTotalDarts(4)));
 		}
 		
-	}*/
+	}
 	
 	public static int getDartChosenInt() {
 		return dartChosenInt;
@@ -574,26 +615,9 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		{
 			balloonChosen = string;
 			dartChosen = dartType;
-			
 			score = score + scoreNum;
 			
-		/*	if(dartInt == 0)
-			{
-				dullValue = BalloonBackJi.darts[0] - 1;
-				
-			}
-			else if(dartInt == 1)
-			{
-				bluntValue = BalloonBackJi.darts[1] - 1;
-			}
-			else if (dartInt == 2)
-			{
-				sharpValue = BalloonBackJi.darts[2] - 1;
-			}
-			else
-			{
-				dangerousValue = BalloonBackJi.darts[3] - 1;
-			}*/
+	
 		}
 		else
 		{
@@ -601,45 +625,6 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		}
 	}
 
-/*	private int changeStringtoInt(String dart)
-	{
-		if(dart.equals("dull") || dart.equals("Dull"))
-		{
-			return 1;
-		}
-		else if (dart.equals("blunt") || dart.equals("Blunt"))
-		{
-			return 2;
-		}
-		else if (dart.equals("sharp") || dart.equals("Sharp"))
-		{
-			return 3;
-		}
-		else
-		{
-			return 4;
-		}
-	}
-	
-	private String changeInttoString(int num)
-	{
-		if(num == 0)
-		{
-			return "Dull";
-		}
-		else if (num == 1)
-		{
-			return "Blunt";
-		}
-		else if (num == 2)
-		{
-			return "Sharp";
-		}
-		else
-		{
-			return "Dangerous";
-		}
-	}*/
 	
 	private ArrayList<Integer> getBalloons()
 	{
@@ -666,10 +651,10 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		timer.schedule(task, 0, 1000);
 	}
 
-	
+	//what do we use this for?
 	private void changeButtonDesign (Button button1, int dartNum, boolean input)
 	{
-		if(InventoryVickie.getDartNumber(dartNum) > 0)
+		if(getTotalDarts(dartNum) > 0)
 		{
 			button1.setVisible(input);
 			button1.setEnabled(input);
