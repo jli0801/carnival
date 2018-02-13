@@ -7,7 +7,7 @@ import mainMenuAreejVickie.InventoryVickie;
 public class BalloonBackJi {
 
 	public static ArrayList<Integer> balloons = new ArrayList<Integer>(); //static b/c jessica needs to use it index tells us what color what's in the index is the strength of balloon
-	public static int[] darts = InventoryVickie.darts();
+	public static ArrayList<DartJessica> darts = InventoryVickie.darts();
 	public int round; //based on time
 	
 	//***IDEAS***
@@ -32,11 +32,7 @@ public class BalloonBackJi {
 		return dartChosenInt;
 	}
 
-	public static int getDartNumber(int num) {
-		//updateDarts();
-		int dartsNum = darts[num];
-		return dartsNum;
-	}
+	
 	
 	public static void setDartChosen(int userInput) {
 		dartChosenInt = userInput;
@@ -54,14 +50,14 @@ public class BalloonBackJi {
 		return balloons; 
 	}
 	
-	public static void updateDarts() {
+/*	public static void updateDarts() {
 		if(darts[dartChosenInt] > 0) {
 			darts[dartChosenInt] = darts[dartChosenInt]-1;
 		}else {
 			//darts.remove(dartChosenInt);
 		
 		}
-	}
+	}*/ //i removed it in balloon screen but we can add the methods here.
 
 	public static boolean isPoppable(int chosenBalloon) {
 		if(getDartChosen() * PowerBarJessica.getLength() > balloons.get(chosenBalloon))
