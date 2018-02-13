@@ -88,7 +88,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		
 		score = 0;
 		time = 20;
-		moleTime = 1;
+		moleTime = 5;
 		
 		//Quit Buttons------------------------------------------------------------------------------------------------------
 		
@@ -113,6 +113,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		Timer();
 		
 		//Creating Mole Buttons---------------------------------------------------------------------------------------------
+		//Moles will only start moving once you press one
 		
 		moleOne = new Button(250,200,80,80,"", new Action() {
 			
@@ -318,8 +319,176 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		moleNine.setEnabled(false);
 	}
 	
-	//Helper Methods---------------------------------------------------------------------------------------------------------
+	//Score Change Methods-------------------------------------------------------------------------------------------------------
 	
+	public void scoreUp() {
+		score++;
+		scoreText.setText("Score: " + score);
+		scoreText.update();
+	}
+	
+	//End Game Method------------------------------------------------------------------------------------------------------------
+	
+	public void endGame() {
+		GuiLoadingVickie.loading.setScreen(new WAMResultStephanie(getWidth(), getHeight()));
+		GUIApplication.enableCursorChange = true;
+
+	}
+	
+	//Mole Spawn Methods-------------------------------------------------------------------------------------------------------------
+	//moleNine.setEnabled(false);
+	
+	private void moleNineUp() {
+		if (moleNine.isEnabled() == false) {
+			moleNine.setEnabled(true);		
+			moleSwap(mNine,sNine);
+			
+			moleTimer(sNine,mNine);
+		}else {
+			upMole();
+		}
+		
+	}
+
+	private void moleEightUp() {
+		if (moleEight.isEnabled() == false) {
+			moleEight.setEnabled(true);		
+			moleSwap(mEight,sEight);
+			
+			moleTimer(sEight,mEight);
+		}else {
+			upMole();
+		}
+		
+		
+	}
+
+	private void moleSevenUp() {
+		if (moleSeven.isEnabled() == false) {
+			moleSeven.setEnabled(true);		
+			moleSwap(mSeven,sSeven);
+			
+			moleTimer(sSeven,mSeven);
+		}else {
+			upMole();
+		}
+		
+	}
+
+	private void moleSixUp() {
+		if (moleSix.isEnabled() == false) {
+			moleSix.setEnabled(true);		
+			moleSwap(mSix,sSix);
+			
+			moleTimer(sSix,mSix);
+		}else {
+			upMole();
+		}
+		
+	}
+
+	private void moleFiveUp() {
+		if (moleFive.isEnabled() == false) {
+			moleFive.setEnabled(true);		
+			moleSwap(mFive,sFive);
+			
+			moleTimer(sFive,mFive);
+		}else {
+			upMole();
+		}
+		
+	}
+
+	private void moleFourUp() {
+		if (moleFour.isEnabled() == false) {
+			moleFour.setEnabled(true);		
+			moleSwap(mFour,sFour);
+			
+			moleTimer(sFour,mFour);
+		}else {
+			upMole();
+		}
+		
+	}
+
+	private void moleThreeUp() {
+		if (moleThree.isEnabled() == false) {
+			moleThree.setEnabled(true);		
+			moleSwap(mThree,sThree);
+			
+			moleTimer(sThree,mThree);
+		}else {
+			upMole();
+		}
+		
+	}
+
+	private void moleTwoUp() {
+		if (moleTwo.isEnabled() == false) {
+			moleTwo.setEnabled(true);		
+			moleSwap(mTwo,sTwo);
+			
+			moleTimer(sTwo,mTwo);
+			}else {
+			upMole();
+		}
+		
+	}
+
+	private void moleOneUp() {
+		if (moleOne.isEnabled() == false) {
+			moleOne.setEnabled(true);	
+			moleSwap(mOne,sOne);
+			
+			moleTimer(sOne,mOne);
+		}else {
+			upMole();
+		}
+		
+	}
+	
+	//Timers-------------------------------------------------------------------------------------------------------------------
+	
+	private void moleTimer(Graphic addMole,Graphic removeMole) {
+		Timer mTimer = new Timer();
+		TimerTask mTask;
+		mTask = new TimerTask() {
+			@Override
+			public void run() { 
+				if (moleTime > 0) {
+					moleTime--;
+				} else {
+					cancel();
+					moleTime++;
+					moleSwap(addMole,removeMole);
+					disableMole(removeMole);
+					upMole();
+				}
+			}
+		};
+		mTimer.schedule(mTask, 0, 1000);
+	}
+
+	private void Timer() {
+		Timer timer = new Timer();
+		TimerTask task;
+		task = new TimerTask() {
+			@Override
+			public void run() { 
+				if (time > 0) {
+					timeText.setText("Time Left: " + time);
+					time--;
+				} else {
+					cancel();
+					endGame();
+				}
+			}
+		};
+		timer.schedule(task, 0, 1000);
+	}
+
+//Helper Methods---------------------------------------------------------------------------------------------------------
+
 	public void moleSwap(Graphic aGraph, Graphic rGraph) {
 		viewObjects.add(aGraph);
 		viewObjects.remove(rGraph);
@@ -359,158 +528,35 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		
 	}
 	
-	//Score Change Methods-------------------------------------------------------------------------------------------------------
-	
-	public void scoreUp() {
-		score++;
-		scoreText.setText("Score: " + score);
-		scoreText.update();
-	}
-	
-	//End Game Method------------------------------------------------------------------------------------------------------------
-	
-	public void endGame() {
-		quitButton.setEnabled(false);
-		GuiLoadingVickie.loading.setScreen(new WAMResultStephanie(getWidth(), getHeight()));
-		GUIApplication.enableCursorChange = true;
-
-		if (score == 2) {
-			quitButton.setEnabled(false);
-			GuiLoadingVickie.loading.setScreen(new WAMResultStephanie(getWidth(), getHeight()));
-			GUIApplication.enableCursorChange = true;
+	public void disableMole(Graphic removeMole) {
+		if (removeMole == mOne) {
+			moleOne.setEnabled(false);
 		}
-
-	}
-	
-	//Mole Spawn Methods-------------------------------------------------------------------------------------------------------------
-
-	private void moleNineUp() {
-		if (moleNine.isEnabled() == false) {
-			moleNine.setEnabled(true);		
-			moleSwap(mNine,sNine);
-		}else {
-			upMole();
+		if (removeMole == mTwo) {
+			moleTwo.setEnabled(false);
 		}
-		
-	}
-
-	private void moleEightUp() {
-		if (moleEight.isEnabled() == false) {
-			moleEight.setEnabled(true);		
-			moleSwap(mEight,sEight);
-		}else {
-			upMole();
+		if (removeMole == mThree) {
+			moleThree.setEnabled(false);
 		}
-		
-		
-	}
-
-	private void moleSevenUp() {
-		if (moleSeven.isEnabled() == false) {
-			moleSeven.setEnabled(true);		
-			moleSwap(mSeven,sSeven);
-		}else {
-			upMole();
+		if (removeMole == mFour) {
+			moleFour.setEnabled(false);
 		}
-		
-	}
-
-	private void moleSixUp() {
-		if (moleSix.isEnabled() == false) {
-			moleSix.setEnabled(true);		
-			moleSwap(mSix,sSix);
-		}else {
-			upMole();
+		if (removeMole == mFive) {
+			moleFive.setEnabled(false);
 		}
-		
-	}
-
-	private void moleFiveUp() {
-		if (moleFive.isEnabled() == false) {
-			moleFive.setEnabled(true);		
-			moleSwap(mFive,sFive);
-		}else {
-			upMole();
+		if (removeMole == mSix) {
+			moleSix.setEnabled(false);
 		}
-		
-	}
-
-	private void moleFourUp() {
-		if (moleFour.isEnabled() == false) {
-			moleFour.setEnabled(true);		
-			moleSwap(mFour,sFour);
-		}else {
-			upMole();
+		if (removeMole == mSeven) {
+			moleSeven.setEnabled(false);
 		}
-		
-	}
-
-	private void moleThreeUp() {
-		if (moleThree.isEnabled() == false) {
-			moleThree.setEnabled(true);		
-			moleSwap(mThree,sThree);
-		}else {
-			upMole();
+		if (removeMole == mEight) {
+			moleEight.setEnabled(false);
 		}
-		
-	}
-
-	private void moleTwoUp() {
-		if (moleTwo.isEnabled() == false) {
-			moleTwo.setEnabled(true);		
-			moleSwap(mTwo,sTwo);
-		}else {
-			upMole();
-		}
-		
-	}
-
-	private void moleOneUp() {
-		if (moleOne.isEnabled() == false) {
-			moleOne.setEnabled(true);	
-			moleSwap(mOne,sOne);
-		}else {
-			upMole();
+		if (removeMole == mNine) {
+			moleNine.setEnabled(false);
 		}
 		
 	}
 	
-	//Timers-------------------------------------------------------------------------------------------------------------------
-	
-	private void moleTimer() {
-		Timer timer = new Timer();
-		TimerTask task;
-		task = new TimerTask() {
-			@Override
-			public void run() { 
-				if (time > 0) {
-					timeText.setText("Time Left: " + time);
-					time--;
-				} else {
-					cancel();
-					endGame();
-				}
-			}
-		};
-		timer.schedule(task, 0, 1000);
-	}
-	
-	private void Timer() {
-		Timer timer = new Timer();
-		TimerTask task;
-		task = new TimerTask() {
-			@Override
-			public void run() { 
-				if (time > 0) {
-					timeText.setText("Time Left: " + time);
-					time--;
-				} else {
-					cancel();
-					endGame();
-				}
-			}
-		};
-		timer.schedule(task, 0, 1000);
-	}
-
 }
