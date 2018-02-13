@@ -74,7 +74,7 @@ public class WAMMenuStephanie extends FullFunctionScreen {
 
 		viewObjects.add(returnMSButton);
 
-		easyButton = new Button(970,30,200,50,"EASY",Color.ORANGE, new Action() {
+		easyButton = new Button(970,30,200,50,"EASY",Color.GREEN, new Action() {
 
 			public void act() {
 				JFrame mainPane = GUIApplication.mainFrame;
@@ -108,7 +108,7 @@ public class WAMMenuStephanie extends FullFunctionScreen {
 		
 		viewObjects.add(casualButton);
 		
-		diffButton = new Button(970,170,200,50,"DIFFICULT",Color.ORANGE, new Action() {
+		diffButton = new Button(970,170,200,50,"DIFFICULT",Color.RED, new Action() {
 
 			public void act() {
 				JFrame mainPane = GUIApplication.mainFrame;
