@@ -12,4 +12,6 @@ public class WAMCasual extends WAMEasyKevin {
 		super(width, height);
 	}
 	
+	
+	
 }

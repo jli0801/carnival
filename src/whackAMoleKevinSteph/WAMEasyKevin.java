@@ -41,9 +41,17 @@ public class WAMEasyKevin extends FullFunctionScreen {
 	private Graphic mSix;
 	private Graphic mSeven;
 	private Graphic mEight;
-	private Graphic mNine; 
+	private Graphic mNine;
 	
-	
+	private Graphic sOne;
+	private Graphic sTwo;
+	private Graphic sThree;
+	private Graphic sFour;
+	private Graphic sFive;
+	private Graphic sSix;
+	private Graphic sSeven;
+	private Graphic sEight;
+	private Graphic sNine;
 	
 	private Graphic dOne;
 	private Graphic dTwo;
@@ -112,7 +120,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 			@Override
 			public void act() {
 				moleOne.setEnabled(false);
-				moleSwap(dOne,mOne);
+				moleSwap(sOne,mOne);
 				scoreUp();
 				
 			}
@@ -124,7 +132,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 			@Override
 			public void act() {
 				moleTwo.setEnabled(false);
-				moleSwap(dTwo,mTwo);
+				moleSwap(sTwo,mTwo);
 				scoreUp();
 				upMole();
 			}
@@ -136,7 +144,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 			@Override
 			public void act() {
 				moleThree.setEnabled(false);
-				moleSwap(dThree,mThree);
+				moleSwap(sThree,mThree);
 				scoreUp();
 				upMole();
 			}
@@ -148,7 +156,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 			@Override
 			public void act() {
 				moleFour.setEnabled(false);
-				moleSwap(dFour,mFour);
+				moleSwap(sFour,mFour);
 				scoreUp();
 				upMole();
 			}
@@ -160,7 +168,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 			@Override
 			public void act() {
 				moleFive.setEnabled(false);
-				moleSwap(dFive,mFive);
+				moleSwap(sFive,mFive);
 				scoreUp();
 				upMole();
 			}
@@ -172,7 +180,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 			@Override
 			public void act() {
 				moleSix.setEnabled(false);
-				moleSwap(dSix,mSix);
+				moleSwap(sSix,mSix);
 				scoreUp();
 				upMole();
 			}
@@ -184,7 +192,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 			@Override
 			public void act() {
 				moleSeven.setEnabled(false);
-				moleSwap(dSeven,mSeven);
+				moleSwap(sSeven,mSeven);
 				scoreUp();
 				upMole();
 			}
@@ -196,7 +204,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 			@Override
 			public void act() {
 				moleEight.setEnabled(false);
-				moleSwap(dEight,mEight);
+				moleSwap(sEight,mEight);
 				scoreUp();
 				upMole();
 			}
@@ -208,7 +216,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 			@Override
 			public void act() {
 				moleNine.setEnabled(false);
-				moleSwap(dNine,mNine);
+				moleSwap(sNine,mNine);
 				scoreUp();
 				upMole();
 			}
@@ -244,32 +252,32 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		mNine = new Graphic(650,600,80,80,"wam/mole.png");
 		//viewObjects.add(mNine);
 		
-		dOne = new Graphic(250,200,80,80,"wam/squish.png");
-		//viewObjects.add(dOne);
+		sOne = new Graphic(250,200,80,80,"wam/squish.png");
+		//viewObjects.add(sOne);
 		
-		dTwo = new Graphic(450,200,80,80,"wam/squish.png");
-		//viewObjects.add(dTwo);
+		sTwo = new Graphic(450,200,80,80,"wam/squish.png");
+		//viewObjects.add(sTwo);
 		
-		dThree = new Graphic(650,200,80,80,"wam/squish.png");
-		//viewObjects.add(dThree);
+		sThree = new Graphic(650,200,80,80,"wam/squish.png");
+		//viewObjects.add(sThree);
 		
-		dFour = new Graphic(250,400,80,80,"wam/squish.png");
-		//viewObjects.add(dFour);
+		sFour = new Graphic(250,400,80,80,"wam/squish.png");
+		//viewObjects.add(sFour);
 		
-		dFive = new Graphic(450,400,80,80,"wam/squish.png");
-		//viewObjects.add(dFive);
+		sFive = new Graphic(450,400,80,80,"wam/squish.png");
+		//viewObjects.add(sFive);
 		
-		dSix = new Graphic(650,400,80,80,"wam/squish.png");
-		//viewObjects.add(dSix);
+		sSix = new Graphic(650,400,80,80,"wam/squish.png");
+		//viewObjects.add(sSix);
 		
-		dSeven = new Graphic(250,600,80,80,"wam/squish.png");
-		//viewObjects.add(dSeven);
+		sSeven = new Graphic(250,600,80,80,"wam/squish.png");
+		//viewObjects.add(sSeven);
 		
-		dEight = new Graphic(450,600,80,80,"wam/squish.png");
-		//viewObjects.add(dEight);
+		sEight = new Graphic(450,600,80,80,"wam/squish.png");
+		//viewObjects.add(sEight);
 		
-		dNine = new Graphic(650,600,80,80,"wam/squish.png");
-		//viewObjects.add(dNine);
+		sNine = new Graphic(650,600,80,80,"wam/squish.png");
+		//viewObjects.add(sNine);
 		
 		dOne = new Graphic(250,200,80,80,"wam/dirt.png");
 		viewObjects.add(dOne);
@@ -333,9 +341,9 @@ public class WAMEasyKevin extends FullFunctionScreen {
 	private void moleNineUp() {
 		if (moleNine.isEnabled() == false) {
 			moleNine.setEnabled(true);		
-			moleSwap(mNine,dNine);
+			moleSwap(mNine,sNine);
 			
-			moleTimer(dNine,mNine);
+			moleTimer(sNine,mNine);
 		}else {
 			upMole();
 		}
@@ -345,9 +353,9 @@ public class WAMEasyKevin extends FullFunctionScreen {
 	private void moleEightUp() {
 		if (moleEight.isEnabled() == false) {
 			moleEight.setEnabled(true);		
-			moleSwap(mEight,dEight);
+			moleSwap(mEight,sEight);
 			
-			moleTimer(dEight,mEight);
+			moleTimer(sEight,mEight);
 		}else {
 			upMole();
 		}
@@ -358,9 +366,9 @@ public class WAMEasyKevin extends FullFunctionScreen {
 	private void moleSevenUp() {
 		if (moleSeven.isEnabled() == false) {
 			moleSeven.setEnabled(true);		
-			moleSwap(mSeven,dSeven);
+			moleSwap(mSeven,sSeven);
 			
-			moleTimer(dSeven,mSeven);
+			moleTimer(sSeven,mSeven);
 		}else {
 			upMole();
 		}
@@ -370,9 +378,9 @@ public class WAMEasyKevin extends FullFunctionScreen {
 	private void moleSixUp() {
 		if (moleSix.isEnabled() == false) {
 			moleSix.setEnabled(true);		
-			moleSwap(mSix,dSix);
+			moleSwap(mSix,sSix);
 			
-			moleTimer(dSix,mSix);
+			moleTimer(sSix,mSix);
 		}else {
 			upMole();
 		}
@@ -382,9 +390,9 @@ public class WAMEasyKevin extends FullFunctionScreen {
 	private void moleFiveUp() {
 		if (moleFive.isEnabled() == false) {
 			moleFive.setEnabled(true);		
-			moleSwap(mFive,dFive);
+			moleSwap(mFive,sFive);
 			
-			moleTimer(dFive,mFive);
+			moleTimer(sFive,mFive);
 		}else {
 			upMole();
 		}
@@ -394,9 +402,9 @@ public class WAMEasyKevin extends FullFunctionScreen {
 	private void moleFourUp() {
 		if (moleFour.isEnabled() == false) {
 			moleFour.setEnabled(true);		
-			moleSwap(mFour,dFour);
+			moleSwap(mFour,sFour);
 			
-			moleTimer(dFour,mFour);
+			moleTimer(sFour,mFour);
 		}else {
 			upMole();
 		}
@@ -406,9 +414,9 @@ public class WAMEasyKevin extends FullFunctionScreen {
 	private void moleThreeUp() {
 		if (moleThree.isEnabled() == false) {
 			moleThree.setEnabled(true);		
-			moleSwap(mThree,dThree);
+			moleSwap(mThree,sThree);
 			
-			moleTimer(dThree,mThree);
+			moleTimer(sThree,mThree);
 		}else {
 			upMole();
 		}
@@ -418,9 +426,9 @@ public class WAMEasyKevin extends FullFunctionScreen {
 	private void moleTwoUp() {
 		if (moleTwo.isEnabled() == false) {
 			moleTwo.setEnabled(true);		
-			moleSwap(mTwo,dTwo);
+			moleSwap(mTwo,sTwo);
 			
-			moleTimer(dTwo,mTwo);
+			moleTimer(sTwo,mTwo);
 			}else {
 			upMole();
 		}
@@ -430,9 +438,9 @@ public class WAMEasyKevin extends FullFunctionScreen {
 	private void moleOneUp() {
 		if (moleOne.isEnabled() == false) {
 			moleOne.setEnabled(true);	
-			moleSwap(mOne,dOne);
+			moleSwap(mOne,sOne);
 			
-			moleTimer(dOne,mOne);
+			moleTimer(sOne,mOne);
 		}else {
 			upMole();
 		}
@@ -450,8 +458,8 @@ public class WAMEasyKevin extends FullFunctionScreen {
 				if (moleTime > 0) {
 					moleTime--;
 				} else {
-					moleTime = moleTime + 3;
 					cancel();
+					moleTime = 3;
 					moleSwap(addMole,removeMole);
 					disableMole(removeMole);
 					upMole();
