@@ -72,26 +72,12 @@ public class InventoryVickie extends FullFunctionScreen{
 		super(width, height);
 		setBackground(purp);
 		setVisible(true);
+		
+		updateDarts();
 	}
 
 	
-	//https://www.javatpoint.com/java-arraylist
-	/*
-	 * https://beginnersbook.com/2013/12/java-arraylist/
-	 * https://www.geeksforgeeks.org/arraylist-in-java/
-	 * https://www.geeksforgeeks.org/array-vs-arraylist-in-java/
-	 * https://www.tutorialspoint.com/java/java_arraylist_class.htm
-	 * 
-	 */
-		
-	@Override
-	public void initAllObjects(List<Visible> viewObjects) {
-		itemsList = new ArrayList<String>();
-		
-		//int[]dart = new int [4];
-		//darts = dart;
-		
-		//default items
+	private void updateDarts() {
 		itemsList.add("dullDart");
 		itemsList.add("dullDart");
 		itemsList.add("dullDart");
@@ -113,6 +99,65 @@ public class InventoryVickie extends FullFunctionScreen{
 		itemsList.add("dangerousDart");
 		
 		for(int i = 0; i<itemsList.size(); i++) {
+		if(itemsList.get(i).equals("dullDart")) {
+			darts.add(new DartJessica("Dull"));
+		}
+		
+		if(itemsList.get(i).equals("bluntDart")) {
+			darts.add(new DartJessica("Blunt"));
+		}
+		
+		if(itemsList.get(i).equals("sharpDart")) {
+			darts.add(new DartJessica("Strong"));
+		}
+		
+		if(itemsList.get(i).equals("dangerousDart")) {
+			darts.add(new DartJessica("Dangerous"));
+		}
+	}
+	}
+
+
+	//https://www.javatpoint.com/java-arraylist
+	/*
+	 * https://beginnersbook.com/2013/12/java-arraylist/
+	 * https://www.geeksforgeeks.org/arraylist-in-java/
+	 * https://www.geeksforgeeks.org/array-vs-arraylist-in-java/
+	 * https://www.tutorialspoint.com/java/java_arraylist_class.htm
+	 * 
+	 */
+		
+	@Override
+	public void initAllObjects(List<Visible> viewObjects) {
+		itemsList = new ArrayList<String>();
+		darts = new ArrayList<DartJessica>();
+		updateDarts();
+		
+		//int[]dart = new int [4];
+		//darts = dart;
+		
+		//default items
+		/*itemsList.add("dullDart");
+		itemsList.add("dullDart");
+		itemsList.add("dullDart");
+		itemsList.add("dullDart");
+		
+		itemsList.add("bluntDart");
+		itemsList.add("bluntDart");
+		itemsList.add("bluntDart");
+		itemsList.add("bluntDart");
+		
+		itemsList.add("sharpDart");
+		itemsList.add("sharpDart");
+		itemsList.add("sharpDart");
+		itemsList.add("sharpDart");
+		
+		itemsList.add("dangerousDart");
+		itemsList.add("dangerousDart");
+		itemsList.add("dangerousDart");
+		itemsList.add("dangerousDart");
+		*/
+		/*for(int i = 0; i<itemsList.size(); i++) {
 			if(itemsList.get(i).equals("dullDart")) {
 				darts.add(new DartJessica("Dull"));
 			}
@@ -128,7 +173,7 @@ public class InventoryVickie extends FullFunctionScreen{
 			if(itemsList.get(i).equals("dangerousDart")) {
 				darts.add(new DartJessica("Dangerous"));
 			}
-		}
+		}*/
 		
 
 		money = 10;
@@ -391,6 +436,8 @@ viewObjects.add(ham);
 	public static ArrayList<DartJessica> darts() {
 		return darts;
 	}
+	
+
 	
 	public ArrayList<String> getInventoryArrayList() {
 		return itemsList;
