@@ -24,6 +24,7 @@ public class BalloonInstructionsJi extends FullFunctionScreen{
 	private TextArea welcomeTxt;
 	private boolean showInstructions;
 	private Graphic ticket;
+	private Graphic clown;
 
 	public BalloonInstructionsJi(int width, int height) {
 		super(width, height);
@@ -39,7 +40,7 @@ public class BalloonInstructionsJi extends FullFunctionScreen{
 
 			Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
-			Font baseFont=font.deriveFont(40f);
+			Font baseFont=font.deriveFont(33f);
 
 			StyledComponent.setBaseFont(baseFont);
 		} catch (Exception e) {
@@ -47,43 +48,66 @@ public class BalloonInstructionsJi extends FullFunctionScreen{
 			e.printStackTrace();
 		}
 		
-		instructions = new Button(300, 100, 200, 100, "Instructions", new Action() {
+		
+		
+		instructions = new Button(500, 150, 200, 100, "Instructions", new Action() {
 			
 			@Override
 			public void act() {
-				if(showInstructions) {
-					instructionsTxt.setVisible(false);
-				}else {
+					
+					if(!showInstructions)
+					{
 					instructionsTxt.setVisible(true);
-				}
-				
+					showInstructions = true;
+					}
+					else
+					{
+						instructionsTxt.setVisible(false);
+						showInstructions = false;
+					}
 			}
 		});
+		viewObjects.add(instructions);
 		
-		play = new Button(500, 100, 200, 100, "Play", new Action() {
-			
-			@Override
-			public void act() {
-				GuiLoadingVickie.loading.setScreen(new BalloonScreenJessica(getWidth(), getHeight()));
-			}
-		});
-		
-		instructionsTxt = new TextArea(300, 300, 400, 400, "(Instructions placed here)");
+		instructionsTxt = new TextArea(250, 250, 800, 400, "When time starts, Try to pop as many as you can but not all of them will pop "
+				+ "according to which dart you’re using and how much strength you have. The balloons will pop up again but stronger each time."
+				+ " You are given four darts of each type, dull, blunt, strong, dangerous. It is listed from weakest to strongest."
+				+ " Be sure to use them wisely! Good Luck!"
+				+ "                                                                         "
+				+ "Click on the clown to go back!"
+				+ " Proceed with the game by clicking 'Play.'");
+		viewObjects.add(instructionsTxt);
 		instructionsTxt.setVisible(false);
 		
-		back = new Button(100, 100, 200, 100, "Back", new Action() {
+		
+		play = new Button(1000, 150, 200, 100, "Play", new Action() {
+			
+			@Override
+			public void act() {
+				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.bscreen); //doesn't work
+			}
+		});
+		viewObjects.add(play);
+		
+		StyledComponent.setButtonOutline(true);
+		clown = new Graphic(50,50,150,150,"resources/clown.png");
+		viewObjects.add(clown);
+		
+		
+		back = new Button(50, 50, 150, 150, "", new Action() {
 			
 			@Override
 			public void act() {
 				GuiLoadingVickie.loading.setScreen(new mainMenuAreejVickie.MainScreenAreej(getWidth(), getHeight()));
 			}
 		});
+		viewObjects.add(back);
+		back.setCurve(150,150);
+	/*	ticket = new Graphic (100,100,1500,150, "poppingBalloons/ticket.png");
+		viewObjects.add(ticket);*/
 		
-		ticket = new Graphic (100,100,1500,150, "poppingBalloons/ticket.png");
-		viewObjects.add(ticket);
-		
-		welcomeTxt = new TextArea(200, 200, 400, 100, "Welcome to Popping Balloons!");
-		
+		welcomeTxt = new TextArea(420, 100, 400, 100, "Welcome to Popping Balloons!");
+		viewObjects.add(welcomeTxt);
 	}
 
 }
