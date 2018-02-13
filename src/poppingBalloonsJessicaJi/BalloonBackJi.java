@@ -65,9 +65,16 @@ public class BalloonBackJi {
 			balloons.remove(chosenBalloon);
 			return true;
 		}else {
+			balloons.set(chosenBalloon, balloons.get(chosenBalloon)-5);
 			return false;
 		}
-		//remove dart
+		
+	}
+	
+	
+	public ArrayList<DartJessica> getNewDart()
+	{
+		return darts;
 	}
 
 	/*

@@ -21,6 +21,7 @@ public class BalloonResultsJi extends FullFunctionScreen {
 	private int tickets;
 	private int scoreNum;
 	private int averageRate;
+	public ArrayList<>
 	private Graphic ticket;
 	private Color background = new Color(179, 230, 255);
 
