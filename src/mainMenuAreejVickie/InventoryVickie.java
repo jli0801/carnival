@@ -47,6 +47,7 @@ public class InventoryVickie extends FullFunctionScreen {
 	private Color fuchsia = new Color(255, 0, 255);
 	private Color blood = new Color(239, 23, 56);
 
+	//store items
 	private static int dull;
 	private static int blunt;
 	private static int sharp;
@@ -55,6 +56,7 @@ public class InventoryVickie extends FullFunctionScreen {
 	private int bearP;
 	private int candyP;
 	private int fishP;
+	private boolean hammer;
 	
 	public InventoryVickie(int width, int height) {
 		super(width, height);
