@@ -73,6 +73,31 @@ public class InventoryVickie extends FullFunctionScreen{
 		setBackground(purp);
 		setVisible(true);
 		
+		updateDarts();
+	}
+
+	
+	private void updateDarts() {
+		itemsList.add("dullDart");
+		itemsList.add("dullDart");
+		itemsList.add("dullDart");
+		itemsList.add("dullDart");
+		
+		itemsList.add("bluntDart");
+		itemsList.add("bluntDart");
+		itemsList.add("bluntDart");
+		itemsList.add("bluntDart");
+		
+		itemsList.add("sharpDart");
+		itemsList.add("sharpDart");
+		itemsList.add("sharpDart");
+		itemsList.add("sharpDart");
+		
+		itemsList.add("dangerousDart");
+		itemsList.add("dangerousDart");
+		itemsList.add("dangerousDart");
+		itemsList.add("dangerousDart");
+		
 		for(int i = 0; i<itemsList.size(); i++) {
 		if(itemsList.get(i).equals("dullDart")) {
 			darts.add(new DartJessica("Dull"));
@@ -92,7 +117,7 @@ public class InventoryVickie extends FullFunctionScreen{
 	}
 	}
 
-	
+
 	//https://www.javatpoint.com/java-arraylist
 	/*
 	 * https://beginnersbook.com/2013/12/java-arraylist/
@@ -105,12 +130,14 @@ public class InventoryVickie extends FullFunctionScreen{
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		itemsList = new ArrayList<String>();
+		darts = new ArrayList<DartJessica>();
+		updateDarts();
 		
 		//int[]dart = new int [4];
 		//darts = dart;
 		
 		//default items
-		itemsList.add("dullDart");
+		/*itemsList.add("dullDart");
 		itemsList.add("dullDart");
 		itemsList.add("dullDart");
 		itemsList.add("dullDart");
@@ -129,7 +156,7 @@ public class InventoryVickie extends FullFunctionScreen{
 		itemsList.add("dangerousDart");
 		itemsList.add("dangerousDart");
 		itemsList.add("dangerousDart");
-		
+		*/
 		/*for(int i = 0; i<itemsList.size(); i++) {
 			if(itemsList.get(i).equals("dullDart")) {
 				darts.add(new DartJessica("Dull"));
