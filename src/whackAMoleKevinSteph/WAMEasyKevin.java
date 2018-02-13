@@ -84,7 +84,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		Graphic gamebg = new Graphic(0,0, getWidth(), getHeight(), "wam/grass.png");
 		viewObjects.add(gamebg);
 		
-		//Setting Valuess---------------------------------------------------------------------------------------------------
+		//Setting Values---------------------------------------------------------------------------------------------------
 		
 		score = 0;
 		time = 20;
