@@ -32,7 +32,9 @@ public class WAMMenuStephanie extends FullFunctionScreen {
 	private static final long serialVersionUID = 1L;
 	
 	private Button returnMSButton;
-	private Button startButton;
+	private Button easyButton;
+	private Button casualButton;
+	private Button diffButton;
 	private TextArea instructionsText;
 
 	public WAMMenuStephanie(int width, int height) {
@@ -72,7 +74,7 @@ public class WAMMenuStephanie extends FullFunctionScreen {
 
 		viewObjects.add(returnMSButton);
 
-		startButton = new Button(970,30,200,50,"START GAME",Color.ORANGE, new Action() {
+		easyButton = new Button(970,30,200,50,"EASY",Color.ORANGE, new Action() {
 
 			public void act() {
 				JFrame mainPane = GUIApplication.mainFrame;
@@ -87,14 +89,52 @@ public class WAMMenuStephanie extends FullFunctionScreen {
 			
 		});
 		
-		viewObjects.add(startButton);
+		viewObjects.add(easyButton);
+		
+		casualButton = new Button(970,100,200,50,"CASUAL",Color.ORANGE, new Action() {
 
+			public void act() {
+				JFrame mainPane = GUIApplication.mainFrame;
+				//GuiLoadingVickie.loading.setScreen(new WAMGameKevin(getWidth(), getHeight()));
+				Toolkit toolkit = Toolkit.getDefaultToolkit();
+				Image image = toolkit.getImage("wam/mallet.png");
+				Cursor c = toolkit.createCustomCursor(image , new Point(mainPane.getX(), 
+				           mainPane.getY()), "img");	
+				mainPane.setCursor (c);
+				GUIApplication.enableCursorChange = false;
+			}
+			
+		});
+		
+		viewObjects.add(casualButton);
+		
+		diffButton = new Button(970,170,200,50,"DIFFICULT",Color.ORANGE, new Action() {
+
+			public void act() {
+				JFrame mainPane = GUIApplication.mainFrame;
+				//GuiLoadingVickie.loading.setScreen(new WAMGameKevin(getWidth(), getHeight()));
+				Toolkit toolkit = Toolkit.getDefaultToolkit();
+				Image image = toolkit.getImage("wam/mallet.png");
+				Cursor c = toolkit.createCustomCursor(image , new Point(mainPane.getX(), 
+				           mainPane.getY()), "img");	
+				mainPane.setCursor (c);
+				GUIApplication.enableCursorChange = false;
+			}
+			
+		});
+		
+		viewObjects.add(diffButton);
+		
 		instructionsText = new TextArea(250,80,700,270," ");
 		//instructionsText.setInactiveBorderColor(Color.ORANGE);
 
-		instructionsText.setText("HOW TO PLAY:" + "\n" + "WHACK AS MANY MOLES AS YOU CAN UNDER THE TIME LIMIT. THE HIGHER THE SCORE, THE MORE TICKETS YOU EARN. "
-				+ "THERE ARE 3 ROUNDS. ROUND 1 STARTS OFF WITH 20 SECONDS, BUT AS YOU PROGRESS TO THE NEXT ROUNDS, THE TIME LIMIT WILL DECREASE BY 5 SECONDS AND THE MOLES WILL MOVE FASTER. "
-				+ "CLICKING ON THE WRONG HOLE WILL RESULT IN A 1 SECOND PENALTY."  + "\n" + "NOW GO WHACK SOME MOLES AND ENJOY THE GAME!!");
+		instructionsText.setText("HOW TO PLAY:" + "\n" + "WHACK AS MANY MOLES AS YOU CAN UNDER THE TIME LIMIT."
+				+ "THERE ARE 3 DIFFICULTIES: EASY, CASUAL, AND DIFFICULT. "
+				+ "THE HARDER THE DIFFICULTY, THE MORE TICKETS YOU EARN."
+				+ "EASY STARTS OFF WITH 20 SECONDS WHILE THE OTHER DIFFICULTIES HAVE 5 SECONDS LESS THAN THE LAST"
+				+ " AND THE MOLES WILL MOVE FASTER. CLICKING ON THE WRONG HOLE WILL ALSO RESULT IN A 1 SECOND PENALTY."  
+				+ "\n" + "NOW GO WHACK SOME MOLES AND ENJOY THE GAME!!");
 		viewObjects.add(instructionsText);
 	}
 }
+
