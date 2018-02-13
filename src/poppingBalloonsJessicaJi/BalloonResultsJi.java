@@ -23,7 +23,6 @@ public class BalloonResultsJi extends FullFunctionScreen {
 	
 	private int tickets;
 	private int scoreNum;
-	private int averageRate;
 	public ArrayList<Integer> highScores;
 	private Graphic ticket;
 	private Color background = new Color(179, 230, 255);
@@ -43,6 +42,8 @@ public class BalloonResultsJi extends FullFunctionScreen {
 		addScores(scoreNum);
 		sortScores(highScores);
 		firstPlace.setText("#1        " + highScores.get(highScores.size()));
+		secondPlace.setText("#2        " + highScores.get(highScores.size() - 1));
+		thirdPlace.setText("#3        " + highScores.get(highScores.size() - 2));
 		
 		calculateTickets();
 		ticketTxt.setText("Tickets Earned: " + tickets);
