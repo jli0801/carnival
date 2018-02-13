@@ -24,7 +24,7 @@ public class JoannaResultScreen extends FullFunctionScreen {
 
 	private Button home;
 	private Button work;
-	
+
 	private double earned;
 	private double trashCount;
 	private ArrayList<Double> prices;	
@@ -46,24 +46,25 @@ public class JoannaResultScreen extends FullFunctionScreen {
 	private TextArea trashCost;
 	private TextArea total;
 	private TextArea totalCost;
-	
+
 
 
 	public JoannaResultScreen(int width, int height, AnnieWorkScreen screen ) {
 		super(width, height);
 		annie = screen; 
 		currentOrder= annie.getCurrentOrder().getOrder();
+		prices = new ArrayList<Double>();
 		setVisible(true);
 		orderInstance = new JoannaOrder(0, 0, 100, 130, "food/order.png", annie.getOnScreen(),currentOrder);
 		orderInstance.setVisible(false);
 		onScreen = orderInstance.getOrder();
-		//separatePrices();
+		separatePrices();
 		trashCount = annie.getTrashCount();
 		bigOrder.setText(annie.getCurrentOrder().toString());
 		list.setText(orderInstance.toString());
-//		profit.setText(displayPrices());
-//		trashCost.setText(displayTrash());
-//		totalCost.setText(calcTotal());
+		profit.setText(displayPrices());
+		trashCost.setText(displayTrash());
+		totalCost.setText(calcTotal());
 	}
 
 
@@ -122,16 +123,28 @@ public class JoannaResultScreen extends FullFunctionScreen {
 			}
 		};
 
-//		Component totalBox = new Component(550,140,500,600) {
-//
-//			@Override
-//			public void update(Graphics2D g) {
-//				g.setStroke(new BasicStroke(5));
-//				g.setColor(Color.BLACK);
-//				g.drawRect(0, 0, getWidth()-1, getHeight()-1);
-//			}
-//		};
+		Component totalBox = new Component(550,140,500,600) {
+
+			@Override
+			public void update(Graphics2D g) {
+				g.setStroke(new BasicStroke(5));
+				g.setColor(Color.BLACK);
+				g.drawRect(0, 0, getWidth()-1, getHeight()-1);
+			}
+		};
 		
+		Component divisionLine = new Component(100,150,320,400) {
+
+			@Override
+			public void update(Graphics2D g) {
+				g.setColor(Color.white);
+				g.fillRect(0, 0, getWidth(), getHeight());
+				g.setStroke(new BasicStroke(5));
+				g.setColor(Color.BLACK);
+				g.drawRect(0, 0, getWidth()-1, getHeight()-1);
+			}
+		};
+
 		list = new TextArea(555, 170, 300, 400,"");
 		profit = new TextArea(955, 170, 200, 400, "");
 		trash = new TextArea(555, 600, 500, 95, "TRASH PENALTY");
@@ -140,9 +153,9 @@ public class JoannaResultScreen extends FullFunctionScreen {
 		totalCost = new TextArea(955, 650, 500, 95, "");
 
 		orderBox.setVisible(true);
-//		totalBox.setVisible(true);
+		totalBox.setVisible(true);
 		viewObjects.add(orderBox);
-//		viewObjects.add(totalBox);
+		viewObjects.add(totalBox);
 		viewObjects.add(profit);
 		viewObjects.add(list);
 		viewObjects.add(home);
@@ -167,70 +180,67 @@ public class JoannaResultScreen extends FullFunctionScreen {
 
 	}
 
-	private void compareToOrder() {
-		//for(int i = 0; i < order  )
-			// check to c if topping is even in seq then compare quantity
+
+
+	private String displayPrices() {
+		String s = "6.00";
+		for(int i =0; i < prices.size(); i++ ) {
+			s+= "\n"+ String.format("%.2f", prices.get(i));
+		}
+		return s;
 	}
 
-//	private String displayPrices() {
-//		String s = "6.00";
-//		for(int i =0; i < prices.size(); i++ ) {
-//			s+= "\n"+ String.format("%.2f", prices.get(i));
-//		}
-//		return s;
-//	}
-//
-//	private String displayTrash() {
-//		String s = "$0.00";
-//		if(trashCount > 0) {
-//			trashAmt = trashCount*-3;
-//			s = "$"+ String.format("%.2f",trashAmt);
-//
-//		}
-//
-//		return s;
-//	}
-//
-//	private void separatePrices() {
-//
-//		for(int i = 0; i < onScreen.size(); i++ ) {
-//			double price = (((AnnieFoodItem) onScreen.get(i)[1]).getPrice());
-//			int num= calcDiff(i);
-//			double a = price * num;
-//			prices.add(Math.round( a * 100.0)/100.0);
-//		}
-//		
-//	}
-//
-//
-//
-//
-//	private int calcDiff(int i) {
-//		int n = toppingExist(i);
-//		int diff;
-//		if(n != -1){
-//			diff = (int)currentOrder.get(i)[0] - (int)onScreen.get(i)[0];
-//		}else {
-//			diff = (int)onScreen.get(i)[0];
-//		}
-//		diff = (Math.abs(diff)) *-1;
-//		return diff;
-//	}
-//
-//
-//
-//
-//	private int toppingExist(int i) {
-//		for(int j = 0; j < currentOrder.size(); j++) {
-//			if(onScreen.get(i)[1] == currentOrder.get(i)[1]) {
-//				return j;
-//			}
-//		}
-//		return -1;
-//	}
+	private String displayTrash() {
+		String s = "$0.00";
+		if(trashCount > 0) {
+			trashAmt = trashCount*-3;
+			s = "$"+ String.format("%.2f",trashAmt);
+
+		}
+
+		return s;
+	}
+
+	private void separatePrices() {
+
+		for(int i = 0; i < onScreen.size(); i++ ) {
+			double price = (((AnnieFoodItem) onScreen.get(i)[1]).getPrice());
+			int num= calcDiff(i);
+			double a = price * num;
+			prices.add(Math.round( a * 100.0)/100.0);
+		}
+
+	}
 
 
 
 
-	
+	private int calcDiff(int i) {
+		int n = toppingExist(i);
+		int diff;
+		if(n != -1){
+			diff = (int)currentOrder.get(i)[0] - (int)onScreen.get(i)[0];
+		}else {
+			diff = (int)onScreen.get(i)[0];
+		}
+		diff = (Math.abs(diff)) *-1;
+		return diff;
+	}
+
+
+
+
+	private int toppingExist(int i) {
+		for(int j = 0; j < currentOrder.size(); j++) {
+			if(onScreen.get(i)[1] == currentOrder.get(i)[1]) {
+				return j;
+			}
+		}
+		return -1;
+	}
+
+
+
+
+
 }
