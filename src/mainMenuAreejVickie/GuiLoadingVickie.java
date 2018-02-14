@@ -66,7 +66,7 @@ public class GuiLoadingVickie extends GUIApplication{
 		inventory = new InventoryVickie(getWidth(), getHeight());
 		
 		bInstruct = new poppingBalloonsJessicaJi.BalloonInstructionsJi(getWidth(), getHeight());
-		bscreen = new poppingBalloonsJessicaJi.BalloonScreenJessica(getWidth(), getHeight());
+		//bscreen = new poppingBalloonsJessicaJi.BalloonScreenJessica(getWidth(), getHeight());
 				
 		foodGame = new foodJoannaAnnie.AnnieWorkScreen(getWidth(), getHeight());
 		
