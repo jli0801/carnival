@@ -38,9 +38,9 @@ public class BalloonResultsJi extends FullFunctionScreen {
 		setBackground(background);
 
 		setScore();
-		//score.setText("Final Score: " + scoreNum + "    Rank #" + findCurrentScore(highScores, scoreNum));
 		//addScores(scoreNum);
 		//sortScores(highScores);
+		//score.setText("Final Score: " + scoreNum + "    Rank #" + findCurrentScore(highScores, scoreNum));
 		//firstPlace.setText("#1 " + highScores.get(highScores.size()));
 		//secondPlace.setText("#2 " + highScores.get(highScores.size() - 1));
 		//thirdPlace.setText("#3 " + highScores.get(highScores.size() - 2));
@@ -101,8 +101,8 @@ public class BalloonResultsJi extends FullFunctionScreen {
 		//thirdPlace = new TextArea(500, 500, 150, 200, "#3 " + highScores.get(highScores.size() - 2));
 		//viewObjects.add(thirdPlace);
 
-		ticketTxt = new TextArea(500, 100, 200, 100, "Tickets Earned: " + tickets);
-
+		ticketTxt = new TextArea(500, 100, 600, 100, "Tickets Earned: " + tickets);
+		viewObjects.add(ticketTxt);
 	}
 
 	public void sortScores(ArrayList<Integer> arr) {
