@@ -661,7 +661,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 
 	
 	private void endRound() {
-		timeLeftTxt.setText("GAME OVER");
+		//timeLeftTxt.setText("GAME OVER");
 		GuiLoadingVickie.loading.setScreen(new BalloonResultsJi(getWidth(), getHeight()));
 	}
 	
