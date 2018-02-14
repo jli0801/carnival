@@ -46,16 +46,8 @@ public class AnnieInstructionScreen extends ClickableScreen {
 				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
 			}
 		});
-		Button start = new Button(getWidth() - 200, 40, 180, 60, "Start Game", thing.getButtonColor(), new Action() {
-			
-			@Override
-			public void act() {
-				thing.getButtonAction();
-			}
-		});
 		addObject(menu);
-		addObject(start);
-		thing.extraButtons(getViewObjects());
+		thing.getButtons(getViewObjects());
 	}
 
 	private void setGameName() {

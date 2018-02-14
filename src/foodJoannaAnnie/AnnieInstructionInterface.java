@@ -13,11 +13,9 @@ public interface AnnieInstructionInterface {
 
 	Color getButtonColor();
 
-	void getButtonAction();
-
 	String getInstructions();
 
-	void extraButtons(List<Visible> viewObjects);
+	void getButtons(List<Visible> viewObjects);
 
 	boolean hasBackImage();
 
