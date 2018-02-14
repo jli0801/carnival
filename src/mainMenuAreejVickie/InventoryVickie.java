@@ -425,11 +425,11 @@ public class InventoryVickie extends FullFunctionScreen {
 	}
 
 	public void setInventoryArrayList(ArrayList<String> arr) {
-		this.itemsList = arr;
+		InventoryVickie.itemsList = arr;
 	}
 	
 	public void setHammer(boolean n) {
-		this.hammer = n;
+		InventoryVickie.hammer = n;
 	}
 	
 	public static boolean getHammer() {
