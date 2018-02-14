@@ -16,6 +16,7 @@ import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import mainMenuAreejVickie.GuiLoadingVickie;
+import poppingBalloonsJessicaJi.BalloonInstructionsJi;
 import poppingBalloonsJessicaJi.BalloonScreenJessica;
 
 public class MainScreenAreej extends FullFunctionScreen {
@@ -38,10 +39,12 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				GuiLoadingVickie.loading.setScreen(new BalloonScreenJessica(getWidth(), getHeight()));
+				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.bInstruct);
 			}
-			
+			//
 		});
+		
+		clown.hoverAction();
 		
 		//whack a mole
 		ClickableGraphic mole = new ClickableGraphic(410,490, 200, 200, "resources/mole.png");
