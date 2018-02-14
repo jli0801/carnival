@@ -13,45 +13,54 @@ public class AnnieInstructionScreen extends ClickableScreen {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private AnnieInstructionInterface caller;
+	private AnnieInstructionInterface thing;
 	private TextArea instructions;
 	private TextArea gameName;
 
-	public AnnieInstructionScreen(int width, int height, AnnieInstructionInterface caller) {
+	public AnnieInstructionScreen(int width, int height, AnnieInstructionInterface thing) {
 		super(width, height);
-		this.caller = caller;
-		setBackground(caller.getBackgroundColor());
+		this.thing = thing;
+		setBackground(thing.getBackgroundColor());
+		addBackground();
 		setGameName();
 		setUpButtons();
 		setInstructions();
 	}
 
+	private void addBackground() {
+		if(thing.hasBackImage()) {
+			Graphic backImage = new Graphic(0, 0, getWidth(), getHeight(), thing.getBackImageLocation());
+			getViewObjects().add(0, backImage);
+		}
+	}
+
 	private void setInstructions() {
-		instructions.setText(caller.getInstructions());
+		instructions.setText(thing.getInstructions());
 	}
 
 	private void setUpButtons() {
-		Button menu = new Button(20, 40, 270, 60, "Return to Main Menu", caller.getButtonColor(), new Action() {
+		Button menu = new Button(20, 40, 270, 60, "Return to Main Menu", thing.getButtonColor(), new Action() {
 			
 			@Override
 			public void act() {
 				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
 			}
 		});
-		Button start = new Button(getWidth() - 200, 40, 180, 60, "Start Game", caller.getButtonColor(), new Action() {
+		Button start = new Button(getWidth() - 200, 40, 180, 60, "Start Game", thing.getButtonColor(), new Action() {
 			
 			@Override
 			public void act() {
-				caller.getButtonAction();
+				thing.getButtonAction();
 			}
 		});
 		addObject(menu);
 		addObject(start);
+		thing.extraButtons(getViewObjects());
 	}
 
 	private void setGameName() {
-		gameName.setText(caller.getGameName());
-		gameName.setBodyColor(caller.getButtonColor());
+		gameName.setText(thing.getGameName());
+		gameName.setBodyColor(thing.getButtonColor());
 	}
 
 	@Override
