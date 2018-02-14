@@ -33,6 +33,8 @@ public class WAMEasyKevin extends FullFunctionScreen {
 	private int time;
 	private int moleTime;
 	
+	private int moleTimerOn;
+	
 	private Graphic mOne;
 	private Graphic mTwo;
 	private Graphic mThree;
@@ -89,6 +91,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		score = 0;
 		time = 20;
 		moleTime = 3;
+		moleTimerOn = 0;
 		
 		//Quit Buttons------------------------------------------------------------------------------------------------------
 		
@@ -344,6 +347,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 			moleSwap(mNine,sNine);
 			
 			moleTimer(sNine,mNine);
+			moleTimerOn++;
 		}else {
 			upMole();
 		}
@@ -356,6 +360,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 			moleSwap(mEight,sEight);
 			
 			moleTimer(sEight,mEight);
+			moleTimerOn++;
 		}else {
 			upMole();
 		}
@@ -369,6 +374,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 			moleSwap(mSeven,sSeven);
 			
 			moleTimer(sSeven,mSeven);
+			moleTimerOn++;
 		}else {
 			upMole();
 		}
@@ -381,6 +387,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 			moleSwap(mSix,sSix);
 			
 			moleTimer(sSix,mSix);
+			moleTimerOn++;
 		}else {
 			upMole();
 		}
@@ -393,6 +400,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 			moleSwap(mFive,sFive);
 			
 			moleTimer(sFive,mFive);
+			moleTimerOn++;
 		}else {
 			upMole();
 		}
@@ -405,6 +413,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 			moleSwap(mFour,sFour);
 			
 			moleTimer(sFour,mFour);
+			moleTimerOn++;
 		}else {
 			upMole();
 		}
@@ -417,6 +426,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 			moleSwap(mThree,sThree);
 			
 			moleTimer(sThree,mThree);
+			moleTimerOn++;
 		}else {
 			upMole();
 		}
@@ -429,6 +439,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 			moleSwap(mTwo,sTwo);
 			
 			moleTimer(sTwo,mTwo);
+			moleTimerOn++;
 			}else {
 			upMole();
 		}
@@ -441,6 +452,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 			moleSwap(mOne,sOne);
 			
 			moleTimer(sOne,mOne);
+			moleTimerOn++;
 		}else {
 			upMole();
 		}
@@ -450,23 +462,27 @@ public class WAMEasyKevin extends FullFunctionScreen {
 	//Timers-------------------------------------------------------------------------------------------------------------------
 	
 	private void moleTimer(Graphic addMole,Graphic removeMole) {
-		Timer mTimer = new Timer();
-		TimerTask mTask;
-		mTask = new TimerTask() {
-			@Override
-			public void run() { 
-				if (moleTime > 0) {
-					moleTime--;
-				} else {
-					cancel();
-					moleTime = 3;
-					moleSwap(addMole,removeMole);
-					disableMole(removeMole);
-					upMole();
+		if (moleTimerOn < 9) {
+			Timer mTimer = new Timer();
+			TimerTask mTask;
+			mTask = new TimerTask() {
+				@Override
+				public void run() { 
+					if (moleTime > 0) {
+						moleTime--;
+					} else {
+						cancel();
+						moleTime = 5;
+						moleSwap(addMole,removeMole);
+						disableMole(removeMole);
+						upMole();
+					}
 				}
-			}
-		};
-		mTimer.schedule(mTask, 0, 1000);
+			};
+			mTimer.schedule(mTask, 0, 1500);
+		}else {
+			
+		}
 	}
 
 	private void Timer() {
