@@ -1,8 +1,10 @@
 package whackAMoleKevinSteph;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
@@ -15,6 +17,7 @@ import guiTeacher.GUIApplication;
 import guiTeacher.components.Action;
 import guiTeacher.components.AnimatedComponent;
 import guiTeacher.components.Button;
+import guiTeacher.components.Component;
 import guiTeacher.components.Graphic;
 import guiTeacher.components.StyledComponent;
 import guiTeacher.components.TextArea;
@@ -31,12 +34,9 @@ public class WAMResultStephanie extends FullFunctionScreen {
 	private TextArea ticketA;
 	private TextArea scoreA;
 	private TextArea totalA;
-	private TextBox ticketEarn;
-	private TextBox showScores;
-	private TextBox totalTickets;
 	private Graphic tpic;
 	private Graphic mpic;
-	private AnimatedComponent confetti;
+	private Graphic tapic;
 	public int ticketNum;
 	
 	public WAMResultStephanie(int width, int height) {
@@ -44,35 +44,20 @@ public class WAMResultStephanie extends FullFunctionScreen {
 	}
 	
 	public int getTickets() {
-		if(WAMGameKevin.score == 0) {
+		if(WAMEasyKevin.score == 0) {
 			ticketNum = 0;
 		}else {
-			ticketNum = (int)(Math.rint((WAMGameKevin.score/2) + 1));
+			ticketNum = (int)(Math.rint((WAMEasyKevin.score/2) + 1));
 		}
 		
 		return ticketNum;
 	}
 
 	public void initAllObjects(List<Visible> viewObjects) {
-		try {
-
-			File fontFile = new File("resources/Bangers.ttf");
-
-			Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-
-			Font baseFont=font.deriveFont(26f);
-
-			StyledComponent.setBaseFont(baseFont);
-
-			} catch (Exception e) {
-
-			e.printStackTrace();
-
-			}
-		confetti = new AnimatedComponent(100, 100, 100, 100);
-		viewObjects.add(confetti);
-		 
-		returnMSButton = new Button(30,30,210,50,"RETURN TO MAIN MENU",Color.ORANGE, new Action() {
+		Graphic gamebg = new Graphic(0,0, getWidth(), getHeight(), "wam/grass.png");
+		viewObjects.add(gamebg);
+			 
+		returnMSButton = new Button(20,30,210,50,"RETURN TO MAIN MENU",Color.ORANGE, new Action() {
 
 				public void act() {
 					GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
@@ -83,14 +68,14 @@ public class WAMResultStephanie extends FullFunctionScreen {
 
 		viewObjects.add(returnMSButton);
 		 
-		playButton = new Button(920,30,210,50,"PLAY AGAIN", Color.ORANGE, new Action() {
+		playButton = new Button(970,30,200,50,"PLAY AGAIN", Color.ORANGE, new Action() {
 			
 			public void act() {
-				GuiLoadingVickie.loading.setScreen(new WAMGameKevin(getWidth(), getHeight()));
+				GuiLoadingVickie.loading.setScreen(new WAMEasyKevin(getWidth(), getHeight()));
 				GUIApplication.enableCursorChange = true;
 				
 				JFrame mainPane = GUIApplication.mainFrame;
-				GuiLoadingVickie.loading.setScreen(new WAMGameKevin(getWidth(), getHeight()));
+				GuiLoadingVickie.loading.setScreen(new WAMEasyKevin(getWidth(), getHeight()));
 				Toolkit toolkit = Toolkit.getDefaultToolkit();
 				Image image = toolkit.getImage("wam/mallet.png");
 				Cursor c = toolkit.createCustomCursor(image , new Point(mainPane.getX(), 
@@ -103,32 +88,78 @@ public class WAMResultStephanie extends FullFunctionScreen {
 		 
 		viewObjects.add(playButton);
 		
-		resultTitle = new TextArea(530,165,500,270,"RESULTS");
+		resultTitle = new TextArea(510,165,500,270,"RESULTS");
 		viewObjects.add(resultTitle);
 				
-		ticketEarn = new TextBox(330,200,500,150, " ");
-		viewObjects.add(ticketEarn);
 		
-		showScores = new TextBox(330,300,500,150, " ");
-		viewObjects.add(showScores);
 		
-		totalTickets = new TextBox(330,400,500,150, " ");
-		viewObjects.add(totalTickets);
-		
-		ticketA = new TextArea(420,250,500,270, "TICKETS EARNED: " + getTickets());
+		ticketA = new TextArea(420,280,500,280, "TICKETS EARNED: " + getTickets());
+		Component box1 = new Component(320,230,520,120) {
+
+			public void update(Graphics2D g) {
+				drawBox(g, this, new Color(116, 195, 101));
+			}
+		};
+		box1.setVisible(true);
+		viewObjects.add(box1);
 		viewObjects.add(ticketA);
 		
-		scoreA = new TextArea(410,350,500,270, "SCORE: " + WAMGameKevin.score);
-		viewObjects.add(scoreA);
+		scoreA = new TextArea(410,380,500,270, "SCORE: " + WAMEasyKevin.score);
+		Component box2 = new Component(320,340,520,120) {
 
-		totalA = new TextArea(420,450,300,270, "TOTAL NUMBER OF TICKETS: ");
+			public void update(Graphics2D g) {
+				drawBox(g, this, new Color(135, 169, 107));
+			}
+		};
+		box2.setVisible(true);
+		viewObjects.add(box2);
+		viewObjects.add(scoreA);
+		
+		totalA = new TextArea(420,490,300,270, "TOTAL NUMBER OF TICKETS: ");
+		Component box3 = new Component(320,450,520,120) {
+
+			public void update(Graphics2D g) {
+				drawBox(g, this, new Color(113, 188, 120));
+			}
+		};
+		box3.setVisible(true);
+		viewObjects.add(box3);
 		viewObjects.add(totalA);
 		
-		tpic = new Graphic(340,220,80,80,"wam/ticket.png");
+		tpic = new Graphic(340,250,80,80,"wam/ticket.png");
 		viewObjects.add(tpic);
 		
-		mpic = new Graphic(340,320,80,80,"wam/mouse.jpg");
+		mpic = new Graphic(340,350,80,80,"wam/mouse.png");
 		viewObjects.add(mpic);
+		
+		tapic = new Graphic(340,470,80,80,"wam/totalA.png");
+		viewObjects.add(tapic);
+		
+		try {
+
+			File fontFile = new File("resources/Bangers.ttf");
+
+			Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+
+			Font baseFont=font.deriveFont(26f);
+
+			StyledComponent.setBaseFont(baseFont);
+			
+			resultTitle.setFont(font.deriveFont(50f));
+
+			} catch (Exception e) {
+
+			e.printStackTrace();
+
+			}
+	}
+	
+	protected void drawBox(Graphics2D g, Component component, Color color) {
+		g.setColor(color);
+		g.fillRect(0, 0, component.getWidth(), component.getHeight());
+		g.setStroke(new BasicStroke(5));
+		g.setColor(Color.black);
+		g.drawRect(0, 0, component.getWidth() - 1, component.getHeight() - 1);
 	}
 	
 }

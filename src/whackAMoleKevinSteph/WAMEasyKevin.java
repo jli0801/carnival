@@ -13,15 +13,27 @@ import mainMenuAreejVickie.GuiLoadingVickie;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
 import java.util.Random;
 
-public class WAMGameKevin extends FullFunctionScreen {
+public class WAMEasyKevin extends FullFunctionScreen {
 
-	/**
+	/** 
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	public static int score;
+	private TextArea scoreText;
+	
+	private Button quitButton;
+	
+	public TextArea timeText;
+	
+	public int time;
+	public int moleTime;
+	
+	public int moleTimerOn;
 	
 	private Graphic mOne;
 	private Graphic mTwo;
@@ -63,15 +75,8 @@ public class WAMGameKevin extends FullFunctionScreen {
 	private Button moleEight;
 	private Button moleNine;
 	
-	public static int score;
-	private TextArea scoreText;
 	
-	private Button quitButton;
-	
-	private static TextArea timeText;
-	private static int time;
-	
-	public WAMGameKevin(int width, int height) {
+	public WAMEasyKevin(int width, int height) {
 		super(width, height);
 	
 	}
@@ -81,11 +86,16 @@ public class WAMGameKevin extends FullFunctionScreen {
 		Graphic gamebg = new Graphic(0,0, getWidth(), getHeight(), "wam/grass.png");
 		viewObjects.add(gamebg);
 		
+		//Setting Values---------------------------------------------------------------------------------------------------
+		
 		score = 0;
+		time = 20;
+		moleTime = 3;
+		moleTimerOn = 0;
 		
-		//Timer();
+		//Quit Buttons------------------------------------------------------------------------------------------------------
 		
-		quitButton = new Button(100,30,100,70,"Quit Game", new Action() {
+		quitButton = new Button(20,30,210,50,"Quit Game", new Action() {
 			
 			@Override
 			public void act() {
@@ -96,20 +106,26 @@ public class WAMGameKevin extends FullFunctionScreen {
 		});
 		viewObjects.add(quitButton);
 		
+		//Creating Text Areas-----------------------------------------------------------------------------------------------
+		
 		scoreText = new TextArea(950,100,100,100, "Score: " + score);
 		viewObjects.add(scoreText);
 		
-		timeText = new TextArea(950,150,200,200, "Time: " + time + " Seconds Remaining");
+		timeText = new TextArea(950,150,200,200, "Time: " + time + " Seconds");
 		viewObjects.add(timeText);
+		Timer();
+		
+		//Creating Mole Buttons---------------------------------------------------------------------------------------------
+		//Moles will only start moving once you press one
 		
 		moleOne = new Button(250,200,80,80,"", new Action() {
 			
 			@Override
 			public void act() {
-				moleOneDown();
+				moleOne.setEnabled(false);
+				moleSwap(sOne,mOne);
 				scoreUp();
-				upMole();
-				endGame();
+				
 			}
 		});
 		viewObjects.add(moleOne);
@@ -118,10 +134,10 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleTwoDown();
+				moleTwo.setEnabled(false);
+				moleSwap(sTwo,mTwo);
 				scoreUp();
 				upMole();
-				endGame();
 			}
 		});
 		viewObjects.add(moleTwo);
@@ -130,10 +146,10 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleThreeDown();
+				moleThree.setEnabled(false);
+				moleSwap(sThree,mThree);
 				scoreUp();
 				upMole();
-				endGame();
 			}
 		});
 		viewObjects.add(moleThree);
@@ -142,10 +158,10 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleFourDown();
+				moleFour.setEnabled(false);
+				moleSwap(sFour,mFour);
 				scoreUp();
 				upMole();
-				endGame();
 			}
 		});
 		viewObjects.add(moleFour);
@@ -154,10 +170,10 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleFiveDown();
+				moleFive.setEnabled(false);
+				moleSwap(sFive,mFive);
 				scoreUp();
 				upMole();
-				endGame();
 			}
 		});
 		viewObjects.add(moleFive);
@@ -166,10 +182,10 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleSixDown();
+				moleSix.setEnabled(false);
+				moleSwap(sSix,mSix);
 				scoreUp();
 				upMole();
-				endGame();
 			}
 		});
 		viewObjects.add(moleSix);
@@ -178,10 +194,10 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleSevenDown();
+				moleSeven.setEnabled(false);
+				moleSwap(sSeven,mSeven);
 				scoreUp();
 				upMole();
-				endGame();
 			}
 		});
 		viewObjects.add(moleSeven);
@@ -190,10 +206,10 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleEightDown();
+				moleEight.setEnabled(false);
+				moleSwap(sEight,mEight);
 				scoreUp();
 				upMole();
-				endGame();
 			}
 		});
 		viewObjects.add(moleEight);
@@ -202,14 +218,15 @@ public class WAMGameKevin extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				moleNineDown();
+				moleNine.setEnabled(false);
+				moleSwap(sNine,mNine);
 				scoreUp();
 				upMole();
-				endGame();
 			}
 		});
 		viewObjects.add(moleNine);
 		
+		//Creating Graphics----------------------------------------------------------------------------------------------------
 		
 		mOne = new Graphic(250,200,80,80,"wam/mole.png");
 		//viewObjects.add(mOne);
@@ -292,6 +309,8 @@ public class WAMGameKevin extends FullFunctionScreen {
 		dNine = new Graphic(650,600,80,80,"wam/dirt.png");
 		viewObjects.add(dNine);
 		
+		//Enabling Mole Buttons---------------------------------------------------------------------------------------------
+		
 		moleOne.setEnabled(false);
 		moleTwo.setEnabled(false);
 		moleThree.setEnabled(true);
@@ -303,85 +322,194 @@ public class WAMGameKevin extends FullFunctionScreen {
 		moleNine.setEnabled(false);
 	}
 	
+	//Score Change Methods-------------------------------------------------------------------------------------------------------
 	
-	public void moleOneDown() {
-		moleOne.setEnabled(false);
-		viewObjects.add(sOne);
-		viewObjects.remove(mOne);
-	}
-
-	public void moleTwoDown() {
-		moleTwo.setEnabled(false);
-		viewObjects.add(sTwo);
-		viewObjects.remove(mTwo);
-	}
-
-	public void moleThreeDown() {
-		moleThree.setEnabled(false);
-		viewObjects.add(sThree);
-		viewObjects.remove(mThree);
-	}
-
-	public void moleFourDown() {
-		moleFour.setEnabled(false);		
-		viewObjects.add(sFour);
-		viewObjects.remove(mFour);
-	}
-
-	public void moleFiveDown() {
-		moleFive.setEnabled(false);	
-		viewObjects.add(sFive);
-		viewObjects.remove(mFive);
-	}
-
-	public void moleSixDown() {
-		moleSix.setEnabled(false);		
-		viewObjects.add(sSix);
-		viewObjects.remove(mSix);
-	}
-
-	public void moleSevenDown() {
-		moleSeven.setEnabled(false);		
-		viewObjects.add(sSeven);
-		viewObjects.remove(mSeven);
-	}
-
-	public void moleEightDown() {
-		moleEight.setEnabled(false);	
-		viewObjects.add(sEight);
-		viewObjects.remove(mEight);
-	}
-
-	public void moleNineDown() {
-		moleNine.setEnabled(false);		
-		viewObjects.add(sNine);
-		viewObjects.remove(mNine);
-	}
-
 	public void scoreUp() {
 		score++;
 		scoreText.setText("Score: " + score);
 		scoreText.update();
 	}
 	
+	//End Game Method------------------------------------------------------------------------------------------------------------
+	
 	public void endGame() {
-		if (score == 25) {
-		moleOne.setEnabled(false);
-		moleTwo.setEnabled(false);
-		moleThree.setEnabled(false);
-		moleFour.setEnabled(false);
-		moleFive.setEnabled(false);
-		moleSix.setEnabled(false);
-		moleSeven.setEnabled(false);
-		moleEight.setEnabled(false);
-		moleNine.setEnabled(false);
-			
-		quitButton.setEnabled(false);
 		GuiLoadingVickie.loading.setScreen(new WAMResultStephanie(getWidth(), getHeight()));
 		GUIApplication.enableCursorChange = true;
-		}
+
 	}
 	
+	//Mole Spawn Methods-------------------------------------------------------------------------------------------------------------
+	//moleNine.setEnabled(false);
+	
+	public void moleNineUp() {
+		if (moleNine.isEnabled() == false) {
+			moleNine.setEnabled(true);		
+			moleSwap(mNine,sNine);
+			
+			moleTimer(sNine,mNine);
+			moleTimerOn++;
+		}else {
+			upMole();
+		}
+		
+	}
+
+	public void moleEightUp() {
+		if (moleEight.isEnabled() == false) {
+			moleEight.setEnabled(true);		
+			moleSwap(mEight,sEight);
+			
+			moleTimer(sEight,mEight);
+			moleTimerOn++;
+		}else {
+			upMole();
+		}
+		
+		
+	}
+
+	public void moleSevenUp() {
+		if (moleSeven.isEnabled() == false) {
+			moleSeven.setEnabled(true);		
+			moleSwap(mSeven,sSeven);
+			
+			moleTimer(sSeven,mSeven);
+			moleTimerOn++;
+		}else {
+			upMole();
+		}
+		
+	}
+
+	public void moleSixUp() {
+		if (moleSix.isEnabled() == false) {
+			moleSix.setEnabled(true);		
+			moleSwap(mSix,sSix);
+			
+			moleTimer(sSix,mSix);
+			moleTimerOn++;
+		}else {
+			upMole();
+		}
+		
+	}
+
+	public void moleFiveUp() {
+		if (moleFive.isEnabled() == false) {
+			moleFive.setEnabled(true);		
+			moleSwap(mFive,sFive);
+			
+			moleTimer(sFive,mFive);
+			moleTimerOn++;
+		}else {
+			upMole();
+		}
+		
+	}
+
+	public void moleFourUp() {
+		if (moleFour.isEnabled() == false) {
+			moleFour.setEnabled(true);		
+			moleSwap(mFour,sFour);
+			
+			moleTimer(sFour,mFour);
+			moleTimerOn++;
+		}else {
+			upMole();
+		}
+		
+	}
+
+	public void moleThreeUp() {
+		if (moleThree.isEnabled() == false) {
+			moleThree.setEnabled(true);		
+			moleSwap(mThree,sThree);
+			
+			moleTimer(sThree,mThree);
+			moleTimerOn++;
+		}else {
+			upMole();
+		}
+		
+	}
+
+	public void moleTwoUp() {
+		if (moleTwo.isEnabled() == false) {
+			moleTwo.setEnabled(true);		
+			moleSwap(mTwo,sTwo);
+			
+			moleTimer(sTwo,mTwo);
+			moleTimerOn++;
+			}else {
+			upMole();
+		}
+		
+	}
+
+	public void moleOneUp() {
+		if (moleOne.isEnabled() == false) {
+			moleOne.setEnabled(true);	
+			moleSwap(mOne,sOne);
+			
+			moleTimer(sOne,mOne);
+			moleTimerOn++;
+		}else {
+			upMole();
+		}
+		
+	}
+	
+	//Timers-------------------------------------------------------------------------------------------------------------------
+	
+	public void moleTimer(Graphic addMole,Graphic removeMole) {
+		if (moleTimerOn < 9) {
+			Timer mTimer = new Timer();
+			TimerTask mTask;
+			mTask = new TimerTask() {
+				@Override
+				public void run() { 
+					if (moleTime > 0) {
+						moleTime--;
+					} else {
+						cancel();
+						moleTime = 5;
+						moleSwap(addMole,removeMole);
+						disableMole(removeMole);
+						upMole();
+					}
+				}
+			};
+			mTimer.schedule(mTask, 0, 1500);
+		}else {
+			
+		}
+	}
+
+	public void Timer() {
+		Timer timer = new Timer();
+		TimerTask task;
+		task = new TimerTask() {
+			@Override
+			public void run() { 
+				if (time > 0) {
+					timeText.setText("Time Left: " + time);
+					time--;
+				} else {
+					cancel();
+					endGame();
+				}
+			}
+		};
+		timer.schedule(task, 0, 1000);
+	}
+
+//Helper Methods---------------------------------------------------------------------------------------------------------
+
+	public void moleSwap(Graphic aGraph, Graphic rGraph) {
+		viewObjects.add(aGraph);
+		viewObjects.remove(rGraph);
+	}
+
 	public void upMole() {
 		Random rand = new Random();
 		int  n = rand.nextInt(9) + 1;
@@ -413,125 +541,38 @@ public class WAMGameKevin extends FullFunctionScreen {
 		if (n==9) {
 			moleNineUp();
 		}
+		
 	}
-
-	private void moleNineUp() {
-		if (moleNine.isEnabled() == false) {
-			moleNine.setEnabled(true);		
-			viewObjects.add(mNine);
-			viewObjects.remove(sNine);
-		}else {
-			upMole();
+	
+	public void disableMole(Graphic removeMole) {
+		if (removeMole == mOne) {
+			moleOne.setEnabled(false);
 		}
-		
-	}
-
-	private void moleEightUp() {
-		if (moleEight.isEnabled() == false) {
-			moleEight.setEnabled(true);		
-			viewObjects.add(mEight);
-			viewObjects.remove(sEight);
-		}else {
-			upMole();
+		if (removeMole == mTwo) {
+			moleTwo.setEnabled(false);
 		}
-		
-		
-	}
-
-	private void moleSevenUp() {
-		if (moleSeven.isEnabled() == false) {
-			moleSeven.setEnabled(true);		
-			viewObjects.add(mSeven);
-			viewObjects.remove(sSeven);
-		}else {
-			upMole();
+		if (removeMole == mThree) {
+			moleThree.setEnabled(false);
 		}
-		
-	}
-
-	private void moleSixUp() {
-		if (moleSix.isEnabled() == false) {
-			moleSix.setEnabled(true);		
-			viewObjects.add(mSix);
-			viewObjects.remove(sSix);
-		}else {
-			upMole();
+		if (removeMole == mFour) {
+			moleFour.setEnabled(false);
 		}
-		
-	}
-
-	private void moleFiveUp() {
-		if (moleFive.isEnabled() == false) {
-			moleFive.setEnabled(true);		
-			viewObjects.add(mFive);
-			viewObjects.remove(sFive);
-		}else {
-			upMole();
+		if (removeMole == mFive) {
+			moleFive.setEnabled(false);
 		}
-		
-	}
-
-	private void moleFourUp() {
-		if (moleFour.isEnabled() == false) {
-			moleFour.setEnabled(true);		
-			viewObjects.add(mFour);
-			viewObjects.remove(sFour);
-		}else {
-			upMole();
+		if (removeMole == mSix) {
+			moleSix.setEnabled(false);
 		}
-		
-	}
-
-	private void moleThreeUp() {
-		if (moleThree.isEnabled() == false) {
-			moleThree.setEnabled(true);		
-			viewObjects.add(mThree);
-			viewObjects.remove(sThree);
-		}else {
-			upMole();
+		if (removeMole == mSeven) {
+			moleSeven.setEnabled(false);
 		}
-		
-	}
-
-	private void moleTwoUp() {
-		if (moleTwo.isEnabled() == false) {
-			moleTwo.setEnabled(true);		
-			viewObjects.add(mTwo);
-			viewObjects.remove(sTwo);
-		}else {
-			upMole();
+		if (removeMole == mEight) {
+			moleEight.setEnabled(false);
 		}
-		
-	}
-
-	private void moleOneUp() {
-		if (moleOne.isEnabled() == false) {
-			moleOne.setEnabled(true);		
-			viewObjects.add(mOne);
-			viewObjects.remove(sOne);
-		}else {
-			upMole();
+		if (removeMole == mNine) {
+			moleNine.setEnabled(false);
 		}
 		
 	}
 	
-	/*
-	private void Timer() {
-		Timer timer = new Timer();
-		TimerTask task;
-		task = new TimerTask() {
-			@Override
-			public void run() { 
-				if (time > 0) {
-					timeText.setText("Time: " + time + " Seconds Remaining");
-					time--;
-				} else {
-					cancel();
-					endGame();
-				}
-			}
-		};
-		timer.schedule(task, 0, 1000);
-	}
-*/
 }
