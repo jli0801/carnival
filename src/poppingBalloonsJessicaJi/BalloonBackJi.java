@@ -130,6 +130,10 @@ public class BalloonBackJi {
 	{
 		return darts;
 	}
+	
+	public static void increaseStrength(int balloonIndex) {
+		balloons.set(balloonIndex, (balloons.get(balloonIndex) + 50));
+	}
 
 	/*
 	public static void updateBalloons(int x, int dartProperty) { //needs to be static so Jessica can access it
