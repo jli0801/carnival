@@ -65,6 +65,7 @@ public class JoannaResultScreen extends FullFunctionScreen {
 		profit.setText(displayPrices());
 		trashCost.setText(displayTrash());
 		totalCost.setText(calcTotal());
+		GuiLoadingVickie.inventory.setMoney(GuiLoadingVickie.inventory.getMoney()+ earned);
 	}
 
 
@@ -230,7 +231,7 @@ public class JoannaResultScreen extends FullFunctionScreen {
 		int n = toppingExist(i);
 		int diff;
 		if(n != -1){
-			diff = (int)currentOrder.get(i)[0] - (int)onScreen.get(i)[0];
+			diff = (int)currentOrder.get(n)[0] - (int)onScreen.get(i)[0];
 		}else {
 			diff = (int)onScreen.get(i)[0];
 		}
@@ -243,7 +244,7 @@ public class JoannaResultScreen extends FullFunctionScreen {
 
 	private int toppingExist(int i) {
 		for(int j = 0; j < currentOrder.size(); j++) {
-			if(onScreen.get(i)[1] == currentOrder.get(i)[1]) {
+			if(onScreen.get(i)[1] == currentOrder.get(j)[1]) {
 				return j;
 			}
 		}
