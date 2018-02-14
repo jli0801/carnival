@@ -50,6 +50,7 @@ public class BalloonResultsJi extends FullFunctionScreen {
 		 */
 		calculateTickets();
 		ticketTxt.setText("Tickets Earned: " + tickets);
+		//addTicketsInventory();
 	}
 
 	@Override
@@ -140,6 +141,12 @@ public class BalloonResultsJi extends FullFunctionScreen {
 
 	public void calculateTickets() {
 		tickets = (int) (scoreNum/2);
+	}
+	
+	public void addTicketsInventory() {
+		int t = mainMenuAreejVickie.InventoryVickie.getTickets();
+		int totalTickets = t + tickets;
+		//mainMenuAreejVickie.InventoryVickie.setTickets(totalTickets);
 	}
 	
 	public String checkSecondPlace() {
