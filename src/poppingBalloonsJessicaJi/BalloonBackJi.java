@@ -34,6 +34,14 @@ public class BalloonBackJi {
 
 	
 	
+	public BalloonBackJi(int round) {
+		super();
+		CreateBalloons();
+		this.round = round;
+	}
+
+
+
 	public static void setDartChosen(int userInput) {
 		dartChosenInt = userInput;
 	}
@@ -106,10 +114,9 @@ public class BalloonBackJi {
 	}*/ //i removed it in balloon screen but we can add the methods here.
 
 	public static boolean isPoppable(int chosenBalloon) {
-		if(getDartChosen() * PowerBarJessica.getLength() > balloons.get(chosenBalloon))
+		if((getDartChosen() * PowerBarJessica.getLength()) > balloons.get(chosenBalloon))
 		{
-			darts.remove(findIndexNextDart(dartChosenInt));
-			balloons.remove(chosenBalloon);
+			
 			return true;
 		}else {
 			balloons.set(chosenBalloon, balloons.get(chosenBalloon)-5);
