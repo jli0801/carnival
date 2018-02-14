@@ -56,6 +56,7 @@ public class AnnieInstructionScreen extends ClickableScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		
 		TextArea heading = new TextArea(100, 100, 500, 80, "How to Play");
 		gameName =  new TextArea(300, 50, 600, 30, "");
 		instructions = new TextArea(getWidth() / 2 - 400, 100, 800, 400, "");
@@ -63,7 +64,7 @@ public class AnnieInstructionScreen extends ClickableScreen {
 		try {
 			File fontFile = new File("resources/Bangers.ttf");
 			Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-			Button.setBaseFont(font.deriveFont(30f));
+			StyledComponent.setBaseFont(font.deriveFont(30f));
 			instructions.setFont(font.deriveFont(40f));
 		} catch(Exception e) {
 			e.printStackTrace();
