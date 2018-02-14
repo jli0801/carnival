@@ -325,7 +325,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				
 				toggleImage(balloon1, balloon1B, true);
 				timerB(balloon1B, balloon1);
-				
+				BalloonBackJi.increaseStrength(0);
 				
 				
 		//		BalloonBackJi.updateDarts();
@@ -364,7 +364,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				
 				toggleImage(balloon2, balloon2B, true);
 				timerB(balloon2B, balloon2);
-				
+				BalloonBackJi.increaseStrength(1);
 			
 				}
 				
@@ -390,6 +390,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				
 				toggleImage(balloon3, balloon3B, true);
 				timerB(balloon3B, balloon3);
+				BalloonBackJi.increaseStrength(2);
 				
 			//	BalloonBackJi.updateDarts();
 			//	changeDartText(numberofDarts, changeInttoString(BalloonBackJi.darts[BalloonBackJi.getDartChosen()]));
@@ -417,6 +418,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				
 				toggleImage(balloon4, balloon4B, true);
 				timerB(balloon4B, balloon4);
+				BalloonBackJi.increaseStrength(3);
 		//		BalloonBackJi.updateDarts();
 		//		changeDartText(numberofDarts, changeInttoString(BalloonBackJi.darts[BalloonBackJi.getDartChosen()]));
 		//		updateDartField(BalloonBackJi.getDartChosen(), 1);
@@ -443,6 +445,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				
 				toggleImage(balloon5, balloon5B, true);
 				timerB(balloon5B, balloon5);
+				BalloonBackJi.increaseStrength(4);
 		//		BalloonBackJi.updateDarts();
 		//		changeDartText(numberofDarts, changeInttoString(BalloonBackJi.darts[BalloonBackJi.getDartChosen()]));
 		//		updateDartField(BalloonBackJi.getDartChosen(), 1);
@@ -471,6 +474,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				
 				toggleImage(balloon6, balloon6B, true);
 				timerB(balloon6B, balloon6);
+				BalloonBackJi.increaseStrength(5);
 			//	BalloonBackJi.updateDarts();
 			//	changeDartText(numberofDarts, changeInttoString(BalloonBackJi.darts[BalloonBackJi.getDartChosen()]));
 			//	updateDartField(BalloonBackJi.getDartChosen(), 1);
