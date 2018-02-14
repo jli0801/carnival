@@ -84,7 +84,7 @@ public class BalloonInstructionsJi extends FullFunctionScreen{
 			
 			@Override
 			public void act() {
-				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.bscreen); //doesn't work
+				GuiLoadingVickie.loading.setScreen(new poppingBalloonsJessicaJi.BalloonScreenJessica(getWidth(), getHeight())); //doesn't work
 			}
 		});
 		viewObjects.add(play);
