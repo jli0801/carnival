@@ -30,16 +30,11 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 		private int count;
 		private int randColor;
 		
-		private boolean startTimer;
-		
-		private boolean activate;
 		private Color colors;
 		
 		private TimerTask complete;
 		
 		private Color []color = {Color.red, Color.orange, Color.yellow, Color.green, Color.cyan, Color.blue, Color.pink, Color.black, Color.DARK_GRAY, Color.magenta, Color.gray};
-		private Timer startApp;
-		private int startNum;
 		
 		private Timer background;
 		private TimerTask updatePics;
@@ -53,19 +48,13 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 
 		@Override
 		public void initAllObjects(List<Visible> viewObjects) {
-			
-			/*
-			 * https://stackoverflow.com/questions/39565472/how-to-automatically-execute-a-task-after-jframe-is-displayed-from-within-it
-			 */
 			track = 0;
 			
-			if(!startTimer) {
-				
-				startTimer = !startTimer;
-				
-			}
 			count = 1000;
-			//Graphic welcomeBackground = new Graphic(0,0, getWidth(), getHeight(), "resources/welcomeBackground21.jpg");
+		
+			Graphic welcomeBackground = new Graphic(0,0, getWidth(), getHeight(), "resources/welcomeBackground1.jpg");
+			
+			viewObjects.add(welcomeBackground);
 			
 			carnival = new TextArea(225,75, 1000,1000, "Carnival");
 			carnival.setForeground(Color.white);
@@ -96,10 +85,6 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 				}				
 			};
 			
-			/*if(!startTimer) {
-				timer.schedule(complete, 0, 200);
-			}*/
-			
 			
 			
 			menu = new Button(getWidth() - 270, getHeight() - 180, 200, 100, "Welcome!", Color.red, new Action() {
@@ -126,15 +111,18 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 			
 			background = new Timer();
 			updatePics = new TimerTask() {
-
+			
 				@Override
 				public void run() {
+					
 					track ++;
 					if(track == 22) {
 						background.cancel();
 					}else {
 					Graphic welcomeBackground = new Graphic(0,0, getWidth(), getHeight(), "resources/welcomeBackground" + track + ".jpg");
-					viewObjects.add(welcomeBackground);}
+					viewObjects.add(welcomeBackground);
+					viewObjects.add(carnival);
+					viewObjects.add(menu);}
 				}
 				
 			};
@@ -158,7 +146,7 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 			
 			
 			count = 1000;
-			 if(count==1000) {background.schedule(updatePics,0,200);
+			 if(count==1000) {background.schedule(updatePics,1000,200);
 				 timer.schedule(complete, 0,200);
 				 
 			 }

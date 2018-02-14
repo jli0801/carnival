@@ -18,19 +18,6 @@ import poppingBalloonsJessicaJi.DartJessica;
 
 public class InventoryVickie extends FullFunctionScreen {
 
-	/*
-	 * Available items: Integer ArrayList: 4 indices, value default is 0, but
-	 * changes as people buy it..... maybe....... or it could work for all of
-	 * themmm..
-	 * 
-	 * Blunt Dart Dull Dart Sharp Dart Dangerous Dart
-	 * 
-	 * Hammer
-	 * 
-	 * Prizes:
-	 * 
-	 * teddy bear cotton candy //more food goldfish 6 more prizes
-	 */
 	private boolean firstTime;
 	
 	private Button menu;
@@ -44,80 +31,29 @@ public class InventoryVickie extends FullFunctionScreen {
 
 	
 	private Color purp = new Color(244, 164, 96);
-	private Color fuchsia = new Color(255, 0, 255);
-	private Color blood = new Color(239, 23, 56);
+	//private Color fuchsia = new Color(255, 0, 255);
+	//private Color blood = new Color(239, 23, 56);
 
 	//store items
 	private static int dull;
 	private static int blunt;
 	private static int sharp;
 	private static int dangerous;
-
+	
+	private static boolean hammer;
+	
+	//store prizes
 	private int bearP;
 	private int candyP;
 	private int fishP;
-	private boolean hammer;
+	
 	
 	public InventoryVickie(int width, int height) {
 		super(width, height);
 		setBackground(purp);
 		setVisible(true);
-		/*
-		itemsList = new ArrayList<String>();
-		darts = new ArrayList<DartJessica>();
-
-		initializeDarts();
-		*/
-		
-		/*
-		 * darts.add(Dull) or some shit
-		 * itemsList excludes darts
-		 */
 	}
-
-	private void initializeDarts() 
-	{
-		itemsList.add("dullDart");
-		itemsList.add("dullDart");
-		itemsList.add("dullDart");
-		itemsList.add("dullDart");
-
-		itemsList.add("bluntDart");
-		itemsList.add("bluntDart");
-		itemsList.add("bluntDart");
-		itemsList.add("bluntDart");
-
-		itemsList.add("sharpDart");
-		itemsList.add("sharpDart");
-		itemsList.add("sharpDart");
-		itemsList.add("sharpDart");
-
-		itemsList.add("dangerousDart");
-		itemsList.add("dangerousDart");
-		itemsList.add("dangerousDart");
-		itemsList.add("dangerousDart");
-
-		for (int i = 0; i < itemsList.size(); i++) {
-			if (itemsList.get(i).equals("dullDart")) {
-				darts.add(new DartJessica("Dull"));
-			}
-
-			if (itemsList.get(i).equals("bluntDart")) {
-				darts.add(new DartJessica("Blunt"));
-			}
-
-			if (itemsList.get(i).equals("sharpDart")) {
-				darts.add(new DartJessica("Strong"));
-			}
-
-			if (itemsList.get(i).equals("dangerousDart")) {
-				darts.add(new DartJessica("Dangerous"));
-			}
-		}
-		
-		System.out.print(darts.get(1).getType());
-	}
-
+	
 	// https://www.javatpoint.com/java-arraylist
 	/*
 	 * https://beginnersbook.com/2013/12/java-arraylist/
@@ -131,15 +67,19 @@ public class InventoryVickie extends FullFunctionScreen {
 	public void initAllObjects(List<Visible> viewObjects) {
 		if(firstTime==false) {
 			firstTime =true;
-		itemsList = new ArrayList<String>();
-		darts = new ArrayList<DartJessica>();
+			itemsList = new ArrayList<String>();
+			darts = new ArrayList<DartJessica>();
 
-		initializeDarts();}
-		
-		updateDarts();
+			initializeDarts();
+		}
 		
 		money = 10;
 		tickets = 0;
+		
+		updateDarts();
+		amtOfBears();
+		amtOfFish();
+		amtOfCandy();
 
 		// Inventory
 		TextLabel inventory = new TextLabel(512, 155, 900, 200, "Inventory!!");
@@ -175,7 +115,7 @@ public class InventoryVickie extends FullFunctionScreen {
 		Graphic sharpG = new Graphic(744, 295, 160, 160, "poppingBalloons/dart3.png");
 		Graphic dangerousG = new Graphic(956, 295, 160, 160, "poppingBalloons/dart4.png");
 
-		Graphic ticketG = new Graphic(30, 200, 50, 50, "resources/ticket.jpg");
+		Graphic ticketG = new Graphic(30, 200, 50, 50, "resources/tickets1.png");
 
 		Graphic moneyG = new Graphic(150, 200, 30, 30, "resources/money.png");
 
@@ -323,44 +263,138 @@ public class InventoryVickie extends FullFunctionScreen {
 		}
 	}
 
-	
+	private void initializeDarts() {
+		itemsList.add("dullDart");
+		itemsList.add("dullDart");
+		itemsList.add("dullDart");
+		itemsList.add("dullDart");
+
+		itemsList.add("bluntDart");
+		itemsList.add("bluntDart");
+		itemsList.add("bluntDart");
+		itemsList.add("bluntDart");
+
+		itemsList.add("sharpDart");
+		itemsList.add("sharpDart");
+		itemsList.add("sharpDart");
+		itemsList.add("sharpDart");
+
+		itemsList.add("dangerousDart");
+		itemsList.add("dangerousDart");
+		itemsList.add("dangerousDart");
+		itemsList.add("dangerousDart");
+
+		for (int i = 0; i < itemsList.size(); i++) {
+			if (itemsList.get(i).equals("dullDart")) {
+				darts.add(new DartJessica("Dull"));
+			}
+
+			if (itemsList.get(i).equals("bluntDart")) {
+				darts.add(new DartJessica("Blunt"));
+			}
+
+			if (itemsList.get(i).equals("sharpDart")) {
+				darts.add(new DartJessica("Strong"));
+			}
+
+			if (itemsList.get(i).equals("dangerousDart")) {
+				darts.add(new DartJessica("Dangerous"));
+			}
+		}
+		
+		System.out.print(darts.get(1).getType());
+	}
+	/*private void addMoney() {
+		money++;
+		System.out.print(money);
+	}*/
+
 	private static void updateDarts() {
 		dull = 0; 
 		blunt = 0; 
 		sharp = 0; 
 		dangerous = 0;
 		
+		/*ArrayList<DartJessica> jessicas = new ArrayList<DartJessica>();
+		
+		jessicas = getNewDarts();
+		
+		for(int i = 0; i<jessicas.size(); i++) {
+			if(jessicas.get(i).equals("Dull")) {
+				itemsList.add("dullDart");
+			}
+			if(jessicas.get(i).equals("Blunt")) {
+				itemsList.add("bluntDart");
+			}
+			if(jessicas.get(i).equals("Strong")) {
+				itemsList.add("sharpDart");
+			}
+			if(jessicas.get(i).equals("Dangerous")) {
+				itemsList.add("dangerousDart");
+			}
+		}
+		
+		for (int i = 0; i < itemsList.size(); i++) {
+			if (itemsList.get(i).equals("dullDart")) {
+				darts.add(new DartJessica("Dull"));
+				itemsList.remove(i);
+			}
+
+			if (itemsList.get(i).equals("bluntDart")) {
+				darts.add(new DartJessica("Blunt"));
+				itemsList.remove(i);
+			}
+
+			if (itemsList.get(i).equals("sharpDart")) {
+				darts.add(new DartJessica("Strong"));
+				itemsList.remove(i);
+			}
+
+			if (itemsList.get(i).equals("dangerousDart")) {
+				darts.add(new DartJessica("Dangerous"));
+				itemsList.remove(i);
+			}
+		}*/
 		
 		for(int i = 0; i< darts.size(); i++ ) {
-		//dull dart:0 for(int i = 0; i<itemsList.size();i++) {
-		if(darts.get(i).getType().equals("Dull")) { dull++; } 
-		  
-		//blunt dart:1 for(int i = 0; i<itemsList.size();i++) {
-		if(darts.get(i).getType().equals("Blunt")) { blunt++; } 
-		  
-		//sharp dart:2 for(int i = 0; i<itemsList.size();i++) {
-		if(darts.get(i).getType().equals("Strong")) { sharp++; } 
-		 
-		//dangerous dart:3 for(int i = 0; i<itemsList.size();i++) {
-		if(darts.get(i).getType().equals("Dangerous")) { dangerous++; } 
-				}
-		
-		/*for(int i = 0; i< itemsList.size(); i++ ) {
-			//dull dart:0 for(int i = 0; i<itemsList.size();i++) {
-			if(itemsList.get(i).equals("dullDart")) { dull++; } 
-			  
-			//blunt dart:1 for(int i = 0; i<itemsList.size();i++) {
-			if(itemsList.get(i).equals("bluntDart")) { blunt++; } 
-			  
-			//sharp dart:2 for(int i = 0; i<itemsList.size();i++) {
-			if(itemsList.get(i).equals("sharpDart")) { sharp++; } 
-			 
-			//dangerous dart:3 for(int i = 0; i<itemsList.size();i++) {
-			if(itemsList.get(i).equals("dangerousDart")) { dangerous++; } 
-					}
-			*/	  
-		  
+			if(darts.get(i).getType().equals("Dull"))  
+				dull++;
+
+			if(darts.get(i).getType().equals("Blunt")) 
+				blunt++; 
+				
+			if(darts.get(i).getType().equals("Strong")) 
+				sharp++; 
+			
+			if(darts.get(i).getType().equals("Dangerous")) 
+				dangerous++; 
+		}
+	
 	  }
+	
+	private void amtOfBears() {
+		for(int i = 0; i<itemsList.size(); i++) {
+			if (itemsList.get(i).equals("bear")) {
+				bearP ++;
+			}
+		}
+	}
+	
+	private void amtOfFish() {
+		for(int i = 0; i<itemsList.size(); i++) {
+			if (itemsList.get(i).equals("fish")) {
+				fishP ++;
+			}
+		}
+	}
+	
+	private void amtOfCandy() {
+		for(int i = 0; i<itemsList.size(); i++) {
+			if (itemsList.get(i).equals("candy")) {
+				candyP ++;
+			}
+		}
+	}
 
 	public static int getTickets() {
 		return tickets;
@@ -370,32 +404,35 @@ public class InventoryVickie extends FullFunctionScreen {
 		InventoryVickie.tickets = num;
 	}
 
-	public double getMoney() {
+	public static double getMoney() {
 		return money;
 	}
 
-	public void setMoney(int num) {
+	public void setMoney(double num) {
 		InventoryVickie.money = num;
 	}
-
-	/*
-	 * public static int getDartNumber(int num) { updateDarts(); dartsNum =
-	 * darts[num]; return dartsNum; }
-	 */
 
 	public static ArrayList<DartJessica> darts() {
 		return darts;
 	}
 	
-	public void setJessdarts(ArrayList<DartJessica> update) {
+	/*public void setJessdarts(ArrayList<DartJessica> update) {
 		this.darts = update;
-	}
+	}*/
 
-	public ArrayList<String> getInventoryArrayList() {
+	public static ArrayList<String> getInventoryArrayList() {
 		return itemsList;
 	}
 
 	public void setInventoryArrayList(ArrayList<String> arr) {
 		this.itemsList = arr;
+	}
+	
+	public void setHammer(boolean n) {
+		this.hammer = n;
+	}
+	
+	public static boolean getHammer() {
+		return hammer;
 	}
 }

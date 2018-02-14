@@ -22,6 +22,7 @@ public class GuiLoadingVickie extends GUIApplication{
 	
 	public static poppingBalloonsJessicaJi.BalloonInstructionsJi bInstruct;
 	public static poppingBalloonsJessicaJi.BalloonScreenJessica bscreen;
+	public static poppingBalloonsJessicaJi.BalloonResultsJi bResults;
 	
 	public static whackAMoleKevinSteph.WAMMenuStephanie moleInstruct;
 	
@@ -74,7 +75,7 @@ public class GuiLoadingVickie extends GUIApplication{
 		
 		store = new StoreAreej(getWidth(), getHeight());
 		
-		setScreen(inventory);
+		setScreen(welcome);
 		
 		GUIApplication.enableCursorChange = true;
 	}
