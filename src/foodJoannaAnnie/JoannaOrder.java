@@ -20,7 +20,7 @@ public class JoannaOrder extends ClickableGraphic {
 	private ArrayList<Object[]> userOrder;
 	private ArrayList<Object[]> currentOrder;
 	//private Object[][] currentOrder;
-
+ 
 
 	public ArrayList<Object[]> getOrder() {
 		return order;

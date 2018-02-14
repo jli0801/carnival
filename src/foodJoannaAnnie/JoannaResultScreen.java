@@ -12,6 +12,7 @@ import com.sun.corba.se.spi.orbutil.fsm.FSM;
 import com.sun.corba.se.spi.orbutil.fsm.Input;
 
 import guiTeacher.components.*;
+import guiTeacher.interfaces.FocusController;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
 import guiTeacher.userInterfaces.FullFunctionScreen;
@@ -22,6 +23,7 @@ import mainMenuAreejVickie.GuiLoadingVickie;
 
 public class JoannaResultScreen extends FullFunctionScreen {
 
+	private static final FocusController JoannaResultScreen = null;
 	private Button home;
 	private Button work;
 
@@ -57,6 +59,8 @@ public class JoannaResultScreen extends FullFunctionScreen {
 		setVisible(true);
 		orderInstance = new JoannaOrder(0, 0, 100, 130, "food/order.png", annie.getOnScreen(),currentOrder);
 		orderInstance.setVisible(false);
+
+
 		onScreen = orderInstance.getOrder();
 		separatePrices();
 		trashCount = annie.getTrashCount();
@@ -65,6 +69,7 @@ public class JoannaResultScreen extends FullFunctionScreen {
 		profit.setText(displayPrices());
 		trashCost.setText(displayTrash());
 		totalCost.setText(calcTotal());
+		//GuiLoadingVickie.inventory.setMoney(GuiLoadingVickie.inventory.getMoney()+ earned);
 	}
 
 
@@ -130,40 +135,31 @@ public class JoannaResultScreen extends FullFunctionScreen {
 			}
 		};
 
-		Component totalBox = new Component(550,140,500,600) {
 
-			@Override
-			public void update(Graphics2D g) {
-				g.setStroke(new BasicStroke(5));
-				g.setColor(Color.BLACK);
-				g.drawRect(0, 0, getWidth()-1, getHeight()-1);
-			}
-		};
-
-		Component divisionLine = new Component(550,640,500,4) {
+		Component divisionLine = new Component(550,640,500,3) {
 
 			@Override
 			public void update(Graphics2D g) {
 				g.setColor(Color.black);
 				g.fillRect(0, 0, getWidth(), getHeight());
-				
+
 				g.drawRect(0, 0, getWidth()-1, getHeight()-1);
 			}
 		};
-
-		list = new TextArea(555, 170, 300, 400,"");
-		profit = new TextArea(955, 170, 200, 400, "");
+ 
+		list = new TextArea(555, 150, 300, 400,"");
+		profit = new TextArea(955,150 , 200, 400, "");
 		trash = new TextArea(555, 600, 500, 95, "TRASH PENALTY");
 		trashCost = new TextArea(955, 600, 500, 95, "");
 		total = new TextArea(555, 650, 500, 95, "TOTAL");
 		totalCost = new TextArea(955, 650, 500, 95, "");
 
 		orderBox.setVisible(true);
-		totalBox.setVisible(true);
+
 		divisionLine.setVisible(true);
 		viewObjects.add(orderBox);
 		viewObjects.add(divisionLine);
-		viewObjects.add(totalBox);
+
 		viewObjects.add(profit);
 		viewObjects.add(list);
 		viewObjects.add(home);
@@ -175,6 +171,9 @@ public class JoannaResultScreen extends FullFunctionScreen {
 		viewObjects.add(trashCost);
 		viewObjects.add(total);
 		viewObjects.add(totalCost);
+		ArrayList<Visible> box = new ArrayList<Visible>();
+		box.add(list);
+		box.add(profit);
 
 		try {
 			File fontFile = new File("resources/Bangers.ttf");
@@ -193,7 +192,11 @@ public class JoannaResultScreen extends FullFunctionScreen {
 	private String displayPrices() {
 		String s = "6.00";
 		for(int i =0; i < prices.size(); i++ ) {
-			s+= "\n"+ String.format("%.2f", prices.get(i));
+
+			s+= "\n";
+			if(prices.get(i) >= 0)
+				s+= "+" ;
+			s+=String.format("%.2f", prices.get(i));
 		}
 		return s;
 	}
@@ -220,9 +223,11 @@ public class JoannaResultScreen extends FullFunctionScreen {
 		for(int i = orderInstance.getNumInt(); i < onScreen.size(); i++ ) {
 			int num= calcDiff(i);
 			double price = (((AnnieFoodItem) onScreen.get(i)[1]).getPrice());
-			if(!onScreen.get(i)[0].equals(0))
+			if(!onScreen.get(i)[0].equals(0) && calcDiff(i) != -1)
 			{
 				num = 1;
+			}else {
+				num = -1;
 			}
 			double a = price * num;
 			prices.add(Math.round( a * 100.0)/100.0);
@@ -237,7 +242,7 @@ public class JoannaResultScreen extends FullFunctionScreen {
 		int n = toppingExist(i);
 		int diff;
 		if(n != -1){
-			diff = (int)currentOrder.get(i)[0] - (int)onScreen.get(i)[0];
+			diff = (int)currentOrder.get(n)[0] - (int)onScreen.get(i)[0];
 		}else {
 			diff = (int)onScreen.get(i)[0];
 		}
@@ -250,7 +255,7 @@ public class JoannaResultScreen extends FullFunctionScreen {
 
 	private int toppingExist(int i) {
 		for(int j = 0; j < currentOrder.size(); j++) {
-			if(onScreen.get(i)[1] == currentOrder.get(i)[1]) {
+			if(onScreen.get(i)[1] == currentOrder.get(j)[1]) {
 				return j;
 			}
 		}
