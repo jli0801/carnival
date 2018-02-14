@@ -83,6 +83,13 @@ public class JoannaResultScreen extends FullFunctionScreen {
 
 
 
+	public double getEarned() {
+		return earned;
+	}
+
+
+
+
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 
