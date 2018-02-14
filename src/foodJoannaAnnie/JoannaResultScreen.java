@@ -139,7 +139,7 @@ public class JoannaResultScreen extends FullFunctionScreen {
 				g.drawRect(0, 0, getWidth()-1, getHeight()-1);
 			}
 		};
-
+ 
 		list = new TextArea(555, 150, 300, 400,"");
 		profit = new TextArea(955,150 , 200, 400, "");
 		trash = new TextArea(555, 600, 500, 95, "TRASH PENALTY");
