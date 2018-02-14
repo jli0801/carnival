@@ -68,13 +68,15 @@ public class JoannaOrder extends ClickableGraphic {
 		deleteCopies();
 		updateItems();
 		rearrangeItems();
-		getQuantity();
+		fillAmount();
 		order = userOrder;
 		makeOrder();
 
 	}
 
-
+	public ArrayList<Integer> getQuantity() {
+		return quantity;
+	}
 
 
 	private void rearrangeItems() {
@@ -122,7 +124,7 @@ public class JoannaOrder extends ClickableGraphic {
 	//		}
 	//	}
 
-	private void getQuantity() {
+	private void fillAmount() {
 
 		for(int i = 0; i <items.size(); i++) {
 			int count = 0;
@@ -225,6 +227,11 @@ public class JoannaOrder extends ClickableGraphic {
 
 		}
 		return s;
+	}
+
+	public int getNumInt() {
+		// TODO Auto-generated method stub
+		return numInt;
 	}
 }
 

@@ -132,15 +132,14 @@ public class JoannaResultScreen extends FullFunctionScreen {
 				g.drawRect(0, 0, getWidth()-1, getHeight()-1);
 			}
 		};
-		
-		Component divisionLine = new Component(100,150,320,400) {
+
+		Component divisionLine = new Component(550,640,500,4) {
 
 			@Override
 			public void update(Graphics2D g) {
-				g.setColor(Color.white);
+				g.setColor(Color.black);
 				g.fillRect(0, 0, getWidth(), getHeight());
-				g.setStroke(new BasicStroke(5));
-				g.setColor(Color.BLACK);
+				
 				g.drawRect(0, 0, getWidth()-1, getHeight()-1);
 			}
 		};
@@ -154,7 +153,9 @@ public class JoannaResultScreen extends FullFunctionScreen {
 
 		orderBox.setVisible(true);
 		totalBox.setVisible(true);
+		divisionLine.setVisible(true);
 		viewObjects.add(orderBox);
+		viewObjects.add(divisionLine);
 		viewObjects.add(totalBox);
 		viewObjects.add(profit);
 		viewObjects.add(list);
@@ -203,9 +204,19 @@ public class JoannaResultScreen extends FullFunctionScreen {
 
 	private void separatePrices() {
 
-		for(int i = 0; i < onScreen.size(); i++ ) {
+		for(int i = 0; i <  orderInstance.getNumInt(); i++ ) {
 			double price = (((AnnieFoodItem) onScreen.get(i)[1]).getPrice());
 			int num= calcDiff(i);
+			double a = price * num;
+			prices.add(Math.round( a * 100.0)/100.0);
+		}
+		for(int i = orderInstance.getNumInt(); i < onScreen.size(); i++ ) {
+			int num= calcDiff(i);
+			double price = (((AnnieFoodItem) onScreen.get(i)[1]).getPrice());
+			if(!onScreen.get(i)[0].equals(0))
+			{
+				num = 1;
+			}
 			double a = price * num;
 			prices.add(Math.round( a * 100.0)/100.0);
 		}
