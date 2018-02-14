@@ -28,12 +28,12 @@ public class WAMEasyKevin extends FullFunctionScreen {
 	
 	private Button quitButton;
 	
-	private TextArea timeText;
+	public TextArea timeText;
 	
-	private int time;
-	private int moleTime;
+	public int time;
+	public int moleTime;
 	
-	private int moleTimerOn;
+	public int moleTimerOn;
 	
 	private Graphic mOne;
 	private Graphic mTwo;
@@ -341,7 +341,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 	//Mole Spawn Methods-------------------------------------------------------------------------------------------------------------
 	//moleNine.setEnabled(false);
 	
-	private void moleNineUp() {
+	public void moleNineUp() {
 		if (moleNine.isEnabled() == false) {
 			moleNine.setEnabled(true);		
 			moleSwap(mNine,sNine);
@@ -354,7 +354,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		
 	}
 
-	private void moleEightUp() {
+	public void moleEightUp() {
 		if (moleEight.isEnabled() == false) {
 			moleEight.setEnabled(true);		
 			moleSwap(mEight,sEight);
@@ -368,7 +368,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		
 	}
 
-	private void moleSevenUp() {
+	public void moleSevenUp() {
 		if (moleSeven.isEnabled() == false) {
 			moleSeven.setEnabled(true);		
 			moleSwap(mSeven,sSeven);
@@ -381,7 +381,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		
 	}
 
-	private void moleSixUp() {
+	public void moleSixUp() {
 		if (moleSix.isEnabled() == false) {
 			moleSix.setEnabled(true);		
 			moleSwap(mSix,sSix);
@@ -394,7 +394,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		
 	}
 
-	private void moleFiveUp() {
+	public void moleFiveUp() {
 		if (moleFive.isEnabled() == false) {
 			moleFive.setEnabled(true);		
 			moleSwap(mFive,sFive);
@@ -407,7 +407,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		
 	}
 
-	private void moleFourUp() {
+	public void moleFourUp() {
 		if (moleFour.isEnabled() == false) {
 			moleFour.setEnabled(true);		
 			moleSwap(mFour,sFour);
@@ -420,7 +420,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		
 	}
 
-	private void moleThreeUp() {
+	public void moleThreeUp() {
 		if (moleThree.isEnabled() == false) {
 			moleThree.setEnabled(true);		
 			moleSwap(mThree,sThree);
@@ -433,7 +433,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		
 	}
 
-	private void moleTwoUp() {
+	public void moleTwoUp() {
 		if (moleTwo.isEnabled() == false) {
 			moleTwo.setEnabled(true);		
 			moleSwap(mTwo,sTwo);
@@ -446,7 +446,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		
 	}
 
-	private void moleOneUp() {
+	public void moleOneUp() {
 		if (moleOne.isEnabled() == false) {
 			moleOne.setEnabled(true);	
 			moleSwap(mOne,sOne);
@@ -461,7 +461,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 	
 	//Timers-------------------------------------------------------------------------------------------------------------------
 	
-	private void moleTimer(Graphic addMole,Graphic removeMole) {
+	public void moleTimer(Graphic addMole,Graphic removeMole) {
 		if (moleTimerOn < 9) {
 			Timer mTimer = new Timer();
 			TimerTask mTask;
@@ -485,7 +485,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		}
 	}
 
-	private void Timer() {
+	public void Timer() {
 		Timer timer = new Timer();
 		TimerTask task;
 		task = new TimerTask() {
