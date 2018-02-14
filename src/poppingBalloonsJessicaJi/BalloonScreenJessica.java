@@ -317,7 +317,8 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				balloonDescription.setText("Balloon Popped:" + balloonChosen);
 				dartDescription.setText("Dart Used: " + dartChosen);
 			
-				toggleImage(balloon1, balloon1B, true);
+				timerB(balloon1B, balloon1);
+			//	toggleImage(balloon1, balloon1B, true);
 				
 				updateDartField(BalloonBackJi.darts.get(BalloonBackJi.findIndexNextDart(dartChosenInt)));
 		//		BalloonBackJi.updateDarts();
@@ -623,7 +624,30 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		};
 		timer.schedule(task, 0, 1000);
 	}
+	
+	private void timerB(Button b, Graphic image) {
+		
+		Timer timerBalloon = new Timer();
+		TimerTask taskB;
+		taskB = new TimerTask() {
+			private int timeNeeded;
 
+			@Override
+			public void run() { 
+				toggleImage(image, b, true);
+				if (timeNeeded > 0) {
+				//	timeLeftTxt.setText("Time Left: " + timeLeft);
+					timeNeeded--;
+				}
+				else
+				{
+					toggleImage(image,b,false);
+					cancel();
+				}
+			}
+		};
+		timerBalloon.schedule(taskB, 0, 1000);
+	}
 	
 	private void endRound() {
 		//timeLeftTxt.setText("GAME OVER");
