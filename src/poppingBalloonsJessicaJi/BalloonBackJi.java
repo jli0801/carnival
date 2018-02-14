@@ -38,6 +38,52 @@ public class BalloonBackJi {
 		dartChosenInt = userInput;
 	}
 	
+/*	public static DartJessica findNextDart(int power) {
+		int i =0;
+			while(i < darts.size())
+			{
+				if(darts.get(i).getStrength() == power)
+				{
+					return darts.get(i);
+				}
+				else
+				{
+					i++;
+				}
+			}
+			
+		
+		
+	}*/
+	
+	
+	public static int findIndexNextDart(int power)
+	{
+		for(int i = 0; i < darts.size(); i++)
+		{
+			if(darts.get(i).getStrength() == power)
+			{
+				return i;
+			}
+		
+		}
+		return -1; //ARRAY INDEX OUT OF BOUNDS 
+	}
+	
+	public static int getTotalDarts(int power)
+	{
+		int totalNumber = 0;
+		for(int i = 0; i < darts.size(); i++)
+		{
+			if(darts.get(i).getStrength() == power)
+			{
+				totalNumber++;
+			}
+			
+		}
+		return totalNumber;
+	}
+	
 	public static ArrayList<Integer> CreateBalloons() {
 		int numBalloons = 6;
 		int balloonStrength = 30; //changes as rounds progress
@@ -62,6 +108,7 @@ public class BalloonBackJi {
 	public static boolean isPoppable(int chosenBalloon) {
 		if(getDartChosen() * PowerBarJessica.getLength() > balloons.get(chosenBalloon))
 		{
+			darts.remove(findIndexNextDart(dartChosenInt));
 			balloons.remove(chosenBalloon);
 			return true;
 		}else {
