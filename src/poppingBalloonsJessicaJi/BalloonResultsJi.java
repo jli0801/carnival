@@ -38,12 +38,12 @@ public class BalloonResultsJi extends FullFunctionScreen {
 		setBackground(background);
 
 		setScore();
-		score.setText("Final Score: " + scoreNum + "    Rank #" + findCurrentScore(highScores, scoreNum));
-		addScores(scoreNum);
-		sortScores(highScores);
-		firstPlace.setText("#1 " + highScores.get(highScores.size()));
-		secondPlace.setText("#2 " + highScores.get(highScores.size() - 1));
-		thirdPlace.setText("#3 " + highScores.get(highScores.size() - 2));
+		//score.setText("Final Score: " + scoreNum + "    Rank #" + findCurrentScore(highScores, scoreNum));
+		//addScores(scoreNum);
+		//sortScores(highScores);
+		//firstPlace.setText("#1 " + highScores.get(highScores.size()));
+		//secondPlace.setText("#2 " + highScores.get(highScores.size() - 1));
+		//thirdPlace.setText("#3 " + highScores.get(highScores.size() - 2));
 
 		calculateTickets();
 		ticketTxt.setText("Tickets Earned: " + tickets);
@@ -89,16 +89,16 @@ public class BalloonResultsJi extends FullFunctionScreen {
 		});
 		viewObjects.add(playAgain);
 
-		highScoresTxt = new TextArea(500, 350, 100, 100, "Best Score");
+		//highScoresTxt = new TextArea(500, 350, 100, 100, "Best Score");
 		viewObjects.add(highScoresTxt);
 
-		firstPlace = new TextArea(500, 400, 150, 200, "#1 " + highScores.get(highScores.size()));
+		//firstPlace = new TextArea(500, 400, 150, 200, "#1 " + highScores.get(highScores.size()));
 		viewObjects.add(firstPlace);
 
-		secondPlace = new TextArea(500, 450, 150, 200, "#2 " + highScores.get(highScores.size() - 1));
+		//secondPlace = new TextArea(500, 450, 150, 200, "#2 " + highScores.get(highScores.size() - 1));
 		viewObjects.add(secondPlace);
 
-		thirdPlace = new TextArea(500, 500, 150, 200, "#3 " + highScores.get(highScores.size() - 2));
+		//thirdPlace = new TextArea(500, 500, 150, 200, "#3 " + highScores.get(highScores.size() - 2));
 		viewObjects.add(thirdPlace);
 
 		ticketTxt = new TextArea(500, 100, 200, 100, "Tickets Earned: " + tickets);
