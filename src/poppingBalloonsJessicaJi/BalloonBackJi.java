@@ -119,7 +119,7 @@ public class BalloonBackJi {
 			
 			return true;
 		}else {
-			balloons.set(chosenBalloon, balloons.get(chosenBalloon)-5);
+			balloons.set(chosenBalloon, balloons.get(chosenBalloon)-25);
 			return false;
 		}
 		
@@ -132,7 +132,7 @@ public class BalloonBackJi {
 	}
 	
 	public static void increaseStrength(int balloonIndex) {
-		balloons.set(balloonIndex, (balloons.get(balloonIndex) + 50));
+		balloons.set(balloonIndex, (balloons.get(balloonIndex) + 150));
 	}
 
 	/*
