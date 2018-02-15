@@ -74,10 +74,11 @@ public class InventoryVickie extends FullFunctionScreen {
 			darts = new ArrayList<DartJessica>();
 
 			initializeDarts();
+			money = 10;
+		tickets = 0;
 		}
 		
-		money = 10;
-		tickets = 0;
+		
 		
 		updateDarts();
 		amtOfBears();
@@ -403,7 +404,7 @@ public class InventoryVickie extends FullFunctionScreen {
 		return tickets;
 	}
 
-	public static void setTickets(int num) {
+	public void setTickets(int num) {
 		InventoryVickie.tickets = num;
 	}
 
