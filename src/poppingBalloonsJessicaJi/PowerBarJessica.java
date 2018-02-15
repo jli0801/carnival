@@ -16,8 +16,8 @@ import guiTeacher.interfaces.Visible;
 public class PowerBarJessica extends StyledComponent {
 
 	public static int length;
-	private Color lightYellow = new Color (255,255,153);
-	private Color background = new Color(179, 230, 255);
+	private Color lightYellow = new Color (255,255,150);
+	private Color background = new Color(200, 240, 255);
 	private boolean goingUp;
 	
 	

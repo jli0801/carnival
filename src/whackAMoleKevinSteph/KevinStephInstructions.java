@@ -19,6 +19,7 @@ public class KevinStephInstructions implements AnnieInstructionInterface {
 	@Override
 	public Color getBackgroundColor() {
 		return new Color(255, 255, 200);
+		
 	}
 
 	@Override
@@ -34,10 +35,10 @@ public class KevinStephInstructions implements AnnieInstructionInterface {
 	@Override
 	public String getInstructions() {
 		String s = "WHACK AS MANY MOLES AS YOU CAN UNDER THE TIME LIMIT."
-				+ "THERE ARE 3 DIFFICULTIES: EASY, CASUAL, AND DIFFICULT. "
-				+ "THE HARDER THE DIFFICULTY, THE MORE TICKETS YOU EARN."
-				+ "EASY STARTS OFF WITH 20 SECONDS WHILE THE OTHER DIFFICULTIES HAVE 5 SECONDS LESS THAN THE LAST"
-				+ " AND THE MOLES WILL MOVE FASTER. CLICKING ON THE WRONG HOLE WILL ALSO RESULT IN A 1 SECOND PENALTY."  
+				+ "THE MORE MOLES YOU WHACK, THE MORE TICKETS YOU EARN."
+				+ " THERE ARE THREE DIFFICULTIES: EASY, CASUAL, AND DIFFICULT. "
+				+ "EACH GAME STARTS OFF WITH 20 SECONDS BUT AS "
+				+ "YOU MOVE ONTO THE HARDER STAGES, THE MOLES WILL MOVE FASTER."
 				+ "\n" + "NOW GO WHACK SOME MOLES AND ENJOY THE GAME!!";
 		return s;
 	}
