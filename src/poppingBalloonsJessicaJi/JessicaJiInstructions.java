@@ -34,7 +34,8 @@ public class JessicaJiInstructions implements AnnieInstructionInterface {
 				+ " You are given four darts of each type, dull, blunt, strong, dangerous. It is listed "
 				+ "from weakest to strongest."
 				+ " Be sure to use them wisely! Good Luck!"
-				+ "                                                                         "
+				+ "                                                                                    "
+				+ "                                                            "
 				+ "Click on the clown to go back!"
 				+ " Proceed with the game by clicking 'Play.'";
 	}
@@ -65,7 +66,7 @@ public class JessicaJiInstructions implements AnnieInstructionInterface {
 
 	@Override
 	public void playButtonAct() {
-		GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.bscreen);
+		GuiLoadingVickie.loading.setScreen(new BalloonScreenJessica(GuiLoadingVickie.loading.getWidth(), GuiLoadingVickie.loading.getHeight()));
 		
 	}
 
