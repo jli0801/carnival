@@ -59,7 +59,7 @@ public class StoreAreej extends FullFunctionScreen{
 					public void act() {
 						GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.inventory);
 										
-					}
+					}//
 				});
 				viewObjects.add(buy);
 				viewObjects.add(yes);
