@@ -16,7 +16,7 @@ import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import poppingBalloonsJessicaJi.DartJessica;
 
-public class InventoryVickie extends FullFunctionScreen implements InventoryMethods{
+public class InventoryVickie extends FullFunctionScreen implements InventoryVickieInterface{
 
 	private boolean firstTime;
 	private boolean trigger;
@@ -70,9 +70,6 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryMeth
 			money = 10;
 			tickets = 0;
 		}
-		
-		System.out.print("Vickie"+tickets);
-		System.out.print("Vickie" +money);
 		
 		initializeDarts();
 		
@@ -339,7 +336,7 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryMeth
 			}
 		}
 		
-		System.out.print(darts.get(1).getType());
+		//System.out.print(darts.get(1).getType());
 	}
 	/*private void addMoney() {
 		money++;

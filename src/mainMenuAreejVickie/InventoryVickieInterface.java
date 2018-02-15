@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import poppingBalloonsJessicaJi.DartJessica;
 
-public interface InventoryMethods {
+public interface InventoryVickieInterface {
 
 	void initializeDarts();
 	
