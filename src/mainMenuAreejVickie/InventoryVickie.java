@@ -23,7 +23,7 @@ public class InventoryVickie extends FullFunctionScreen {
 	private Button menu;
 	private Button store;
 
-	private static double money;
+	private double money;
 	private static int tickets;
 
 	private static ArrayList<String> itemsList;
@@ -35,12 +35,15 @@ public class InventoryVickie extends FullFunctionScreen {
 	//private Color blood = new Color(239, 23, 56);
 
 	//store items
+	
 	private static int dull;
 	private static int blunt;
 	private static int sharp;
 	private static int dangerous;
 	
 	private static boolean hammer;
+	
+	private TextLabel mon;
 	
 	//store prizes
 	private int bearP;
@@ -147,7 +150,7 @@ public class InventoryVickie extends FullFunctionScreen {
 		TextLabel fis = new TextLabel(1054, 580, 100, 100, "   x "+fishP);
 
 		TextLabel tic = new TextLabel(80, 203, 100, 100, "x " + tickets);
-		TextLabel mon = new TextLabel(175, 203, 100, 100, "x $" + money);
+		mon = new TextLabel(175, 203, 100, 100, "x $" + String.format("%.2f",money));
 
 		// description
 
@@ -404,12 +407,13 @@ public class InventoryVickie extends FullFunctionScreen {
 		InventoryVickie.tickets = num;
 	}
 
-	public static double getMoney() {
+	public double getMoney() {
 		return money;
 	}
 
 	public void setMoney(double num) {
-		InventoryVickie.money = num;
+		money = num;
+		mon.setText("x $" + String.format("%.2f",money));
 	}
 
 	public static ArrayList<DartJessica> darts() {

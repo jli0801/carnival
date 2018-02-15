@@ -1,9 +1,8 @@
 package foodJoannaAnnie;
 
 import java.awt.Color;
-import java.util.List;
 
-import guiTeacher.interfaces.Visible;
+import guiTeacher.components.*;
 
 public interface AnnieInstructionInterface {
 
@@ -15,10 +14,16 @@ public interface AnnieInstructionInterface {
 
 	String getInstructions();
 
-	void getButtons(List<Visible> viewObjects);
-
 	boolean hasBackImage();
 
 	String getBackImageLocation();
+
+	int getNumButtons();
+
+	Button getButton(int i);
+
+	void playButtonAct();
+
+	Color getTitleColor();
 
 }

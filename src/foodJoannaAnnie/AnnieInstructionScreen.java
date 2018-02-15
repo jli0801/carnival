@@ -15,7 +15,7 @@ public class AnnieInstructionScreen extends ClickableScreen {
 	
 	private AnnieInstructionInterface thing;
 	private TextArea instructions;
-	private TextArea gameName;
+	private TextLabel gameName;
 
 	public AnnieInstructionScreen(int width, int height, AnnieInstructionInterface thing) {
 		super(width, height);
@@ -39,6 +39,7 @@ public class AnnieInstructionScreen extends ClickableScreen {
 	}
 
 	private void setUpButtons() {
+		
 		Button menu = new Button(20, 40, 270, 60, "Return to Main Menu", thing.getButtonColor(), new Action() {
 			
 			@Override
@@ -47,26 +48,44 @@ public class AnnieInstructionScreen extends ClickableScreen {
 			}
 		});
 		addObject(menu);
-		thing.getButtons(getViewObjects());
+		
+		if(thing.getNumButtons() != 1)
+			for(int i = 1; i <= thing.getNumButtons(); i++)
+				addObject(thing.getButton(i));
+		else {
+			Button play = new Button(getWidth() - 200, 40, 180, 60, "Play Game", thing.getButtonColor(), new Action() {
+				
+				@Override
+				public void act() {
+					thing.playButtonAct();
+				}
+			});
+			addObject(play);
+		}
+		
 	}
 
 	private void setGameName() {
+		gameName.setCustomTextColor(thing.getTitleColor());
 		gameName.setText(thing.getGameName());
-		gameName.setBodyColor(thing.getButtonColor());
 	}
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		
-		TextArea heading = new TextArea(100, 100, 500, 80, "How to Play");
-		gameName =  new TextArea(300, 50, 600, 30, "");
-		instructions = new TextArea(getWidth() / 2 - 400, 100, 800, 400, "");
+		int x = getWidth() / 2 - 400;
+		
+		gameName =  new TextLabel(x, 180, 600, 80, "");
+		TextArea heading = new TextArea(x, 255, 500, 80, "How to Play");
+		instructions = new TextArea(x, 330, 800, 400, "");
 		
 		try {
 			File fontFile = new File("resources/Bangers.ttf");
 			Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-			StyledComponent.setBaseFont(font.deriveFont(30f));
-			instructions.setFont(font.deriveFont(40f));
+			Button.setBaseFont(font.deriveFont(30f));
+			gameName.setFont(font.deriveFont(60f));
+			heading.setFont(font.deriveFont(40f));
+			instructions.setFont(font.deriveFont(30f));
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

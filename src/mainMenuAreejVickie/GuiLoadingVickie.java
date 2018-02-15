@@ -1,11 +1,13 @@
 package mainMenuAreejVickie;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.io.File;
 
+import foodJoannaAnnie.*;
 import guiTeacher.GUIApplication;
-import guiTeacher.components.StyledComponent;
+import guiTeacher.components.*;
+import poppingBalloonsJessicaJi.JessicaJiInstructions;
+import whackAMoleKevinSteph.KevinStephInstructions;
 
 public class GuiLoadingVickie extends GUIApplication{
 
@@ -17,6 +19,10 @@ public class GuiLoadingVickie extends GUIApplication{
 	public static GuiLoadingVickie loading;
 	public static WelcomeScreenVickie  welcome;
 	public static MainScreenAreej menu;
+	
+	public static AnnieInstructionScreen foodInstruct;
+	public static AnnieInstructionScreen balloonInstruct;
+	public static AnnieInstructionScreen moleInstruct;
 		
 	public static foodJoannaAnnie.AnnieWorkScreen foodGame;
 	
@@ -24,7 +30,7 @@ public class GuiLoadingVickie extends GUIApplication{
 	public static poppingBalloonsJessicaJi.BalloonScreenJessica bscreen;
 	public static poppingBalloonsJessicaJi.BalloonResultsJi bResults;
 	
-	public static whackAMoleKevinSteph.WAMMenuStephanie moleInstruct;
+//	public static whackAMoleKevinSteph.WAMMenuStephanie moleInstruct;
 	
 	public static InventoryVickie inventory;
 	
@@ -71,9 +77,13 @@ public class GuiLoadingVickie extends GUIApplication{
 				
 		foodGame = new foodJoannaAnnie.AnnieWorkScreen(getWidth(), getHeight());
 		
-		moleInstruct = new whackAMoleKevinSteph.WAMMenuStephanie(getWidth(), getHeight());
+//		moleInstruct = new whackAMoleKevinSteph.WAMMenuStephanie(getWidth(), getHeight());
 		
 		store = new StoreAreej(getWidth(), getHeight());
+		
+		foodInstruct = new AnnieInstructionScreen(getWidth(), getHeight(), new AnnieJoannaInstructions());
+		moleInstruct = new AnnieInstructionScreen(getWidth(), getHeight(), new KevinStephInstructions());
+		balloonInstruct = new AnnieInstructionScreen(getWidth(), getHeight(), new JessicaJiInstructions());
 		
 		setScreen(welcome);
 		

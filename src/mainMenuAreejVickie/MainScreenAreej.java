@@ -39,7 +39,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.bInstruct);
+				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.balloonInstruct);
 			}
 			//
 		});
@@ -65,7 +65,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.foodGame);
+				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.foodInstruct);
 				
 			}
 			

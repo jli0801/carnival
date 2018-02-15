@@ -69,7 +69,7 @@ public class JoannaResultScreen extends FullFunctionScreen {
 		profit.setText(displayPrices());
 		trashCost.setText(displayTrash());
 		totalCost.setText(calcTotal());
-		//GuiLoadingVickie.inventory.setMoney(GuiLoadingVickie.inventory.getMoney()+ earned);
+		GuiLoadingVickie.inventory.setMoney(GuiLoadingVickie.inventory.getMoney()+ earned);
 	}
 
 
@@ -142,8 +142,8 @@ public class JoannaResultScreen extends FullFunctionScreen {
  
 		list = new TextArea(555, 150, 300, 400,"");
 		profit = new TextArea(955,150 , 200, 400, "");
-		trash = new TextArea(555, 600, 500, 95, "TRASH PENALTY");
-		trashCost = new TextArea(955, 600, 500, 95, "");
+		trash = new TextArea(555, 590, 500, 95, "TRASH PENALTY");
+		trashCost = new TextArea(955, 590, 500, 95, "");
 		total = new TextArea(555, 650, 500, 95, "TOTAL");
 		totalCost = new TextArea(955, 650, 500, 95, "");
 

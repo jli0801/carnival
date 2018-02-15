@@ -96,7 +96,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 	private Graphic popEffect4;
 	private Graphic popEffect5;
 	private Graphic popEffect6;
-	private Color background = new Color(179, 230, 255);
+	private Color background = new Color(200, 240, 255);
 	private TextArea allDarts;
 
 

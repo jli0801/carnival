@@ -255,31 +255,31 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		mNine = new Graphic(650,600,80,80,"wam/mole.png");
 		//viewObjects.add(mNine);
 		
-		sOne = new Graphic(250,200,80,80,"wam/squish.png");
+		sOne = new Graphic(250,200,80,80,"wam/dirt.png");
 		//viewObjects.add(sOne);
 		
-		sTwo = new Graphic(450,200,80,80,"wam/squish.png");
+		sTwo = new Graphic(450,200,80,80,"wam/dirt.png");
 		//viewObjects.add(sTwo);
 		
-		sThree = new Graphic(650,200,80,80,"wam/squish.png");
+		sThree = new Graphic(650,200,80,80,"wam/dirt.png");
 		//viewObjects.add(sThree);
 		
-		sFour = new Graphic(250,400,80,80,"wam/squish.png");
+		sFour = new Graphic(250,400,80,80,"wam/dirt.png");
 		//viewObjects.add(sFour);
 		
-		sFive = new Graphic(450,400,80,80,"wam/squish.png");
+		sFive = new Graphic(450,400,80,80,"wam/dirt.png");
 		//viewObjects.add(sFive);
 		
-		sSix = new Graphic(650,400,80,80,"wam/squish.png");
+		sSix = new Graphic(650,400,80,80,"wam/dirt.png");
 		//viewObjects.add(sSix);
 		
-		sSeven = new Graphic(250,600,80,80,"wam/squish.png");
+		sSeven = new Graphic(250,600,80,80,"wam/dirt.png");
 		//viewObjects.add(sSeven);
 		
-		sEight = new Graphic(450,600,80,80,"wam/squish.png");
+		sEight = new Graphic(450,600,80,80,"wam/dirt.png");
 		//viewObjects.add(sEight);
 		
-		sNine = new Graphic(650,600,80,80,"wam/squish.png");
+		sNine = new Graphic(650,600,80,80,"wam/dirt.png");
 		//viewObjects.add(sNine);
 		
 		dOne = new Graphic(250,200,80,80,"wam/dirt.png");

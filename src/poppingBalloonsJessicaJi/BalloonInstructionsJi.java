@@ -89,7 +89,7 @@ public class BalloonInstructionsJi extends FullFunctionScreen{
 		});
 		viewObjects.add(play);
 		
-		StyledComponent.setButtonOutline(true);
+//		StyledComponent.setButtonOutline(true);
 		clown = new Graphic(50,50,150,150,"resources/clown.png");
 		viewObjects.add(clown);
 		
