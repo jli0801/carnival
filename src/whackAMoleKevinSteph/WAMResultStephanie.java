@@ -25,6 +25,7 @@ import guiTeacher.components.TextBox;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import mainMenuAreejVickie.GuiLoadingVickie;
+import mainMenuAreejVickie.InventoryVickie;
 
 public class WAMResultStephanie extends FullFunctionScreen {
 
@@ -38,16 +39,19 @@ public class WAMResultStephanie extends FullFunctionScreen {
 	private Graphic mpic;
 	private Graphic tapic;
 	public int ticketNum;
+	public int total;
 	
 	public WAMResultStephanie(int width, int height) {
 		super(width, height);
+		total = InventoryVickie.getTickets() + ticketNum;
+		InventoryVickie.setTickets(total);
 	}
 	
 	public int getTickets() {
 		if(WAMEasyKevin.score == 0) {
 			ticketNum = 0;
 		}else {
-			ticketNum = (int)(Math.rint((WAMEasyKevin.score/2) + 1));
+			ticketNum = (int)(Math.rint((WAMEasyKevin.score/4) + 1));
 		}
 		
 		return ticketNum;
@@ -57,7 +61,7 @@ public class WAMResultStephanie extends FullFunctionScreen {
 		Graphic gamebg = new Graphic(0,0, getWidth(), getHeight(), "wam/grass.png");
 		viewObjects.add(gamebg);
 			 
-		returnMSButton = new Button(20,40,210,50,"RETURN TO MAIN MENU",Color.ORANGE, new Action() {
+		returnMSButton = new Button(20,40,230,50,"RETURN TO MAIN MENU",Color.ORANGE, new Action() {
 
 				public void act() {
 					GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
@@ -105,7 +109,7 @@ public class WAMResultStephanie extends FullFunctionScreen {
 		viewObjects.add(box2);
 		viewObjects.add(scoreA);
 		
-		totalA = new TextArea(420,490,300,270, "TOTAL NUMBER OF TICKETS: ");
+		totalA = new TextArea(420,490,300,270, "TOTAL NUMBER OF TICKETS: " + total);
 		Component box3 = new Component(320,450,520,120) {
 
 			public void update(Graphics2D g) {

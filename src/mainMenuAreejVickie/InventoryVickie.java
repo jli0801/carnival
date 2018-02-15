@@ -403,7 +403,7 @@ public class InventoryVickie extends FullFunctionScreen {
 		return tickets;
 	}
 
-	public void setTickets(int num) {
+	public static void setTickets(int num) {
 		InventoryVickie.tickets = num;
 	}
 
