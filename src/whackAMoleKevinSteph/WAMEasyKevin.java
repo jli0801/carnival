@@ -108,7 +108,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		
 		//Creating Text Areas-----------------------------------------------------------------------------------------------
 		
-		scoreText = new TextArea(950,100,100,100, "Score: " + score);
+		scoreText = new TextArea(950,100,110,100, "Score: " + score);
 		viewObjects.add(scoreText);
 		
 		timeText = new TextArea(950,150,200,200, "Time: " + time + " Seconds");
