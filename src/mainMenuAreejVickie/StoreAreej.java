@@ -48,7 +48,44 @@ public class StoreAreej extends FullFunctionScreen{
 						tickets = tickets - 30;
 					}
 					else {
-						TextLabel err = new TextLabel(300, 200, 100, 100, "Yu don't have enough tickets to get this.");
+						TextLabel err = new TextLabel(30, 350, 200, 200, "You don't have enough tickets to get this.");
+						viewObjects.add(err);
+					/*	buy.setVisible(false);
+						yes.setVisible(false);
+						no.setVisible(false);
+						err.setVisible(false);
+						*/
+					}
+					}
+				});
+				Button no = new Button(100, 300, 50, 50, "No", new Action() {
+					
+					@Override
+					public void act() {
+						buy.setVisible(false);
+						yes.setVisible(false);	
+						no.setVisible(false);
+					}
+				});
+				viewObjects.add(buy);
+				addObject(yes);
+				addObject(no);
+			}
+			
+		});
+		ClickableGraphic fish = new ClickableGraphic(670,400, 100, 100, "resources/fish.png");
+		fish.setAction(new Action() {
+
+			public void act() {
+				TextLabel buy = new TextLabel(30, 260, 300, 200, "Would you like to buy this" + " item for 45 tickets?");
+				Button yes = new Button(50, 300, 50, 50, "Yes", new Action() {
+					@Override
+					public void act() {
+						if(tickets >= 45) {
+						tickets = tickets - 45;
+					}
+					else {
+						TextLabel err = new TextLabel(30, 350, 200, 200, "You don't have enough tickets to get this.");
 						viewObjects.add(err);
 					}
 					}
@@ -57,18 +94,51 @@ public class StoreAreej extends FullFunctionScreen{
 					
 					@Override
 					public void act() {
-						GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.inventory);
+						buy.setVisible(false);
+						yes.setVisible(false);
+						no.setVisible(false);
 										
-					}//
+					}
 				});
 				viewObjects.add(buy);
-				viewObjects.add(yes);
-				viewObjects.add(no);
+				addObject(yes);
+				addObject(no);
 			}
-			
 		});
-		ClickableGraphic fish = new ClickableGraphic(670,400, 100, 100, "resources/fish.png");
 		ClickableGraphic candy = new ClickableGraphic(830,400, 100, 100, "resources/cottoncandy.png");
+		candy.setAction(new Action() {
+
+			public void act() {
+				TextLabel buy = new TextLabel(30, 260, 300, 200, "Would you like to buy this" + " item for 10 tickets?");
+				Button yes = new Button(50, 300, 50, 50, "Yes", new Action() {
+					@Override
+					public void act() {
+						if(tickets >= 10) {
+						tickets = tickets - 10;
+					}
+					else {
+						TextLabel err = new TextLabel(30, 350, 200, 200, "You don't have enough tickets to get this.");
+						viewObjects.add(err);
+					}
+					}
+				});
+				Button no = new Button(100, 300, 50, 50, "No", new Action() {
+					
+					@Override
+					public void act() {
+						
+						buy.setVisible(false);
+						yes.setVisible(false);
+						no.setVisible(false);
+						
+					}
+				});
+				viewObjects.add(buy);
+				addObject(yes);
+				addObject(no);
+			}
+		});
+			
 		ClickableGraphic dull = new ClickableGraphic (415,275,130,130, "poppingBalloons/dart1.png"); 
 		ClickableGraphic blunt = new ClickableGraphic (590,275,130,130, "poppingBalloons/dart2.png"); 
 		ClickableGraphic sharp = new ClickableGraphic (770,275,130,130, "poppingBalloons/dart3.png"); 
