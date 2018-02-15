@@ -323,8 +323,8 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				
 				updateDartField();
 				
-				toggleImage(balloon1, balloon1B, true);
-				timerB(balloon1B, balloon1);
+				toggleImage(balloon1, balloon1B, popEffect1, true);
+				timerB(balloon1B, balloon1, popEffect1);
 				BalloonBackJi.increaseStrength(0);
 				System.out.println(Integer.toString(BalloonBackJi.balloons.get(0)));
 				
@@ -358,8 +358,8 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				BalloonBackJi.darts.remove(BalloonBackJi.findIndexNextDart(BalloonBackJi.getDartChosen()));
 				updateDartField();
 				
-				toggleImage(balloon2, balloon2B, true);
-				timerB(balloon2B, balloon2);
+				toggleImage(balloon2, balloon2B,popEffect2, true);
+				timerB(balloon2B, balloon2, popEffect2);
 				BalloonBackJi.increaseStrength(1);
 			
 				System.out.println(Integer.toString(BalloonBackJi.balloons.get(1)));
@@ -386,8 +386,8 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				BalloonBackJi.darts.remove(BalloonBackJi.findIndexNextDart(BalloonBackJi.getDartChosen()));
 				updateDartField();
 				
-				toggleImage(balloon3, balloon3B, true);
-				timerB(balloon3B, balloon3);
+				toggleImage(balloon3, balloon3B,popEffect3, true);
+				timerB(balloon3B, balloon3, popEffect3);
 				BalloonBackJi.increaseStrength(2);
 			
 				System.out.println(Integer.toString(BalloonBackJi.balloons.get(3)));
@@ -412,8 +412,8 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				BalloonBackJi.darts.remove(BalloonBackJi.findIndexNextDart(BalloonBackJi.getDartChosen()));
 				updateDartField();
 				
-				toggleImage(balloon4, balloon4B, true);
-				timerB(balloon4B, balloon4);
+				toggleImage(balloon4, balloon4B, popEffect4, true);
+				timerB(balloon4B, balloon4, popEffect4);
 				BalloonBackJi.increaseStrength(3);
 	
 				System.out.println(Integer.toString(BalloonBackJi.balloons.get(3)));
@@ -438,8 +438,8 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				BalloonBackJi.darts.remove(BalloonBackJi.findIndexNextDart(BalloonBackJi.getDartChosen()));
 				updateDartField();
 				
-				toggleImage(balloon5, balloon5B, true);
-				timerB(balloon5B, balloon5);
+				toggleImage(balloon5, balloon5B,popEffect5, true);
+				timerB(balloon5B, balloon5, popEffect5);
 				BalloonBackJi.increaseStrength(4);
 		
 				System.out.println(Integer.toString(BalloonBackJi.balloons.get(4)));
@@ -466,8 +466,8 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				BalloonBackJi.darts.remove(BalloonBackJi.findIndexNextDart(BalloonBackJi.getDartChosen()));
 				updateDartField();
 				
-				toggleImage(balloon6, balloon6B, true);
-				timerB(balloon6B, balloon6);
+				toggleImage(balloon6, balloon6B, popEffect6, true);
+				timerB(balloon6B, balloon6, popEffect6);
 				BalloonBackJi.increaseStrength(5);
 				System.out.println(Integer.toString(BalloonBackJi.balloons.get(5)));
 				}
@@ -630,7 +630,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		timer.schedule(task, 0, 1000);
 	}
 	
-	private void timerB(Button b, Graphic image) {
+	private void timerB(Button b, Graphic image, Graphic pop) {
 		timeNeeded = 3;
 		
 		Timer timerBalloon = new Timer();
@@ -640,14 +640,14 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 
 			@Override
 			public void run() { 
-				toggleImage(image, b, true);
+				toggleImage(image, b, pop, true);
 				if (timeNeeded > 0) {
 				//	timeLeftTxt.setText("Time Left: " + timeLeft);
 					timeNeeded--;
 				}
 				else
 				{
-					toggleImage(image,b,false);
+					toggleImage(image,b, pop, false);
 					cancel();
 				}
 			}
@@ -664,16 +664,18 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		return score;
 	}
 	
-	public void toggleImage(Graphic balloon, Button button1, boolean popped) {
+	public void toggleImage(Graphic balloon, Button button1, Graphic popping, boolean popped) {
 		if(popped) {
 			balloon.setVisible(false);
 		//	if(BalloonBackJi.getTotalDarts(BalloonBackJi.getDartChosen()) > 0)
 		//	{
 				button1.setVisible(false);
+				popping.setVisible(true);
 		//	}
 		}else {
 			balloon.setVisible(true);
 			button1.setVisible(true);
+			popping.setVisible(false);
 		}
 	}
 }

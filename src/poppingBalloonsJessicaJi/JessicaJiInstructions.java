@@ -4,31 +4,39 @@ import java.awt.Color;
 
 import foodJoannaAnnie.AnnieInstructionInterface;
 import guiTeacher.components.Button;
+import mainMenuAreejVickie.GuiLoadingVickie;
 
 public class JessicaJiInstructions implements AnnieInstructionInterface {
 
 	@Override
 	public Color getBackgroundColor() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Color(179, 230, 255); 
 	}
 
 	@Override
 	public String getGameName() {
 		// TODO Auto-generated method stub
-		return null;
+		return "Welcome to Popping Balloons!";
 	}
 
 	@Override
 	public Color getButtonColor() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Color(179, 230, 255); 
 	}
 
 	@Override
 	public String getInstructions() {
 		// TODO Auto-generated method stub
-		return null;
+		return "When time starts, Try to pop as many as you can "
+				+ "but not all of them will pop "
+				+ "according to which dart you’re using and how much strength you have. The balloons will "
+				+ "pop up again but stronger each time."
+				+ " You are given four darts of each type, dull, blunt, strong, dangerous. It is listed "
+				+ "from weakest to strongest."
+				+ " Be sure to use them wisely! Good Luck!"
+				+ "                                                                         "
+				+ "Click on the clown to go back!"
+				+ " Proceed with the game by clicking 'Play.'";
 	}
 
 	@Override
@@ -46,7 +54,7 @@ public class JessicaJiInstructions implements AnnieInstructionInterface {
 	@Override
 	public int getNumButtons() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
 
 	@Override
@@ -57,14 +65,13 @@ public class JessicaJiInstructions implements AnnieInstructionInterface {
 
 	@Override
 	public void playButtonAct() {
-		// TODO Auto-generated method stub
-
+		GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.bscreen);
+		
 	}
 
 	@Override
 	public Color getTitleColor() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Color(235, 115, 130);
 	}
 
 }

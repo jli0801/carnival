@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.io.File;
 import java.util.List;
 
+import foodJoannaAnnie.AnnieInstructionInterface;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
@@ -16,19 +17,26 @@ import mainMenuAreejVickie.GuiLoadingVickie;
 
 public class BalloonInstructionsJi extends FullFunctionScreen{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
+	
 	private Button instructions;
 	private Button play;
 	private TextArea instructionsTxt;
 	private Button back;
-	private Color background = new Color(179, 230, 255);
+
 	private TextArea welcomeTxt;
 	private boolean showInstructions;
-	private Graphic ticket;
 	private Graphic clown;
 
 	public BalloonInstructionsJi(int width, int height) {
 		super(width, height);
-		setBackground(background);
+		//setBackground(getBackgroundColor());
 		showInstructions = false;
 	}
 
@@ -69,9 +77,12 @@ public class BalloonInstructionsJi extends FullFunctionScreen{
 		});
 		viewObjects.add(instructions);
 		
-		instructionsTxt = new TextArea(250, 250, 800, 400, "When time starts, Try to pop as many as you can but not all of them will pop "
-				+ "according to which dart you’re using and how much strength you have. The balloons will pop up again but stronger each time."
-				+ " You are given four darts of each type, dull, blunt, strong, dangerous. It is listed from weakest to strongest."
+		instructionsTxt = new TextArea(250, 250, 800, 400, "When time starts, Try to pop as many as you can "
+				+ "but not all of them will pop "
+				+ "according to which dart you’re using and how much strength you have. The balloons will "
+				+ "pop up again but stronger each time."
+				+ " You are given four darts of each type, dull, blunt, strong, dangerous. It is listed "
+				+ "from weakest to strongest."
 				+ " Be sure to use them wisely! Good Luck!"
 				+ "                                                                         "
 				+ "Click on the clown to go back!"
@@ -89,7 +100,7 @@ public class BalloonInstructionsJi extends FullFunctionScreen{
 		});
 		viewObjects.add(play);
 		
-//		StyledComponent.setButtonOutline(true);
+
 		clown = new Graphic(50,50,150,150,"resources/clown.png");
 		viewObjects.add(clown);
 		
@@ -103,11 +114,12 @@ public class BalloonInstructionsJi extends FullFunctionScreen{
 		});
 		viewObjects.add(back);
 		back.setCurve(150,150);
-	/*	ticket = new Graphic (100,100,1500,150, "poppingBalloons/ticket.png");
-		viewObjects.add(ticket);*/
+	
 		
 		welcomeTxt = new TextArea(420, 100, 400, 100, "Welcome to Popping Balloons!");
 		viewObjects.add(welcomeTxt);
 	}
+
+
 
 }
