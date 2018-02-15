@@ -88,9 +88,6 @@ public class JoannaResultScreen extends FullFunctionScreen {
 
 
 
-	public double getEarned() {
-		return earned;
-	}
 
 
 
