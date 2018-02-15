@@ -130,16 +130,6 @@ public class BalloonResultsJi extends FullFunctionScreen implements BalloonResul
 		highScores.add(currentScore);
 	}
 
-	public int findCurrentScore(ArrayList<Integer> arr, int score) {
-		sortScores(highScores);
-		for (int i = 0; i < arr.size(); i++) {
-			if(arr.get(i) == score) {
-				return i + 1;
-			}
-		}
-		return -1;
-	}
-
 	public void calculateTickets() {
 		tickets = (int) (scoreNum/2);
 	}
