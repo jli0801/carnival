@@ -2,7 +2,7 @@ package foodJoannaAnnie;
 
 import guiTeacher.components.*;
 
-public class AnnieFoodItem extends ClickableGraphic {
+public class AnnieFoodItem extends ClickableGraphic implements JoannaItemInterface {
 	
 	private String name;
 	private double price;

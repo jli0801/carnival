@@ -12,7 +12,7 @@ import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
 import mainMenuAreejVickie.GuiLoadingVickie;
 
-public class AnnieWorkScreen extends ClickableScreen {
+public class AnnieWorkScreen extends ClickableScreen implements JoannaScreenInterface {
 	
 	private static final long serialVersionUID = 1L;
 	
