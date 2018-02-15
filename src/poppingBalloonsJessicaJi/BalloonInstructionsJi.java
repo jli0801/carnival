@@ -48,8 +48,6 @@ public class BalloonInstructionsJi extends FullFunctionScreen{
 			e.printStackTrace();
 		}
 		
-		
-		
 		instructions = new Button(500, 150, 200, 100, "Instructions", new Action() {
 			
 			@Override
@@ -79,7 +77,6 @@ public class BalloonInstructionsJi extends FullFunctionScreen{
 		viewObjects.add(instructionsTxt);
 		instructionsTxt.setVisible(false);
 		
-		
 		play = new Button(1000, 150, 200, 100, "Play", new Action() {
 			
 			@Override
@@ -92,7 +89,6 @@ public class BalloonInstructionsJi extends FullFunctionScreen{
 		StyledComponent.setButtonOutline(true);
 		clown = new Graphic(50,50,150,150,"resources/clown.png");
 		viewObjects.add(clown);
-		
 		
 		back = new Button(50, 50, 150, 150, "", new Action() {
 			
@@ -109,5 +105,4 @@ public class BalloonInstructionsJi extends FullFunctionScreen{
 		welcomeTxt = new TextArea(420, 100, 400, 100, "Welcome to Popping Balloons!");
 		viewObjects.add(welcomeTxt);
 	}
-
 }

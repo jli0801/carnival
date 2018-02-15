@@ -41,14 +41,8 @@ public class BalloonResultsJi extends FullFunctionScreen {
 		setBackground(background);
 		
 		timesPlayed++;
-		//setScore();
-		//addScores(scoreNum);
-		//sortScores(highScores);
-		score.setText("Final Score: " + scoreNum + "    Rank #" + findCurrentScore(highScores, scoreNum));
-		
-		//firstPlace.setText("#1 ... " + highScores.get(highScores.size() -1));
-		//secondPlace.setText("#2 ... " + checkSecondPlace());
-		//thirdPlace.setText("#3 ... " + checkThirdPlace());
+		score.setText("Final Score: " + scoreNum);
+		//		+ "\n" + "  Rank #" + findCurrentScore(highScores, scoreNum));
 		
 		calculateTickets();
 		ticketTxt.setText("Tickets Earned: " + tickets);
@@ -70,7 +64,8 @@ public class BalloonResultsJi extends FullFunctionScreen {
 
 			e.printStackTrace();
 		}
-		score = new TextArea(500, 200, 300, 50, "Final Score: " + scoreNum);
+		score = new TextArea(500, 200, 500, 500, "Final Score: " + scoreNum);
+		//		+ "/  Rank #" + findCurrentScore(highScores, scoreNum));
 		viewObjects.add(score);
 
 		Button back = new Button(85, 650, 90, 70, "Back", new Action() {
@@ -86,7 +81,7 @@ public class BalloonResultsJi extends FullFunctionScreen {
 		ticket = new Graphic (60,650,150,150, "poppingBalloons/ticket.png");
 		viewObjects.add(ticket);
 
-		Button playAgain = new Button(500, 300, 200, 100, "Play Again", new Action() {
+		Button playAgain = new Button(480, 330, 200, 100, "Play Again", new Action() {
 
 			@Override
 			public void act() {
@@ -138,6 +133,7 @@ public class BalloonResultsJi extends FullFunctionScreen {
 	}
 
 	public int findCurrentScore(ArrayList<Integer> arr, int score) {
+		sortScores(highScores);
 		for (int i = 0; i < arr.size(); i++) {
 			if(arr.get(i) == score) {
 				return i + 1;
