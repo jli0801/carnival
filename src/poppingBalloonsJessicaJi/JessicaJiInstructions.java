@@ -54,7 +54,7 @@ public class JessicaJiInstructions implements AnnieInstructionInterface {
 	@Override
 	public int getNumButtons() {
 		// TODO Auto-generated method stub
-		return 2;
+		return 1;
 	}
 
 	@Override
