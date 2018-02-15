@@ -43,8 +43,6 @@ public class WAMResultStephanie extends FullFunctionScreen {
 	
 	public WAMResultStephanie(int width, int height) {
 		super(width, height);
-		total = InventoryVickie.getTickets() + ticketNum;
-		InventoryVickie.setTickets(total);
 	}
 	
 	public int getTickets() {
@@ -56,8 +54,11 @@ public class WAMResultStephanie extends FullFunctionScreen {
 		
 		return ticketNum;
 	}
-
+	
 	public void initAllObjects(List<Visible> viewObjects) {
+		total = InventoryVickie.getTickets() + getTickets();
+		InventoryVickie.setTickets(total);
+		
 		Graphic gamebg = new Graphic(0,0, getWidth(), getHeight(), "wam/grass.png");
 		viewObjects.add(gamebg);
 			 
