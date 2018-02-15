@@ -19,7 +19,7 @@ public class AnnieJoannaInstructions implements AnnieInstructionInterface {
 
 	@Override
 	public Color getButtonColor() {
-		return new Color(255, 135, 150);
+		return new Color(255, 175, 190);
 	}
 
 	@Override
