@@ -119,7 +119,4 @@ public class BalloonInstructionsJi extends FullFunctionScreen{
 		welcomeTxt = new TextArea(420, 100, 400, 100, "Welcome to Popping Balloons!");
 		viewObjects.add(welcomeTxt);
 	}
-
-
-
 }
