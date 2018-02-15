@@ -104,6 +104,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		super(width, height);
 		setBackground(background);
 		// TODO Auto-generated constructor stub
+		scoreText.setText("Score: 0");
 		timeLeft = 30;
 		score = 0;
 		gameStarted = false;
@@ -118,20 +119,11 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		Timer();
 	}
 
-/*	public void resizeComponents()
-	{
-		background.loadImages( "poppingBalloons/background.jpg", getWidth(), getHeight());
-
-
-	}*/
-
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		//balloonResults = new poppingBalloonsJessicaJi.BalloonResultsJi(getWidth(), getHeight());
 		
 		strength = new PowerBarJessica(560,475,100,150);
-		
-	//	BalloonBackJi.CreateDarts();
+
 		BalloonBackJi.CreateBalloons();
 
 		try {
@@ -146,31 +138,10 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		} catch (Exception e) {
 
 			e.printStackTrace();
-			//
 		}
-
-	/*	background = new Graphic(0, 0, getWidth(), getHeight(), "poppingBalloons/background.jpg");
-		viewObjects.add(background);*/
-		//Button play = new Button()
-		
 
 		booth = new Graphic (30,35, 590,590, "poppingBalloons/booth.png");
 		viewObjects.add(booth);
-
-	/*	back = new Button(85, 650, 90, 70, "Back", new Action() {
-
-			@Override
-			public void act() {
-
-				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
-			}
-		} );
-
-		viewObjects.add(back);*/
-
-		//startTimerText = new TextArea(700, 250, 300, 300, "");
-
-		//play = new Button(x, y, w, h, text, action)
 
 		scoreText = new TextArea(700, 300, 300, 300, "Score: " + score);
 		viewObjects.add(scoreText);
@@ -480,45 +451,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		timeLeftTxt = new TextArea(700, 250, 300, 300, "Time Left: " + timeLeft);
 		viewObjects.add(timeLeftTxt);
 
-		
-		
-	/*	play = new Button(500, 250, 100, 100, "Play", new Action() {
-
-			@Override
-			public void act() {
-				
-					gameStarted = true;
-					play.setEnabled(false);
-					addObject(strength);
-					strength.startTask();
-				
-					Timer();
-					
-			}
-		});*/
 		viewObjects.add(strength); 
-	//	viewObjects.add(play);
-		
-	/*	
-		restart = new Button(500, 200, 150, 100, "Restart", new Action() {
-			
-			@Override
-			public void act() {
-				if(timeLeft == 0) {
-					play.setEnabled(true);
-					timeLeft = 5;
-					previousScore = score;
-					score = 0;
-					timeLeftTxt.setText("Time Left: 5");
-				}
-				
-			}
-		});
-		
-		//adding text
-		viewObjects.add(res
-		tart);
-		*/
 		
 		popEffect1 = new Graphic (100,220,100,120,"poppingBalloons/test.png");
 		viewObjects.add(popEffect1);
@@ -655,7 +588,6 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 	}
 	
 	private void endRound() {
-		//timeLeftTxt.setText("GAME OVER");
 		GuiLoadingVickie.loading.setScreen(new BalloonResultsJi(getWidth(), getHeight()));
 	}
 	
