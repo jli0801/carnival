@@ -37,17 +37,17 @@ public class BalloonResultsJi extends FullFunctionScreen {
 	public BalloonResultsJi(int width, int height) {
 		super(width, height);
 		setBackground(background);
-		timesPlayed++;
-		setScore();
-		addScores(scoreNum);
 		
-		sortScores(highScores);
+		timesPlayed++;
+		//setScore();
+		//addScores(scoreNum);
+		//sortScores(highScores);
 		score.setText("Final Score: " + scoreNum + "    Rank #" + findCurrentScore(highScores, scoreNum));
-		/*
-		firstPlace.setText("#1 " + highScores.get(highScores.size() -1));
-		secondPlace.setText("#2 " + checkSecondPlace());
-		thirdPlace.setText("#3 " + checkThirdPlace());
-		 */
+		
+		//firstPlace.setText("#1 ... " + highScores.get(highScores.size() -1));
+		//secondPlace.setText("#2 ... " + checkSecondPlace());
+		//thirdPlace.setText("#3 ... " + checkThirdPlace());
+		
 		calculateTickets();
 		ticketTxt.setText("Tickets Earned: " + tickets);
 		//addTicketsInventory();
@@ -92,20 +92,22 @@ public class BalloonResultsJi extends FullFunctionScreen {
 			}
 		});
 		viewObjects.add(playAgain);
-		/*
-		highScoresTxt = new TextArea(500, 350, 300, 100, "Best Score");
-		viewObjects.add(highScoresTxt);
 		
-		firstPlace = new TextArea(500, 400, 150, 200, "#1 " + highScores.get(highScores.size() -1));
+		highScoresTxt = new TextArea(500, 450, 300, 100, "Best Score");
+		viewObjects.add(highScoresTxt);
+		setScore();
+		addScores(scoreNum);
+		sortScores(highScores);
+		firstPlace = new TextArea(500, 500, 150, 200, "#1 ... " + highScores.get(highScores.size() -1));
 		viewObjects.add(firstPlace);
 
-		secondPlace = new TextArea(500, 450, 150, 200, checkSecondPlace()); //when at least play 2nd time
+		secondPlace = new TextArea(500, 550, 150, 200, checkSecondPlace()); //when at least play 2nd time
 		viewObjects.add(secondPlace);
 
-		thirdPlace = new TextArea(500, 500, 150, 200, checkThirdPlace()); //when at least play 3rd time
+		thirdPlace = new TextArea(500, 600, 150, 200, checkThirdPlace()); //when at least play 3rd time
 		viewObjects.add(thirdPlace);
-		*/
-		ticketTxt = new TextArea(500, 100, 600, 100, "Tickets Earned: " + tickets);
+		
+		ticketTxt = new TextArea(460, 150, 600, 100, "Tickets Earned: " + tickets);
 		viewObjects.add(ticketTxt);
 	}
 
@@ -151,14 +153,14 @@ public class BalloonResultsJi extends FullFunctionScreen {
 	
 	public String checkSecondPlace() {
 		if(timesPlayed >= 2) {
-			return "#2 " + Integer.toString(highScores.get(highScores.size() - 2));
+			return "#2 ... " + Integer.toString(highScores.get(highScores.size() - 2));
 		}
 		return "";
 	}
 	
 	public String checkThirdPlace() {
 		if(timesPlayed >= 3) {
-			return "#2 " + Integer.toString(highScores.get(highScores.size() - 3));
+			return "#3 ... " + Integer.toString(highScores.get(highScores.size() - 3));
 		}
 		return "";
 	}
