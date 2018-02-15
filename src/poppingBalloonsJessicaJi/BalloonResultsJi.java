@@ -36,6 +36,8 @@ public class BalloonResultsJi extends FullFunctionScreen {
 
 	private Graphic balloons;
 
+	private Graphic divider;
+
 	public BalloonResultsJi(int width, int height) {
 		super(width, height);
 		setBackground(background);
@@ -78,10 +80,10 @@ public class BalloonResultsJi extends FullFunctionScreen {
 		});
 		viewObjects.add(back);
 
-		ticket = new Graphic (60,650,150,150, "poppingBalloons/ticket.png");
-		viewObjects.add(ticket);
+		//ticket = new Graphic (60,650,150,150, "poppingBalloons/ticket.png");
+		//viewObjects.add(ticket);
 
-		Button playAgain = new Button(480, 330, 200, 100, "Play Again", new Action() {
+		Button playAgain = new Button(480, 260, 200, 100, "Play Again", new Action() {
 
 			@Override
 			public void act() {
@@ -109,6 +111,9 @@ public class BalloonResultsJi extends FullFunctionScreen {
 		
 		balloons = new Graphic(850,100, 590,590, "poppingBalloons/zballoons.png");
 		viewObjects.add(balloons);
+		
+		divider = new Graphic(340,310, 500,500, "poppingBalloons/divider.png");
+		viewObjects.add(divider);
 	}
 
 	public void sortScores(ArrayList<Integer> arr) {
