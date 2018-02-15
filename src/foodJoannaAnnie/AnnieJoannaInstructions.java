@@ -9,7 +9,7 @@ public class AnnieJoannaInstructions implements AnnieInstructionInterface {
 
 	@Override
 	public Color getBackgroundColor() {
-		return new Color(255, 210, 220);
+		return new Color(255, 225, 235);
 	}
 
 	@Override
@@ -34,12 +34,12 @@ public class AnnieJoannaInstructions implements AnnieInstructionInterface {
 
 	@Override
 	public boolean hasBackImage() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public String getBackImageLocation() {
-		return null;
+		return "food/back.png";
 	}
 
 	@Override

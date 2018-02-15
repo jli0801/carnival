@@ -1,6 +1,7 @@
 package foodJoannaAnnie;
 
 import java.awt.Font;
+import java.awt.Graphics2D;
 import java.io.File;
 import java.util.List;
 
@@ -27,10 +28,24 @@ public class AnnieInstructionScreen extends ClickableScreen {
 		setInstructions();
 	}
 
+	private void addBox() {
+		Component box = new Component(getWidth() / 2 - 450, 150, 900, 550) {
+			
+			@Override
+			public void update(Graphics2D g) {
+				g.setColor(thing.getBackgroundColor());
+				g.fillRect(0, 0, getWidth(), getHeight());
+			}
+		};
+		box.setVisible(true);
+		getViewObjects().add(1, box);
+	}
+
 	private void addBackground() {
 		if(thing.hasBackImage()) {
 			Graphic backImage = new Graphic(0, 0, getWidth(), getHeight(), thing.getBackImageLocation());
 			getViewObjects().add(0, backImage);
+			addBox();
 		}
 	}
 
