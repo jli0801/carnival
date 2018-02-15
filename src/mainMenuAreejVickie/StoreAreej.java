@@ -18,15 +18,12 @@ public class StoreAreej extends FullFunctionScreen{
 	private Button menu;
 	private Button inventory;
 	
-	private static int moneys;
+	private static double money;
 	private static int tickets; 
 	
 	private TextArea ticketDisplay;
 	private TextArea moneyDisplay;
-	
-	private static ArrayList<String> prizeList;
-	private static ArrayList<String> dartList;
-	
+
 	public StoreAreej(int width, int height) {
 		super(width, height);
 		
@@ -35,9 +32,41 @@ public class StoreAreej extends FullFunctionScreen{
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		
+		tickets = InventoryVickie.getTickets();
+		
 		Graphic background = new Graphic(0,0, 1185, getHeight(), "resources/tent.png");
 		Graphic shelf = new Graphic(330,275, 800, 700, "resources/shelf.png");
 		ClickableGraphic bear = new ClickableGraphic(510,400, 100, 100, "resources/bear.png");
+		bear.setAction(new Action() {
+
+			public void act() {
+				TextLabel buy = new TextLabel(30, 260, 300, 200, "Would you like to buy this" + " item for 30 tickets?");
+				Button yes = new Button(50, 300, 50, 50, "Yes", new Action() {
+					@Override
+					public void act() {
+						if(tickets >= 30) {
+						tickets = tickets - 30;
+					}
+					else {
+						TextLabel err = new TextLabel(300, 200, 100, 100, "Yu don't have enough tickets to get this.");
+						viewObjects.add(err);
+					}
+					}
+				});
+				Button no = new Button(100, 300, 50, 50, "No", new Action() {
+					
+					@Override
+					public void act() {
+						GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.inventory);
+										
+					}
+				});
+				viewObjects.add(buy);
+				viewObjects.add(yes);
+				viewObjects.add(no);
+			}
+			
+		});
 		ClickableGraphic fish = new ClickableGraphic(670,400, 100, 100, "resources/fish.png");
 		ClickableGraphic candy = new ClickableGraphic(830,400, 100, 100, "resources/cottoncandy.png");
 		ClickableGraphic dull = new ClickableGraphic (415,275,130,130, "poppingBalloons/dart1.png"); 
@@ -45,47 +74,38 @@ public class StoreAreej extends FullFunctionScreen{
 		ClickableGraphic sharp = new ClickableGraphic (770,275,130,130, "poppingBalloons/dart3.png"); 
 		ClickableGraphic dangerous = new ClickableGraphic (920,275,130,130, "poppingBalloons/dart4.png"); 
 		ClickableGraphic hammer = new ClickableGraphic(670, 520, 100, 100, "resources/hammer.png");
-		Graphic ticket = new Graphic (30, 200, 100, 100, "resources/ticket.jpg");
-		Graphic money = new Graphic(30, 290, 90, 90, "resources/money.png");
+		
+		Graphic ticketG = new Graphic(30, 200, 50, 50, "resources/tickets1.png");
+		Graphic moneyG = new Graphic(150, 200, 30, 30, "resources/money.png");
+
 		
 		
-		menu = new Button(30, 580, 60, 50, "menu", Color.blue, new Action() {
+		TextLabel tic = new TextLabel(80, 203, 100, 100, "x " + tickets);
+		TextLabel mon = new TextLabel(175, 203, 100, 100, "x $" + String.format("%.2f",money));
+		
+		
+		menu = new Button(30, 650, 280, 75, "Menu", Color.red, new Action() {
 
 			@Override
 			public void act() {
 				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.menu);
 			}
-			
+
 		});
 		
-		inventory = new Button(30,660, 100, 50, "inventory", Color.orange, new Action() {
+		inventory = new Button(30, 560, 280, 75, "Inventory", Color.orange, new Action() {
 
 			@Override
 			public void act() {
 				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.inventory);
 			}
-			
+
 		});
-		
-		//prizes
-		prizeList = new ArrayList<String>();
-		prizeList.add("bear");
-		prizeList.add("fish");
-		prizeList.add("candy");
-		
-		//darts
-		dartList = new ArrayList<String>();
-		dartList.add("bluntDart");
-		dartList.add("dullDart");
-		dartList.add("sharpDart");
-		dartList.add("dangerousDart");
+
 		
 	
 		
 		TextLabel store = new TextLabel(730,180, 900, 300, "STORE");
-		
-		moneyDisplay = new TextArea(10, 200, 100, 30, "");
-		ticketDisplay = new TextArea(10, 290, 100, 30, "");
 		
 		viewObjects.add(background);
 		viewObjects.add(store);
@@ -97,30 +117,19 @@ public class StoreAreej extends FullFunctionScreen{
 		viewObjects.add(dangerous);
 		viewObjects.add(fish);
 		viewObjects.add(candy);
-		viewObjects.add(ticket);
-		viewObjects.add(money);
+		viewObjects.add(ticketG);
+		viewObjects.add(moneyG);
 		viewObjects.add(hammer);
 		
 		viewObjects.add(menu);
 		viewObjects.add(inventory);
-		viewObjects.add(moneyDisplay);
-		viewObjects.add(ticketDisplay);
+		viewObjects.add(tic);
+		viewObjects.add(mon);
 		
 		
 	}
 	
-	public void addMoney() {
-		moneys++;
-	//	moneyDisplay.setText(money);
-		
-	}
 	
-	public void addTickets() {
-		tickets++;
-	//	ticketDisplay.setText(tickets);
-		
-		
-	}
 	
 	
 }
