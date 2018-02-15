@@ -30,7 +30,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 	//public static poppingBalloonsJessicaJi.BalloonResultsJi balloonResults;
 	public static MainScreenAreej menu;
 //	public Graphic background;
-	public Graphic ticket;
+
 	public Graphic booth;
 	public static Graphic dart1; //ji uses this in her class so it's static
 	public static Graphic dart2;
@@ -179,8 +179,6 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		dartDescription = new TextArea(700, 400, 300, 300, "Dart Used: " );
 		viewObjects.add(dartDescription);
 
-		ticket = new Graphic (60,650,150,150, "poppingBalloons/ticket.png");
-		viewObjects.add(ticket);
 		//darts
 	/*	dull.setButtonOutline(true);
 		blunt.setButtonOutline(true);
@@ -190,10 +188,11 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 				Integer.toString(BalloonBackJi.getDartNumber(1)) +"    " + Integer.toString(BalloonBackJi.getDartNumber(2))
 			+	"    " + Integer.toString(BalloonBackJi.getDartNumber(3)));
 		viewObjects.add(allDarts);*/
-		dart1 = new Graphic (250,650,100,100,"poppingBalloons/dart1.png");
-		dullDart = new TextArea(290,700,100,100, Integer.toString(BalloonBackJi.getTotalDarts(1)) );
+		
+		dart1 = new Graphic (80,650,100,100,"poppingBalloons/dart1.png");
+		dullDart = new TextArea(100,700,100,100, Integer.toString(BalloonBackJi.getTotalDarts(1)) );
 		viewObjects.add(dart1);
-		dull = new Button(250,645,100,70,"", new Action() {
+		dull = new Button(80,645,100,70,"", new Action() {
 			@Override
 			public void act() {
 				if(BalloonBackJi.getTotalDarts(1) > 0)
@@ -215,10 +214,10 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		
 		viewObjects.add(dull);
 		
-		dart2 = new Graphic (350,650,100,100,"poppingBalloons/dart2.png");
-		bluntDart = new TextArea(390,700,100,100, Integer.toString(BalloonBackJi.getTotalDarts(2)));
+		dart2 = new Graphic (180,650,100,100,"poppingBalloons/dart2.png");
+		bluntDart = new TextArea(200,700,100,100, Integer.toString(BalloonBackJi.getTotalDarts(2)));
 		viewObjects.add(dart2);
-		blunt = new Button(350,645,100,70,"", new Action() {
+		blunt = new Button(180,645,100,70,"", new Action() {
 			@Override
 			public void act() {
 				if(BalloonBackJi.getTotalDarts(2) > 0)
@@ -237,10 +236,10 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		});
 		viewObjects.add(blunt);
 		
-		dart3 = new Graphic (450,650,100,100,"poppingBalloons/dart3.png");
+		dart3 = new Graphic (280,650,100,100,"poppingBalloons/dart3.png");
 		viewObjects.add(dart3);
-		sharpDart = new TextArea(490,700,100,100, Integer.toString(BalloonBackJi.getTotalDarts(3)));
-		sharp = new Button(450,645,100,70,"", new Action() {
+		sharpDart = new TextArea(300,700,100,100, Integer.toString(BalloonBackJi.getTotalDarts(3)));
+		sharp = new Button(280,645,100,70,"", new Action() {
 			@Override
 			public void act() {
 				if(BalloonBackJi.getTotalDarts(3) > 0)
@@ -260,10 +259,10 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		viewObjects.add(sharp);
 		
 		
-		dart4 = new Graphic (550,650,100,100,"poppingBalloons/dart4.png");
+		dart4 = new Graphic (380,650,100,100,"poppingBalloons/dart4.png");
 		viewObjects.add(dart4);
-		dangerousDart = new TextArea(590,700,100,100, Integer.toString(BalloonBackJi.getTotalDarts(4)));
-		dangerous = new Button(550,645,100,70,"", new Action() {
+		dangerousDart = new TextArea(400,700,100,100, Integer.toString(BalloonBackJi.getTotalDarts(4)));
+		dangerous = new Button(380,645,100,70,"", new Action() {
 			@Override
 			public void act() {
 				if(BalloonBackJi.getTotalDarts(4) > 0)
