@@ -17,7 +17,7 @@ import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import mainMenuAreejVickie.GuiLoadingVickie;
 
-public class BalloonResultsJi extends FullFunctionScreen {
+public class BalloonResultsJi extends FullFunctionScreen implements BalloonResultsJiInterface{
 
 	private TextArea score;
 
