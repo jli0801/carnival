@@ -16,7 +16,7 @@ import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import poppingBalloonsJessicaJi.DartJessica;
 
-public class InventoryVickie extends FullFunctionScreen {
+public class InventoryVickie extends FullFunctionScreen implements InventoryMethods{
 
 	private boolean firstTime;
 	
@@ -56,15 +56,6 @@ public class InventoryVickie extends FullFunctionScreen {
 		setVisible(true);
 	}
 	
-	// https://www.javatpoint.com/java-arraylist
-	/*
-	 * https://beginnersbook.com/2013/12/java-arraylist/
-	 * https://www.geeksforgeeks.org/arraylist-in-java/
-	 * https://www.geeksforgeeks.org/array-vs-arraylist-in-java/
-	 * https://www.tutorialspoint.com/java/java_arraylist_class.htm
-	 * 
-	 */
-
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		if(firstTime==false) {
@@ -312,7 +303,7 @@ public class InventoryVickie extends FullFunctionScreen {
 		System.out.print(money);
 	}*/
 
-	private static void updateDarts() {
+	private void updateDarts() {
 		dull = 0; 
 		blunt = 0; 
 		sharp = 0; 
