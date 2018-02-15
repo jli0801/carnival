@@ -42,7 +42,6 @@ public class BalloonResultsJi extends FullFunctionScreen {
 		
 		timesPlayed++;
 		score.setText("Final Score: " + scoreNum);
-		//		+ "\n" + "  Rank #" + findCurrentScore(highScores, scoreNum));
 		
 		calculateTickets();
 		ticketTxt.setText("Tickets Earned: " + tickets);
@@ -65,7 +64,6 @@ public class BalloonResultsJi extends FullFunctionScreen {
 			e.printStackTrace();
 		}
 		score = new TextArea(500, 200, 500, 500, "Final Score: " + scoreNum);
-		//		+ "/  Rank #" + findCurrentScore(highScores, scoreNum));
 		viewObjects.add(score);
 
 		Button back = new Button(85, 650, 90, 70, "Back", new Action() {
