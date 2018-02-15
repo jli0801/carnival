@@ -34,6 +34,8 @@ public class BalloonResultsJi extends FullFunctionScreen {
 	private TextArea secondPlace;
 	private TextArea thirdPlace;
 
+	private Graphic balloons;
+
 	public BalloonResultsJi(int width, int height) {
 		super(width, height);
 		setBackground(background);
@@ -109,6 +111,9 @@ public class BalloonResultsJi extends FullFunctionScreen {
 		
 		ticketTxt = new TextArea(460, 150, 600, 100, "Tickets Earned: " + tickets);
 		viewObjects.add(ticketTxt);
+		
+		balloons = new Graphic(850,100, 590,590, "poppingBalloons/zballoons.png");
+		viewObjects.add(balloons);
 	}
 
 	public void sortScores(ArrayList<Integer> arr) {
