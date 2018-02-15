@@ -35,7 +35,6 @@ public class InventoryVickie extends FullFunctionScreen {
 	//private Color blood = new Color(239, 23, 56);
 
 	//store items
-	
 	private static int dull;
 	private static int blunt;
 	private static int sharp;
@@ -74,10 +73,11 @@ public class InventoryVickie extends FullFunctionScreen {
 			darts = new ArrayList<DartJessica>();
 
 			initializeDarts();
+			money = 10;
+		tickets = 0;
 		}
 		
-		money = 10;
-		tickets = 0;
+		
 		
 		updateDarts();
 		amtOfBears();

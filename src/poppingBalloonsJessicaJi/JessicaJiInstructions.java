@@ -16,7 +16,7 @@ public class JessicaJiInstructions implements AnnieInstructionInterface {
 	@Override
 	public String getGameName() {
 		// TODO Auto-generated method stub
-		return "Welcome to Popping Balloons!";
+		return "Popping Balloons";
 	}
 
 	@Override
