@@ -428,11 +428,11 @@ public class InventoryVickie extends FullFunctionScreen {
 		return itemsList;
 	}
 
-	public void setInventoryArrayList(ArrayList<String> arr) {
+	public static void setInventoryArrayList(ArrayList<String> arr) {
 		InventoryVickie.itemsList = arr;
 	}
 	
-	public void setHammer(boolean n) {
+	public static void setHammer(boolean n) {
 		InventoryVickie.hammer = n;
 	}
 	
