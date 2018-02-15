@@ -2,12 +2,13 @@ package poppingBalloonsJessicaJi;
 
 import java.util.ArrayList;
 import javafx.scene.paint.Color;
+import mainMenuAreejVickie.GuiLoadingVickie;
 import mainMenuAreejVickie.InventoryVickie;
 
 public class BalloonBackJi {
 
 	public static ArrayList<Integer> balloons = new ArrayList<Integer>(); //static b/c jessica needs to use it index tells us what color what's in the index is the strength of balloon
-	public static ArrayList<DartJessica> darts = InventoryVickie.darts();
+	public static ArrayList<DartJessica> darts = GuiLoadingVickie.inventory.darts();
 	public int round; //based on time
 	
 	private static int dartChosenInt; //for screen

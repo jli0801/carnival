@@ -19,7 +19,7 @@ public class StoreAreej extends FullFunctionScreen{
 	private Button inventory;
 	
 	private static double money;
-	private static int tickets; 
+	private int tickets; 
 	
 	private TextArea ticketDisplay;
 	private TextArea moneyDisplay;
@@ -32,7 +32,7 @@ public class StoreAreej extends FullFunctionScreen{
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		
-		tickets = InventoryVickie.getTickets();
+		tickets = GuiLoadingVickie.inventory.getTickets();
 		
 		Graphic background = new Graphic(0,0, 1185, getHeight(), "resources/tent.png");
 		Graphic shelf = new Graphic(330,275, 800, 700, "resources/shelf.png");
@@ -64,7 +64,7 @@ public class StoreAreej extends FullFunctionScreen{
 					public void act() {
 						buy.setVisible(false);
 						yes.setVisible(false);	
-						no.setVisible(false);
+						//no.setVisible(false);
 					}
 				});
 				viewObjects.add(buy);
@@ -96,7 +96,7 @@ public class StoreAreej extends FullFunctionScreen{
 					public void act() {
 						buy.setVisible(false);
 						yes.setVisible(false);
-						no.setVisible(false);
+						//no.setVisible(false);
 										
 					}
 				});
@@ -129,7 +129,7 @@ public class StoreAreej extends FullFunctionScreen{
 						
 						buy.setVisible(false);
 						yes.setVisible(false);
-						no.setVisible(false);
+						//no.setVisible(false);
 						
 					}
 				});

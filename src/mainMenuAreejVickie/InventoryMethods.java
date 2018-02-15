@@ -1,19 +1,36 @@
 package mainMenuAreejVickie;
 
+import java.util.ArrayList;
+
+import poppingBalloonsJessicaJi.DartJessica;
+
 public interface InventoryMethods {
 
-	static void initializeDarts() {
-	}
+	void initializeDarts();
 	
-	static void updateDarts() {
-	}
+	void updateDarts();
 	
-	static void amtOfBears() {
-	}
+	void amtOfBears();
 	
-	static void amtOfFish() {
-	}
+	void amtOfFish();
 	
-	static void amtOfCandy() {
-	}
+	void amtOfCandy();
+	
+	void updateVariables();
+	
+	int getTickets();
+
+	void setTickets(int num);
+
+	 public double getMoney();
+
+	 public void setMoney(double num);
+
+	 ArrayList<DartJessica> darts();
+
+	 ArrayList<String> getInventoryArrayList();
+
+	 void setInventoryArrayList(ArrayList<String> arr);
+	 void setHammer(boolean n);
+	 boolean getHammer();
 }

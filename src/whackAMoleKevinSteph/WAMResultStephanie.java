@@ -24,8 +24,9 @@ import guiTeacher.components.TextArea;
 import guiTeacher.components.TextBox;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+//import mainMenuAreejVickie.GuiLoadingVickie;
+//import mainMenuAreejVickie.InventoryVickie;
 import mainMenuAreejVickie.GuiLoadingVickie;
-import mainMenuAreejVickie.InventoryVickie;
 
 public class WAMResultStephanie extends FullFunctionScreen {
 
@@ -57,9 +58,8 @@ public class WAMResultStephanie extends FullFunctionScreen {
 	}
 	
 	public void initAllObjects(List<Visible> viewObjects) {
-		total = InventoryVickie.getTickets() + getTickets();
-		InventoryVickie.setTickets(total);
-		
+		total = GuiLoadingVickie.inventory.getTickets() + getTickets();
+		GuiLoadingVickie.inventory.setTickets(total);
 		Graphic gamebg = new Graphic(0,0, getWidth(), getHeight(), "wam/grass.png");
 		viewObjects.add(gamebg);
 			 

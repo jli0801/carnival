@@ -19,12 +19,13 @@ import poppingBalloonsJessicaJi.DartJessica;
 public class InventoryVickie extends FullFunctionScreen implements InventoryMethods{
 
 	private boolean firstTime;
+	private boolean trigger;
 	
 	private Button menu;
 	private Button store;
 
 	private double money;
-	private static int tickets;
+	private  int tickets;
 
 	private static ArrayList<String> itemsList;
 	private static ArrayList<DartJessica> darts;
@@ -43,11 +44,13 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryMeth
 	private static boolean hammer;
 	
 	private TextLabel mon;
+	private TextLabel tic;
 	
 	//store prizes
 	private int bearP;
 	private int candyP;
 	private int fishP;
+	private boolean trigger2;
 	
 	
 	public InventoryVickie(int width, int height) {
@@ -65,10 +68,13 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryMeth
 
 			initializeDarts();
 			money = 10;
-		tickets = 0;
+			tickets = 0;
 		}
 		
+		System.out.print("Vickie"+tickets);
+		System.out.print("Vickie" +money);
 		
+		initializeDarts();
 		
 		updateDarts();
 		amtOfBears();
@@ -129,23 +135,27 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryMeth
 
 		TextLabel dullNum = new TextLabel(418, 355, 100, 100, "" + dull + ""); // 335
 		
-		//System.out.print(dull);
-		
 		TextLabel bluntNum = new TextLabel(630, 355, 100, 100, "" + blunt);
+		
 		TextLabel sharpNum = new TextLabel(842, 355, 100, 100, "" + sharp);
+		
 		TextLabel dangerousNum = new TextLabel(1054, 355, 100, 100, "" + dangerous);
-
 		TextLabel ham = new TextLabel(418, 580, 100, 100, "    x 1"); // 335
 		TextLabel bea = new TextLabel(630, 580, 100, 100, "          x "+bearP);
+		
 		TextLabel cot = new TextLabel(851, 580, 100, 100, "    x " + candyP);
+		
 		TextLabel fis = new TextLabel(1054, 580, 100, 100, "   x "+fishP);
+		
 
-		TextLabel tic = new TextLabel(80, 203, 100, 100, "x " + tickets);
+		 tic = new TextLabel(80, 203, 100, 100, "x " + tickets);
+		
+		
 		mon = new TextLabel(175, 203, 100, 100, "x $" + String.format("%.2f",money));
-
+		
 		// description
 
-		TextArea desc = new TextArea(100, 265, 250, 600, " Keep \ntrack \n  of \n your \nstuff");
+		//TextArea desc = new TextArea(100, 265, 250, 600, " Keep \ntrack \n  of \n your \nstuff");
 
 		// buttons
 		menu = new Button(10, 690, 280, 75, "Menu", Color.red, new Action() {
@@ -173,6 +183,39 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryMeth
 
 		// viewObjects.add(inventoryBackground);
 
+	/*	if (trigger==false) {
+			//trigger2 =true;
+			dullNum.setText("" + dull + "");
+			System.out.print(dull);
+			bluntNum.setText("" + blunt + "");
+			sharpNum.setText("" + sharp + "");
+			dangerousNum.setText("" + dangerous + "");
+			bea.setText("          x "+bearP);
+			cot.setText("    x " + candyP);
+			fis.setText("   x "+fishP);
+			tic.setText("x " + tickets);
+			System.out.print(tickets);
+			mon.setText("x $" + String.format("%.2f",money));
+			
+			dullNum.update();
+			tic.update();
+			
+		}
+		
+		if(trigger2 ==true) {
+			//trigger = false;
+			dullNum.setText("" + dull + "");
+			System.out.print(dull);
+			bluntNum.setText("" + blunt + "");
+			sharpNum.setText("" + sharp + "");
+			dangerousNum.setText("" + dangerous + "");
+			bea.setText("          x "+bearP);
+			cot.setText("    x " + candyP);
+			fis.setText("   x "+fishP);
+			tic.setText("x " + tickets);
+			System.out.print(tickets);
+			mon.setText("x $" + String.format("%.2f",money));
+		}*/
 		viewObjects.add(menu);
 		viewObjects.add(store);
 		// viewObjects.add(banner1);
@@ -206,7 +249,7 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryMeth
 
 		viewObjects.add(fishG);
 
-		viewObjects.add(desc);
+	//	viewObjects.add(desc);
 		// viewObjects.add(test);
 
 		/*
@@ -245,9 +288,9 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryMeth
 			// menu.setFont(menuButton); //make text orange
 
 			// inventory label
-			desc.setFont(d);
-			desc.setForeground(Color.orange);
-			desc.update();
+		//	desc.setFont(d);
+		//	desc.setForeground(Color.orange);
+			//desc.update();
 			inventory.setFont(dartNumss);
 
 		} catch (Exception e) {
@@ -257,7 +300,7 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryMeth
 		}
 	}
 
-	private void initializeDarts() {
+	public void initializeDarts() {
 		itemsList.add("dullDart");
 		itemsList.add("dullDart");
 		itemsList.add("dullDart");
@@ -303,7 +346,7 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryMeth
 		System.out.print(money);
 	}*/
 
-	private void updateDarts() {
+	public void updateDarts() {
 		dull = 0; 
 		blunt = 0; 
 		sharp = 0; 
@@ -366,7 +409,7 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryMeth
 	
 	  }
 	
-	private void amtOfBears() {
+	public void amtOfBears() {
 		for(int i = 0; i<itemsList.size(); i++) {
 			if (itemsList.get(i).equals("bear")) {
 				bearP ++;
@@ -374,7 +417,7 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryMeth
 		}
 	}
 	
-	private void amtOfFish() {
+	public void amtOfFish() {
 		for(int i = 0; i<itemsList.size(); i++) {
 			if (itemsList.get(i).equals("fish")) {
 				fishP ++;
@@ -382,7 +425,7 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryMeth
 		}
 	}
 	
-	private void amtOfCandy() {
+	public void amtOfCandy() {
 		for(int i = 0; i<itemsList.size(); i++) {
 			if (itemsList.get(i).equals("candy")) {
 				candyP ++;
@@ -390,12 +433,14 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryMeth
 		}
 	}
 
-	public static int getTickets() {
+	public int getTickets() {
 		return tickets;
 	}
 
-	public static void setTickets(int num) {
-		InventoryVickie.tickets = num;
+	public void setTickets(int num) {
+		tickets = num;
+		String t = ""+tickets;
+		tic.setText(t);
 	}
 
 	public double getMoney() {
@@ -407,7 +452,7 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryMeth
 		mon.setText("x $" + String.format("%.2f",money));
 	}
 
-	public static ArrayList<DartJessica> darts() {
+	public ArrayList<DartJessica> darts() {
 		return darts;
 	}
 	
@@ -415,19 +460,25 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryMeth
 		this.darts = update;
 	}*/
 
-	public static ArrayList<String> getInventoryArrayList() {
+	public ArrayList<String> getInventoryArrayList() {
 		return itemsList;
 	}
 
-	public static void setInventoryArrayList(ArrayList<String> arr) {
+	public void setInventoryArrayList(ArrayList<String> arr) {
 		InventoryVickie.itemsList = arr;
 	}
 	
-	public static void setHammer(boolean n) {
+	public void setHammer(boolean n) {
 		InventoryVickie.hammer = n;
 	}
 	
-	public static boolean getHammer() {
+	public boolean getHammer() {
 		return hammer;
+	}
+
+	@Override
+	public void updateVariables() {
+		// TODO Auto-generated method stub
+		
 	}
 }
