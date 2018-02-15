@@ -18,7 +18,7 @@ public class KevinStephInstructions implements AnnieInstructionInterface {
 
 	@Override
 	public Color getBackgroundColor() {
-		return new Color(255, 255, 204);
+		return new Color(255, 255, 200);
 	}
 
 	@Override
@@ -65,7 +65,7 @@ public class KevinStephInstructions implements AnnieInstructionInterface {
 
 				public void act() {
 					JFrame mainPane = GUIApplication.mainFrame;
-					GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.easyGame);
+					GuiLoadingVickie.loading.setScreen(new WAMEasyKevin(GuiLoadingVickie.loading.getWidth(), GuiLoadingVickie.loading.getHeight()));
 					Toolkit toolkit = Toolkit.getDefaultToolkit();
 					Image image = toolkit.getImage("wam/mallet.png");
 					Cursor c = toolkit.createCustomCursor(image , new Point(mainPane.getX(), 
@@ -81,7 +81,7 @@ public class KevinStephInstructions implements AnnieInstructionInterface {
 
 				public void act() {
 					JFrame mainPane = GUIApplication.mainFrame;
-					GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.casualGame);
+					GuiLoadingVickie.loading.setScreen(new WAMCasualKevin(GuiLoadingVickie.loading.getWidth(), GuiLoadingVickie.loading.getHeight()));
 					Toolkit toolkit = Toolkit.getDefaultToolkit();
 					Image image = toolkit.getImage("wam/mallet.png");
 					Cursor c = toolkit.createCustomCursor(image , new Point(mainPane.getX(), 
@@ -98,7 +98,7 @@ public class KevinStephInstructions implements AnnieInstructionInterface {
 
 				public void act() {
 					JFrame mainPane = GUIApplication.mainFrame;
-					GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.hardGame);
+					GuiLoadingVickie.loading.setScreen(new WAMHardKevin(GuiLoadingVickie.loading.getWidth(), GuiLoadingVickie.loading.getHeight()));
 					Toolkit toolkit = Toolkit.getDefaultToolkit();
 					Image image = toolkit.getImage("wam/mallet.png");
 					Cursor c = toolkit.createCustomCursor(image , new Point(mainPane.getX(), 
@@ -113,8 +113,7 @@ public class KevinStephInstructions implements AnnieInstructionInterface {
 
 	@Override
 	public void playButtonAct() {
-		GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.easyGame);
-
+		
 	}
 
 	@Override
