@@ -105,7 +105,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		setBackground(background);
 		// TODO Auto-generated constructor stub
 		scoreText.setText("Score: 0");
-		timeLeft = 3;
+		timeLeft = 30;
 		score = 0;
 		gameStarted = false;
 		chosenDart = false;
