@@ -90,8 +90,8 @@ public class AnnieInstructionScreen extends ClickableScreen {
 		
 		int x = getWidth() / 2 - 400;
 		
-		gameName =  new TextLabel(x, 180, 600, 80, "");
-		TextArea heading = new TextArea(x, 255, 500, 80, "How to Play");
+		gameName =  new TextLabel(x, 180, 800, 80, "");
+		TextArea heading = new TextArea(x, 255, 800, 80, "How to Play");
 		instructions = new TextArea(x, 330, 800, 400, "");
 		
 		try {
