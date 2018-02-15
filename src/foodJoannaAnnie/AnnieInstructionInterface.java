@@ -14,8 +14,6 @@ public interface AnnieInstructionInterface {
 
 	String getInstructions();
 
-	boolean hasBackImage();
-
 	String getBackImageLocation();
 
 	int getNumButtons();

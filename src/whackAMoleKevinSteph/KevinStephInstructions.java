@@ -44,13 +44,8 @@ public class KevinStephInstructions implements AnnieInstructionInterface {
 	}
 
 	@Override
-	public boolean hasBackImage() {
-		return false;
-	}
-
-	@Override
 	public String getBackImageLocation() {
-		return null;
+		return "wam/back.png";
 	}
 
 	@Override
@@ -62,7 +57,7 @@ public class KevinStephInstructions implements AnnieInstructionInterface {
 	public Button getButton(int i) {
 		Button button = null;
 		if (i == 1) {
-			button = new Button(1000,40,180,60,"EASY",Color.GREEN, new Action() {
+			button = new Button(600,40,180,60,"EASY",Color.GREEN, new Action() {
 
 				public void act() {
 					JFrame mainPane = GUIApplication.mainFrame;
@@ -78,7 +73,7 @@ public class KevinStephInstructions implements AnnieInstructionInterface {
 			});
 		}
 		else if (i ==2) {
-			button = new Button(1000,120,180,60,"CASUAL",Color.ORANGE, new Action() {
+			button = new Button(800,40,180,60,"CASUAL",Color.ORANGE, new Action() {
 
 				public void act() {
 					JFrame mainPane = GUIApplication.mainFrame;
@@ -95,7 +90,7 @@ public class KevinStephInstructions implements AnnieInstructionInterface {
 			
 		}
 		else if (i ==3) {
-			button = new Button(1000,200,180,60,"DIFFICULT",Color.RED, new Action() {
+			button = new Button(1000,40,180,60,"DIFFICULT",Color.RED, new Action() {
 
 				public void act() {
 					JFrame mainPane = GUIApplication.mainFrame;

@@ -33,11 +33,6 @@ public class AnnieJoannaInstructions implements AnnieInstructionInterface {
 	}
 
 	@Override
-	public boolean hasBackImage() {
-		return true;
-	}
-
-	@Override
 	public String getBackImageLocation() {
 		return "food/back.png";
 	}

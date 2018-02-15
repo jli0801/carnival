@@ -21,7 +21,6 @@ public class AnnieInstructionScreen extends ClickableScreen {
 	public AnnieInstructionScreen(int width, int height, AnnieInstructionInterface thing) {
 		super(width, height);
 		this.thing = thing;
-		setBackground(thing.getBackgroundColor());
 		addBackground();
 		setGameName();
 		setUpButtons();
@@ -42,11 +41,10 @@ public class AnnieInstructionScreen extends ClickableScreen {
 	}
 
 	private void addBackground() {
-		if(thing.hasBackImage()) {
-			Graphic backImage = new Graphic(0, 0, getWidth(), getHeight(), thing.getBackImageLocation());
-			getViewObjects().add(0, backImage);
-			addBox();
-		}
+		setBackground(thing.getBackgroundColor());
+		Graphic backImage = new Graphic(0, 0, getWidth(), getHeight(), thing.getBackImageLocation());
+		getViewObjects().add(0, backImage);
+		addBox();
 	}
 
 	private void setInstructions() {

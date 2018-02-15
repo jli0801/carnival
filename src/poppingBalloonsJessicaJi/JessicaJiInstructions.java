@@ -10,7 +10,7 @@ public class JessicaJiInstructions implements AnnieInstructionInterface {
 
 	@Override
 	public Color getBackgroundColor() {
-		return new Color(179, 230, 255); 
+		return new Color(200, 240, 255); 
 	}
 
 	@Override
@@ -21,7 +21,7 @@ public class JessicaJiInstructions implements AnnieInstructionInterface {
 
 	@Override
 	public Color getButtonColor() {
-		return new Color(179, 230, 255); 
+		return new Color(180, 230, 255); 
 	}
 
 	@Override
@@ -34,22 +34,14 @@ public class JessicaJiInstructions implements AnnieInstructionInterface {
 				+ " You are given four darts of each type, dull, blunt, strong, dangerous. It is listed "
 				+ "from weakest to strongest."
 				+ " Be sure to use them wisely! Good Luck!"
-				+ "                                                                                    "
-				+ "                                                            "
-				+ "Click on the clown to go back!"
+				+ "\n\n"
 				+ " Proceed with the game by clicking 'Play.'";
-	}
-
-	@Override
-	public boolean hasBackImage() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 	@Override
 	public String getBackImageLocation() {
 		// TODO Auto-generated method stub
-		return null;
+		return "poppingBalloons/back.png";
 	}
 
 	@Override

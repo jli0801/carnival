@@ -94,12 +94,22 @@ public class JoannaResultScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		
+		try {
+			File fontFile = new File("resources/Bangers.ttf");
+			Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+			StyledComponent.setBaseFont(font.deriveFont(30f));
+
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
 
 		setBackground(new Color(255, 250, 155));
 		serveHeader = new TextLabel(600, 75, 250, 150, "YOU SERVED:");
 		orderHeader = new TextLabel(175, 75,200, 150, "ORDER");
 
-		home = new Button(100,650,100,50,"Menu",Color.RED,new guiTeacher.components.Action() {
+		home = new Button(100,650,120,50,"Menu",Color.RED,new guiTeacher.components.Action() {
 
 			@Override
 			public void act() {
@@ -108,7 +118,7 @@ public class JoannaResultScreen extends FullFunctionScreen {
 			}
 		});
 
-		work = new Button(300,650,100,50,"Work", Color.green,new guiTeacher.components.Action() {
+		work = new Button(300,650,120,50,"Work", Color.green,new guiTeacher.components.Action() {
 
 			@Override
 			public void act() {
@@ -118,9 +128,9 @@ public class JoannaResultScreen extends FullFunctionScreen {
 			}
 		});
 		work.setBackground(Color.GREEN);
-		bigOrder= new TextArea(125, 170,270, 360,"");		
+		bigOrder= new TextArea(125, 170,270, 400,"");		
 
-		Component orderBox = new Component(100,150,320,400) {
+		Component orderBox = new Component(100,150,320,440) {
 
 			@Override
 			public void update(Graphics2D g) {
@@ -144,8 +154,8 @@ public class JoannaResultScreen extends FullFunctionScreen {
 			}
 		};
  
-		list = new TextArea(555, 150, 300, 400,"");
-		profit = new TextArea(955,150 , 200, 400, "");
+		list = new TextArea(555, 170, 300, 400,"");
+		profit = new TextArea(955,170 , 200, 400, "");
 		trash = new TextArea(555, 590, 500, 95, "TRASH PENALTY");
 		trashCost = new TextArea(955, 590, 500, 95, "");
 		total = new TextArea(555, 650, 500, 95, "TOTAL");
