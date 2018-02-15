@@ -19,6 +19,7 @@ public class KevinStephInstructions implements AnnieInstructionInterface {
 	@Override
 	public Color getBackgroundColor() {
 		return new Color(255, 255, 200);
+		
 	}
 
 	@Override
