@@ -33,7 +33,7 @@ public class WAMHardKevin extends WAMEasyKevin {
 						moleTime--;
 					} else {
 						cancel();
-						moleTime = 5;
+						moleTime = 3;
 						moleSwap(addMole,removeMole);
 						disableMole(removeMole);
 						upMole();

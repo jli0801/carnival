@@ -71,18 +71,8 @@ public class WAMResultStephanie extends FullFunctionScreen {
 		playButton = new Button(970,30,200,50,"PLAY AGAIN", Color.ORANGE, new Action() {
 			
 			public void act() {
-				GuiLoadingVickie.loading.setScreen(new WAMEasyKevin(getWidth(), getHeight()));
+				GuiLoadingVickie.loading.setScreen(new WAMMenuStephanie(getWidth(), getHeight()));
 				GUIApplication.enableCursorChange = true;
-				
-				JFrame mainPane = GUIApplication.mainFrame;
-				GuiLoadingVickie.loading.setScreen(new WAMEasyKevin(getWidth(), getHeight()));
-				Toolkit toolkit = Toolkit.getDefaultToolkit();
-				Image image = toolkit.getImage("wam/mallet.png");
-				Cursor c = toolkit.createCustomCursor(image , new Point(mainPane.getX(), 
-				           mainPane.getY()), "img");	
-				mainPane.setCursor (c);
-				GUIApplication.enableCursorChange = false;
-
 			}
 		});
 		 
