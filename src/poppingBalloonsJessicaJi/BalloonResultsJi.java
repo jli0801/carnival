@@ -34,20 +34,18 @@ public class BalloonResultsJi extends FullFunctionScreen {
 	private TextArea secondPlace;
 	private TextArea thirdPlace;
 
+	private Graphic balloons;
+
+	private Graphic divider;
+
 	public BalloonResultsJi(int width, int height) {
 		super(width, height);
 		setBackground(background);
-		timesPlayed++;
-		setScore();
-		addScores(scoreNum);
 		
-		sortScores(highScores);
-		score.setText("Final Score: " + scoreNum + "    Rank #" + findCurrentScore(highScores, scoreNum));
-		/*
-		firstPlace.setText("#1 " + highScores.get(highScores.size() -1));
-		secondPlace.setText("#2 " + checkSecondPlace());
-		thirdPlace.setText("#3 " + checkThirdPlace());
-		 */
+		timesPlayed++;
+		score.setText("Final Score: " + scoreNum);
+		//		+ "\n" + "  Rank #" + findCurrentScore(highScores, scoreNum));
+		
 		calculateTickets();
 		ticketTxt.setText("Tickets Earned: " + tickets);
 		//addTicketsInventory();
@@ -68,7 +66,8 @@ public class BalloonResultsJi extends FullFunctionScreen {
 
 			e.printStackTrace();
 		}
-		score = new TextArea(500, 200, 300, 50, "Final Score: " + scoreNum);
+		score = new TextArea(500, 200, 500, 500, "Final Score: " + scoreNum);
+		//		+ "/  Rank #" + findCurrentScore(highScores, scoreNum));
 		viewObjects.add(score);
 
 		Button back = new Button(85, 650, 90, 70, "Back", new Action() {
@@ -81,10 +80,10 @@ public class BalloonResultsJi extends FullFunctionScreen {
 		});
 		viewObjects.add(back);
 
-		ticket = new Graphic (60,650,150,150, "poppingBalloons/ticket.png");
-		viewObjects.add(ticket);
+		//ticket = new Graphic (60,650,150,150, "poppingBalloons/ticket.png");
+		//viewObjects.add(ticket);
 
-		Button playAgain = new Button(500, 300, 200, 100, "Play Again", new Action() {
+		Button playAgain = new Button(480, 260, 200, 100, "Play Again", new Action() {
 
 			@Override
 			public void act() {
@@ -92,21 +91,29 @@ public class BalloonResultsJi extends FullFunctionScreen {
 			}
 		});
 		viewObjects.add(playAgain);
-		/*
-		highScoresTxt = new TextArea(500, 350, 300, 100, "Best Score");
-		viewObjects.add(highScoresTxt);
 		
-		firstPlace = new TextArea(500, 400, 150, 200, "#1 " + highScores.get(highScores.size() -1));
+		highScoresTxt = new TextArea(500, 450, 300, 100, "Best Score");
+		viewObjects.add(highScoresTxt);
+		setScore();
+		addScores(scoreNum);
+		sortScores(highScores);
+		firstPlace = new TextArea(500, 500, 150, 200, "#1 ... " + highScores.get(highScores.size() -1));
 		viewObjects.add(firstPlace);
 
-		secondPlace = new TextArea(500, 450, 150, 200, checkSecondPlace()); //when at least play 2nd time
+		secondPlace = new TextArea(500, 550, 150, 200, checkSecondPlace()); //when at least play 2nd time
 		viewObjects.add(secondPlace);
 
-		thirdPlace = new TextArea(500, 500, 150, 200, checkThirdPlace()); //when at least play 3rd time
+		thirdPlace = new TextArea(500, 600, 150, 200, checkThirdPlace()); //when at least play 3rd time
 		viewObjects.add(thirdPlace);
-		*/
-		ticketTxt = new TextArea(500, 100, 600, 100, "Tickets Earned: " + tickets);
+		
+		ticketTxt = new TextArea(460, 150, 600, 100, "Tickets Earned: " + tickets);
 		viewObjects.add(ticketTxt);
+		
+		balloons = new Graphic(850,100, 590,590, "poppingBalloons/zballoons.png");
+		viewObjects.add(balloons);
+		
+		divider = new Graphic(340,310, 500,500, "poppingBalloons/divider.png");
+		viewObjects.add(divider);
 	}
 
 	public void sortScores(ArrayList<Integer> arr) {
@@ -131,6 +138,7 @@ public class BalloonResultsJi extends FullFunctionScreen {
 	}
 
 	public int findCurrentScore(ArrayList<Integer> arr, int score) {
+		sortScores(highScores);
 		for (int i = 0; i < arr.size(); i++) {
 			if(arr.get(i) == score) {
 				return i + 1;
@@ -151,14 +159,14 @@ public class BalloonResultsJi extends FullFunctionScreen {
 	
 	public String checkSecondPlace() {
 		if(timesPlayed >= 2) {
-			return "#2 " + Integer.toString(highScores.get(highScores.size() - 2));
+			return "#2 ... " + Integer.toString(highScores.get(highScores.size() - 2));
 		}
 		return "";
 	}
 	
 	public String checkThirdPlace() {
 		if(timesPlayed >= 3) {
-			return "#2 " + Integer.toString(highScores.get(highScores.size() - 3));
+			return "#3 ... " + Integer.toString(highScores.get(highScores.size() - 3));
 		}
 		return "";
 	}
