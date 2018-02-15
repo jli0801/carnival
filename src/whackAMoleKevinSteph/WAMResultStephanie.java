@@ -43,6 +43,7 @@ public class WAMResultStephanie extends FullFunctionScreen {
 	
 	public WAMResultStephanie(int width, int height) {
 		super(width, height);
+		
 	}
 	
 	public int getTickets() {
