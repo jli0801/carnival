@@ -52,6 +52,7 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryVick
 	private int fishP;
 	private boolean trigger2;
 	
+	private boolean darts12;
 	
 	public InventoryVickie(int width, int height) {
 		super(width, height);
@@ -61,7 +62,10 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryVick
 	
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		
+		
 		if(firstTime==false) {
+			darts12=true;
 			firstTime =true;
 			itemsList = new ArrayList<String>();
 			darts = new ArrayList<DartJessica>();
@@ -70,7 +74,6 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryVick
 			money = 10;
 			tickets = 0;
 		}
-		
 		initializeDarts();
 		
 		updateDarts();
@@ -450,6 +453,15 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryVick
 	}
 
 	public ArrayList<DartJessica> darts() {
+		for (int i = 0; i < 12; i++) {
+				darts.add(new DartJessica("Dull"));
+				darts.add(new DartJessica("Blunt"));
+			
+				darts.add(new DartJessica("Strong"));
+			
+				darts.add(new DartJessica("Dangerous"));
+			}
+		
 		return darts;
 	}
 	

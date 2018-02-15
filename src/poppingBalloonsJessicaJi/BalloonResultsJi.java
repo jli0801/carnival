@@ -17,7 +17,7 @@ import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import mainMenuAreejVickie.GuiLoadingVickie;
 
-public class BalloonResultsJi extends FullFunctionScreen {
+public class BalloonResultsJi extends FullFunctionScreen implements BalloonResultsJiInterface{
 
 	private TextArea score;
 
@@ -128,16 +128,6 @@ public class BalloonResultsJi extends FullFunctionScreen {
 	public void addScores(int currentScore)
 	{
 		highScores.add(currentScore);
-	}
-
-	public int findCurrentScore(ArrayList<Integer> arr, int score) {
-		sortScores(highScores);
-		for (int i = 0; i < arr.size(); i++) {
-			if(arr.get(i) == score) {
-				return i + 1;
-			}
-		}
-		return -1;
 	}
 
 	public void calculateTickets() {
