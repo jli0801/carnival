@@ -25,7 +25,6 @@ public class BalloonResultsJi extends FullFunctionScreen {
 	private int scoreNum;
 	public static ArrayList<Integer> highScores = new ArrayList<Integer>();
 	public static int timesPlayed = 0;
-	private Graphic ticket;
 	private Color background = new Color(179, 230, 255);
 
 	private TextArea firstPlace;
@@ -35,7 +34,6 @@ public class BalloonResultsJi extends FullFunctionScreen {
 	private TextArea thirdPlace;
 
 	private Graphic balloons;
-
 	private Graphic divider;
 
 	public BalloonResultsJi(int width, int height) {
@@ -79,9 +77,6 @@ public class BalloonResultsJi extends FullFunctionScreen {
 			}
 		});
 		viewObjects.add(back);
-
-		//ticket = new Graphic (60,650,150,150, "poppingBalloons/ticket.png");
-		//viewObjects.add(ticket);
 
 		Button playAgain = new Button(480, 260, 200, 100, "Play Again", new Action() {
 
