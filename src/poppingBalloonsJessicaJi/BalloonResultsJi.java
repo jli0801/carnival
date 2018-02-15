@@ -107,6 +107,21 @@ public class BalloonResultsJi extends FullFunctionScreen implements BalloonResul
 		
 		divider = new Graphic(340,310, 500,500, "poppingBalloons/divider.png");
 		viewObjects.add(divider);
+		
+		try {
+
+			File fontFile = new File("resources/Bangers.ttf");
+
+			Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+
+			Font baseFont=font.deriveFont(20f);
+
+			StyledComponent.setBaseFont(baseFont);
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+
 	}
 
 	public void sortScores(ArrayList<Integer> arr) {

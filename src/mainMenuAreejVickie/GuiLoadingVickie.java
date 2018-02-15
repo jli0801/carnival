@@ -26,7 +26,6 @@ public class GuiLoadingVickie extends GUIApplication{
 		
 	public static foodJoannaAnnie.AnnieWorkScreen foodGame;
 	
-	public static poppingBalloonsJessicaJi.BalloonInstructionsJi bInstruct;
 	public static poppingBalloonsJessicaJi.BalloonScreenJessica bscreen;
 	public static poppingBalloonsJessicaJi.BalloonResultsJi bResults;
 		
@@ -55,7 +54,7 @@ public class GuiLoadingVickie extends GUIApplication{
 			 File fontFile = new File("resources/Bangers.ttf");
 			 Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
-			 Font baseFont=font.deriveFont(16f); //default 
+			 Font baseFont=font.deriveFont(20f); //default 
 			 
 			 StyledComponent.setBaseFont(baseFont);
 
@@ -69,13 +68,8 @@ public class GuiLoadingVickie extends GUIApplication{
 		menu = new MainScreenAreej(getWidth(), getHeight());
 		
 		inventory = new InventoryVickie(getWidth(), getHeight());
-		
-		bInstruct = new poppingBalloonsJessicaJi.BalloonInstructionsJi(getWidth(), getHeight());
-		//bscreen = new poppingBalloonsJessicaJi.BalloonScreenJessica(getWidth(), getHeight());
-				
+						
 		foodGame = new foodJoannaAnnie.AnnieWorkScreen(getWidth(), getHeight());
-		
-//		moleInstruct = new whackAMoleKevinSteph.WAMMenuStephanie(getWidth(), getHeight());
 		
 		store = new StoreAreej(getWidth(), getHeight());
 		

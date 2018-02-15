@@ -153,24 +153,13 @@ public class JoannaResultScreen extends FullFunctionScreen {
 				g.drawRect(0, 0, getWidth()-1, getHeight()-1);
 			}
 		};
- 
-		list = new TextArea(0, 0, 300, 900,"");
-		profit = new TextArea(400,0 , 200, 900, "");
+		
+		list = new TextArea(555, 170, 300, 400,"");
+		profit = new TextArea(955,170 , 200, 400, "");
 		trash = new TextArea(555, 590, 500, 95, "TRASH PENALTY");
 		trashCost = new TextArea(955, 590, 500, 95, "");
 		total = new TextArea(555, 650, 500, 95, "TOTAL");
 		totalCost = new TextArea(955, 650, 500, 95, "");
-
-		ScrollablePane scroll = new ScrollablePane(this, 555,170, 500, 400);
-		
-		scroll.addObject(list);
-		scroll.addObject(profit);
-		scroll.setBackground(new Color(255, 250, 155));
-		scroll.update();
-		
-		viewObjects.add(scroll);
-		
-		
 		
 		orderBox.setVisible(true);
 
@@ -178,8 +167,8 @@ public class JoannaResultScreen extends FullFunctionScreen {
 		viewObjects.add(orderBox);
 		viewObjects.add(divisionLine);
 
-		//viewObjects.add(profit);
-		//viewObjects.add(list);
+		viewObjects.add(profit);
+		viewObjects.add(list);
 		viewObjects.add(home);
 		viewObjects.add(work);
 		viewObjects.add(bigOrder);

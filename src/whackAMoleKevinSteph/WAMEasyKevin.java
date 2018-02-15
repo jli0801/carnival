@@ -95,16 +95,16 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		
 		//Quit Buttons------------------------------------------------------------------------------------------------------
 		
-		quitButton = new Button(20,30,210,50,"Quit Game", new Action() {
-			
-			@Override
-			public void act() {
-				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.moleInstruct);
-				GUIApplication.enableCursorChange = true;
-				
-			}
-		});
-		viewObjects.add(quitButton);
+//		quitButton = new Button(20,30,210,50,"Quit Game", new Action() {
+//			
+//			@Override
+//			public void act() {
+//				GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.moleInstruct);
+//				GUIApplication.enableCursorChange = true;
+//				
+//			}
+//		});
+//		viewObjects.add(quitButton);
 		
 		//Creating Text Areas-----------------------------------------------------------------------------------------------
 		

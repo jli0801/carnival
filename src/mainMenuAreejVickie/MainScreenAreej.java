@@ -16,7 +16,6 @@ import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import mainMenuAreejVickie.GuiLoadingVickie;
-import poppingBalloonsJessicaJi.BalloonInstructionsJi;
 import poppingBalloonsJessicaJi.BalloonScreenJessica;
 
 public class MainScreenAreej extends FullFunctionScreen {
