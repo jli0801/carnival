@@ -1,70 +1,125 @@
 package whackAMoleKevinSteph;
 
 import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Image;
+import java.awt.Point;
+import java.awt.Toolkit;
+
+import javax.swing.JFrame;
 
 import foodJoannaAnnie.AnnieInstructionInterface;
+import guiTeacher.GUIApplication;
+import guiTeacher.components.Action;
 import guiTeacher.components.Button;
+import mainMenuAreejVickie.GuiLoadingVickie;
 
 public class KevinStephInstructions implements AnnieInstructionInterface {
 
 	@Override
 	public Color getBackgroundColor() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Color(255, 255, 204);
 	}
 
 	@Override
 	public String getGameName() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Whack-A-Mole";
 	}
 
 	@Override
 	public Color getButtonColor() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Color(255, 211, 0);
 	}
 
 	@Override
 	public String getInstructions() {
-		// TODO Auto-generated method stub
-		return null;
+		String s = "WHACK AS MANY MOLES AS YOU CAN UNDER THE TIME LIMIT."
+				+ "THERE ARE 3 DIFFICULTIES: EASY, CASUAL, AND DIFFICULT. "
+				+ "THE HARDER THE DIFFICULTY, THE MORE TICKETS YOU EARN."
+				+ "EASY STARTS OFF WITH 20 SECONDS WHILE THE OTHER DIFFICULTIES HAVE 5 SECONDS LESS THAN THE LAST"
+				+ " AND THE MOLES WILL MOVE FASTER. CLICKING ON THE WRONG HOLE WILL ALSO RESULT IN A 1 SECOND PENALTY."  
+				+ "\n" + "NOW GO WHACK SOME MOLES AND ENJOY THE GAME!!";
+		return s;
 	}
 
 	@Override
 	public boolean hasBackImage() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public String getBackImageLocation() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public int getNumButtons() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 3;
 	}
 
 	@Override
 	public Button getButton(int i) {
-		// TODO Auto-generated method stub
-		return null;
+		Button button = null;
+		if (i == 1) {
+			button = new Button(1000,40,180,60,"EASY",Color.GREEN, new Action() {
+
+				public void act() {
+					JFrame mainPane = GUIApplication.mainFrame;
+					GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.easyGame);
+					Toolkit toolkit = Toolkit.getDefaultToolkit();
+					Image image = toolkit.getImage("wam/mallet.png");
+					Cursor c = toolkit.createCustomCursor(image , new Point(mainPane.getX(), 
+					           mainPane.getY()), "img");	
+					mainPane.setCursor (c);
+					GUIApplication.enableCursorChange = false;
+				}
+				
+			});
+		}
+		else if (i ==2) {
+			button = new Button(1000,120,180,60,"CASUAL",Color.ORANGE, new Action() {
+
+				public void act() {
+					JFrame mainPane = GUIApplication.mainFrame;
+					GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.casualGame);
+					Toolkit toolkit = Toolkit.getDefaultToolkit();
+					Image image = toolkit.getImage("wam/mallet.png");
+					Cursor c = toolkit.createCustomCursor(image , new Point(mainPane.getX(), 
+					           mainPane.getY()), "img");	
+					mainPane.setCursor (c);
+					GUIApplication.enableCursorChange = false;
+				}
+				
+			});
+			
+		}
+		else if (i ==3) {
+			button = new Button(1000,200,180,60,"DIFFICULT",Color.RED, new Action() {
+
+				public void act() {
+					JFrame mainPane = GUIApplication.mainFrame;
+					GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.hardGame);
+					Toolkit toolkit = Toolkit.getDefaultToolkit();
+					Image image = toolkit.getImage("wam/mallet.png");
+					Cursor c = toolkit.createCustomCursor(image , new Point(mainPane.getX(), 
+					           mainPane.getY()), "img");	
+					mainPane.setCursor (c);
+					GUIApplication.enableCursorChange = false;
+				}
+			});
+		}
+		return button;
 	}
 
 	@Override
 	public void playButtonAct() {
-		// TODO Auto-generated method stub
+		GuiLoadingVickie.loading.setScreen(GuiLoadingVickie.easyGame);
 
 	}
 
 	@Override
 	public Color getTitleColor() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Color(255, 211, 0);
 	}
 
 }

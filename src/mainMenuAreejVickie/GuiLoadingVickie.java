@@ -30,7 +30,9 @@ public class GuiLoadingVickie extends GUIApplication{
 	public static poppingBalloonsJessicaJi.BalloonScreenJessica bscreen;
 	public static poppingBalloonsJessicaJi.BalloonResultsJi bResults;
 	
-//	public static whackAMoleKevinSteph.WAMMenuStephanie moleInstruct;
+	public static whackAMoleKevinSteph.WAMEasyKevin easyGame;
+	public static whackAMoleKevinSteph.WAMCasualKevin casualGame;
+	public static whackAMoleKevinSteph.WAMHardKevin hardGame;
 	
 	public static InventoryVickie inventory;
 	
