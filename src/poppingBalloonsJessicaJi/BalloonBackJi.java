@@ -71,7 +71,7 @@ public class BalloonBackJi {
 		}	
 	}
 	
-	public ArrayList<DartJessica> getNewDart()
+	public static ArrayList<DartJessica> getNewDart()
 	{
 		return darts;
 	}

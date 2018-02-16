@@ -495,6 +495,7 @@ public class BalloonScreenJessica extends FullFunctionScreen implements BalloonS
 		dangerousDart.setText(Integer.toString(BalloonBackJi.getTotalDarts(4)));
 		System.out.println(Integer.toString(BalloonBackJi.getTotalDarts(4)));
 
+		GuiLoadingVickie.inventory.setDarts(Integer.toString(BalloonBackJi.getTotalDarts(1)), Integer.toString(BalloonBackJi.getTotalDarts(2)), Integer.toString(BalloonBackJi.getTotalDarts(3)), Integer.toString(BalloonBackJi.getTotalDarts(4)));
 		
 	}
 

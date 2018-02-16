@@ -7,30 +7,28 @@ import poppingBalloonsJessicaJi.DartJessica;
 public interface InventoryVickieInterface {
 
 	void initializeDarts();
-	
+
 	void updateDarts();
-	
+
 	void amtOfBears();
-	
+
 	void amtOfFish();
-	
+
 	void amtOfCandy();
-	
-	void updateVariables();
-	
+
 	int getTickets();
 
 	void setTickets(int num);
 
-	 public double getMoney();
+	public double getMoney();
 
-	 public void setMoney(double num);
+	public void setMoney(double num);
 
-	 ArrayList<DartJessica> darts();
+	ArrayList<DartJessica> darts();
 
-	 ArrayList<String> getInventoryArrayList();
+	ArrayList<String> getInventoryArrayList();
 
-	 void setInventoryArrayList(ArrayList<String> arr);
-	 void setHammer(boolean n);
-	 boolean getHammer();
+	void setInventoryArrayList(ArrayList<String> arr);
+
+	void setDarts(String dull, String blunt, String sharp, String dan);
 }
