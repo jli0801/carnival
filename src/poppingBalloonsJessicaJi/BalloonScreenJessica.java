@@ -486,6 +486,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		private void updateDartField() {
 		System.out.println(Integer.toString(BalloonBackJi.getTotalDarts(1)));
 		dullDart.setText(Integer.toString(BalloonBackJi.getTotalDarts(1)));	
+		
 		System.out.println(Integer.toString(BalloonBackJi.getTotalDarts(2)));
 
 		bluntDart.setText(Integer.toString(BalloonBackJi.getTotalDarts(2)));
@@ -495,7 +496,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		dangerousDart.setText(Integer.toString(BalloonBackJi.getTotalDarts(4)));
 		System.out.println(Integer.toString(BalloonBackJi.getTotalDarts(4)));
 
-		
+		GuiLoadingVickie.inventory.setDarts(Integer.toString(BalloonBackJi.getTotalDarts(1)),Integer.toString(BalloonBackJi.getTotalDarts(2)),Integer.toString(BalloonBackJi.getTotalDarts(3)),Integer.toString(BalloonBackJi.getTotalDarts(4)));
 	}
 
 

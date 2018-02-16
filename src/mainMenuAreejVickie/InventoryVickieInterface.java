@@ -16,8 +16,6 @@ public interface InventoryVickieInterface {
 	
 	void amtOfCandy();
 	
-	void updateVariables();
-	
 	int getTickets();
 
 	void setTickets(int num);
@@ -33,4 +31,6 @@ public interface InventoryVickieInterface {
 	 void setInventoryArrayList(ArrayList<String> arr);
 	 void setHammer(boolean n);
 	 boolean getHammer();
+
+	void setDarts(String dull, String blunt, String sharp, String dan);
 }

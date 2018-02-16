@@ -14,13 +14,13 @@ import guiTeacher.components.TextArea;
 import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import poppingBalloonsJessicaJi.BalloonBackJi;
 import poppingBalloonsJessicaJi.DartJessica;
 
 public class InventoryVickie extends FullFunctionScreen implements InventoryVickieInterface{
 
 	private boolean firstTime;
-	private boolean trigger;
-	
+
 	private Button menu;
 	private Button store;
 
@@ -30,11 +30,8 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryVick
 	private static ArrayList<String> itemsList;
 	private static ArrayList<DartJessica> darts;
 
-	
 	private Color purp = new Color(244, 164, 96);
-	//private Color fuchsia = new Color(255, 0, 255);
-	//private Color blood = new Color(239, 23, 56);
-
+	
 	//store items
 	private static int dull;
 	private static int blunt;
@@ -50,9 +47,22 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryVick
 	private int bearP;
 	private int candyP;
 	private int fishP;
-	private boolean trigger2;
-	
-	private boolean darts12;
+
+	private TextLabel dullNum;
+
+	private TextLabel bluntNum;
+
+	private TextLabel sharpNum;
+
+	private TextLabel dangerousNum;
+
+	private TextLabel ham;
+
+	private TextLabel bea;
+
+	private TextLabel cot;
+
+	private TextLabel fis;
 	
 	public InventoryVickie(int width, int height) {
 		super(width, height);
@@ -63,9 +73,7 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryVick
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		
-		
 		if(firstTime==false) {
-			darts12=true;
 			firstTime =true;
 			itemsList = new ArrayList<String>();
 			darts = new ArrayList<DartJessica>();
@@ -74,9 +82,12 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryVick
 			money = 10;
 			tickets = 0;
 		}
-		initializeDarts();
+
+		//updateDarts();
 		
-		updateDarts();
+		
+		
+		
 		amtOfBears();
 		amtOfFish();
 		amtOfCandy();
@@ -133,19 +144,19 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryVick
 		TextLabel sharpX = new TextLabel(834, 350, 100, 100, "x");
 		TextLabel dangerousX = new TextLabel(1046, 350, 100, 100, "x");
 
-		TextLabel dullNum = new TextLabel(418, 355, 100, 100, "" + dull + ""); // 335
+		dullNum = new TextLabel(418, 355, 100, 100, "" + dull + ""); // 335
 		
-		TextLabel bluntNum = new TextLabel(630, 355, 100, 100, "" + blunt);
+		bluntNum = new TextLabel(630, 355, 100, 100, "" + blunt);
 		
-		TextLabel sharpNum = new TextLabel(842, 355, 100, 100, "" + sharp);
+		sharpNum = new TextLabel(842, 355, 100, 100, "" + sharp);
 		
-		TextLabel dangerousNum = new TextLabel(1054, 355, 100, 100, "" + dangerous);
-		TextLabel ham = new TextLabel(418, 580, 100, 100, "    x 1"); // 335
-		TextLabel bea = new TextLabel(630, 580, 100, 100, "          x "+bearP);
+		dangerousNum = new TextLabel(1054, 355, 100, 100, "" + dangerous);
+		ham = new TextLabel(418, 580, 100, 100, "    x 1"); // 335
+		bea = new TextLabel(630, 580, 100, 100, "          x "+bearP);
 		
-		TextLabel cot = new TextLabel(851, 580, 100, 100, "    x " + candyP);
+		cot = new TextLabel(851, 580, 100, 100, "    x " + candyP);
 		
-		TextLabel fis = new TextLabel(1054, 580, 100, 100, "   x "+fishP);
+		fis = new TextLabel(1054, 580, 100, 100, "   x "+fishP);
 		
 
 		 tic = new TextLabel(80, 203, 100, 100, "x " + tickets);
@@ -339,6 +350,11 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryVick
 			}
 		}
 		
+		dull = 4;
+		blunt = 4;
+		sharp = 4;
+		dangerous = 4;
+		
 		//System.out.print(darts.get(1).getType());
 	}
 	/*private void addMoney() {
@@ -352,21 +368,21 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryVick
 		sharp = 0; 
 		dangerous = 0;
 		
-		/*ArrayList<DartJessica> jessicas = new ArrayList<DartJessica>();
+		ArrayList<DartJessica> jiDarts = new ArrayList<DartJessica>();
 		
-		jessicas = getNewDarts();
+		jiDarts = BalloonBackJi.getNewDart();
 		
-		for(int i = 0; i<jessicas.size(); i++) {
-			if(jessicas.get(i).equals("Dull")) {
+		for(int i = 0; i<jiDarts.size(); i++) {
+			if(jiDarts.get(i).equals("Dull")) {
 				itemsList.add("dullDart");
 			}
-			if(jessicas.get(i).equals("Blunt")) {
+			if(jiDarts.get(i).equals("Blunt")) {
 				itemsList.add("bluntDart");
 			}
-			if(jessicas.get(i).equals("Strong")) {
+			if(jiDarts.get(i).equals("Strong")) {
 				itemsList.add("sharpDart");
 			}
-			if(jessicas.get(i).equals("Dangerous")) {
+			if(jiDarts.get(i).equals("Dangerous")) {
 				itemsList.add("dangerousDart");
 			}
 		}
@@ -391,7 +407,7 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryVick
 				darts.add(new DartJessica("Dangerous"));
 				itemsList.remove(i);
 			}
-		}*/
+		}
 		
 		for(int i = 0; i< darts.size(); i++ ) {
 			if(darts.get(i).getType().equals("Dull"))  
@@ -406,8 +422,14 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryVick
 			if(darts.get(i).getType().equals("Dangerous")) 
 				dangerous++; 
 		}
+		
+		dullNum.setText("" + dull + "");
+		System.out.print(dull);
+		bluntNum.setText("" + blunt + "");
+		sharpNum.setText("" + sharp + "");
+		dangerousNum.setText("" + dangerous + "");
 	
-	  }
+	}
 	
 	public void amtOfBears() {
 		for(int i = 0; i<itemsList.size(); i++) {
@@ -453,14 +475,14 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryVick
 	}
 
 	public ArrayList<DartJessica> darts() {
-		for (int i = 0; i < 12; i++) {
+		/*for (int i = 0; i < 12; i++) {
 				darts.add(new DartJessica("Dull"));
 				darts.add(new DartJessica("Blunt"));
 			
 				darts.add(new DartJessica("Strong"));
 			
 				darts.add(new DartJessica("Dangerous"));
-			}
+			}*/
 		
 		return darts;
 	}
@@ -486,8 +508,11 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryVick
 	}
 
 	@Override
-	public void updateVariables() {
-		// TODO Auto-generated method stub
-		
+	public void setDarts(String dull, String blunt, String sharp, String dan) {
+		dullNum.setText("" + dull + "");
+		System.out.print(dull);
+		bluntNum.setText("" + blunt + "");
+		sharpNum.setText("" + sharp + "");
+		dangerousNum.setText("" + dan + "");
 	}
 }

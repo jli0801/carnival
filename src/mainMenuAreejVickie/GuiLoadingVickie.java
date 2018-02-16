@@ -28,6 +28,8 @@ public class GuiLoadingVickie extends GUIApplication{
 	
 	public static poppingBalloonsJessicaJi.BalloonScreenJessica bscreen;
 	public static poppingBalloonsJessicaJi.BalloonResultsJi bResults;
+	
+	public static poppingBalloonsJessicaJi.BalloonBackJi bBack;
 		
 	public static InventoryVickie inventory;
 	
