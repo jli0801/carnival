@@ -13,7 +13,7 @@ import guiTeacher.components.MovingComponent;
 import guiTeacher.components.StyledComponent;
 import guiTeacher.interfaces.Visible;
 
-public class PowerBarJessica extends StyledComponent {
+public class PowerBarJessica extends StyledComponent{
 
 	public static int length;
 	private Color lightYellow = new Color (255,255,150);

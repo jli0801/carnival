@@ -23,7 +23,7 @@ import java.util.TimerTask;
 
 import javax.swing.border.*;
 
-public class BalloonScreenJessica extends FullFunctionScreen  {
+public class BalloonScreenJessica extends FullFunctionScreen implements BalloonScreenJiInterface{
 
 	//	public static mainMenuAreejVickie.choseGame menu; Where user chooses games.
 
@@ -500,7 +500,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 
 
 
-	private void changeDartText(int num, String dartUser) {
+	public void changeDartText(int num, String dartUser) {
 		if(dartUser.equals("Dull"))
 		{
 			dullDart.setText(Integer.toString(num));
@@ -519,7 +519,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		}
 		
 	}
-	private void changeQuality(String string, String dartType, int scoreNum) {
+	public void changeQuality(String string, String dartType, int scoreNum) {
 		
 	
 		if(timeLeft != 0 && chosenDart && gameStarted)
@@ -537,12 +537,12 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 	}
 
 	
-	private ArrayList<Integer> getBalloons()
+	public ArrayList<Integer> getBalloons()
 	{
 		return BalloonBackJi.createBalloons();
 	}
 
-	private void Timer() {
+	public void Timer() {
 		Timer timer = new Timer();
 		TimerTask task;
 		task = new TimerTask() {
@@ -562,7 +562,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		timer.schedule(task, 0, 1000);
 	}
 	
-	private void timerB(Button b, Graphic image, Graphic pop) {
+	public void timerB(Button b, Graphic image, Graphic pop) {
 		timeNeeded = 3;
 		
 		Timer timerBalloon = new Timer();
@@ -587,7 +587,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		timerBalloon.schedule(taskB, 0, 1000);
 	}
 	
-	private void endRound() {
+	public void endRound() {
 		GuiLoadingVickie.loading.setScreen(new BalloonResultsJi(getWidth(), getHeight()));
 	}
 	
