@@ -19,11 +19,11 @@ public class BalloonBackJi {
 
 	public BalloonBackJi(int round) {
 		super();
-		CreateBalloons();
+		createBalloons();
 		this.round = round;
 	}
 
-	public static void setDartChosen(int userInput) {
+	public static void etDartChosen(int userInput) {
 		dartChosenInt = userInput;
 	}
 	
@@ -52,7 +52,7 @@ public class BalloonBackJi {
 		return totalNumber;
 	}
 	
-	public static ArrayList<Integer> CreateBalloons() {
+	public static ArrayList<Integer> createBalloons() {
 		int numBalloons = 6;
 		int balloonStrength = 30; //changes as rounds progress
 		for(int i = 0; i < numBalloons; i++) {
