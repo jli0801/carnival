@@ -23,7 +23,7 @@ public class BalloonBackJi {
 		this.round = round;
 	}
 
-	public static void etDartChosen(int userInput) {
+	public static void setDartChosen(int userInput) {
 		dartChosenInt = userInput;
 	}
 	
