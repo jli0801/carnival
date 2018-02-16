@@ -125,7 +125,7 @@ public class WAMEasyKevin extends FullFunctionScreen {
 				moleOne.setEnabled(false);
 				moleSwap(sOne,mOne);
 				scoreUp();
-				
+				upMole();
 			}
 		});
 		viewObjects.add(moleOne);
