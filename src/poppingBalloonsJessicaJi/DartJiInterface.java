@@ -15,4 +15,5 @@ public interface DartJiInterface {
 	Color getColor();
 	
 	Color setColor(String kind);
+	
 }
