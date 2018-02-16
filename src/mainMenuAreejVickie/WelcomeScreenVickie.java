@@ -33,7 +33,7 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 	private TimerTask complete;
 
 	private Color[] color = { Color.red, Color.orange, Color.yellow, Color.green, Color.cyan, Color.blue, Color.pink,
-			Color.black, Color.DARK_GRAY, Color.magenta, Color.gray };
+			Color.black, Color.DARK_GRAY, Color.magenta, Color.gray};
 
 	private Timer background;
 	private TimerTask updatePics;
@@ -47,28 +47,48 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		track = 0;
-		count = 1000;
+		count = 0;
 
 		Graphic welcomeBackground = new Graphic(0, 0, getWidth(), getHeight(), "resources/welcomeBackground1.jpg");
 
 		viewObjects.add(welcomeBackground);
 
-		carnival = new TextArea(225, 75, 1000, 1000, "Carnival");
+		//carnival = new TextArea(225, 75, 1000, 1000, "Carnival");
+		
+		carnival = new TextArea(225, 75, 1000, 1000, "WELCOME");
 		
 		//make carnival textarea change color
 		timer = new Timer();
 		complete = new TimerTask() {
 			@Override
 			public void run() {
-				count--;
+
+				count++;
+		
+				if(count == 7) {
+					carnival.setText("   To   ");
+					carnival.setForeground(Color.DARK_GRAY);
+					carnival.update();
+				}
+				
+				if(count == 14) {
+					carnival.setText("   The  ");
+					carnival.setForeground(Color.lightGray);
+					carnival.update();
+
+				}
+				
+				if(count>21) {
+					carnival.setText("Carnival");
 				// randomly chooses color from array and change font color
 				randColor = (int) (Math.random() * 11);
 				colors = color[randColor];
 				carnival.setForeground(colors);
 				carnival.update();
 
-				if (count == 0) {
+				if (count == 1000) {
 					timer.cancel();
+				}
 				}
 			}
 		};
@@ -80,6 +100,8 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 				background.cancel();
 			}
 		});
+		
+		menu.setBackgroundColor(Color.orange);
 
 		viewObjects.add(carnival);
 		viewObjects.add(menu);
@@ -122,9 +144,9 @@ public class WelcomeScreenVickie extends FullFunctionScreen {
 		}
 
 		//start timers
-		if (count == 1000) {
-			background.schedule(updatePics, 1000, 200); //change backgroundImages
-			timer.schedule(complete, 0, 200); //make "Carnival" change color
+		if (count == 0) {
+			background.schedule(updatePics, 2500, 200); //change backgroundImages
+			timer.schedule(complete, 2000, 200); //make "Carnival" change color
 
 		}
 
