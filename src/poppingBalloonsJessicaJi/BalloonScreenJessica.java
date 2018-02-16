@@ -124,7 +124,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 		
 		strength = new PowerBarJessica(560,475,100,150);
 
-		BalloonBackJi.CreateBalloons();
+		BalloonBackJi.createBalloons();
 
 		try {
 
@@ -539,7 +539,7 @@ public class BalloonScreenJessica extends FullFunctionScreen  {
 	
 	private ArrayList<Integer> getBalloons()
 	{
-		return BalloonBackJi.CreateBalloons();
+		return BalloonBackJi.createBalloons();
 	}
 
 	private void Timer() {
