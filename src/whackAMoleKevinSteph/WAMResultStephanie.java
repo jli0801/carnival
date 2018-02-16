@@ -41,6 +41,7 @@ public class WAMResultStephanie extends FullFunctionScreen {
 	private Graphic tapic;
 	public int ticketNum;
 	public int total;
+	public int score;
 	
 	public WAMResultStephanie(int width, int height) {
 		super(width, height);
@@ -48,18 +49,20 @@ public class WAMResultStephanie extends FullFunctionScreen {
 	}
 	
 	public int getTickets() {
-		if(WAMEasyKevin.score == 0) {
+		if(score == 0) {
 			ticketNum = 0;
 		}else {
-			ticketNum = (int)(Math.rint((WAMEasyKevin.score/4) + 1));
+			ticketNum = (int)(Math.rint((score/4) + 1));
 		}
 		
 		return ticketNum;
 	}
 	
 	public void initAllObjects(List<Visible> viewObjects) {
+		score = WAMEasyKevin.getScore();
 		total = GuiLoadingVickie.inventory.getTickets() + getTickets();
 		GuiLoadingVickie.inventory.setTickets(total);
+		
 		Graphic gamebg = new Graphic(0,0, getWidth(), getHeight(), "wam/grass.png");
 		viewObjects.add(gamebg);
 			 
