@@ -572,5 +572,9 @@ public class WAMEasyKevin extends FullFunctionScreen {
 		}
 		
 	}
+
+	public static int getScore() {
+		return score;
+	}
 	
 }
