@@ -2,7 +2,7 @@ package poppingBalloonsJessicaJi;
 
 import java.awt.Color;
 
-public class DartJessica {
+public class DartJessica implements DartJiInterface{
 
 	private String type;
 	private int strength; //dull = 1 blunt = 2 

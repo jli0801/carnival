@@ -2,7 +2,7 @@ package poppingBalloonsJessicaJi;
 
 import java.util.ArrayList;
 
-public interface BalloonResultsJiInterface {
+public interface BalloonResultsJessicaInterface {
 	
 	void sortScores(ArrayList<Integer> arr);
 	
