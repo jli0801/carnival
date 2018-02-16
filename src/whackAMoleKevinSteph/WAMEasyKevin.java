@@ -480,8 +480,6 @@ public class WAMEasyKevin extends FullFunctionScreen {
 				}
 			};
 			mTimer.schedule(mTask, 0, 1500);
-		}else {
-			
 		}
 	}
 
