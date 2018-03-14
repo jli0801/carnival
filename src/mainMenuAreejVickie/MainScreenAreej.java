@@ -21,7 +21,7 @@ import poppingBalloonsJessicaJi.BalloonScreenJessica;
 public class MainScreenAreej extends FullFunctionScreen {
 
 		private Button inventory;
-	private Button store;
+		private Button store;
 
 	public MainScreenAreej(int width, int height) {
 		super(width, height);
@@ -108,7 +108,7 @@ public class MainScreenAreej extends FullFunctionScreen {
 		viewObjects.add(mole);
 		viewObjects.add(pizza);
 		viewObjects.add(inventory);
-		viewObjects.add(store);
+		//viewObjects.add(store);
 
 		
 	}

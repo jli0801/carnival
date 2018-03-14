@@ -139,7 +139,7 @@ public class InventoryVickie extends FullFunctionScreen implements InventoryVick
 		});
 
 		viewObjects.add(menu);
-		viewObjects.add(store);
+		//viewObjects.add(store);
 		
 		viewObjects.add(cBanner);
 		viewObjects.add(black);
